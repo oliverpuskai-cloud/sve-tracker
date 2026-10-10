@@ -128,6 +128,40 @@ function section(title, sub, items) {
   return sec;
 }
 
+// ---------- shared conditions (season / day / weather / time) ----------
+// Used by Today and Map; both read and write state.today so they stay in sync.
+function conditionsHTML(ctx, p) {
+  return `
+    <div class="ctl"><span>Season</span><div class="seg" id="${p}-season">${SEASONS.map(s => `<button data-s="${s}" style="--c:${SC[s]}" aria-pressed="${ctx.season === s}">${s}</button>`).join("")}</div></div>
+    <div class="ctl"><span>Day</span><div class="day"><button id="${p}-prev" aria-label="Previous day">−</button><input id="${p}-day" type="number" min="1" max="28" value="${ctx.day}" aria-label="Day of the season"><button id="${p}-next" aria-label="Next day">+</button></div></div>
+    <div class="ctl"><span>Weather (check the TV)</span><div class="seg" id="${p}-wx"><button data-r="0" style="--c:var(--sun)" aria-pressed="${!ctx.rain}">☀ Sunny / windy</button><button data-r="1" style="--c:var(--rain)" aria-pressed="${ctx.rain}">☂ Rain / storm</button></div></div>
+    <div class="ctl"><span>Time</span><select id="${p}-hour"><option value="">Whole day</option>${Array.from({ length: 20 }, (_, i) => i + 6).map(h => `<option value="${h}" ${String(ctx.hour) === String(h) ? "selected" : ""}>${hourLabel(h)}</option>`).join("")}</select></div>`;
+}
+function wireConditions(root, ctx, p) {
+  root.querySelectorAll(`#${p}-season button`).forEach(b => b.onclick = () => { ctx.season = b.dataset.s; save(); render(); });
+  root.querySelectorAll(`#${p}-wx button`).forEach(b => b.onclick = () => { ctx.rain = b.dataset.r === "1"; save(); render(); });
+  const step = d => {
+    let day = ctx.day + d, si = SEASONS.indexOf(ctx.season);
+    if (day > 28) { day = 1; si = (si + 1) % 4; }
+    if (day < 1) { day = 28; si = (si + 3) % 4; }
+    ctx.day = day; ctx.season = SEASONS[si]; ctx.rain = false; save(); render();
+  };
+  $(`${p}-prev`).onclick = () => step(-1);
+  $(`${p}-next`).onclick = () => step(1);
+  $(`${p}-day`).onchange = e => { ctx.day = Math.min(28, Math.max(1, parseInt(e.target.value) || 1)); save(); render(); };
+  $(`${p}-hour`).onchange = e => { ctx.hour = e.target.value; save(); render(); };
+}
+// Why a fish can't be caught under these conditions ("" = it can)
+function whyNot(f, ctx) {
+  if (!f.ss.includes(ctx.season)) return f.ss.length === 4 ? "" : "Only in " + f.ss.join(", ");
+  if (f.w === "Rain" && !ctx.rain) return "Needs rain";
+  if (f.w === "Sun" && ctx.rain) return "Not in the rain";
+  if (f.c === "Night Market" && !(ctx.season === "Winter" && ctx.day >= 15 && ctx.day <= 17)) return "Night Market only (Winter 15–17)";
+  if (f.c === "Legendary II" && !state.prefs.qi) return "Only during Qi's Extended Family quest";
+  if (ctx.hour !== "" && ctx.hour != null && !availableOn(f, ctx)) return "Bites " + f.t;
+  return "";
+}
+
 // ---------- TODAY ----------
 function renderToday(main) {
   const ctx = state.today, got = caught(), needs = bundleNeeds();
@@ -138,10 +172,7 @@ function renderToday(main) {
   const wrap = document.createElement("div");
   wrap.innerHTML = `
   <div class="controls">
-    <div class="ctl"><span>Season</span><div class="seg" id="t-season">${SEASONS.map(s => `<button data-s="${s}" style="--c:${SC[s]}" aria-pressed="${ctx.season === s}">${s}</button>`).join("")}</div></div>
-    <div class="ctl"><span>Day</span><div class="day"><button id="t-prev" aria-label="Previous day">−</button><input id="t-day" type="number" min="1" max="28" value="${ctx.day}" aria-label="Day of the season"><button id="t-next" aria-label="Next day">+</button></div></div>
-    <div class="ctl"><span>Weather (check the TV)</span><div class="seg" id="t-wx"><button data-r="0" style="--c:var(--sun)" aria-pressed="${!ctx.rain}">☀ Sunny / windy</button><button data-r="1" style="--c:var(--rain)" aria-pressed="${ctx.rain}">☂ Rain / storm</button></div></div>
-    <div class="ctl"><span>Time</span><select id="t-hour"><option value="">Whole day</option>${Array.from({ length: 20 }, (_, i) => i + 6).map(h => `<option value="${h}" ${String(ctx.hour) === String(h) ? "selected" : ""}>${hourLabel(h)}</option>`).join("")}</select></div>
+    ${conditionsHTML(ctx, "t")}
     <label class="check"><input type="checkbox" id="t-showcaught" ${state.prefs.showCaught ? "checked" : ""}> Show fish I've caught</label>
     <label class="check"><input type="checkbox" id="t-qi" ${state.prefs.qi ? "checked" : ""}> Qi's “Extended Family” quest is active</label>
   </div>
@@ -165,18 +196,7 @@ function renderToday(main) {
   ev.innerHTML = notes.join("");
 
   // controls
-  wrap.querySelectorAll("#t-season button").forEach(b => b.onclick = () => { ctx.season = b.dataset.s; save(); render(); });
-  wrap.querySelectorAll("#t-wx button").forEach(b => b.onclick = () => { ctx.rain = b.dataset.r === "1"; save(); render(); });
-  const step = d => {
-    let day = ctx.day + d, si = SEASONS.indexOf(ctx.season);
-    if (day > 28) { day = 1; si = (si + 1) % 4; }
-    if (day < 1) { day = 28; si = (si + 3) % 4; }
-    ctx.day = day; ctx.season = SEASONS[si]; ctx.rain = false; save(); render();
-  };
-  $("t-prev").onclick = () => step(-1);
-  $("t-next").onclick = () => step(1);
-  $("t-day").onchange = e => { ctx.day = Math.min(28, Math.max(1, parseInt(e.target.value) || 1)); save(); render(); };
-  $("t-hour").onchange = e => { ctx.hour = e.target.value; save(); render(); };
+  wireConditions(wrap, ctx, "t");
   $("t-showcaught").onchange = e => { state.prefs.showCaught = e.target.checked; save(); render(); };
   $("t-qi").onchange = e => { state.prefs.qi = e.target.checked; save(); render(); };
 
@@ -329,23 +349,24 @@ const SPOTS = [
   { id: "badlands", nm: "Crimson Badlands", x: 420, y: 40, t: l => /badlands/.test(l) },
 ];
 const OFFMAP = new Set(["summit", "highlands", "hcavern", "hruins", "diamond", "junimo", "maze", "swamp", "hench", "fwest", "shear", "fable", "pirate", "badlands", "vineyard", "morris", "bugland"]);
-const mapState = { mode: "todo", season: "All", spot: null };
+const mapState = { mode: "todo", spot: null };
 
 function renderMap(main) {
-  const got = caught(), needs = bundleNeeds(), { mode, season } = mapState;
-  const inSeason = f => season === "All" || f.ss.includes(season);
-  const fish = FISH.filter(f => inSeason(f) && (mode === "all" || !got.has(f.n)));
+  const got = caught(), needs = bundleNeeds(), { mode } = mapState, ctx = state.today;
+  const fish = FISH.filter(f => mode === "all" || !got.has(f.n));
+  const can = f => availableOn(f, ctx);
   const by = Object.fromEntries(SPOTS.map(s => [s.id, []]));
   for (const f of fish) for (const id of f.spots) by[id].push(f);
-  const left = FISH.filter(f => inSeason(f) && !got.has(f.n)).length;
+  const liveCount = fish.filter(can).length;
+  const when = `${ctx.season} ${ctx.day}, ${ctx.rain ? "rain" : "sunny"}${ctx.hour !== "" ? ", " + hourLabel(+ctx.hour) : ""}`;
 
   const wrap = document.createElement("div");
   wrap.className = "mapwrap";
   wrap.innerHTML = `<div class="controls">
       <div class="ctl"><span>Show</span><div class="seg" id="m-mode"><button data-m="todo" aria-pressed="${mode === "todo"}">Still to catch</button><button data-m="all" aria-pressed="${mode === "all"}">Every fish</button></div></div>
-      <div class="ctl"><span>Season</span><div class="seg" id="m-season">${["All", ...SEASONS].map(s => `<button data-s="${s}" style="--c:${SC[s] || "var(--accent)"}" aria-pressed="${season === s}">${s}</button>`).join("")}</div></div>
+      ${conditionsHTML(ctx, "m")}
     </div>
-    <p class="lede">${mode === "all" ? "Every catch, by spot. Tap a spot to list its fish and tick them off." : left ? `${left} fish left${season !== "All" ? " in " + season : ""}. Spots turn green as you clear them.` : "Everything here is caught. Nice work!"}</p>
+    <p class="lede"><b>${liveCount}</b> ${mode === "todo" ? "uncaught " : ""}fish ${liveCount === 1 ? "bites" : "bite"} on ${esc(when)}. Bright pictures can be caught now, faded ones can't. Tap a spot to see why and to tick fish off.</p>
     <div class="mapscroll" style="margin-top:10px"><svg viewBox="-80 0 1600 960" role="img" aria-label="Map of fishing spots">
       <rect x="-80" y="0" width="1600" height="960" fill="var(--sea)"/>
       <rect x="94" y="84" width="1244" height="764" rx="6" fill="var(--edge)"/>
@@ -353,28 +374,29 @@ function renderMap(main) {
       <text x="110" y="78" class="tlabel">Official valley map</text>
       <text x="1330" y="878" text-anchor="end" class="tlabel">dashed = SVE area off the vanilla map</text>
       <g id="pins"></g></svg></div>
-    <p class="mapnote">The background is the vanilla in-game map. SVE areas it doesn't show sit around the edge in dashed boxes, on the side where you reach them.</p>
+    <p class="mapnote">The number on each spot counts the fish you can catch there right now. The background is the vanilla in-game map; SVE areas it doesn't show sit around the edge in dashed boxes.</p>
     <div id="spotpanel"></div>`;
   main.appendChild(wrap);
   wrap.querySelectorAll("#m-mode button").forEach(b => b.onclick = () => { mapState.mode = b.dataset.m; render(); });
-  wrap.querySelectorAll("#m-season button").forEach(b => b.onclick = () => { mapState.season = b.dataset.s; render(); });
+  wireConditions(wrap, ctx, "m");
 
   const g = wrap.querySelector("#pins"), NS = "http://www.w3.org/2000/svg";
   for (const s of SPOTS) {
     const list = by[s.id];
-    const total = FISH.filter(f => f.spots.includes(s.id) && inSeason(f)).length;
+    const total = FISH.filter(f => f.spots.includes(s.id)).length;
     if (!total) continue;
-    const cleared = mode === "todo" && !list.length;
+    const live = list.filter(can), cleared = mode === "todo" && !list.length, dim = !cleared && !live.length;
     const pin = document.createElementNS(NS, "g");
-    pin.setAttribute("class", "pin" + (mapState.spot === s.id ? " sel" : "") + (cleared ? " clear" : "") + (OFFMAP.has(s.id) ? " off" : ""));
+    pin.setAttribute("class", "pin" + (mapState.spot === s.id ? " sel" : "") + (cleared ? " clear" : "") + (dim ? " dim" : "") + (OFFMAP.has(s.id) ? " off" : ""));
     pin.setAttribute("tabindex", "0");
     pin.setAttribute("role", "button");
-    pin.setAttribute("aria-label", `${s.nm}: ${list.length} fish`);
-    const show = list.slice(0, 3), n = show.length, w = Math.max(n * 30 + 8, 46);
+    pin.setAttribute("aria-label", `${s.nm}: ${live.length} fish catchable now`);
+    // catchable fish first, then the rest faded
+    const show = [...live, ...list.filter(f => !can(f))].slice(0, 3), n = show.length, w = Math.max(n * 30 + 8, 46);
     let inner = `<rect x="${s.x - w / 2}" y="${s.y - 20}" width="${w}" height="38" rx="8" class="pinbox"/>`;
-    show.forEach((f, i) => { inner += `<image href="${f.img}" x="${s.x - w / 2 + 6 + i * 30}" y="${s.y - 17}" width="30" height="30" class="pix${got.has(f.n) ? " got" : ""}"/>`; });
+    show.forEach((f, i) => { inner += `<image href="${f.img}" x="${s.x - w / 2 + 6 + i * 30}" y="${s.y - 17}" width="30" height="30" class="pix${can(f) ? "" : " off"}${got.has(f.n) ? " got" : ""}"/>`; });
     if (!n) inner += `<text x="${s.x}" y="${s.y + 6}" text-anchor="middle" class="tick">✓</text>`;
-    inner += `<circle cx="${s.x + w / 2}" cy="${s.y - 20}" r="12" class="badge"/><text x="${s.x + w / 2}" y="${s.y - 16}" text-anchor="middle" class="badgetxt">${list.length}</text>`;
+    if (!cleared) inner += `<circle cx="${s.x + w / 2}" cy="${s.y - 20}" r="12" class="badge"/><text x="${s.x + w / 2}" y="${s.y - 16}" text-anchor="middle" class="badgetxt">${live.length}</text>`;
     inner += `<text x="${s.x}" y="${s.y + 34}" text-anchor="middle" class="plabel">${esc(s.nm)}</text>`;
     pin.innerHTML = inner;
     const pick = () => {
@@ -390,9 +412,14 @@ function renderMap(main) {
   const panel = $("spotpanel");
   if (mapState.spot) {
     const s = SPOTS.find(x => x.id === mapState.spot), list = (by[mapState.spot] || []).sort(byTime);
-    const sec = section(s.nm, `${list.length} ${mode === "all" ? "catches" : "left to catch"}`, list.map(f => card(f, { needs: needs[f.n] })));
-    if (!list.length) sec.querySelector(".grid").innerHTML = '<p class="empty">All caught here.</p>';
+    const live = list.filter(can), later = list.filter(f => !can(f));
+    const sec = section(s.nm, `${live.length} catchable now${later.length ? ` · ${later.length} not right now` : ""}`, live.map(f => card(f, { needs: needs[f.n], wx: ctx.rain && f.w === "Rain" })));
+    if (!live.length) sec.querySelector(".grid").innerHTML = `<p class="empty">${list.length ? "Nothing bites here on " + esc(when) + "." : "All caught here."}</p>`;
     panel.appendChild(sec);
+    if (later.length) {
+      const sec2 = section("Not right now", "change the season, weather or time to catch these", later.map(f => { const c = card(f, { needs: needs[f.n] }); c.classList.add("later"); c.querySelector(".nm").insertAdjacentHTML("beforeend", `<span class="why">${esc(whyNot(f, ctx))}</span>`); return c; }));
+      panel.appendChild(sec2);
+    }
   } else panel.innerHTML = '<p class="empty">Tap a spot on the map to list its fish.</p>';
 }
 
