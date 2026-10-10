@@ -1,0 +1,1596 @@
+[
+ {
+  "room": "Crafts Room",
+  "bundles": [
+   {
+    "id": "spring-forage",
+    "name": "Spring Foraging",
+    "reward": "30 Spring Seeds",
+    "need": 4,
+    "items": [
+     {
+      "n": "Wild Horseradish",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Forage, anywhere outdoors",
+      "fish": false
+     },
+     {
+      "n": "Daffodil",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Forage, town & forest",
+      "fish": false
+     },
+     {
+      "n": "Leek",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Forage, mountain & forest",
+      "fish": false
+     },
+     {
+      "n": "Dandelion",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Forage, anywhere outdoors",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "summer-forage",
+    "name": "Summer Foraging",
+    "reward": "30 Summer Seeds",
+    "need": 3,
+    "items": [
+     {
+      "n": "Grape",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Forage, mountain & forest",
+      "fish": false
+     },
+     {
+      "n": "Spice Berry",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Forage, anywhere outdoors",
+      "fish": false
+     },
+     {
+      "n": "Sweet Pea",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Forage, town & forest",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "fall-forage",
+    "name": "Fall Foraging",
+    "reward": "30 Fall Seeds",
+    "need": 4,
+    "items": [
+     {
+      "n": "Common Mushroom",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Forage; also Secret Woods",
+      "fish": false
+     },
+     {
+      "n": "Wild Plum",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Forage, mountain & forest",
+      "fish": false
+     },
+     {
+      "n": "Hazelnut",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Forage, anywhere outdoors",
+      "fish": false
+     },
+     {
+      "n": "Blackberry",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Bushes, best on Fall 8\u201311",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "winter-forage",
+    "name": "Winter Foraging",
+    "reward": "30 Winter Seeds",
+    "need": 4,
+    "items": [
+     {
+      "n": "Winter Root",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Winter"
+      ],
+      "h": "Dig artifact spots / tilled soil",
+      "fish": false
+     },
+     {
+      "n": "Crystal Fruit",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Winter"
+      ],
+      "h": "Forage, anywhere outdoors",
+      "fish": false
+     },
+     {
+      "n": "Snow Yam",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Winter"
+      ],
+      "h": "Dig artifact spots / tilled soil",
+      "fish": false
+     },
+     {
+      "n": "Crocus",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Winter"
+      ],
+      "h": "Forage, anywhere outdoors",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "construction",
+    "name": "Construction",
+    "reward": "Charcoal Kiln",
+    "need": 4,
+    "items": [
+     {
+      "n": "Wood",
+      "q": 99,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Chop trees",
+      "fish": false
+     },
+     {
+      "n": "Wood",
+      "q": 99,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Chop trees",
+      "fish": false
+     },
+     {
+      "n": "Stone",
+      "q": 99,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Break rocks",
+      "fish": false
+     },
+     {
+      "n": "Hardwood",
+      "q": 10,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Secret Woods stumps",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "exotic-forage",
+    "name": "Exotic Foraging",
+    "reward": "5 Autumn's Bounty",
+    "need": 5,
+    "items": [
+     {
+      "n": "Coconut",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Calico Desert forage",
+      "fish": false
+     },
+     {
+      "n": "Cactus Fruit",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Calico Desert forage",
+      "fish": false
+     },
+     {
+      "n": "Cave Carrot",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines, breaking crates",
+      "fish": false
+     },
+     {
+      "n": "Red Mushroom",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines / Secret Woods (Summer, Fall)",
+      "fish": false
+     },
+     {
+      "n": "Purple Mushroom",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines (deeper floors)",
+      "fish": false
+     },
+     {
+      "n": "Maple Syrup",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Tapper on a Maple Tree",
+      "fish": false
+     },
+     {
+      "n": "Oak Resin",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Tapper on an Oak Tree",
+      "fish": false
+     },
+     {
+      "n": "Pine Tar",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Tapper on a Pine Tree",
+      "fish": false
+     },
+     {
+      "n": "Morel",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Secret Woods, Spring",
+      "fish": false
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "room": "Pantry",
+  "bundles": [
+   {
+    "id": "spring-crops",
+    "name": "Spring Crops",
+    "reward": "20 Speed-Gro",
+    "need": 4,
+    "items": [
+     {
+      "n": "Parsnip",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Green Bean",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Cauliflower",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Potato",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "summer-crops",
+    "name": "Summer Crops",
+    "reward": "Quality Sprinkler",
+    "need": 4,
+    "items": [
+     {
+      "n": "Tomato",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Hot Pepper",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Blueberry",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Melon",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "fall-crops",
+    "name": "Fall Crops",
+    "reward": "Bee House",
+    "need": 4,
+    "items": [
+     {
+      "n": "Corn",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer",
+       "Fall"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Eggplant",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Pumpkin",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Yam",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "quality-crops",
+    "name": "Quality Crops",
+    "reward": "Preserves Jar",
+    "need": 3,
+    "items": [
+     {
+      "n": "Parsnip",
+      "q": 5,
+      "gold": true,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Gold quality \u2013 use fertilizer",
+      "fish": false
+     },
+     {
+      "n": "Melon",
+      "q": 5,
+      "gold": true,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Gold quality \u2013 use fertilizer",
+      "fish": false
+     },
+     {
+      "n": "Pumpkin",
+      "q": 5,
+      "gold": true,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Gold quality \u2013 use fertilizer",
+      "fish": false
+     },
+     {
+      "n": "Corn",
+      "q": 5,
+      "gold": true,
+      "silver": false,
+      "s": [
+       "Summer",
+       "Fall"
+      ],
+      "h": "Gold quality \u2013 use fertilizer",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "animal",
+    "name": "Animal",
+    "reward": "Cheese Press",
+    "need": 5,
+    "items": [
+     {
+      "n": "Large Milk",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Cow, good friendship",
+      "fish": false
+     },
+     {
+      "n": "Large Brown Egg",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Brown chicken, good friendship",
+      "fish": false
+     },
+     {
+      "n": "Large Egg",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "White chicken, good friendship",
+      "fish": false
+     },
+     {
+      "n": "Large Goat Milk",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Goat, good friendship",
+      "fish": false
+     },
+     {
+      "n": "Wool",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Sheep or rabbit",
+      "fish": false
+     },
+     {
+      "n": "Duck Egg",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Duck",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "artisan",
+    "name": "Artisan",
+    "reward": "Keg",
+    "need": 6,
+    "items": [
+     {
+      "n": "Truffle Oil",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Oil Maker + Truffle",
+      "fish": false
+     },
+     {
+      "n": "Cloth",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Loom + Wool",
+      "fish": false
+     },
+     {
+      "n": "Goat Cheese",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Cheese Press + Goat Milk",
+      "fish": false
+     },
+     {
+      "n": "Cheese",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Cheese Press + Milk",
+      "fish": false
+     },
+     {
+      "n": "Honey",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Bee House",
+      "fish": false
+     },
+     {
+      "n": "Jelly",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Preserves Jar + any fruit",
+      "fish": false
+     },
+     {
+      "n": "Apple",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Apple tree",
+      "fish": false
+     },
+     {
+      "n": "Apricot",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Apricot tree",
+      "fish": false
+     },
+     {
+      "n": "Orange",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Orange tree",
+      "fish": false
+     },
+     {
+      "n": "Peach",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Peach tree",
+      "fish": false
+     },
+     {
+      "n": "Pomegranate",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Pomegranate tree",
+      "fish": false
+     },
+     {
+      "n": "Cherry",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Spring"
+      ],
+      "h": "Cherry tree",
+      "fish": false
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "room": "Fish Tank",
+  "bundles": [
+   {
+    "id": "river-fish",
+    "name": "River Fish",
+    "reward": "30 Bait",
+    "need": 4,
+    "items": [
+     {
+      "n": "Sunfish",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Catfish",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Shad",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Tiger Trout",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     }
+    ]
+   },
+   {
+    "id": "lake-fish",
+    "name": "Lake Fish",
+    "reward": "Dressed Spinner",
+    "need": 4,
+    "items": [
+     {
+      "n": "Largemouth Bass",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Carp",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Bullhead",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Sturgeon",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     }
+    ]
+   },
+   {
+    "id": "ocean-fish",
+    "name": "Ocean Fish",
+    "reward": "5 Warp Totem: Beach",
+    "need": 4,
+    "items": [
+     {
+      "n": "Sardine",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Tuna",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Red Snapper",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Tilapia",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     }
+    ]
+   },
+   {
+    "id": "night-fishing",
+    "name": "Night Fishing",
+    "reward": "Small Glow Ring",
+    "need": 3,
+    "items": [
+     {
+      "n": "Walleye",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Bream",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Eel",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     }
+    ]
+   },
+   {
+    "id": "crab-pot",
+    "name": "Crab Pot",
+    "reward": "3 Crab Pots",
+    "need": 5,
+    "items": [
+     {
+      "n": "Lobster",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Crayfish",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Crab",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Cockle",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Mussel",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Shrimp",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Snail",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Periwinkle",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Oyster",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Clam",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     }
+    ]
+   },
+   {
+    "id": "specialty-fish",
+    "name": "Specialty Fish",
+    "reward": "5 Dish O' The Sea",
+    "need": 4,
+    "items": [
+     {
+      "n": "Pufferfish",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Ghostfish",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Sandfish",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Woodskip",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "room": "Boiler Room",
+  "bundles": [
+   {
+    "id": "blacksmith",
+    "name": "Blacksmith's",
+    "reward": "Furnace",
+    "need": 3,
+    "items": [
+     {
+      "n": "Copper Bar",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Smelt copper ore",
+      "fish": false
+     },
+     {
+      "n": "Iron Bar",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Smelt iron ore",
+      "fish": false
+     },
+     {
+      "n": "Gold Bar",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Smelt gold ore",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "geologist",
+    "name": "Geologist's",
+    "reward": "5 Omni Geode",
+    "need": 4,
+    "items": [
+     {
+      "n": "Quartz",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines, any floor",
+      "fish": false
+     },
+     {
+      "n": "Earth Crystal",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines floors 1\u201339",
+      "fish": false
+     },
+     {
+      "n": "Frozen Tear",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines floors 40\u201379",
+      "fish": false
+     },
+     {
+      "n": "Fire Quartz",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines floors 80\u2013119",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "adventurer",
+    "name": "Adventurer's",
+    "reward": "Small Magnet Ring",
+    "need": 2,
+    "items": [
+     {
+      "n": "Slime",
+      "q": 99,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Kill slimes",
+      "fish": false
+     },
+     {
+      "n": "Bat Wing",
+      "q": 10,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Kill bats (Mines 30+)",
+      "fish": false
+     },
+     {
+      "n": "Solar Essence",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Ghosts, metal heads",
+      "fish": false
+     },
+     {
+      "n": "Void Essence",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Shadow brutes, void spirits",
+      "fish": false
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "room": "Bulletin Board",
+  "bundles": [
+   {
+    "id": "chef",
+    "name": "Chef's",
+    "reward": "3 Pink Cake",
+    "need": 6,
+    "items": [
+     {
+      "n": "Maple Syrup",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Tapper on a Maple Tree",
+      "fish": false
+     },
+     {
+      "n": "Fiddlehead Fern",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Secret Woods, Summer",
+      "fish": false
+     },
+     {
+      "n": "Truffle",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Pig on your farm",
+      "fish": false
+     },
+     {
+      "n": "Poppy",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Maki Roll",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Cook: fish + seaweed + rice",
+      "fish": false
+     },
+     {
+      "n": "Fried Egg",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Cook: any egg",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "dye",
+    "name": "Dye",
+    "reward": "Seed Maker",
+    "need": 6,
+    "items": [
+     {
+      "n": "Red Mushroom",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines / Secret Woods",
+      "fish": false
+     },
+     {
+      "n": "Sea Urchin",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Beach, past the broken bridge",
+      "fish": false
+     },
+     {
+      "n": "Sunflower",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer",
+       "Fall"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Duck Feather",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Duck, good friendship",
+      "fish": false
+     },
+     {
+      "n": "Aquamarine",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines floors 40+",
+      "fish": false
+     },
+     {
+      "n": "Red Cabbage",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer"
+      ],
+      "h": "Grow (Pierre's, year 2)",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "field-research",
+    "name": "Field Research",
+    "reward": "Recycling Machine",
+    "need": 4,
+    "items": [
+     {
+      "n": "Purple Mushroom",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines (deeper floors)",
+      "fish": false
+     },
+     {
+      "n": "Nautilus Shell",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Winter"
+      ],
+      "h": "Beach forage, Winter",
+      "fish": false
+     },
+     {
+      "n": "Chub",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Frozen Geode",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines floors 40\u201379",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "fodder",
+    "name": "Fodder",
+    "reward": "Heater",
+    "need": 3,
+    "items": [
+     {
+      "n": "Wheat",
+      "q": 10,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Summer",
+       "Fall"
+      ],
+      "h": "Grow (Pierre's)",
+      "fish": false
+     },
+     {
+      "n": "Hay",
+      "q": 10,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Scythe grass with a silo",
+      "fish": false
+     },
+     {
+      "n": "Apple",
+      "q": 3,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Apple tree",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "enchanter",
+    "name": "Enchanter's",
+    "reward": "5 Gold Bar",
+    "need": 4,
+    "items": [
+     {
+      "n": "Oak Resin",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Tapper on an Oak Tree",
+      "fish": false
+     },
+     {
+      "n": "Wine",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Keg + any fruit",
+      "fish": false
+     },
+     {
+      "n": "Rabbit's Foot",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Rabbit, good friendship",
+      "fish": false
+     },
+     {
+      "n": "Pomegranate",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [
+       "Fall"
+      ],
+      "h": "Pomegranate tree",
+      "fish": false
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "room": "Vault",
+  "bundles": [
+   {
+    "id": "vault-2500",
+    "name": "2,500g",
+    "reward": "3 Chocolate Cake",
+    "need": 1,
+    "items": [
+     {
+      "n": "2,500g",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Gold",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "vault-5000",
+    "name": "5,000g",
+    "reward": "30 Quality Fertilizer",
+    "need": 1,
+    "items": [
+     {
+      "n": "5,000g",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Gold",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "vault-10000",
+    "name": "10,000g",
+    "reward": "Lightning Rod",
+    "need": 1,
+    "items": [
+     {
+      "n": "10,000g",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Gold",
+      "fish": false
+     }
+    ]
+   },
+   {
+    "id": "vault-25000",
+    "name": "25,000g",
+    "reward": "Crystalarium",
+    "need": 1,
+    "items": [
+     {
+      "n": "25,000g",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Gold",
+      "fish": false
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "room": "Abandoned JojaMart",
+  "bundles": [
+   {
+    "id": "missing",
+    "name": "The Missing Bundle",
+    "reward": "Movie Theater",
+    "need": 5,
+    "items": [
+     {
+      "n": "Wine",
+      "q": 1,
+      "gold": false,
+      "silver": true,
+      "s": [],
+      "h": "Keg + fruit, silver quality or better (age in cask)",
+      "fish": false
+     },
+     {
+      "n": "Dinosaur Mayonnaise",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mayo Machine + Dinosaur Egg",
+      "fish": false
+     },
+     {
+      "n": "Prismatic Shard",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Mines/Skull Cavern, rare",
+      "fish": false
+     },
+     {
+      "n": "Ancient Fruit",
+      "q": 5,
+      "gold": true,
+      "silver": false,
+      "s": [],
+      "h": "Grow from Ancient Seeds",
+      "fish": false
+     },
+     {
+      "n": "Void Salmon",
+      "q": 1,
+      "gold": true,
+      "silver": false,
+      "s": [],
+      "h": "",
+      "fish": true
+     },
+     {
+      "n": "Caviar",
+      "q": 1,
+      "gold": false,
+      "silver": false,
+      "s": [],
+      "h": "Preserves Jar + Sturgeon Roe",
+      "fish": false
+     }
+    ]
+   }
+  ]
+ }
+]

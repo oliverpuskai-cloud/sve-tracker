@@ -1,0 +1,2312 @@
+{
+"order": [
+"Town / Rivers / Lakes",
+"Forest West / Shearwater",
+"Ocean / Beach",
+"Secret Woods / Junimo Woods",
+"Highlands / Summit",
+"Mines / Caves",
+"Desert / Badlands",
+"Sewers / Swamp / Bugland",
+"Fable Reef / Ginger Island",
+"Night Market (Winter 15–17)",
+"Crab Pots"
+],
+"fish": [
+{
+"n": "Anchovy",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Fall"
+],
+"t": "Any",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 30,
+"b": "Dart",
+"p": 30,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/anchovy.png",
+"id": "anchovy"
+},
+{
+"n": "Sardine",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Fall",
+"Winter"
+],
+"t": "6AM–7PM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 30,
+"b": "Dart",
+"p": 40,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/sardine.png",
+"id": "sardine"
+},
+{
+"n": "Herring",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 25,
+"b": "Dart",
+"p": 30,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/herring.png",
+"id": "herring"
+},
+{
+"n": "Halibut",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Winter"
+],
+"t": "6AM–11AM & 7PM–2AM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 50,
+"b": "Sinker",
+"p": 80,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/halibut.png",
+"id": "halibut"
+},
+{
+"n": "Flounder",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 50,
+"b": "Sinker",
+"p": 100,
+"x": "Also Ginger Island ocean",
+"a": "Ocean / Beach",
+"img": "img/fish/flounder.png",
+"id": "flounder"
+},
+{
+"n": "Eel",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Fall"
+],
+"t": "4PM–2AM",
+"w": "Rain",
+"l": "Ocean (Beach)",
+"d": 70,
+"b": "Smooth",
+"p": 85,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/eel.png",
+"id": "eel"
+},
+{
+"n": "Red Mullet",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer",
+"Winter"
+],
+"t": "6AM–7PM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 55,
+"b": "Smooth",
+"p": 75,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/red-mullet.png",
+"id": "red-mullet"
+},
+{
+"n": "Tuna",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer",
+"Winter"
+],
+"t": "6AM–7PM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 70,
+"b": "Smooth",
+"p": 100,
+"x": "Also Ginger Island ocean",
+"a": "Ocean / Beach",
+"img": "img/fish/tuna.png",
+"id": "tuna"
+},
+{
+"n": "Red Snapper",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer",
+"Fall"
+],
+"t": "6AM–7PM",
+"w": "Rain",
+"l": "Ocean (Beach)",
+"d": 40,
+"b": "Mixed",
+"p": 50,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/red-snapper.png",
+"id": "red-snapper"
+},
+{
+"n": "Pufferfish",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer"
+],
+"t": "12PM–4PM",
+"w": "Sun",
+"l": "Ocean (Beach)",
+"d": 80,
+"b": "Floater",
+"p": 200,
+"x": "All seasons on Ginger Island ocean",
+"a": "Ocean / Beach",
+"img": "img/fish/pufferfish.png",
+"id": "pufferfish"
+},
+{
+"n": "Octopus",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer"
+],
+"t": "6AM–1PM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 95,
+"b": "Sinker",
+"p": 150,
+"x": "Very hard – bring Trap Bobber",
+"a": "Ocean / Beach",
+"img": "img/fish/octopus.png",
+"id": "octopus"
+},
+{
+"n": "Super Cucumber",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer",
+"Fall"
+],
+"t": "6PM–2AM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 80,
+"b": "Sinker",
+"p": 250,
+"x": "All seasons on Ginger Island",
+"a": "Ocean / Beach",
+"img": "img/fish/super-cucumber.png",
+"id": "super-cucumber"
+},
+{
+"n": "Tilapia",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer",
+"Fall"
+],
+"t": "6AM–2PM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 50,
+"b": "Mixed",
+"p": 75,
+"x": "All seasons on Ginger Island",
+"a": "Ocean / Beach",
+"img": "img/fish/tilapia.png",
+"id": "tilapia"
+},
+{
+"n": "Sea Cucumber",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Fall",
+"Winter"
+],
+"t": "6AM–7PM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 40,
+"b": "Sinker",
+"p": 75,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/sea-cucumber.png",
+"id": "sea-cucumber"
+},
+{
+"n": "Albacore",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Fall",
+"Winter"
+],
+"t": "6AM–11AM & 6PM–2AM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 60,
+"b": "Mixed",
+"p": 75,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/albacore.png",
+"id": "albacore"
+},
+{
+"n": "Squid",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Winter"
+],
+"t": "6PM–2AM",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": 75,
+"b": "Sinker",
+"p": 80,
+"x": "",
+"a": "Ocean / Beach",
+"img": "img/fish/squid.png",
+"id": "squid"
+},
+{
+"n": "Sunfish",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer"
+],
+"t": "6AM–7PM",
+"w": "Sun",
+"l": "Rivers (Town + Forest)",
+"d": 30,
+"b": "Mixed",
+"p": 30,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/sunfish.png",
+"id": "sunfish"
+},
+{
+"n": "Catfish",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Fall"
+],
+"t": "6AM–12AM",
+"w": "Rain",
+"l": "Rivers (Town + Forest); Secret Woods pond (Spring–Fall)",
+"d": 75,
+"b": "Mixed",
+"p": 200,
+"x": "",
+"a": "Secret Woods / Junimo Woods",
+"img": "img/fish/catfish.png",
+"id": "catfish"
+},
+{
+"n": "Shad",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall"
+],
+"t": "9AM–2AM",
+"w": "Rain",
+"l": "Rivers (Town + Forest)",
+"d": 45,
+"b": "Smooth",
+"p": 60,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/shad.png",
+"id": "shad"
+},
+{
+"n": "Smallmouth Bass",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Fall"
+],
+"t": "Any",
+"w": "Any",
+"l": "Rivers (Town + Forest)",
+"d": 28,
+"b": "Mixed",
+"p": 50,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/smallmouth-bass.png",
+"id": "smallmouth-bass"
+},
+{
+"n": "Rainbow Trout",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer"
+],
+"t": "6AM–7PM",
+"w": "Sun",
+"l": "Rivers (Town + Forest), Mountain Lake",
+"d": 45,
+"b": "Mixed",
+"p": 65,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/rainbow-trout.png",
+"id": "rainbow-trout"
+},
+{
+"n": "Pike",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Rivers (Town + Forest), Forest Pond",
+"d": 60,
+"b": "Dart",
+"p": 100,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/pike.png",
+"id": "pike"
+},
+{
+"n": "Dorado",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer"
+],
+"t": "6AM–7PM",
+"w": "Any",
+"l": "Forest River (Cindersap)",
+"d": 78,
+"b": "Mixed",
+"p": 100,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/dorado.png",
+"id": "dorado"
+},
+{
+"n": "Tiger Trout",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Fall",
+"Winter"
+],
+"t": "6AM–7PM",
+"w": "Any",
+"l": "Rivers (Town + Forest)",
+"d": 60,
+"b": "Dart",
+"p": 150,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/tiger-trout.png",
+"id": "tiger-trout"
+},
+{
+"n": "Salmon",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Fall"
+],
+"t": "6AM–7PM",
+"w": "Any",
+"l": "Rivers (Town + Forest)",
+"d": 50,
+"b": "Mixed",
+"p": 75,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/salmon.png",
+"id": "salmon"
+},
+{
+"n": "Walleye",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Fall"
+],
+"t": "12PM–2AM",
+"w": "Rain",
+"l": "Rivers, Mountain Lake, Forest Pond",
+"d": 45,
+"b": "Smooth",
+"p": 105,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/walleye.png",
+"id": "walleye"
+},
+{
+"n": "Perch",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Rivers, Mountain Lake, Forest Pond",
+"d": 35,
+"b": "Dart",
+"p": 55,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/perch.png",
+"id": "perch"
+},
+{
+"n": "Lingcod",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Rivers (Town + Forest), Mountain Lake",
+"d": 85,
+"b": "Mixed",
+"p": 120,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/lingcod.png",
+"id": "lingcod"
+},
+{
+"n": "Bream",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "6PM–2AM",
+"w": "Any",
+"l": "Rivers (Town + Forest)",
+"d": 35,
+"b": "Smooth",
+"p": 45,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/bream.png",
+"id": "bream"
+},
+{
+"n": "Goby",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Cindersap Forest waterfalls",
+"d": 55,
+"b": "Dart",
+"p": 150,
+"x": "Added in 1.6 – fish right at the waterfall",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/goby.png",
+"id": "goby"
+},
+{
+"n": "Largemouth Bass",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "6AM–7PM",
+"w": "Any",
+"l": "Mountain Lake",
+"d": 50,
+"b": "Mixed",
+"p": 100,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/largemouth-bass.png",
+"id": "largemouth-bass"
+},
+{
+"n": "Carp",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mountain Lake, Secret Woods, Sewers",
+"d": 15,
+"b": "Mixed",
+"p": 30,
+"x": "",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/carp.png",
+"id": "carp"
+},
+{
+"n": "Bullhead",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mountain Lake",
+"d": 46,
+"b": "Smooth",
+"p": 75,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/bullhead.png",
+"id": "bullhead"
+},
+{
+"n": "Chub",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Forest Pond, Mountain Lake",
+"d": 35,
+"b": "Dart",
+"p": 50,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/chub.png",
+"id": "chub"
+},
+{
+"n": "Sturgeon",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Summer",
+"Winter"
+],
+"t": "6AM–7PM",
+"w": "Any",
+"l": "Mountain Lake",
+"d": 78,
+"b": "Mixed",
+"p": 200,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/sturgeon.png",
+"id": "sturgeon"
+},
+{
+"n": "Midnight Carp",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Fall",
+"Winter"
+],
+"t": "10PM–2AM",
+"w": "Any",
+"l": "Mountain Lake, Forest Pond",
+"d": 55,
+"b": "Mixed",
+"p": 150,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/midnight-carp.png",
+"id": "midnight-carp"
+},
+{
+"n": "Woodskip",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Secret Woods pond",
+"d": 50,
+"b": "Mixed",
+"p": 75,
+"x": "Needs Steel Axe to enter Secret Woods",
+"a": "Secret Woods / Junimo Woods",
+"img": "img/fish/woodskip.png",
+"id": "woodskip"
+},
+{
+"n": "Ghostfish",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mines floor 20 & 60",
+"d": 50,
+"b": "Mixed",
+"p": 45,
+"x": "",
+"a": "Mines / Caves",
+"img": "img/fish/ghostfish.png",
+"id": "ghostfish"
+},
+{
+"n": "Stonefish",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mines floor 20",
+"d": 65,
+"b": "Sinker",
+"p": 300,
+"x": "",
+"a": "Mines / Caves",
+"img": "img/fish/stonefish.png",
+"id": "stonefish"
+},
+{
+"n": "Ice Pip",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mines floor 60",
+"d": 85,
+"b": "Dart",
+"p": 500,
+"x": "",
+"a": "Mines / Caves",
+"img": "img/fish/ice-pip.png",
+"id": "ice-pip"
+},
+{
+"n": "Lava Eel",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mines floor 100; Volcano",
+"d": 90,
+"b": "Mixed",
+"p": 700,
+"x": "",
+"a": "Mines / Caves",
+"img": "img/fish/lava-eel.png",
+"id": "lava-eel"
+},
+{
+"n": "Sandfish",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Calico Desert",
+"d": 65,
+"b": "Mixed",
+"p": 75,
+"x": "",
+"a": "Desert / Badlands",
+"img": "img/fish/sandfish.png",
+"id": "sandfish"
+},
+{
+"n": "Scorpion Carp",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Calico Desert",
+"d": 90,
+"b": "Dart",
+"p": 150,
+"x": "",
+"a": "Desert / Badlands",
+"img": "img/fish/scorpion-carp.png",
+"id": "scorpion-carp"
+},
+{
+"n": "Void Salmon",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Witch's Swamp",
+"d": 80,
+"b": "Mixed",
+"p": 150,
+"x": "Unlocked via Goblin Problem quest",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/void-salmon.png",
+"id": "void-salmon"
+},
+{
+"n": "Slimejack",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mutant Bug Lair (Sewers)",
+"d": 55,
+"b": "Dart",
+"p": 100,
+"x": "",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/slimejack.png",
+"id": "slimejack"
+},
+{
+"n": "Lionfish",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Ginger Island ocean",
+"d": 50,
+"b": "Smooth",
+"p": 100,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/lionfish.png",
+"id": "lionfish"
+},
+{
+"n": "Blue Discus",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Ginger Island rivers/ponds",
+"d": 60,
+"b": "Dart",
+"p": 120,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/blue-discus.png",
+"id": "blue-discus"
+},
+{
+"n": "Stingray",
+"s": "Vanilla",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Pirate Cove (Ginger Island)",
+"d": 80,
+"b": "Sinker",
+"p": 180,
+"x": "Pirate Cove open after 8PM most days",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/stingray.png",
+"id": "stingray"
+},
+{
+"n": "Midnight Squid",
+"s": "Vanilla",
+"c": "Night Market",
+"ss": [
+"Winter"
+],
+"t": "5PM–2AM",
+"w": "Any",
+"l": "Night Market submarine",
+"d": 55,
+"b": "Sinker",
+"p": 100,
+"x": "Winter 15–17 only",
+"a": "Night Market (Winter 15–17)",
+"img": "img/fish/midnight-squid.png",
+"id": "midnight-squid"
+},
+{
+"n": "Spook Fish",
+"s": "Vanilla",
+"c": "Night Market",
+"ss": [
+"Winter"
+],
+"t": "5PM–2AM",
+"w": "Any",
+"l": "Night Market submarine",
+"d": 60,
+"b": "Dart",
+"p": 220,
+"x": "Winter 15–17 only",
+"a": "Night Market (Winter 15–17)",
+"img": "img/fish/spook-fish.png",
+"id": "spook-fish"
+},
+{
+"n": "Blobfish",
+"s": "Vanilla",
+"c": "Night Market",
+"ss": [
+"Winter"
+],
+"t": "5PM–2AM",
+"w": "Any",
+"l": "Night Market submarine",
+"d": 75,
+"b": "Floater",
+"p": 500,
+"x": "Winter 15–17 only",
+"a": "Night Market (Winter 15–17)",
+"img": "img/fish/blobfish.png",
+"id": "blobfish"
+},
+{
+"n": "Legend",
+"s": "Vanilla",
+"c": "Legendary",
+"ss": [
+"Spring"
+],
+"t": "6AM–8PM",
+"w": "Rain",
+"l": "Mountain Lake (by the log, near the river inlet)",
+"d": 110,
+"b": "Mixed",
+"p": 5000,
+"x": "Fishing level 10. Once per save.",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/legend.png",
+"id": "legend"
+},
+{
+"n": "Crimsonfish",
+"s": "Vanilla",
+"c": "Legendary",
+"ss": [
+"Summer"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Beach – east pier, very end",
+"d": 95,
+"b": "Mixed",
+"p": 1500,
+"x": "Fishing level 5. Once per save.",
+"a": "Ocean / Beach",
+"img": "img/fish/crimsonfish.png",
+"id": "crimsonfish"
+},
+{
+"n": "Angler",
+"s": "Vanilla",
+"c": "Legendary",
+"ss": [
+"Fall"
+],
+"t": "Any",
+"w": "Any",
+"l": "Town – north of JoJaMart, on the wooden plank bridge",
+"d": 85,
+"b": "Smooth",
+"p": 900,
+"x": "Fishing level 3. Once per save.",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/angler.png",
+"id": "angler"
+},
+{
+"n": "Glacierfish",
+"s": "Vanilla",
+"c": "Legendary",
+"ss": [
+"Winter"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Cindersap Forest – south tip of Arrowhead Island",
+"d": 100,
+"b": "Mixed",
+"p": 1000,
+"x": "Fishing level 6. Once per save.",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/glacierfish.png",
+"id": "glacierfish"
+},
+{
+"n": "Mutant Carp",
+"s": "Vanilla",
+"c": "Legendary",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Sewers",
+"d": 80,
+"b": "Dart",
+"p": 1000,
+"x": "Needs Rusty Key",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/mutant-carp.png",
+"id": "mutant-carp"
+},
+{
+"n": "Son of Crimsonfish",
+"s": "Vanilla",
+"c": "Legendary II",
+"ss": [
+"Summer"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Beach – east pier, very end (same spot as Crimsonfish)",
+"d": 95,
+"b": "Mixed",
+"p": 1500,
+"x": "Only during Qi's 'Extended Family' quest",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/son-of-crimsonfish.png",
+"id": "son-of-crimsonfish"
+},
+{
+"n": "Ms. Angler",
+"s": "Vanilla",
+"c": "Legendary II",
+"ss": [
+"Fall"
+],
+"t": "Any",
+"w": "Any",
+"l": "Town – north of JoJaMart, on the wooden plank bridge (same spot as Angler)",
+"d": 85,
+"b": "Smooth",
+"p": 900,
+"x": "Only during Qi's 'Extended Family' quest",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/ms-angler.png",
+"id": "ms-angler"
+},
+{
+"n": "Legend II",
+"s": "Vanilla",
+"c": "Legendary II",
+"ss": [
+"Spring"
+],
+"t": "6AM–8PM",
+"w": "Rain",
+"l": "Mountain Lake (by the log, near the river inlet) (same spot as Legend)",
+"d": 110,
+"b": "Mixed",
+"p": 5000,
+"x": "Only during Qi's 'Extended Family' quest",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/legend-ii.png",
+"id": "legend-ii"
+},
+{
+"n": "Glacierfish Jr.",
+"s": "Vanilla",
+"c": "Legendary II",
+"ss": [
+"Winter"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Cindersap Forest – south tip of Arrowhead Island (same spot as Glacierfish)",
+"d": 100,
+"b": "Mixed",
+"p": 1000,
+"x": "Only during Qi's 'Extended Family' quest",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/glacierfish-jr.png",
+"id": "glacierfish-jr"
+},
+{
+"n": "Radioactive Carp",
+"s": "Vanilla",
+"c": "Legendary II",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Sewers",
+"d": 80,
+"b": "Dart",
+"p": 1000,
+"x": "Only during Qi's 'Extended Family' quest",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/radioactive-carp.png",
+"id": "radioactive-carp"
+},
+{
+"n": "Lobster",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – ocean",
+"d": "—",
+"b": "—",
+"p": 120,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/lobster.png",
+"id": "lobster"
+},
+{
+"n": "Crab",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – ocean",
+"d": "—",
+"b": "—",
+"p": 100,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/crab.png",
+"id": "crab"
+},
+{
+"n": "Shrimp",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – ocean",
+"d": "—",
+"b": "—",
+"p": 60,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/shrimp.png",
+"id": "shrimp"
+},
+{
+"n": "Cockle",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – ocean",
+"d": "—",
+"b": "—",
+"p": 50,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/cockle.png",
+"id": "cockle"
+},
+{
+"n": "Mussel",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – ocean",
+"d": "—",
+"b": "—",
+"p": 30,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/mussel.png",
+"id": "mussel"
+},
+{
+"n": "Oyster",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – ocean",
+"d": "—",
+"b": "—",
+"p": 40,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/oyster.png",
+"id": "oyster"
+},
+{
+"n": "Clam",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – ocean (also beach forage)",
+"d": "—",
+"b": "—",
+"p": 50,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/clam.png",
+"id": "clam"
+},
+{
+"n": "Crayfish",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – freshwater",
+"d": "—",
+"b": "—",
+"p": 75,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/crayfish.png",
+"id": "crayfish"
+},
+{
+"n": "Snail",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – freshwater",
+"d": "—",
+"b": "—",
+"p": 65,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/snail.png",
+"id": "snail"
+},
+{
+"n": "Periwinkle",
+"s": "Vanilla",
+"c": "Crab Pot",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crab pot – freshwater",
+"d": "—",
+"b": "—",
+"p": 20,
+"x": "",
+"a": "Crab Pots",
+"img": "img/fish/periwinkle.png",
+"id": "periwinkle"
+},
+{
+"n": "Alligator",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Forbidden Maze",
+"d": 75,
+"b": "Mixed",
+"p": 400,
+"x": "",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/alligator.png",
+"id": "alligator"
+},
+{
+"n": "Arrowhead Shark",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Fable Reef",
+"d": 95,
+"b": "Sinker",
+"p": 700,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/arrowhead-shark.png",
+"id": "arrowhead-shark"
+},
+{
+"n": "Baby Lunaloo",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "5PM–2AM",
+"w": "Any",
+"l": "Ginger Island ocean",
+"d": 15,
+"b": "Floater",
+"p": 35,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/baby-lunaloo.png",
+"id": "baby-lunaloo"
+},
+{
+"n": "Barred Knifejaw",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Ginger Island ocean, Fable Reef",
+"d": 65,
+"b": "Dart",
+"p": 250,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/barred-knifejaw.png",
+"id": "barred-knifejaw"
+},
+{
+"n": "Blue Tang",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Ginger Island ocean, Fable Reef",
+"d": 30,
+"b": "Mixed",
+"p": 130,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/blue-tang.png",
+"id": "blue-tang"
+},
+{
+"n": "Bonefish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crimson Badlands",
+"d": 70,
+"b": "Sinker",
+"p": 200,
+"x": "",
+"a": "Desert / Badlands",
+"img": "img/fish/bonefish.png",
+"id": "bonefish"
+},
+{
+"n": "Bull Trout",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Fall+Winter: Cindersap Forest, Mountain, Adventurer's Summit, Highlands  |  Summer+Winter: Forest West",
+"d": 45,
+"b": "Mixed",
+"p": 185,
+"x": "Summer only at Forest West",
+"a": "Highlands / Summit",
+"img": "img/fish/bull-trout.png",
+"id": "bull-trout"
+},
+{
+"n": "Butterfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall"
+],
+"t": "Any",
+"w": "Sun",
+"l": "Shearwater Bridge (Spr–Fall); Forest West (Summer)",
+"d": 80,
+"b": "Dart",
+"p": 200,
+"x": "",
+"a": "Forest West / Shearwater",
+"img": "img/fish/butterfish.png",
+"id": "butterfish"
+},
+{
+"n": "Clownfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "10AM–5PM",
+"w": "Any",
+"l": "Ginger Island ocean",
+"d": 45,
+"b": "Dart",
+"p": 70,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/clownfish.png",
+"id": "clownfish"
+},
+{
+"n": "Daggerfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Fable Reef",
+"d": 50,
+"b": "Dart",
+"p": 300,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/daggerfish.png",
+"id": "daggerfish"
+},
+{
+"n": "Diamond Carp",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Diamond Cavern",
+"d": 70,
+"b": "Sinker",
+"p": 575,
+"x": "",
+"a": "Mines / Caves",
+"img": "img/fish/diamond-carp.png",
+"id": "diamond-carp"
+},
+{
+"n": "Dulse Seaweed",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Beach, Blue Moon Vineyard, Fable Reef, Ginger Island",
+"d": 5,
+"b": "Sinker",
+"p": 35,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/dulse-seaweed.png",
+"id": "dulse-seaweed"
+},
+{
+"n": "Fiber Goby",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Highlands Ruins",
+"d": 55,
+"b": "Sinker",
+"p": 250,
+"x": "",
+"a": "Highlands / Summit",
+"img": "img/fish/fiber-goby.png",
+"id": "fiber-goby"
+},
+{
+"n": "Frog",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer"
+],
+"t": "6PM–2AM",
+"w": "Rain",
+"l": "Mountain Lake",
+"d": 70,
+"b": "Sinker",
+"p": 100,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/frog.png",
+"id": "frog"
+},
+{
+"n": "Gar",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Summer",
+"Fall"
+],
+"t": "6AM–8PM",
+"w": "Rain",
+"l": "Cindersap Forest pond, Forest West",
+"d": 85,
+"b": "Mixed",
+"p": 262,
+"x": "",
+"a": "Forest West / Shearwater",
+"img": "img/fish/gar.png",
+"id": "gar"
+},
+{
+"n": "Gemfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Highlands Cavern",
+"d": 100,
+"b": "Sinker",
+"p": 800,
+"x": "",
+"a": "Mines / Caves",
+"img": "img/fish/gemfish.png",
+"id": "gemfish"
+},
+{
+"n": "Glowfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Junimo Woods, Sprite Spring",
+"d": 60,
+"b": "Mixed",
+"p": 150,
+"x": "",
+"a": "Secret Woods / Junimo Woods",
+"img": "img/fish/glowfish.png",
+"id": "glowfish"
+},
+{
+"n": "Goldfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring"
+],
+"t": "10AM–5PM",
+"w": "Sun",
+"l": "Blue Moon Vineyard, Pelican Town",
+"d": 25,
+"b": "Dart",
+"p": 80,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/goldfish.png",
+"id": "goldfish"
+},
+{
+"n": "Grass Carp",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer"
+],
+"t": "Any",
+"w": "Any",
+"l": "Secret Woods",
+"d": 85,
+"b": "Mixed",
+"p": 150,
+"x": "",
+"a": "Secret Woods / Junimo Woods",
+"img": "img/fish/grass-carp.png",
+"id": "grass-carp"
+},
+{
+"n": "Highlands Bass",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Highlands",
+"d": 56,
+"b": "Mixed",
+"p": 200,
+"x": "",
+"a": "Highlands / Summit",
+"img": "img/fish/highlands-bass.png",
+"id": "highlands-bass"
+},
+{
+"n": "King Salmon",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer"
+],
+"t": "6AM–8PM",
+"w": "Any",
+"l": "Forest West",
+"d": 80,
+"b": "Dart",
+"p": 320,
+"x": "",
+"a": "Forest West / Shearwater",
+"img": "img/fish/king-salmon.png",
+"id": "king-salmon"
+},
+{
+"n": "Kittyfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Fall",
+"Winter"
+],
+"t": "10AM–5PM",
+"w": "Any",
+"l": "Shearwater Bridge",
+"d": 85,
+"b": "Mixed",
+"p": 250,
+"x": "",
+"a": "Forest West / Shearwater",
+"img": "img/fish/kittyfish.png",
+"id": "kittyfish"
+},
+{
+"n": "Lunaloo",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "5PM–2AM",
+"w": "Any",
+"l": "Fable Reef; Ginger Island South / Southeast / West",
+"d": 70,
+"b": "Floater",
+"p": 100,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/lunaloo.png",
+"id": "lunaloo"
+},
+{
+"n": "Meteor Carp",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Junimo Woods, Sprite Spring",
+"d": 80,
+"b": "Sinker",
+"p": 175,
+"x": "",
+"a": "Secret Woods / Junimo Woods",
+"img": "img/fish/meteor-carp.png",
+"id": "meteor-carp"
+},
+{
+"n": "Minnow",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "6AM–6PM",
+"w": "Sun",
+"l": "Farm, Town river, Mountain Lake, Cindersap, Adventurer's Summit, Blue Moon Vineyard river, Morris Property, Shearwater Bridge",
+"d": 1,
+"b": "Sinker",
+"p": 20,
+"x": "",
+"a": "Highlands / Summit",
+"img": "img/fish/minnow.png",
+"id": "minnow"
+},
+{
+"n": "Ocean Sunfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Sun",
+"l": "Fable Reef; Ginger Island South / Southeast / West",
+"d": 90,
+"b": "Floater",
+"p": 650,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/ocean-sunfish.png",
+"id": "ocean-sunfish"
+},
+{
+"n": "Puppyfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall"
+],
+"t": "Any",
+"w": "Any",
+"l": "Shearwater Bridge, Forest West",
+"d": 90,
+"b": "Mixed",
+"p": 250,
+"x": "",
+"a": "Forest West / Shearwater",
+"img": "img/fish/puppyfish.png",
+"id": "puppyfish"
+},
+{
+"n": "Radioactive Bass",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Sewers",
+"d": 90,
+"b": "Floater",
+"p": 500,
+"x": "",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/radioactive-bass.png",
+"id": "radioactive-bass"
+},
+{
+"n": "Razor Trout",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Blue Moon Vineyard, Pelican Town",
+"d": 85,
+"b": "Dart",
+"p": 400,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/razor-trout.png",
+"id": "razor-trout"
+},
+{
+"n": "Sea Sponge",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Ginger Island, Fable Reef",
+"d": 40,
+"b": "Sinker",
+"p": 75,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/sea-sponge.png",
+"id": "sea-sponge"
+},
+{
+"n": "Seahorse",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "8AM–5PM",
+"w": "Any",
+"l": "Ginger Island, Fable Reef",
+"d": 25,
+"b": "Mixed",
+"p": 60,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/seahorse.png",
+"id": "seahorse"
+},
+{
+"n": "Shark",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Ginger Island, Fable Reef",
+"d": 110,
+"b": "Dart",
+"p": 800,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/shark.png",
+"id": "shark"
+},
+{
+"n": "Shiny Lunaloo",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "5PM–2AM",
+"w": "Any",
+"l": "Ginger Island, Fable Reef",
+"d": 110,
+"b": "Floater",
+"p": 400,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/shiny-lunaloo.png",
+"id": "shiny-lunaloo"
+},
+{
+"n": "Snatcher Worm",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Bugland",
+"d": 75,
+"b": "Dart",
+"p": 280,
+"x": "",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/snatcher-worm.png",
+"id": "snatcher-worm"
+},
+{
+"n": "Starfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "6AM–10PM",
+"w": "Any",
+"l": "Beach, Blue Moon Vineyard (Spr/Sum/Win); Ginger Island (all)",
+"d": 75,
+"b": "Sinker",
+"p": 150,
+"x": "Fall = Ginger Island only",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/starfish.png",
+"id": "starfish"
+},
+{
+"n": "Swamp Crab",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Forbidden Maze, Henchman's Backyard",
+"d": 35,
+"b": "Sinker",
+"p": 150,
+"x": "",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/swamp-crab.png",
+"id": "swamp-crab"
+},
+{
+"n": "Tadpole",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mountain Lake",
+"d": 3,
+"b": "Floater",
+"p": 15,
+"x": "",
+"a": "Town / Rivers / Lakes",
+"img": "img/fish/tadpole.png",
+"id": "tadpole"
+},
+{
+"n": "Torpedo Trout",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Fable Reef",
+"d": 70,
+"b": "Dart",
+"p": 300,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/torpedo-trout.png",
+"id": "torpedo-trout"
+},
+{
+"n": "Turretfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Fable Reef",
+"d": 110,
+"b": "Dart",
+"p": 10000,
+"x": "Hardest SVE catch – bring best rod + Trap Bobber",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/turretfish.png",
+"id": "turretfish"
+},
+{
+"n": "Undeadfish",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Crimson Badlands",
+"d": 80,
+"b": "Mixed",
+"p": 600,
+"x": "",
+"a": "Desert / Badlands",
+"img": "img/fish/undeadfish.png",
+"id": "undeadfish"
+},
+{
+"n": "Viper Eel",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Fable Reef",
+"d": 80,
+"b": "Mixed",
+"p": 600,
+"x": "",
+"a": "Fable Reef / Ginger Island",
+"img": "img/fish/viper-eel.png",
+"id": "viper-eel"
+},
+{
+"n": "Void Eel",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Witch's Swamp",
+"d": 100,
+"b": "Mixed",
+"p": 450,
+"x": "",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/void-eel.png",
+"id": "void-eel"
+},
+{
+"n": "Water Grub",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Bugland",
+"d": 60,
+"b": "Sinker",
+"p": 170,
+"x": "",
+"a": "Sewers / Swamp / Bugland",
+"img": "img/fish/water-grub.png",
+"id": "water-grub"
+},
+{
+"n": "Wolf Snapper",
+"s": "SVE",
+"c": "Fish",
+"ss": [
+"Spring",
+"Summer",
+"Fall"
+],
+"t": "Any",
+"w": "Any",
+"l": "Shearwater Bridge",
+"d": 110,
+"b": "Dart",
+"p": 4000,
+"x": "Legendary-tier difficulty",
+"a": "Forest West / Shearwater",
+"img": "img/fish/wolf-snapper.png",
+"id": "wolf-snapper"
+}
+]
+}

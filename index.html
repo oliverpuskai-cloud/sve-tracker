@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SVE Fish Log</title>
+<meta name="description" content="Free progress tracker for Stardew Valley Expanded: daily fishing planner, Community Center bundles, fish checklist and map.">
+<link rel="icon" href="img/fish/legend.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top">
+    <h1>SVE Fish Log<small>Stardew Valley Expanded tracker · progress is saved in this browser</small></h1>
+    <div class="prog">
+      <div class="row"><span>Fish caught</span><span><b id="cnt">0</b> / <span id="tot">0</span></span></div>
+      <div class="bar"><i id="barfill" style="width:0"></i></div>
+      <div class="mini" id="mini"></div>
+    </div>
+  </div>
+  <nav class="main" aria-label="Sections">
+    <a href="#today">Today</a>
+    <a href="#bundles">Bundles</a>
+    <a href="#fish">All fish</a>
+    <a href="#map">Map</a>
+    <a href="#backup">Backup</a>
+  </nav>
+</header>
+<main id="view"><p class="empty">Loading…</p></main>
+<footer>
+  Fan-made, free and not affiliated with ConcernedApe or FlashShifter. Fish and item sprites and the valley map © ConcernedApe; SVE sprites © FlashShifter, via stardewvalleywiki.com and stardewvalleyexpanded.wiki.gg.
+  Fish data: SVE wiki + Stardew Valley wiki (game 1.6). Bundles are the standard (non-remixed) Community Center set.
+</footer>
+</div>
+<script src="js/app.js" type="module"></script>
+</body>
+</html>
