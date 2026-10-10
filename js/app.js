@@ -1,29 +1,44 @@
 // SVE Fish Log — plain JavaScript, no build step.
 // Progress lives in localStorage under STORE_KEY; everything else is static data in /data.
+// The store holds several farms (one per save file); `state` always points at the active farm.
 
 const STORE_KEY = "sve-tracker:v1";
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
 
 let FISH = [], ORDER = [], ROOMS = [], BY_NAME = {};
-let state = load();
+let store = load();
+let state = store.farms[store.active];
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 // ---------- storage ----------
+function newFarm(name) {
+  return { name, caught: [], bundles: {}, done: {}, qi: false, today: { season: "Spring", day: 1, rain: false, hour: "" } };
+}
+function fixFarm(f, name) {
+  const b = newFarm(name);
+  return { ...b, ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) } };
+}
 function load() {
-  const base = { caught: [], bundles: {}, today: { season: "Spring", day: 1, rain: false, hour: "" }, prefs: { showCaught: false, qi: false, hideDone: false } };
-  try {
-    const v = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
-    if (v && typeof v === "object") return { ...base, ...v, today: { ...base.today, ...v.today }, prefs: { ...base.prefs, ...v.prefs } };
-  } catch (e) {}
-  return base;
+  const prefs = { showCaught: false, hideDone: false };
+  let v = null;
+  try { v = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); } catch (e) {}
+  if (v && v.farms && typeof v.farms === "object" && Object.keys(v.farms).length) {
+    const farms = Object.fromEntries(Object.entries(v.farms).map(([id, f]) => [id, fixFarm(f, f.name || "My farm")]));
+    return { version: 2, active: farms[v.active] ? v.active : Object.keys(farms)[0], farms, prefs: { ...prefs, ...v.prefs } };
+  }
+  // version 1 kept one farm's progress at the top level: move it into "My farm"
+  const first = v && typeof v === "object" ? fixFarm({ caught: v.caught, bundles: v.bundles, today: v.today, qi: v.prefs?.qi }, "My farm") : newFarm("My farm");
+  return { version: 2, active: "farm-1", farms: { "farm-1": first }, prefs: { ...prefs, showCaught: !!v?.prefs?.showCaught, hideDone: !!v?.prefs?.hideDone } };
 }
 function save() {
-  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(store)); } catch (e) {}
 }
+function switchFarm(id) { store.active = id; state = store.farms[id]; save(); render(); }
+
 const caught = () => new Set(state.caught);
 function setCaught(name, on) {
   const s = caught();
@@ -52,7 +67,7 @@ function availableOn(f, ctx) {
   if (f.w === "Rain" && !ctx.rain) return false;
   if (f.w === "Sun" && ctx.rain) return false;
   if (f.c === "Night Market" && !(ctx.season === "Winter" && ctx.day >= 15 && ctx.day <= 17)) return false;
-  if (f.c === "Legendary II" && !state.prefs.qi) return false;
+  if (f.c === "Legendary II" && !state.qi) return false;
   if (ctx.hour !== "" && ctx.hour != null) {
     const h = +ctx.hour;
     if (!ranges(f.t).some(([a, b]) => h >= a && h < b)) return false;
@@ -80,8 +95,22 @@ function setDonated(b, idx, on) {
   if (on && it.fish) setCaught(it.n, true); // donating a fish means you've caught it
   save();
 }
-const bundleDone = b => donated(b.id).size >= b.need;
+// A bundle is done when enough items are ticked, or when it was marked "All done" in one go.
+const bundleDone = b => !!state.done[b.id] || donated(b.id).size >= b.need;
 const allBundles = () => ROOMS.flatMap(r => r.bundles);
+const CC_ROOMS = () => ROOMS.filter(r => r.room !== "Abandoned JojaMart");
+function completeBundles(list) {
+  for (const b of list) {
+    state.done[b.id] = true;
+    // bundles that need every item: you must have caught all their fish
+    if (b.need === b.items.length) b.items.forEach(it => { if (it.fish) setCaught(it.n, true); });
+  }
+  save();
+}
+function resetBundles(list) {
+  for (const b of list) { delete state.done[b.id]; delete state.bundles[b.id]; }
+  save();
+}
 // fish name -> list of incomplete bundles that still want it (not yet donated)
 function bundleNeeds() {
   const m = {};
@@ -157,7 +186,7 @@ function whyNot(f, ctx) {
   if (f.w === "Rain" && !ctx.rain) return "Needs rain";
   if (f.w === "Sun" && ctx.rain) return "Not in the rain";
   if (f.c === "Night Market" && !(ctx.season === "Winter" && ctx.day >= 15 && ctx.day <= 17)) return "Night Market only (Winter 15–17)";
-  if (f.c === "Legendary II" && !state.prefs.qi) return "Only during Qi's Extended Family quest";
+  if (f.c === "Legendary II" && !state.qi) return "Only during Qi's Extended Family quest";
   if (ctx.hour !== "" && ctx.hour != null && !availableOn(f, ctx)) return "Bites " + f.t;
   return "";
 }
@@ -173,8 +202,8 @@ function renderToday(main) {
   wrap.innerHTML = `
   <div class="controls">
     ${conditionsHTML(ctx, "t")}
-    <label class="check"><input type="checkbox" id="t-showcaught" ${state.prefs.showCaught ? "checked" : ""}> Show fish I've caught</label>
-    <label class="check"><input type="checkbox" id="t-qi" ${state.prefs.qi ? "checked" : ""}> Qi's “Extended Family” quest is active</label>
+    <label class="check"><input type="checkbox" id="t-showcaught" ${store.prefs.showCaught ? "checked" : ""}> Show fish I've caught</label>
+    <label class="check"><input type="checkbox" id="t-qi" ${state.qi ? "checked" : ""}> Qi's “Extended Family” quest is active</label>
   </div>
   <div class="events" id="t-events"></div>
   <div class="stats">
@@ -197,11 +226,11 @@ function renderToday(main) {
 
   // controls
   wireConditions(wrap, ctx, "t");
-  $("t-showcaught").onchange = e => { state.prefs.showCaught = e.target.checked; save(); render(); };
-  $("t-qi").onchange = e => { state.prefs.qi = e.target.checked; save(); render(); };
+  $("t-showcaught").onchange = e => { store.prefs.showCaught = e.target.checked; save(); render(); };
+  $("t-qi").onchange = e => { state.qi = e.target.checked; save(); render(); };
 
   // fish lists
-  const shown = state.prefs.showCaught ? avail : todo;
+  const shown = store.prefs.showCaught ? avail : todo;
   const opts = f => ({ needs: needs[f.n], last: leavesAfter(f, ctx.season) && f.c !== "Legendary II", wx: ctx.rain && f.w === "Rain" });
   const priority = shown.filter(f => !got.has(f.n) && (needs[f.n] || opts(f).last || opts(f).wx || f.c === "Legendary"));
   const pset = new Set(priority);
@@ -236,32 +265,58 @@ function renderToday(main) {
 }
 
 // ---------- BUNDLES ----------
+let confirmKey = null; // which "reset" is waiting for a second click
+function bulkButton(key, done, labelDo, labelUndo, onDo, onUndo, big) {
+  const wrap = document.createElement("span");
+  wrap.className = "bulk";
+  const cls = "btn" + (big ? " primary" : " small");
+  if (!done) {
+    wrap.innerHTML = `<button type="button" class="${cls}">${labelDo}</button>`;
+    wrap.firstChild.onclick = () => { confirmKey = null; onDo(); render(); };
+  } else if (confirmKey === key) {
+    wrap.innerHTML = `<span class="sure">Untick everything here?</span> <button type="button" class="btn small danger">Yes, reset</button> <button type="button" class="btn small">Cancel</button>`;
+    const [yes, no] = wrap.querySelectorAll("button");
+    yes.onclick = () => { confirmKey = null; onUndo(); render(); };
+    no.onclick = () => { confirmKey = null; render(); };
+  } else {
+    wrap.innerHTML = `<button type="button" class="btn small ghost">${labelUndo}</button>`;
+    wrap.firstChild.onclick = () => { confirmKey = key; render(); };
+  }
+  return wrap;
+}
+
 function renderBundles(main) {
   const ctx = state.today, all = allBundles();
   const doneCount = all.filter(bundleDone).length;
+  const cc = CC_ROOMS().flatMap(r => r.bundles), ccDone = cc.every(bundleDone);
   const head = document.createElement("div");
   head.innerHTML = `
     <div class="stats">
       <div class="stat"><b>${doneCount} / ${all.length}</b><span>bundles complete</span></div>
       ${ROOMS.map(r => `<div class="stat"><b>${r.bundles.filter(bundleDone).length} / ${r.bundles.length}</b><span>${esc(r.room)}</span></div>`).join("")}
     </div>
-    <div class="controls"><label class="check"><input type="checkbox" id="b-hide" ${state.prefs.hideDone ? "checked" : ""}> Hide finished bundles</label>
-    <p class="lede">Tap an item when you've put it in the bundle. Items marked <b style="color:var(--need)">TODAY</b> can be caught or found on the day set in the Today tab (${ctx.season} ${ctx.day}, ${ctx.rain ? "rain" : "sunny"}).</p></div>`;
+    <div class="ccbar panel"><div><b>${ccDone ? "Community Center restored ✓" : "Already finished the Community Center?"}</b><p class="lede" style="margin:2px 0 0">${ccDone ? "Every room is marked done on this farm." : "Mark every room done in one click. You can still reset single rooms or bundles below."}</p></div><span id="b-cc"></span></div>
+    <div class="controls"><label class="check"><input type="checkbox" id="b-hide" ${store.prefs.hideDone ? "checked" : ""}> Hide finished bundles</label>
+    <p class="lede">Tap an item when you've put it in the bundle, or use <b>All done</b> on a bundle or room. Items marked <b style="color:var(--need)">TODAY</b> can be caught or found on the day set in the Today tab (${ctx.season} ${ctx.day}, ${ctx.rain ? "rain" : "sunny"}).</p></div>`;
   main.appendChild(head);
-  $("b-hide").onchange = e => { state.prefs.hideDone = e.target.checked; save(); render(); };
+  $("b-cc").appendChild(bulkButton("cc", ccDone, "Mark whole Community Center done", "Reset Community Center", () => completeBundles(cc), () => resetBundles(cc), true));
+  $("b-hide").onchange = e => { store.prefs.hideDone = e.target.checked; save(); render(); };
 
   for (const r of ROOMS) {
-    const list = r.bundles.filter(b => !(state.prefs.hideDone && bundleDone(b)));
-    if (!list.length) continue;
+    const roomDone = r.bundles.every(bundleDone);
+    const list = r.bundles.filter(b => !(store.prefs.hideDone && bundleDone(b)));
     const sec = document.createElement("section");
-    sec.innerHTML = `<h2>${esc(r.room)}<span>${r.bundles.filter(bundleDone).length} / ${r.bundles.length} done${r.room === "Abandoned JojaMart" ? " · opens after the Community Center is restored" : ""}</span></h2><div class="bgrid"></div>`;
+    sec.innerHTML = `<div class="roomhead"><h2>${esc(r.room)}<span>${r.bundles.filter(bundleDone).length} / ${r.bundles.length} done${r.room === "Abandoned JojaMart" ? " · opens after the Community Center is restored" : ""}</span></h2></div><div class="bgrid"></div>`;
+    sec.querySelector(".roomhead").appendChild(bulkButton("room:" + r.room, roomDone, "Mark room done", "Reset room", () => completeBundles(r.bundles), () => resetBundles(r.bundles)));
     const grid = sec.querySelector(".bgrid");
+    if (!list.length) grid.innerHTML = '<p class="empty" style="padding:8px 0;text-align:left">All done here.</p>';
     for (const b of list) {
-      const d = donated(b.id), complete = bundleDone(b);
+      const d = donated(b.id), complete = bundleDone(b), flagged = !!state.done[b.id] && d.size < b.need;
       const el = document.createElement("div");
       el.className = "bundle" + (complete ? " complete" : "");
-      el.innerHTML = `<div class="bhead"><h3>${esc(b.name)}</h3><span class="n">${Math.min(d.size, b.need)} / ${b.need}${complete ? " ✓" : ""}</span></div>
-        <p class="reward">Reward: ${esc(b.reward)}</p>${b.need < b.items.length ? `<p class="pick">Any ${b.need} of these ${b.items.length}</p>` : ""}<div class="items"></div>`;
+      el.innerHTML = `<div class="bhead"><h3>${esc(b.name)}</h3><span class="n">${flagged ? "Done" : Math.min(d.size, b.need) + " / " + b.need}${complete ? " ✓" : ""}</span></div>
+        <p class="reward">Reward: ${esc(b.reward)}</p>${b.need < b.items.length ? `<p class="pick">Any ${b.need} of these ${b.items.length}</p>` : ""}<div class="items"></div><div class="bfoot"></div>`;
+      el.querySelector(".bfoot").appendChild(bulkButton("b:" + b.id, complete, "All done", "Reset bundle", () => completeBundles([b]), () => resetBundles([b])));
       const items = el.querySelector(".items");
       b.items.forEach((it, i) => {
         const got = d.has(i), f = it.fish ? BY_NAME[it.n] : null;
@@ -424,58 +479,123 @@ function renderMap(main) {
 }
 
 // ---------- BACKUP ----------
+// Add progress from `v` into farm `f` (never unticks anything). Returns counts.
+function mergeInto(f, v) {
+  const known = (Array.isArray(v) ? v : v.caught || []).filter(n => BY_NAME[n]);
+  f.caught = [...new Set([...f.caught, ...known])];
+  let items = 0;
+  if (v.bundles && typeof v.bundles === "object") for (const [id, arr] of Object.entries(v.bundles)) {
+    if (!Array.isArray(arr)) continue;
+    f.bundles[id] = [...new Set([...(f.bundles[id] || []), ...arr.filter(Number.isInteger)])];
+    items += arr.length;
+  }
+  if (v.done && typeof v.done === "object") for (const id of Object.keys(v.done)) if (v.done[id]) { f.done[id] = true; items++; }
+  return { fish: known.length, items };
+}
+
 function renderBackup(main) {
   const div = document.createElement("div");
   div.className = "stack";
   div.style.marginTop = "18px";
+  const nFarms = Object.keys(store.farms).length;
   div.innerHTML = `
     <div class="panel stack">
       <h2 style="font-family:var(--display);font-weight:500;margin:0">Save a backup</h2>
-      <p class="lede" style="margin:0">Your progress lives in this browser only. Download a backup now and then, or to move it to another device.</p>
+      <p class="lede" style="margin:0">Your progress lives in this browser only. The backup file holds all ${nFarms} farm${nFarms === 1 ? "" : "s"}. Download one now and then, or to move to another device.</p>
       <div><button class="btn primary" id="k-export">Download backup file</button></div>
     </div>
     <div class="panel stack">
       <h2 style="font-family:var(--display);font-weight:500;margin:0">Restore or move progress</h2>
-      <p class="lede" style="margin:0">Choose a backup file, or paste a progress code (for example the one from the Claude version of this tracker). Fish and bundles in the code are added to what you already have; nothing gets unticked.</p>
+      <p class="lede" style="margin:0">A backup file brings back all its farms (a farm with the same name gets merged). A pasted progress code, like the one from the Claude version of this tracker, is added to <b>${esc(state.name)}</b>. Nothing gets unticked.</p>
       <input type="file" id="k-file" accept="application/json,.json">
       <textarea id="k-code" placeholder='Paste a progress code, e.g. {"caught":["Anchovy","Carp"]}'></textarea>
       <div><button class="btn primary" id="k-import">Import code</button></div>
       <p class="msg" id="k-msg" role="status"></p>
     </div>
     <div class="panel stack">
-      <h2 style="font-family:var(--display);font-weight:500;margin:0">Start over</h2>
-      <p class="lede" style="margin:0">Clears every ticked fish and bundle item in this browser. Download a backup first if you might want it back.</p>
-      <div><button class="btn" id="k-reset">Clear all progress</button> <span id="k-confirm"></span></div>
+      <h2 style="font-family:var(--display);font-weight:500;margin:0">Start this farm over</h2>
+      <p class="lede" style="margin:0">Clears every ticked fish and bundle on <b>${esc(state.name)}</b>. Other farms aren't touched. Download a backup first if you might want it back.</p>
+      <div><button class="btn" id="k-reset">Clear this farm</button> <span id="k-confirm"></span></div>
     </div>`;
   main.appendChild(div);
   $("k-export").onclick = () => {
-    const blob = new Blob([JSON.stringify({ app: "sve-fish-log", version: 1, savedAt: new Date().toISOString(), caught: state.caught, bundles: state.bundles }, null, 1)], { type: "application/json" });
+    const blob = new Blob([JSON.stringify({ app: "sve-fish-log", version: 2, savedAt: new Date().toISOString(), active: store.active, farms: store.farms }, null, 1)], { type: "application/json" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = `sve-fish-log-backup-${new Date().toISOString().slice(0, 10)}.json`;
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   };
-  const merge = text => {
+  const importText = text => {
     let v;
-    try { v = JSON.parse(text); } catch (e) { $("k-msg").textContent = "That isn't a valid progress code. Copy the whole code, including the curly brackets."; return; }
-    const names = Array.isArray(v) ? v : v.caught || [];
-    const known = names.filter(n => BY_NAME[n]);
-    state.caught = [...new Set([...state.caught, ...known])];
-    let items = 0;
-    if (v.bundles && typeof v.bundles === "object") for (const [id, arr] of Object.entries(v.bundles)) {
-      if (!Array.isArray(arr)) continue;
-      state.bundles[id] = [...new Set([...(state.bundles[id] || []), ...arr.filter(Number.isInteger)])];
-      items += arr.length;
+    try { v = JSON.parse(text); } catch (e) { $("k-msg").textContent = "That isn't a valid progress code or backup. Copy the whole code, including the curly brackets."; return; }
+    if (v && v.farms && typeof v.farms === "object") {
+      let added = 0, merged = 0;
+      for (const f of Object.values(v.farms)) {
+        const name = String(f.name || "Imported farm").slice(0, 40);
+        const same = Object.values(store.farms).find(x => x.name === name);
+        if (same) { mergeInto(same, f); merged++; }
+        else {
+          let n = 1; while (store.farms["farm-" + n]) n++;
+          const nf = fixFarm({ ...newFarm(name), today: f.today, qi: !!f.qi }, name);
+          mergeInto(nf, f);
+          store.farms["farm-" + n] = nf; added++;
+        }
+      }
+      save(); render();
+      $("k-msg").textContent = `Restored the backup: ${added} new farm${added === 1 ? "" : "s"}, ${merged} merged.`;
+      return;
     }
+    const r = mergeInto(state, v);
     save(); render();
-    $("k-msg").textContent = `Imported ${known.length} fish${items ? ` and ${items} bundle items` : ""}.`;
+    $("k-msg").textContent = `Added ${r.fish} fish${r.items ? ` and ${r.items} bundle entries` : ""} to ${state.name}.`;
   };
-  $("k-import").onclick = () => merge($("k-code").value);
-  $("k-file").onchange = e => { const f = e.target.files[0]; if (f) f.text().then(merge); };
+  $("k-import").onclick = () => importText($("k-code").value);
+  $("k-file").onchange = e => { const f = e.target.files[0]; if (f) f.text().then(importText); };
   $("k-reset").onclick = () => {
-    $("k-confirm").innerHTML = '<button class="btn" id="k-yes" style="border-color:var(--warn);color:var(--warn)">Yes, clear everything</button>';
-    $("k-yes").onclick = () => { state.caught = []; state.bundles = {}; save(); render(); };
+    $("k-confirm").innerHTML = '<button class="btn danger" id="k-yes">Yes, clear this farm</button>';
+    $("k-yes").onclick = () => { state.caught = []; state.bundles = {}; state.done = {}; save(); render(); };
+  };
+}
+
+// ---------- farm picker ----------
+let farmMode = null; // null | "new" | "rename" | "delete"
+function renderFarmBar() {
+  const bar = $("farmbar"), ids = Object.keys(store.farms);
+  const opts = ids.map(id => `<option value="${id}" ${id === store.active ? "selected" : ""}>${esc(store.farms[id].name)}</option>`).join("");
+  let extra = "";
+  if (farmMode === "new" || farmMode === "rename") {
+    extra = `<form id="fm-form" class="farmform"><input id="fm-name" maxlength="40" required placeholder="Farm name" aria-label="Farm name" value="${farmMode === "rename" ? esc(state.name) : ""}"><button class="btn small primary" type="submit">${farmMode === "new" ? "Create farm" : "Save name"}</button><button class="btn small" type="button" id="fm-cancel">Cancel</button></form>`;
+  } else if (farmMode === "delete") {
+    extra = `<span class="bulk"><span class="sure">Delete “${esc(state.name)}” and all its progress?</span><button class="btn small danger" id="fm-yes" type="button">Yes, delete</button><button class="btn small" id="fm-cancel" type="button">Cancel</button></span>`;
+  } else {
+    extra = `<button class="btn small" id="fm-new" type="button">+ New farm</button><button class="btn small ghost" id="fm-rename" type="button">Rename</button>${ids.length > 1 ? '<button class="btn small ghost" id="fm-del" type="button">Delete</button>' : ""}`;
+  }
+  bar.innerHTML = `<label for="fm-pick">Farm</label><select id="fm-pick">${opts}</select>${extra}`;
+  $("fm-pick").onchange = e => { farmMode = null; switchFarm(e.target.value); };
+  const on = (id, fn) => { const el = $(id); if (el) el.onclick = fn; };
+  on("fm-new", () => { farmMode = "new"; renderFarmBar(); $("fm-name").focus(); });
+  on("fm-rename", () => { farmMode = "rename"; renderFarmBar(); $("fm-name").select(); });
+  on("fm-del", () => { farmMode = "delete"; renderFarmBar(); });
+  on("fm-cancel", () => { farmMode = null; renderFarmBar(); });
+  on("fm-yes", () => {
+    delete store.farms[store.active];
+    farmMode = null;
+    switchFarm(Object.keys(store.farms)[0]);
+  });
+  const form = $("fm-form");
+  if (form) form.onsubmit = e => {
+    e.preventDefault();
+    const name = $("fm-name").value.trim();
+    if (!name) return;
+    if (farmMode === "new") {
+      let n = 1; while (store.farms["farm-" + n]) n++;
+      store.farms["farm-" + n] = newFarm(name);
+      farmMode = null;
+      switchFarm("farm-" + n);
+    } else {
+      state.name = name; farmMode = null; save(); render();
+    }
   };
 }
 
@@ -487,6 +607,7 @@ function render() {
   const r = route(), main = $("view"), y = window.scrollY;
   document.querySelectorAll("nav.main a").forEach(a => { if (a.getAttribute("href") === "#" + r) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
   main.innerHTML = "";
+  renderFarmBar();
   ROUTES[r](main);
   window.scrollTo(0, y);
   const got = caught(), tot = FISH.length;
@@ -496,7 +617,7 @@ function render() {
   $("mini").innerHTML = SEASONS.map(s => { const a = FISH.filter(f => f.ss.includes(s)); return `<span style="--c:${SC[s]}">${s} ${a.filter(f => got.has(f.n)).length}/${a.length}</span>`; }).join("");
 }
 window.addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
-window.addEventListener("storage", e => { if (e.key === STORE_KEY) { state = load(); render(); } });
+window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = load(); state = store.farms[store.active]; render(); } });
 
 Promise.all([fetch("data/fish.json").then(r => r.json()), fetch("data/bundles.json").then(r => r.json())])
   .then(([fd, bd]) => {

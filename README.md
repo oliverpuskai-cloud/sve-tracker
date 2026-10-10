@@ -3,10 +3,11 @@
 A free progress tracker for **Stardew Valley Expanded**:
 
 - **Today**: pick the season, day, weather and time, and see which fish you can still catch, which ones bundles need, and which ones won't be back until next year. Festivals and fishing events are flagged.
-- **Bundles**: every standard Community Center bundle (plus the JojaMart Missing Bundle). Tap items as you donate them; fish items show where and when to catch them.
+- **Bundles**: every standard Community Center bundle (plus the JojaMart Missing Bundle). Tap items as you donate them, or mark a bundle, a room or the whole Community Center done in one click. Fish items show where and when to catch them.
 - **All fish**: all 115 catches (SVE + vanilla 1.6) with filters.
 - **Map**: the valley map with fish per spot, for every fish or only the ones you haven't caught.
-- **Backup**: download a backup file, restore one, or paste a progress code.
+- **Farms**: keep separate progress for each save file (new, rename, delete in the header).
+- **Backup**: download a backup of all farms, restore one, or paste a progress code.
 
 Progress is saved in each visitor's own browser (`localStorage`). There are no accounts or servers, and the site doesn't track anyone.
 

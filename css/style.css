@@ -182,3 +182,20 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .pin.dim .plabel{opacity:.7}
 .card.later{opacity:.7}
 .why{display:block;font-size:.78rem;font-weight:700;color:var(--warn);margin-top:2px}
+/* bulk complete buttons */
+.btn.small{font-size:.8rem;padding:4px 10px}
+.btn.ghost{background:transparent;color:var(--muted)}
+.btn.danger{border-color:var(--warn);color:var(--warn)}
+.sure{font-size:.8rem;color:var(--warn);font-weight:700}
+.bulk{display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap}
+.ccbar{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-top:16px}
+.ccbar b{font-family:var(--display);font-weight:500;font-size:1.1rem}
+.roomhead{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+.roomhead h2{margin:0}
+.bfoot{margin-top:8px;display:flex;justify-content:flex-end}
+/* farm picker */
+.farmbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;font-size:.9rem}
+.farmbar label{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.farmbar select{font:inherit;font-weight:700;padding:5px 8px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink);max-width:100%}
+.farmform{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.farmform input{font:inherit;font-size:.9rem;padding:5px 8px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink);min-width:0;width:14em;max-width:100%}
