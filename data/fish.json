@@ -50,7 +50,15 @@
 "x": "",
 "a": "Ocean / Beach",
 "img": "img/fish/sardine.png",
-"id": "sardine"
+"id": "sardine",
+"r": [
+{
+"n": "Dish O' The Sea",
+"q": 2,
+"w": "Hashbrowns",
+"sve": false
+}
+]
 },
 {
 "n": "Herring",
@@ -108,7 +116,15 @@
 "x": "Also Ginger Island ocean",
 "a": "Ocean / Beach",
 "img": "img/fish/flounder.png",
-"id": "flounder"
+"id": "flounder",
+"r": [
+{
+"n": "Seafoam Pudding",
+"q": 1,
+"w": "Midnight Carp, Squid Ink",
+"sve": false
+}
+]
 },
 {
 "n": "Eel",
@@ -127,7 +143,21 @@
 "x": "",
 "a": "Ocean / Beach",
 "img": "img/fish/eel.png",
-"id": "eel"
+"id": "eel",
+"r": [
+{
+"n": "Fried Eel",
+"q": 1,
+"w": "Oil",
+"sve": false
+},
+{
+"n": "Spicy Eel",
+"q": 1,
+"w": "Hot Pepper",
+"sve": false
+}
+]
 },
 {
 "n": "Red Mullet",
@@ -165,7 +195,15 @@
 "x": "Also Ginger Island ocean",
 "a": "Ocean / Beach",
 "img": "img/fish/tuna.png",
-"id": "tuna"
+"id": "tuna",
+"r": [
+{
+"n": "Fish Taco",
+"q": 1,
+"w": "Tortilla, Red Cabbage, Mayonnaise",
+"sve": false
+}
+]
 },
 {
 "n": "Red Snapper",
@@ -277,7 +315,15 @@
 "x": "",
 "a": "Ocean / Beach",
 "img": "img/fish/sea-cucumber.png",
-"id": "sea-cucumber"
+"id": "sea-cucumber",
+"r": [
+{
+"n": "Lucky Lunch",
+"q": 1,
+"w": "Tortilla, Blue Jazz",
+"sve": false
+}
+]
 },
 {
 "n": "Albacore",
@@ -314,7 +360,15 @@
 "x": "",
 "a": "Ocean / Beach",
 "img": "img/fish/squid.png",
-"id": "squid"
+"id": "squid",
+"r": [
+{
+"n": "Fried Calamari",
+"q": 1,
+"w": "Wheat Flour, Oil",
+"sve": false
+}
+]
 },
 {
 "n": "Sunfish",
@@ -333,7 +387,15 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/sunfish.png",
-"id": "sunfish"
+"id": "sunfish",
+"r": [
+{
+"n": "Baked Fish",
+"q": 1,
+"w": "Bream, Wheat Flour",
+"sve": false
+}
+]
 },
 {
 "n": "Catfish",
@@ -409,7 +471,15 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/rainbow-trout.png",
-"id": "rainbow-trout"
+"id": "rainbow-trout",
+"r": [
+{
+"n": "Trout Soup",
+"q": 1,
+"w": "Green Algae",
+"sve": false
+}
+]
 },
 {
 "n": "Pike",
@@ -483,7 +553,15 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/salmon.png",
-"id": "salmon"
+"id": "salmon",
+"r": [
+{
+"n": "Salmon Dinner",
+"q": 1,
+"w": "Amaranth, Kale",
+"sve": false
+}
+]
 },
 {
 "n": "Walleye",
@@ -558,7 +636,15 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/bream.png",
-"id": "bream"
+"id": "bream",
+"r": [
+{
+"n": "Baked Fish",
+"q": 1,
+"w": "Sunfish, Wheat Flour",
+"sve": false
+}
+]
 },
 {
 "n": "Goby",
@@ -600,7 +686,15 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/largemouth-bass.png",
-"id": "largemouth-bass"
+"id": "largemouth-bass",
+"r": [
+{
+"n": "Crispy Bass",
+"q": 1,
+"w": "Wheat Flour, Oil",
+"sve": false
+}
+]
 },
 {
 "n": "Carp",
@@ -620,7 +714,15 @@
 "x": "",
 "a": "Sewers / Swamp / Bugland",
 "img": "img/fish/carp.png",
-"id": "carp"
+"id": "carp",
+"r": [
+{
+"n": "Carp Surprise",
+"q": 4,
+"w": "",
+"sve": false
+}
+]
 },
 {
 "n": "Bullhead",
@@ -700,7 +802,15 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/midnight-carp.png",
-"id": "midnight-carp"
+"id": "midnight-carp",
+"r": [
+{
+"n": "Seafoam Pudding",
+"q": 1,
+"w": "Flounder, Squid Ink",
+"sve": false
+}
+]
 },
 {
 "n": "Woodskip",
@@ -868,7 +978,15 @@
 "x": "Unlocked via Goblin Problem quest",
 "a": "Sewers / Swamp / Bugland",
 "img": "img/fish/void-salmon.png",
-"id": "void-salmon"
+"id": "void-salmon",
+"r": [
+{
+"n": "Void Salmon Sushi",
+"q": 1,
+"w": "Void Mayonnaise, Seaweed ×3",
+"sve": true
+}
+]
 },
 {
 "n": "Slimejack",
@@ -1213,7 +1331,15 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/lobster.png",
-"id": "lobster"
+"id": "lobster",
+"r": [
+{
+"n": "Lobster Bisque",
+"q": 1,
+"w": "Milk",
+"sve": false
+}
+]
 },
 {
 "n": "Crab",
@@ -1234,7 +1360,15 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/crab.png",
-"id": "crab"
+"id": "crab",
+"r": [
+{
+"n": "Crab Cakes",
+"q": 1,
+"w": "Wheat Flour, Egg, Oil",
+"sve": false
+}
+]
 },
 {
 "n": "Shrimp",
@@ -1255,7 +1389,21 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/shrimp.png",
-"id": "shrimp"
+"id": "shrimp",
+"r": [
+{
+"n": "Tom Kha Soup",
+"q": 1,
+"w": "Coconut, Common Mushroom",
+"sve": false
+},
+{
+"n": "Shrimp Cocktail",
+"q": 1,
+"w": "Tomato, Wild Horseradish",
+"sve": false
+}
+]
 },
 {
 "n": "Cockle",
@@ -1297,7 +1445,15 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/mussel.png",
-"id": "mussel"
+"id": "mussel",
+"r": [
+{
+"n": "Fish Stew",
+"q": 1,
+"w": "Crayfish, Periwinkle, Tomato",
+"sve": false
+}
+]
 },
 {
 "n": "Oyster",
@@ -1339,7 +1495,15 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/clam.png",
-"id": "clam"
+"id": "clam",
+"r": [
+{
+"n": "Chowder",
+"q": 1,
+"w": "Milk",
+"sve": false
+}
+]
 },
 {
 "n": "Crayfish",
@@ -1360,7 +1524,15 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/crayfish.png",
-"id": "crayfish"
+"id": "crayfish",
+"r": [
+{
+"n": "Fish Stew",
+"q": 1,
+"w": "Mussel, Periwinkle, Tomato",
+"sve": false
+}
+]
 },
 {
 "n": "Snail",
@@ -1381,7 +1553,15 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/snail.png",
-"id": "snail"
+"id": "snail",
+"r": [
+{
+"n": "Escargot",
+"q": 1,
+"w": "Garlic",
+"sve": false
+}
+]
 },
 {
 "n": "Periwinkle",
@@ -1402,7 +1582,21 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/periwinkle.png",
-"id": "periwinkle"
+"id": "periwinkle",
+"r": [
+{
+"n": "Strange Bun",
+"q": 1,
+"w": "Wheat Flour, Void Mayonnaise",
+"sve": false
+},
+{
+"n": "Fish Stew",
+"q": 1,
+"w": "Crayfish, Mussel, Tomato",
+"sve": false
+}
+]
 },
 {
 "n": "Alligator",
@@ -1568,7 +1762,15 @@
 "x": "",
 "a": "Forest West / Shearwater",
 "img": "img/fish/butterfish.png",
-"id": "butterfish"
+"id": "butterfish",
+"r": [
+{
+"n": "Glazed Butterfish",
+"q": 1,
+"w": "Wheat Flour ×2, Oil ×2, Sugar",
+"sve": true
+}
+]
 },
 {
 "n": "Clownfish",
@@ -1652,7 +1854,15 @@
 "x": "",
 "a": "Fable Reef / Ginger Island",
 "img": "img/fish/dulse-seaweed.png",
-"id": "dulse-seaweed"
+"id": "dulse-seaweed",
+"r": [
+{
+"n": "Seaweed Salad",
+"q": 2,
+"w": "Seaweed ×2, Oil",
+"sve": true
+}
+]
 },
 {
 "n": "Fiber Goby",
@@ -1692,7 +1902,15 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/frog.png",
-"id": "frog"
+"id": "frog",
+"r": [
+{
+"n": "Frog Legs",
+"q": 1,
+"w": "Oil, Wheat Flour",
+"sve": true
+}
+]
 },
 {
 "n": "Gar",
@@ -1953,7 +2171,15 @@
 "x": "",
 "a": "Forest West / Shearwater",
 "img": "img/fish/puppyfish.png",
-"id": "puppyfish"
+"id": "puppyfish",
+"r": [
+{
+"n": "Big Bark Burger",
+"q": 1,
+"w": "Bread, Oil",
+"sve": true
+}
+]
 },
 {
 "n": "Radioactive Bass",
@@ -2265,7 +2491,15 @@
 "x": "",
 "a": "Sewers / Swamp / Bugland",
 "img": "img/fish/void-eel.png",
-"id": "void-eel"
+"id": "void-eel",
+"r": [
+{
+"n": "Void Delight",
+"q": 1,
+"w": "Void Essence ×50, Solar Essence ×20",
+"sve": true
+}
+]
 },
 {
 "n": "Water Grub",

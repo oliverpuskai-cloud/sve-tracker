@@ -123,6 +123,13 @@ function bundleNeeds() {
 }
 const itemImg = it => it.fish ? BY_NAME[it.n]?.img : `img/items/${/^\d/.test(it.n) ? "gold" : slug(it.n)}.png`;
 
+// "Used in" line on a fish card: cooking recipes that need this exact fish
+function recipesHTML(f) {
+  if (!f.r) return "";
+  const list = f.r.map(r => `<b>${esc(r.n)}</b>${r.q > 1 ? ` (×${r.q})` : ""}${r.w ? ` <span class="with">+ ${esc(r.w)}</span>` : ""}${r.sve ? ' <span class="tag sve">SVE</span>' : ""}`).join("; ");
+  return `<span class="recipes">🍳 Cooking: ${list}</span>`;
+}
+
 // ---------- shared fish card ----------
 function card(f, opts = {}) {
   const done = caught().has(f.n), leg = f.c.startsWith("Legendary");
@@ -142,7 +149,7 @@ function card(f, opts = {}) {
     <span class="nm">${esc(f.n)}<span class="tags">${tags}</span></span>
     <span class="box" aria-hidden="true">${done ? "✓" : ""}</span>
     <span class="meta"><span>🕑 ${esc(f.t)}</span><span class="w-${f.w}">${f.w === "Any" ? "Any weather" : f.w === "Rain" ? "☂ Rain only" : "☀ Sun only"}</span><span class="dots" aria-label="${f.ss.join(", ")}">${dots}</span>${f.d !== "—" ? `<span>Diff ${f.d} · ${esc(f.b)}</span>` : ""}<span>${Number(f.p).toLocaleString()}g</span></span>
-    <span class="loc">${esc(f.l)}</span>${f.x ? `<span class="note">${esc(f.x)}</span>` : ""}`;
+    <span class="loc">${esc(f.l)}</span>${f.x ? `<span class="note">${esc(f.x)}</span>` : ""}${recipesHTML(f)}`;
   b.onclick = () => { setCaught(f.n, !done); render(); };
   return b;
 }
