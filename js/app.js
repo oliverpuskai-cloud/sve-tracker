@@ -124,11 +124,20 @@ function setDonated(b, idx, on) {
   if (on && it.fish) setCaught(it.n, true); // donating a fish means you've caught it
   save();
 }
+// ---------- SVE on/off (per farm) ----------
+// One switch for the whole site (header). Vanilla mode only hides SVE content; nothing saved is removed.
+const sveOn = () => store.prefs.sve !== false;
+const fishList = () => sveOn() ? FISH : FISH.filter(f => f.s !== "SVE");
+const villagerList = () => VILLAGERS.filter(v => sveOn() ? !v.vanillaOnly : !v.sve);
+const recipeList = kind => sveOn() ? RECIPES[kind] : RECIPES[kind].filter(r => !r.sve);
+const universalLoves = () => sveOn() ? [...UNIVERSAL.vanilla, ...UNIVERSAL.sve] : UNIVERSAL.vanilla;
+const bundleSetId = () => !sveOn() ? "vanilla" : (SETS[state.bundleSet] ? state.bundleSet : "vanilla");
+
 // A bundle is done when enough items are ticked, or when it was marked "All done" in one go.
 const bundleDone = b => !!state.done[b.id] || donated(b.id).size >= b.need;
 // Each farm picks a bundle set (standard, SVE Normal or SVE Hard). Bundle ids differ per set,
 // so progress in one set is kept if the farm switches to another and back.
-const rooms = () => (SETS[state.bundleSet] || SETS.vanilla).rooms;
+const rooms = () => SETS[bundleSetId()].rooms;
 const allBundles = () => rooms().flatMap(r => r.bundles);
 const CC_ROOMS = () => rooms().filter(r => r.room !== "Abandoned JojaMart");
 function completeBundles(list) {
@@ -157,8 +166,9 @@ const itemImg = it => it.fish ? BY_NAME[it.n]?.img : `img/items/${/^\d/.test(it.
 
 // "Used in" line on a fish card: cooking recipes that need this exact fish
 function recipesHTML(f) {
-  if (!f.r) return "";
-  const list = f.r.map(r => `<b>${esc(r.n)}</b>${r.q > 1 ? ` (×${r.q})` : ""}${r.w ? ` <span class="with">+ ${esc(r.w)}</span>` : ""}${r.sve ? ' <span class="tag sve">SVE</span>' : ""}`).join("; ");
+  const rs = (f.r || []).filter(r => sveOn() || !r.sve);
+  if (!rs.length) return "";
+  const list = rs.map(r => `<b>${esc(r.n)}</b>${r.q > 1 ? ` (×${r.q})` : ""}${r.w ? ` <span class="with">+ ${esc(r.w)}</span>` : ""}${r.sve ? ' <span class="tag sve">SVE</span>' : ""}`).join("; ");
   return `<span class="recipes">🍳 Cooking: ${list}</span>`;
 }
 
@@ -304,7 +314,7 @@ function renderTodos(box) {
 // ---------- TODAY ----------
 function renderToday(main) {
   const ctx = state.today, got = caught(), needs = bundleNeeds();
-  const avail = FISH.filter(f => availableOn(f, ctx));
+  const avail = fishList().filter(f => availableOn(f, ctx));
   const todo = avail.filter(f => !got.has(f.n));
   const daysLeft = 28 - ctx.day;
 
@@ -319,7 +329,7 @@ function renderToday(main) {
   <div class="stats">
     <div class="stat"><b>${todo.length}</b><span>new fish you can catch ${ctx.hour !== "" ? "at " + hourLabel(+ctx.hour) : "today"}</span></div>
     <div class="stat"><b>${todo.filter(f => needs[f.n]).length}</b><span>of them still needed for bundles</span></div>
-    <div class="stat"><b>${FISH.filter(f => leavesAfter(f, ctx.season) && !got.has(f.n) && f.c !== "Legendary II").length}</b><span>uncaught fish leave after ${ctx.season} · ${daysLeft} day${daysLeft === 1 ? "" : "s"} left</span></div>
+    <div class="stat"><b>${fishList().filter(f => leavesAfter(f, ctx.season) && !got.has(f.n) && f.c !== "Legendary II").length}</b><span>uncaught fish leave after ${ctx.season} · ${daysLeft} day${daysLeft === 1 ? "" : "s"} left</span></div>
   </div>
   <div id="t-todo"></div>`;
   main.appendChild(wrap);
@@ -408,8 +418,9 @@ function renderBundles(main) {
       <div class="stat"><b>${doneCount} / ${all.length}</b><span>bundles complete</span></div>
       ${rooms().map(r => `<div class="stat"><b>${r.bundles.filter(bundleDone).length} / ${r.bundles.length}</b><span>${esc(r.room)}</span></div>`).join("")}
     </div>
-    <div class="setbar panel"><div><b>Bundle set</b><p class="lede" style="margin:2px 0 0">Pick the bundles your save uses. SVE asks for Normal or Hard when you create the save; “Standard” is the unmodded game. Each set keeps its own progress.</p></div>
-      <div class="seg" id="b-set">${Object.entries(SETS).map(([id, s]) => `<button type="button" data-set="${id}" aria-pressed="${(SETS[state.bundleSet] ? state.bundleSet : "vanilla") === id}">${esc(s.label)}</button>`).join("")}</div></div>
+    ${sveOn() ? "" : '<p class="lede" style="margin-top:14px">Vanilla mode: these are the standard Community Center bundles.</p>'}
+    <div class="setbar panel" ${sveOn() ? "" : "hidden"}><div><b>Bundle set</b><p class="lede" style="margin:2px 0 0">Pick the bundles your save uses. SVE asks for Normal or Hard when you create the save; “Standard” is the unmodded game. Each set keeps its own progress.</p></div>
+      <div class="seg" id="b-set">${Object.entries(SETS).map(([id, s]) => `<button type="button" data-set="${id}" aria-pressed="${bundleSetId() === id}">${esc(s.label)}</button>`).join("")}</div></div>
     <div class="ccbar panel"><div><b>${ccDone ? "Community Center restored ✓" : "Already finished the Community Center?"}</b><p class="lede" style="margin:2px 0 0">${ccDone ? "Every room is marked done on this farm." : "Mark every room done in one click. You can still reset single rooms or bundles below."}</p></div><span id="b-cc"></span></div>
     <div class="controls"><label class="check"><input type="checkbox" id="b-hide" ${store.prefs.hideDone ? "checked" : ""}> Hide finished bundles</label>
     <p class="lede">Tap an item when you've put it in the bundle, or use <b>All done</b> on a bundle or room. Items marked <b style="color:var(--need)">TODAY</b> can be caught or found on the day set in the Today tab (${ctx.season} ${ctx.day}, ${ctx.rain ? "rain" : "sunny"}).</p></div>`;
@@ -454,7 +465,7 @@ function renderBundles(main) {
 
 // ---------- VILLAGERS ----------
 const vilFilter = { q: "", who: "all", season: null };
-const birthdaysOn = (season, day) => VILLAGERS.filter(v => v.b && v.b.s === season && v.b.d === day);
+const birthdaysOn = (season, day) => villagerList().filter(v => v.b && v.b.s === season && v.b.d === day);
 // days from (season, day) until a villager's next birthday (0 = today)
 function daysUntil(v, season, day) {
   if (!v.b) return Infinity;
@@ -492,10 +503,10 @@ function renderVillagers(main) {
   wrap.innerHTML = `<div class="controls">
       <div class="ctl"><span>Birthday calendar</span><div class="seg" id="v-season">${SEASONS.map(s => `<button data-s="${s}" style="--c:${SC[s]}" aria-pressed="${season === s}">${s}</button>`).join("")}</div></div>
       <div class="ctl" style="flex:1 1 220px"><span>Search a villager or a gift</span><input type="search" id="v-q" value="${esc(vilFilter.q)}" placeholder="e.g. Abigail, Diamond, Pink Cake…" style="font:inherit;padding:6px 10px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)"></div>
-      <div class="ctl"><span>Show</span><div class="seg" id="v-who">${[["all", "Everyone"], ["marry", "Marriage"], ["sve", "SVE only"]].map(([k, l]) => `<button data-w="${k}" aria-pressed="${vilFilter.who === k}">${l}</button>`).join("")}</div></div>
+      <div class="ctl"><span>Show</span><div class="seg" id="v-who">${[["all", "Everyone"], ["marry", "Marriage candidates"]].map(([k, l]) => `<button data-w="${k}" aria-pressed="${vilFilter.who === k}">${l}</button>`).join("")}</div></div>
     </div>
     <section><h2>${season} birthdays<span>${season === ctx.season ? `today is ${ctx.season} ${ctx.day} (set on the Today tab)` : "tap a birthday to jump to that villager"}</span></h2><div class="cal" id="v-cal"></div></section>
-    <div class="univbox"><b>Everyone loves</b> (almost) these, and a birthday gift counts 8× towards friendship:<div class="gifts" style="margin-top:6px">${UNIVERSAL.vanilla.map(i => giftChip(i, false)).join("")}${UNIVERSAL.sve.map(i => giftChip(i, false)).join("")}</div></div>
+    <div class="univbox"><b>Everyone loves</b> (almost) these, and a birthday gift counts 8× towards friendship:<div class="gifts" style="margin-top:6px">${universalLoves().map(i => giftChip(i, false)).join("")}</div></div>
     <div id="v-list"></div>`;
   main.appendChild(wrap);
 
@@ -521,12 +532,12 @@ function renderVillagers(main) {
   function drawList() {
     const q = vilFilter.q.trim().toLowerCase(), out = $("v-list");
     out.innerHTML = "";
-    let list = VILLAGERS.filter(v => vilFilter.who === "all" || (vilFilter.who === "marry" ? v.marry : v.sve));
+    let list = villagerList().filter(v => vilFilter.who === "all" || v.marry);
     if (q) {
       const byName = list.filter(v => v.n.toLowerCase().includes(q));
       const loves = list.filter(v => !byName.includes(v) && v.l.some(i => i.toLowerCase().includes(q)));
       const likes = list.filter(v => !byName.includes(v) && !loves.includes(v) && v.k.some(i => i.toLowerCase().includes(q)));
-      const universal = [...UNIVERSAL.vanilla, ...UNIVERSAL.sve].filter(i => i.toLowerCase().includes(q));
+      const universal = universalLoves().filter(i => i.toLowerCase().includes(q));
       if (universal.length) out.insertAdjacentHTML("beforeend", `<p class="lede" style="margin-top:16px">${universal.map(esc).join(", ")} ${universal.length === 1 ? "is a" : "are"} universal love: almost everyone loves ${universal.length === 1 ? "it" : "them"}.</p>`);
       const grp = (title, vs) => { if (!vs.length) return; const sec = document.createElement("section"); sec.innerHTML = `<h2>${title}<span>${vs.length}</span></h2><div class="vgrid"></div>`; vs.forEach(v => sec.querySelector(".vgrid").appendChild(villagerCard(v, q))); out.appendChild(sec); };
       grp("Villagers", byName); grp(`Love “${esc(vilFilter.q.trim())}”`, loves); grp(`Like “${esc(vilFilter.q.trim())}”`, likes);
@@ -576,17 +587,16 @@ function totals(list) {
 }
 
 function renderRecipes(main) {
-  const kind = recState.kind, all = RECIPES[kind], madeMap = state.made[kind];
+  const kind = recState.kind, all = recipeList(kind), madeMap = state.made[kind];
   const madeCount = all.filter(r => madeMap[r.id]).length;
   const head = document.createElement("div");
   head.innerHTML = `<div class="controls">
-      <div class="ctl"><span>Recipes</span><div class="seg" id="r-kind"><button data-k="cooking" aria-pressed="${kind === "cooking"}">🍳 Cooking (${RECIPES.cooking.length})</button><button data-k="crafting" aria-pressed="${kind === "crafting"}">🔨 Crafting (${RECIPES.crafting.length})</button></div></div>
+      <div class="ctl"><span>Recipes</span><div class="seg" id="r-kind"><button data-k="cooking" aria-pressed="${kind === "cooking"}">🍳 Cooking (${recipeList("cooking").length})</button><button data-k="crafting" aria-pressed="${kind === "crafting"}">🔨 Crafting (${recipeList("crafting").length})</button></div></div>
       <div class="ctl"><span>Show</span><div class="seg" id="r-view"><button data-v="list" aria-pressed="${recState.view === "list"}">Recipe list</button><button data-v="shop" aria-pressed="${recState.view === "shop"}">Ingredients for everything</button></div></div>
     </div>
     <div class="stats">
       <div class="stat"><b>${madeCount} / ${all.length}</b><span>${kind === "cooking" ? "dishes cooked" : "items crafted"} on this farm${kind === "cooking" ? " (Gourmet Chef needs every vanilla one)" : " (Craft Master needs every vanilla one)"}</span></div>
       <div class="stat"><b>${all.filter(r => r.k === "friend").length}</b><span>need friendship ❤ to unlock</span></div>
-      <div class="stat"><b>${all.filter(r => r.sve).length}</b><span>added by SVE</span></div>
     </div>
     <div id="r-body"></div>`;
   main.appendChild(head);
@@ -597,21 +607,20 @@ function renderRecipes(main) {
 
   body.innerHTML = `<div class="controls">
       <div class="ctl" style="flex:1 1 240px"><span>Search a recipe or an ingredient</span><input type="search" id="r-q" value="${esc(recState.q)}" placeholder="e.g. Pink Cake, Egg, Iron Bar…" style="font:inherit;padding:6px 10px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)"></div>
-      <div class="ctl"><span>Source</span><select id="r-src"><option value="">All recipes</option><option value="sve">SVE only</option><option value="vanilla">Vanilla only</option></select></div>
+      
       <div class="ctl"><span>Unlocked by</span><select id="r-unlock"><option value="">Anything</option>${Object.entries(UNLOCK).map(([k, [i, l]]) => `<option value="${k}">${i} ${l}</option>`).join("")}</select></div>
       <label class="check"><input type="checkbox" id="r-hide" ${recState.hideMade ? "checked" : ""}> Hide ${kind === "cooking" ? "cooked" : "crafted"}</label>
     </div>
     <p class="lede">❤ friendship · 📺 Queen of Sauce (TV, Sundays and Wednesday reruns) · ⭐ skill level · 🛒 buy · 📜 quest or special order · 🎬 event · ✔ known from the start. Ingredients with a dashed border are made with another recipe.</p>
     <div id="r-list"></div>`;
-  $("r-src").value = recState.src; $("r-unlock").value = recState.unlock;
-  $("r-src").onchange = e => { recState.src = e.target.value; draw(); };
+  $("r-unlock").value = recState.unlock;
   $("r-unlock").onchange = e => { recState.unlock = e.target.value; draw(); };
   $("r-hide").onchange = e => { recState.hideMade = e.target.checked; draw(); };
   $("r-q").oninput = e => { recState.q = e.target.value; draw(); };
   function draw() {
     const q = recState.q.trim().toLowerCase(), out = $("r-list");
     out.innerHTML = "";
-    const list = all.filter(r => (!recState.src || (recState.src === "sve") === r.sve) && (!recState.unlock || r.k === recState.unlock) && !(recState.hideMade && madeMap[r.id]));
+    const list = all.filter(r => (!recState.unlock || r.k === recState.unlock) && !(recState.hideMade && madeMap[r.id]));
     if (q) {
       const byName = list.filter(r => r.n.toLowerCase().includes(q));
       const uses = list.filter(r => !byName.includes(r) && r.ing.some(([n]) => n.toLowerCase().includes(q)));
@@ -670,14 +679,13 @@ function renderFish(main) {
   bar.innerHTML = `<div class="controls">
     <div class="ctl"><span>Season</span><div class="seg" id="f-season">${["All", ...SEASONS].map(s => `<button data-s="${s}" style="--c:${SC[s] || "var(--accent)"}" aria-pressed="${listFilter.season === s}">${s}</button>`).join("")}</div></div>
     <div class="ctl" style="flex:1 1 200px"><span>Search</span><input type="search" id="f-q" value="${esc(listFilter.q)}" placeholder="Fish or location…" style="font:inherit;padding:6px 10px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)"></div>
-    <div class="ctl"><span>Source</span><select id="f-src"><option value="">All fish</option><option value="SVE">SVE only</option><option value="Vanilla">Vanilla only</option></select></div>
+    
     <div class="ctl"><span>Type</span><select id="f-cat"><option value="">All types</option><option>Fish</option><option>Legendary</option><option>Legendary II</option><option>Crab Pot</option><option>Night Market</option></select></div>
     <label class="check"><input type="checkbox" id="f-hide" ${listFilter.hide ? "checked" : ""}> Hide caught</label></div>`;
   main.appendChild(bar);
-  $("f-src").value = listFilter.src; $("f-cat").value = listFilter.cat;
+  $("f-cat").value = listFilter.cat;
   bar.querySelectorAll("#f-season button").forEach(b => b.onclick = () => { listFilter.season = b.dataset.s; render(); });
   $("f-q").oninput = e => { listFilter.q = e.target.value; drawList(); };
-  $("f-src").onchange = e => { listFilter.src = e.target.value; drawList(); };
   $("f-cat").onchange = e => { listFilter.cat = e.target.value; drawList(); };
   $("f-hide").onchange = e => { listFilter.hide = e.target.checked; drawList(); };
   const out = document.createElement("div");
@@ -685,11 +693,11 @@ function renderFish(main) {
   function drawList() {
     out.innerHTML = "";
     const q = listFilter.q.trim().toLowerCase();
-    const list = FISH.filter(f => (listFilter.season === "All" || f.ss.includes(listFilter.season)) && (!listFilter.src || f.s === listFilter.src) && (!listFilter.cat || f.c === listFilter.cat) && (!listFilter.hide || !got.has(f.n)) && (!q || (f.n + " " + f.l + " " + f.a).toLowerCase().includes(q)));
+    const list = fishList().filter(f => (listFilter.season === "All" || f.ss.includes(listFilter.season)) && (!listFilter.cat || f.c === listFilter.cat) && (!listFilter.hide || !got.has(f.n)) && (!q || (f.n + " " + f.l + " " + f.a).toLowerCase().includes(q)));
     const groups = {};
     for (const f of list) (groups[f.a] ??= []).push(f);
     for (const a of ORDER) if (groups[a]) {
-      const allHere = FISH.filter(f => f.a === a && (listFilter.season === "All" || f.ss.includes(listFilter.season)));
+      const allHere = fishList().filter(f => f.a === a && (listFilter.season === "All" || f.ss.includes(listFilter.season)));
       out.appendChild(section(a, `${allHere.filter(f => got.has(f.n)).length} / ${allHere.length} caught`, groups[a].sort(byTime).map(f => card(f, { needs: needs[f.n] }))));
     }
     if (!list.length) out.innerHTML = '<p class="empty">No fish match these filters.</p>';
@@ -734,7 +742,7 @@ const mapState = { mode: "todo", spot: null };
 
 function renderMap(main) {
   const got = caught(), needs = bundleNeeds(), { mode } = mapState, ctx = state.today;
-  const fish = FISH.filter(f => mode === "all" || !got.has(f.n));
+  const fish = fishList().filter(f => mode === "all" || !got.has(f.n));
   const can = f => availableOn(f, ctx);
   const by = Object.fromEntries(SPOTS.map(s => [s.id, []]));
   for (const f of fish) for (const id of f.spots) by[id].push(f);
@@ -764,7 +772,7 @@ function renderMap(main) {
   const g = wrap.querySelector("#pins"), NS = "http://www.w3.org/2000/svg";
   for (const s of SPOTS) {
     const list = by[s.id];
-    const total = FISH.filter(f => f.spots.includes(s.id)).length;
+    const total = fishList().filter(f => f.spots.includes(s.id)).length;
     if (!total) continue;
     const live = list.filter(can), cleared = mode === "todo" && !list.length, dim = !cleared && !live.length;
     const pin = document.createElementNS(NS, "g");
@@ -973,6 +981,16 @@ function renderCloudPanel(p) {
   };
 }
 
+// ---------- Game: Vanilla / SVE modded (whole site) ----------
+function paintGameSwitch() {
+  const box = $("game");
+  if (!box) return;
+  box.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", (b.dataset.g === "sve") === sveOn()));
+  const sub = document.querySelector("h1 small");
+  if (sub) sub.textContent = (sveOn() ? "Stardew Valley Expanded tracker" : "Stardew Valley tracker") + " · progress saves in your browser, or sign in to sync";
+}
+if ($("game")) $("game").querySelectorAll("button").forEach(b => b.onclick = () => { store.prefs.sve = b.dataset.g === "sve"; save(); render(); });
+
 // ---------- Day / Night theme (remembered on this device) ----------
 const THEME_KEY = "sve-tracker:theme";
 function paintThemeButton() {
@@ -998,14 +1016,15 @@ function render() {
   document.querySelectorAll("nav.main a").forEach(a => { if (a.getAttribute("href") === "#" + r) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
   main.innerHTML = "";
   renderFarmBar();
+  paintGameSwitch();
   ROUTES[r](main);
   renderAccount();
   window.scrollTo(0, y);
-  const got = caught(), tot = FISH.length;
+  const got = caught(), shown = fishList(), tot = shown.length;
   $("tot").textContent = tot;
-  $("cnt").textContent = FISH.filter(f => got.has(f.n)).length;
-  $("barfill").style.width = (FISH.filter(f => got.has(f.n)).length / tot * 100) + "%";
-  $("mini").innerHTML = SEASONS.map(s => { const a = FISH.filter(f => f.ss.includes(s)); return `<span style="--c:${SC[s]}">${s} ${a.filter(f => got.has(f.n)).length}/${a.length}</span>`; }).join("");
+  $("cnt").textContent = shown.filter(f => got.has(f.n)).length;
+  $("barfill").style.width = (shown.filter(f => got.has(f.n)).length / tot * 100) + "%";
+  $("mini").innerHTML = SEASONS.map(s => { const a = shown.filter(f => f.ss.includes(s)); return `<span style="--c:${SC[s]}">${s} ${a.filter(f => got.has(f.n)).length}/${a.length}</span>`; }).join("");
 }
 window.addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
 window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = load(); state = store.farms[store.active]; render(); } });

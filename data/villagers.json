@@ -1491,6 +1491,31 @@
 ],
 "note": "",
 "img": "img/villagers/willy.png"
+},
+{
+"id": "wizard",
+"n": "Wizard",
+"sve": false,
+"vanillaOnly": true,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 17
+},
+"l": [
+"Book of Mysteries",
+"Purple Mushroom",
+"Solar Essence",
+"Super Cucumber",
+"Void Essence"
+],
+"k": [
+"Iridium Bar",
+"Quartz"
+],
+"note": "",
+"img": "img/villagers/wizard.png"
 }
 ],
 "itemImg": {
@@ -1773,6 +1798,7 @@
 "Woodcutter's Weekly": "img/items/woodcutter-s-weekly.png",
 "Woody's Secret": "img/items/woody-s-secret.png",
 "Wool": "img/items/wool.png",
-"Yam": "img/items/yam.png"
+"Yam": "img/items/yam.png",
+"Book of Mysteries": "img/items/book-of-mysteries.png"
 }
 }

@@ -33,6 +33,8 @@ img/                fish + item sprites and the valley map
 
 To change data (for example a fish's location), edit the JSON files. The page reads them on load.
 
+When you publish changes to `js/app.js` or `css/style.css`, bump the `?v=` number on them in `index.html` (and `privacy.html`), so visitors' browsers load the new version instead of an old saved copy.
+
 ## Run it on your computer
 
 The page loads its data with `fetch`, so it needs a small local server instead of double-clicking `index.html`:

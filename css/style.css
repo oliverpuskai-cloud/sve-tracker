@@ -337,3 +337,8 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .srow details{margin:2px 0 0 30px}
 .srow summary{font-size:.75rem;color:var(--muted);cursor:pointer}
 .srow details p{font-size:.78rem;margin:4px 0 0;color:var(--muted)}
+/* Game version switch (header) */
+.gameseg{border-radius:999px}
+.gameseg button{font-size:.8rem;font-weight:700;padding:4px 12px}
+.gameseg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.gameseg button[data-g="sve"][aria-pressed="true"]{background:var(--sve);color:#fff}
