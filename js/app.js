@@ -850,6 +850,22 @@ function renderCloudPanel(p) {
   };
 }
 
+// ---------- Day / Night theme (remembered on this device) ----------
+const THEME_KEY = "sve-tracker:theme";
+function paintThemeButton() {
+  const b = $("theme"), dark = document.documentElement.dataset.theme === "dark";
+  if (!b) return;
+  b.textContent = dark ? "☀ Day" : "🌙 Night";
+  b.setAttribute("aria-label", dark ? "Switch to day theme" : "Switch to night theme");
+}
+function toggleTheme() {
+  const dark = document.documentElement.dataset.theme !== "dark";
+  if (dark) document.documentElement.dataset.theme = "dark"; else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem(THEME_KEY, dark ? "dark" : "light"); } catch (e) {}
+  paintThemeButton();
+}
+if ($("theme")) { $("theme").onclick = toggleTheme; paintThemeButton(); }
+
 // ---------- shell ----------
 const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, fish: renderFish, map: renderMap, backup: renderBackup };
 function route() { const r = location.hash.slice(1); return ROUTES[r] ? r : "today"; }

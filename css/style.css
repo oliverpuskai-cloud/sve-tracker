@@ -1,30 +1,36 @@
 /* Layout: a fishing log — sticky header with progress + season tabs, then area sections of sprite cards you tap to tick off. */
 :root{
-  --bg:#eef3f2; --panel:#ffffff; --ink:#1d2b2f; --muted:#5d6f73; --line:#d5e0df;
-  --accent:#1f7a8c; --accent-ink:#ffffff; --done:#e3f1e4; --done-line:#8fc29a; --done-ink:#2f6b3a;
-  --sp:#4f9a3e; --su:#d7871c; --fa:#b5562a; --wi:#3d79b8;
-  --sve:#7b4fa8; --sve-bg:#f1eaf8; --legend:#b8860b; --legend-bg:#fbf3dc;
-  --rain:#2c6fc2; --sun:#b07c00;
-  --sea:#9ccfe0; --land:#cfe3b0; --hill:#b9cf98; --hill2:#c8c0a4; --wood:#a9cc8e; --water:#5fa9cf; --sand:#ead9a8; --edge:#4c6b56;
+  /* cozy farmhouse palette: parchment ground, cream panels, wood-brown ink and edges, leaf-green accent */
+  --bg:#e6d6b0; --panel:#f2e6c9; --ink:#3a2816; --muted:#6b5236; --line:#c9ad7c;
+  --accent:#4a7f27; --accent-ink:#f5ecd4; --done:#d9e6bd; --done-line:#7fa64c; --done-ink:#365e19;
+  --sp:#5e9a33; --su:#d98b1c; --fa:#b8542a; --wi:#4a7fb5;
+  --sve:#7b4fa8; --sve-bg:#e8dbe0; --legend:#9a6b0c; --legend-bg:#f1deaa;
+  --rain:#3a6fb0; --sun:#a87400;
+  --sea:#9cc4cc; --land:#cfe3b0; --hill:#b9cf98; --hill2:#c8c0a4; --wood:#a9cc8e; --water:#5fa9cf; --sand:#ead9a8; --edge:#7a5a36;
   --display:"Pixelify Sans","Courier New",monospace; --body:"Atkinson Hyperlegible",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#121b1d; --panel:#1b2629; --ink:#e3ecea; --muted:#94a7aa; --line:#2c3b3e;
-  --accent:#4fb3c6; --accent-ink:#0d1517; --done:#1d3323; --done-line:#3f7a4b; --done-ink:#9fd8aa;
-  --sp:#7cc56a; --su:#f0a640; --fa:#e07e52; --wi:#71a8e6;
-  --sve:#b48ce0; --sve-bg:#2a2235; --legend:#e2b545; --legend-bg:#2f2a1b;
-  --rain:#7fb2f0; --sun:#e6b94a; --sea:#16323f; --land:#2b3a26; --hill:#33412b; --hill2:#3b3830; --wood:#253621; --water:#2e6684; --sand:#4a4230; --edge:#8fae96; color-scheme:dark}}
+/* Night theme: a farmhouse after dark. Warm wood browns, cream text. Chosen with the Day/Night button. */
 :root[data-theme="dark"]{
-  --bg:#121b1d; --panel:#1b2629; --ink:#e3ecea; --muted:#94a7aa; --line:#2c3b3e;
-  --accent:#4fb3c6; --accent-ink:#0d1517; --done:#1d3323; --done-line:#3f7a4b; --done-ink:#9fd8aa;
-  --sp:#7cc56a; --su:#f0a640; --fa:#e07e52; --wi:#71a8e6;
-  --sve:#b48ce0; --sve-bg:#2a2235; --legend:#e2b545; --legend-bg:#2f2a1b;
-  --rain:#7fb2f0; --sun:#e6b94a; --sea:#16323f; --land:#2b3a26; --hill:#33412b; --hill2:#3b3830; --wood:#253621; --water:#2e6684; --sand:#4a4230; --edge:#8fae96; color-scheme:dark}
+  --bg:#2b2018; --panel:#3a2c21; --ink:#f1e4c8; --muted:#c3aa86; --line:#5c4733;
+  --accent:#8fbf5a; --accent-ink:#22190f; --done:#33402a; --done-line:#7fa64c; --done-ink:#c4e3a0;
+  --sp:#8cc767; --su:#efa64a; --fa:#e0855a; --wi:#7fb0e6;
+  --sve:#c39be6; --sve-bg:#3a2d38; --legend:#e4b84f; --legend-bg:#43361d;
+  --rain:#8ab8f0; --sun:#e8bf55;
+  --sea:#23404a; --edge:#a8865c;
+  --warn:#f09a6c; --warn-bg:#4a2e20; --need:#7cc9b9; --need-bg:#22392f;
+  color-scheme:dark;
+}
+.themebtn{font:inherit;font-size:.82rem;font-weight:700;border:2px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer;white-space:nowrap}
+.themebtn:hover{border-color:var(--muted)}
+.themebtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.headright{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:flex-end;margin-top:12px}
+.headright .account{margin-top:0}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
 .wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:14px 10px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:3px solid var(--line);padding-block:14px 10px}
 .top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
 h1{font-family:var(--display);font-weight:700;font-size:1.9rem;margin:0;line-height:1;text-wrap:balance}
 h1 small{display:block;font-family:var(--body);font-weight:400;font-size:.85rem;color:var(--muted);margin-top:6px}
@@ -108,9 +114,7 @@ section h2 span{font-family:var(--body);font-size:.8rem;color:var(--muted);font-
 @media (prefers-reduced-motion:reduce){.bar i{transition:none}}
 
 /* ---------- site additions ---------- */
-:root{--warn:#b5562a; --warn-bg:#fbe9df; --need:#1f7a8c; --need-bg:#e1f1f4}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--warn:#f0a27a; --warn-bg:#3a261d; --need:#6fc6d6; --need-bg:#173238}}
-:root[data-theme="dark"]{--warn:#f0a27a; --warn-bg:#3a261d; --need:#6fc6d6; --need-bg:#173238}
+:root{--warn:#b0471c; --warn-bg:#f0d3bb; --need:#276f65; --need-bg:#d3e4d4}
 a{color:var(--accent)}
 nav.main{display:flex;gap:4px;margin-top:12px;flex-wrap:wrap;border-bottom:2px solid var(--line)}
 nav.main a{font-family:var(--display);font-size:1.05rem;text-decoration:none;color:var(--muted);padding:6px 12px;border-bottom:3px solid transparent;margin-bottom:-2px}
