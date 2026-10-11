@@ -15,14 +15,14 @@
 <div class="wrap">
 <header>
   <div class="top">
-    <h1>SVE Fish Log<small>Stardew Valley Expanded tracker · progress is saved in this browser</small></h1>
+    <h1>SVE Fish Log<small>Stardew Valley Expanded tracker · progress saves in your browser, or sign in to sync</small></h1>
     <div class="prog">
       <div class="row"><span>Fish caught</span><span><b id="cnt">0</b> / <span id="tot">0</span></span></div>
       <div class="bar"><i id="barfill" style="width:0"></i></div>
       <div class="mini" id="mini"></div>
     </div>
   </div>
-  <div class="farmbar" id="farmbar"></div>
+  <div class="headrow"><div class="farmbar" id="farmbar"></div><div class="account" id="account" hidden></div></div>
   <nav class="main" aria-label="Sections">
     <a href="#today">Today</a>
     <a href="#bundles">Bundles</a>
@@ -34,6 +34,7 @@
 <main id="view"><p class="empty">Loading…</p></main>
 <footer>
   Fan-made, free and not affiliated with ConcernedApe or FlashShifter. Fish and item sprites and the valley map © ConcernedApe; SVE sprites © FlashShifter, via stardewvalleywiki.com and stardewvalleyexpanded.wiki.gg.
+  Signing in is optional; it stores your Google email and your progress with Supabase only so it can sync (<a href="privacy.html">privacy</a>).
   Fish data: SVE wiki + Stardew Valley wiki (game 1.6). Bundles: standard set from the Stardew Valley wiki, SVE Normal and Hard sets from the SVE wiki.
 </footer>
 </div>

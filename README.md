@@ -9,7 +9,7 @@ A free progress tracker for **Stardew Valley Expanded**:
 - **Farms**: keep separate progress for each save file (new, rename, delete in the header).
 - **Backup**: download a backup of all farms, restore one, or paste a progress code.
 
-Progress is saved in each visitor's own browser (`localStorage`). There are no accounts or servers, and the site doesn't track anyone.
+Progress is saved in each visitor's own browser (`localStorage`). Signing in with Google is optional: it also keeps the progress in [Supabase](https://supabase.com), so it syncs across devices. Setup steps are in [supabase/SETUP.md](supabase/SETUP.md). The site doesn't track anyone.
 
 ## How it's built
 
@@ -19,6 +19,9 @@ Plain HTML, CSS and JavaScript, with no build step and no dependencies.
 index.html          page shell + navigation
 css/style.css       all styles (light + dark theme)
 js/app.js           the whole app: storage, Today, Bundles, Fish, Map, Backup
+js/cloud.js         optional Google sign-in + cloud sync (Supabase)
+js/config.js        Supabase project URL + public key (empty = sign-in off)
+supabase/           database table + setup guide
 data/fish.json      fish: seasons, times, weather, locations
 data/bundles.json   bundle sets (vanilla, SVE Normal, SVE Hard) and their items
 img/                fish + item sprites and the valley map

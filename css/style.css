@@ -207,3 +207,11 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .setbar{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-top:16px}
 .setbar b{font-family:var(--display);font-weight:500;font-size:1.1rem}
 .setbar .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+/* account / sync */
+.headrow{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+.account{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;font-size:.85rem;min-width:0}
+.account .who{font-weight:700;overflow-wrap:anywhere}
+.sync{color:var(--muted);font-size:.8rem}
+.sync.err{color:var(--warn)}
+.btn.google{display:inline-flex;gap:8px;align-items:center;font-weight:700}
+.btn.google span{font-family:var(--body);font-weight:700;color:#4285f4;background:#fff;border-radius:50%;width:18px;height:18px;display:grid;place-items:center;font-size:.75rem}

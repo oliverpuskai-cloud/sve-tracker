@@ -2,6 +2,8 @@
 // Progress lives in localStorage under STORE_KEY; everything else is static data in /data.
 // The store holds several farms (one per save file); `state` always points at the active farm.
 
+import * as cloud from "./cloud.js";
+
 const STORE_KEY = "sve-tracker:v1";
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
@@ -24,19 +26,45 @@ function fixFarm(f, name) {
   return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) } };
 }
 function load() {
-  const prefs = { showCaught: false, hideDone: false };
   let v = null;
   try { v = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); } catch (e) {}
+  return parseStore(v);
+}
+// Turn saved JSON (from this browser, a backup or the cloud) into a complete store
+function parseStore(v) {
+  const prefs = { showCaught: false, hideDone: false };
   if (v && v.farms && typeof v.farms === "object" && Object.keys(v.farms).length) {
     const farms = Object.fromEntries(Object.entries(v.farms).map(([id, f]) => [id, fixFarm(f, f.name || "My farm")]));
-    return { version: 2, active: farms[v.active] ? v.active : Object.keys(farms)[0], farms, prefs: { ...prefs, ...v.prefs } };
+    return { version: 2, updatedAt: v.updatedAt || 0, active: farms[v.active] ? v.active : Object.keys(farms)[0], farms, prefs: { ...prefs, ...v.prefs } };
   }
   // version 1 kept one farm's progress at the top level: move it into "My farm"
   const first = v && typeof v === "object" ? fixFarm({ caught: v.caught, bundles: v.bundles, today: v.today, qi: v.prefs?.qi }, "My farm") : newFarm("My farm");
   return { version: 2, active: "farm-1", farms: { "farm-1": first }, prefs: { ...prefs, showCaught: !!v?.prefs?.showCaught, hideDone: !!v?.prefs?.hideDone } };
 }
 function save() {
+  store.updatedAt = Date.now();
   try { localStorage.setItem(STORE_KEY, JSON.stringify(store)); } catch (e) {}
+  cloud.queuePush();
+}
+// Cloud sync hooks: replace this browser's copy, or combine two copies without losing ticks
+function replaceStore(data) {
+  store = parseStore(data);
+  state = store.farms[store.active];
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(store)); } catch (e) {}
+  render();
+}
+function mergeStores(cloudData, local) {
+  const merged = parseStore(JSON.parse(JSON.stringify(cloudData)));
+  for (const f of Object.values(local.farms)) {
+    const same = Object.values(merged.farms).find(x => x.name === f.name);
+    if (same) mergeInto(same, f);
+    else {
+      let n = 1; while (merged.farms["farm-" + n]) n++;
+      merged.farms["farm-" + n] = JSON.parse(JSON.stringify(f));
+    }
+  }
+  merged.updatedAt = Date.now();
+  return merged;
 }
 function switchFarm(id) { store.active = id; state = store.farms[id]; save(); render(); }
 
@@ -513,6 +541,7 @@ function renderBackup(main) {
   div.style.marginTop = "18px";
   const nFarms = Object.keys(store.farms).length;
   div.innerHTML = `
+    <div class="panel stack" id="k-cloud" hidden></div>
     <div class="panel stack">
       <h2 style="font-family:var(--display);font-weight:500;margin:0">Save a backup</h2>
       <p class="lede" style="margin:0">Your progress lives in this browser only. The backup file holds all ${nFarms} farm${nFarms === 1 ? "" : "s"}. Download one now and then, or to move to another device.</p>
@@ -613,6 +642,45 @@ function renderFarmBar() {
   };
 }
 
+// ---------- account (optional Google sign-in) ----------
+function renderAccount() {
+  const el = $("account");
+  if (!el) return;
+  el.hidden = !cloud.enabled;
+  if (!cloud.enabled) return;
+  const u = cloud.currentUser(), s = cloud.syncStatus();
+  if (!u) {
+    el.innerHTML = s === "error"
+      ? '<span class="sync err">Sign-in is unavailable right now. Progress is saved in this browser.</span>'
+      : '<button class="btn small google" id="ac-in" type="button"><span aria-hidden="true">G</span> Sign in with Google</button><span class="sync">to keep progress on every device</span>';
+    const b = $("ac-in");
+    if (b) b.onclick = () => { b.disabled = true; b.textContent = "Opening Google…"; cloud.signIn(); };
+  } else {
+    const label = { syncing: "Saving…", synced: "Synced", error: "Couldn't sync, saved in this browser" }[s] || "";
+    el.innerHTML = `<span class="sync ${s === "error" ? "err" : ""}">☁ ${label}</span><span class="who">${esc(u.email || "Signed in")}</span><button class="btn small ghost" id="ac-out" type="button">Sign out</button>`;
+    $("ac-out").onclick = () => cloud.signOut();
+  }
+  if (route() === "backup") { const p = $("k-cloud"); if (p) renderCloudPanel(p); }
+}
+function renderCloudPanel(p) {
+  const u = cloud.currentUser();
+  if (!cloud.enabled) { p.hidden = true; return; }
+  p.hidden = false;
+  p.innerHTML = `<h2 style="font-family:var(--display);font-weight:500;margin:0">Your account</h2>` + (u
+    ? `<p class="lede" style="margin:0">Signed in as <b>${esc(u.email || "")}</b>. Your farms are saved to your account and in this browser. Signing out keeps the copy in this browser.</p>
+       <div><button class="btn" id="k-del" type="button">Delete my cloud save</button> <span id="k-delc"></span></div>`
+    : `<p class="lede" style="margin:0">Sign in with Google (top of the page) to keep your farms on every device. It's optional: without it, progress stays in this browser.</p>`)
+    + `<p class="lede" style="margin:0;font-size:.8rem">Privacy: signing in stores your Google email address and your tracker progress with Supabase, only so it can sync. Nothing else is collected and nothing is shared.</p>`;
+  const del = $("k-del");
+  if (del) del.onclick = () => {
+    $("k-delc").innerHTML = '<button class="btn danger" id="k-dely" type="button">Yes, delete it</button>';
+    $("k-dely").onclick = async () => {
+      const ok = await cloud.deleteCloudSave();
+      $("k-msg").textContent = ok ? "Your cloud save is deleted and you're signed out. The copy in this browser is still here." : "Couldn't delete the cloud save. Check your connection and try again.";
+    };
+  };
+}
+
 // ---------- shell ----------
 const ROUTES = { today: renderToday, bundles: renderBundles, fish: renderFish, map: renderMap, backup: renderBackup };
 function route() { const r = location.hash.slice(1); return ROUTES[r] ? r : "today"; }
@@ -623,6 +691,7 @@ function render() {
   main.innerHTML = "";
   renderFarmBar();
   ROUTES[r](main);
+  renderAccount();
   window.scrollTo(0, y);
   const got = caught(), tot = FISH.length;
   $("tot").textContent = tot;
@@ -638,5 +707,6 @@ Promise.all([fetch("data/fish.json").then(r => r.json()), fetch("data/bundles.js
     FISH = fd.fish; ORDER = fd.order; SETS = bd.sets;
     for (const f of FISH) { BY_NAME[f.n] = f; const l = f.l.toLowerCase(); f.spots = SPOTS.filter(s => s.t(l)).map(s => s.id); }
     render();
+    cloud.start({ getStore: () => store, replaceStore, mergeStores, onChange: renderAccount });
   })
   .catch(() => { $("view").innerHTML = '<p class="empty">Couldn\'t load the fish data. If you opened index.html straight from your computer, run it through a local server instead (see README).</p>'; });
