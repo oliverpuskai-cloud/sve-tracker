@@ -7,6 +7,7 @@
   --sve:#7b4fa8; --sve-bg:#e8dbe0; --legend:#9a6b0c; --legend-bg:#f1deaa;
   --rain:#3a6fb0; --sun:#a87400;
   --sea:#9cc4cc; --land:#cfe3b0; --hill:#b9cf98; --hill2:#c8c0a4; --wood:#a9cc8e; --water:#5fa9cf; --sand:#ead9a8; --edge:#7a5a36;
+  --wood:#a86a32; --wood-dark:#5e3818; --wood-light:#e0b06e;
   --display:"Pixelify Sans","Courier New",monospace; --body:"Atkinson Hyperlegible",system-ui,-apple-system,sans-serif;
   color-scheme:light;
 }
@@ -19,6 +20,7 @@
   --rain:#8ab8f0; --sun:#e8bf55;
   --sea:#23404a; --edge:#a8865c;
   --warn:#f09a6c; --warn-bg:#4a2e20; --need:#7cc9b9; --need-bg:#22392f;
+  --wood:#7d4c22; --wood-dark:#1f130a; --wood-light:#a8743c;
   color-scheme:dark;
 }
 .themebtn{font:inherit;font-size:.82rem;font-weight:700;border:2px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer;white-space:nowrap}
@@ -283,3 +285,24 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .tadd input:first-child{flex:1 1 160px}
 .tadd input[type=number]{width:4.4em}
 .tclear{align-self:flex-start;font:inherit;font-size:.8rem;background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;padding:0}
+
+/* ---------- wooden frames, like the in-game menus ----------
+   thick wood border + dark outer edge + light inner bevel + a small drop shadow */
+.panel,.stat,.bundle,.villager,.mapscroll{
+  border:4px solid var(--wood);border-radius:6px;
+  box-shadow:0 0 0 2px var(--wood-dark),inset 0 0 0 2px var(--wood-light),0 4px 0 2px rgba(60,35,15,.25);
+}
+/* fish cards and to-do panels come in larger numbers, so a lighter frame */
+.card{
+  border:3px solid var(--wood);border-radius:5px;
+  box-shadow:0 0 0 1px var(--wood-dark),inset 0 0 0 1px var(--wood-light),0 3px 0 1px rgba(60,35,15,.2);
+}
+/* keep status visible: the frame takes on the state colour */
+.card.done,.bundle.complete{border-color:var(--done-line)}
+.card.leg{border-color:var(--legend)}
+.villager.bday{border-color:var(--legend);box-shadow:0 0 0 2px var(--wood-dark),inset 0 0 0 2px var(--legend-bg),0 4px 0 2px rgba(60,35,15,.25)}
+.villager.flash{box-shadow:0 0 0 2px var(--wood-dark),0 0 0 6px var(--accent)}
+/* frames need room for their shadow */
+.grid,.bgrid,.vgrid,.stats,.tcols{gap:14px}
+.stats{padding-bottom:4px}
+.mapscroll{margin-bottom:6px}
