@@ -203,3 +203,7 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .recipes{grid-column:2 / 4;font-size:.8rem;min-width:0;overflow-wrap:anywhere;border-top:1px dashed var(--line);padding-top:4px;margin-top:2px}
 .recipes .with{color:var(--muted)}
 .recipes .tag{vertical-align:1px}
+/* bundle set picker */
+.setbar{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-top:16px}
+.setbar b{font-family:var(--display);font-weight:500;font-size:1.1rem}
+.setbar .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}

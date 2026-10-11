@@ -6,7 +6,7 @@ const STORE_KEY = "sve-tracker:v1";
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
 
-let FISH = [], ORDER = [], ROOMS = [], BY_NAME = {};
+let FISH = [], ORDER = [], SETS = {}, BY_NAME = {};
 let store = load();
 let state = store.farms[store.active];
 
@@ -16,11 +16,12 @@ const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, 
 
 // ---------- storage ----------
 function newFarm(name) {
-  return { name, caught: [], bundles: {}, done: {}, qi: false, today: { season: "Spring", day: 1, rain: false, hour: "" } };
+  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, qi: false, today: { season: "Spring", day: 1, rain: false, hour: "" } };
 }
 function fixFarm(f, name) {
   const b = newFarm(name);
-  return { ...b, ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) } };
+  // farms saved before bundle sets existed used the standard bundles
+  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) } };
 }
 function load() {
   const prefs = { showCaught: false, hideDone: false };
@@ -97,8 +98,11 @@ function setDonated(b, idx, on) {
 }
 // A bundle is done when enough items are ticked, or when it was marked "All done" in one go.
 const bundleDone = b => !!state.done[b.id] || donated(b.id).size >= b.need;
-const allBundles = () => ROOMS.flatMap(r => r.bundles);
-const CC_ROOMS = () => ROOMS.filter(r => r.room !== "Abandoned JojaMart");
+// Each farm picks a bundle set (standard, SVE Normal or SVE Hard). Bundle ids differ per set,
+// so progress in one set is kept if the farm switches to another and back.
+const rooms = () => (SETS[state.bundleSet] || SETS.vanilla).rooms;
+const allBundles = () => rooms().flatMap(r => r.bundles);
+const CC_ROOMS = () => rooms().filter(r => r.room !== "Abandoned JojaMart");
 function completeBundles(list) {
   for (const b of list) {
     state.done[b.id] = true;
@@ -300,16 +304,19 @@ function renderBundles(main) {
   head.innerHTML = `
     <div class="stats">
       <div class="stat"><b>${doneCount} / ${all.length}</b><span>bundles complete</span></div>
-      ${ROOMS.map(r => `<div class="stat"><b>${r.bundles.filter(bundleDone).length} / ${r.bundles.length}</b><span>${esc(r.room)}</span></div>`).join("")}
+      ${rooms().map(r => `<div class="stat"><b>${r.bundles.filter(bundleDone).length} / ${r.bundles.length}</b><span>${esc(r.room)}</span></div>`).join("")}
     </div>
+    <div class="setbar panel"><div><b>Bundle set</b><p class="lede" style="margin:2px 0 0">Pick the bundles your save uses. SVE asks for Normal or Hard when you create the save; “Standard” is the unmodded game. Each set keeps its own progress.</p></div>
+      <div class="seg" id="b-set">${Object.entries(SETS).map(([id, s]) => `<button type="button" data-set="${id}" aria-pressed="${(SETS[state.bundleSet] ? state.bundleSet : "vanilla") === id}">${esc(s.label)}</button>`).join("")}</div></div>
     <div class="ccbar panel"><div><b>${ccDone ? "Community Center restored ✓" : "Already finished the Community Center?"}</b><p class="lede" style="margin:2px 0 0">${ccDone ? "Every room is marked done on this farm." : "Mark every room done in one click. You can still reset single rooms or bundles below."}</p></div><span id="b-cc"></span></div>
     <div class="controls"><label class="check"><input type="checkbox" id="b-hide" ${store.prefs.hideDone ? "checked" : ""}> Hide finished bundles</label>
     <p class="lede">Tap an item when you've put it in the bundle, or use <b>All done</b> on a bundle or room. Items marked <b style="color:var(--need)">TODAY</b> can be caught or found on the day set in the Today tab (${ctx.season} ${ctx.day}, ${ctx.rain ? "rain" : "sunny"}).</p></div>`;
   main.appendChild(head);
   $("b-cc").appendChild(bulkButton("cc", ccDone, "Mark whole Community Center done", "Reset Community Center", () => completeBundles(cc), () => resetBundles(cc), true));
   $("b-hide").onchange = e => { store.prefs.hideDone = e.target.checked; save(); render(); };
+  head.querySelectorAll("#b-set button").forEach(b => b.onclick = () => { state.bundleSet = b.dataset.set; confirmKey = null; save(); render(); });
 
-  for (const r of ROOMS) {
+  for (const r of rooms()) {
     const roomDone = r.bundles.every(bundleDone);
     const list = r.bundles.filter(b => !(store.prefs.hideDone && bundleDone(b)));
     const sec = document.createElement("section");
@@ -628,7 +635,7 @@ window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = loa
 
 Promise.all([fetch("data/fish.json").then(r => r.json()), fetch("data/bundles.json").then(r => r.json())])
   .then(([fd, bd]) => {
-    FISH = fd.fish; ORDER = fd.order; ROOMS = bd;
+    FISH = fd.fish; ORDER = fd.order; SETS = bd.sets;
     for (const f of FISH) { BY_NAME[f.n] = f; const l = f.l.toLowerCase(); f.spots = SPOTS.filter(s => s.t(l)).map(s => s.id); }
     render();
   })
