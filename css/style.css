@@ -306,3 +306,34 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .grid,.bgrid,.vgrid,.stats,.tcols{gap:14px}
 .stats{padding-bottom:4px}
 .mapscroll{margin-bottom:6px}
+/* recipes */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.recipe{background:var(--panel);min-width:0;padding:12px 14px;border:3px solid var(--wood);border-radius:5px;box-shadow:0 0 0 1px var(--wood-dark),inset 0 0 0 1px var(--wood-light),0 3px 0 1px rgba(60,35,15,.2)}
+.recipe.sve{background:var(--sve-bg)}
+.recipe.made{background:var(--done);border-color:var(--done-line)}
+.rhead{display:flex;gap:12px;align-items:center}
+.rpic{width:48px;height:48px;image-rendering:pixelated;flex:none}
+.rpic.noimg{display:grid;place-items:center;background:var(--bg);border-radius:6px;color:var(--muted)}
+.rmeta{flex:1;min-width:0}
+.rmeta h3{font-family:var(--display);font-weight:500;font-size:1.1rem;margin:0}
+.rmeta .tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:2px}
+.rmade{display:flex;gap:6px;align-items:center;font-size:.8rem;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap}
+.rmade input{width:20px;height:20px;accent-color:var(--done-line)}
+.recipe.made .rmeta h3{color:var(--done-ink)}
+.unlock{font-size:.82rem;margin:8px 0;color:var(--ink)}
+.unlock.u-friend{color:var(--warn);font-weight:700}
+.gift.ing b{font-weight:700;margin-left:2px}
+.gift.madeof{border-style:dashed;border-color:var(--muted)}
+.noimg{display:inline-grid;place-items:center;width:22px;height:22px;font-size:.8rem;color:var(--muted)}
+.shoplist{padding:6px 12px}
+.shoplist ul{list-style:none;margin:0;padding:0;columns:2 340px;column-gap:24px}
+.srow{break-inside:avoid;border-bottom:1px dashed var(--line);padding:6px 0}
+.srow label{display:flex;gap:10px;align-items:center;cursor:pointer}
+.srow input{width:20px;height:20px;flex:none;accent-color:var(--done-line)}
+.srow img,.srow .noimg{width:28px;height:28px;image-rendering:pixelated;flex:none}
+.sname{flex:1;min-width:0;font-size:.92rem;overflow-wrap:anywhere}
+.sqty{font-family:var(--display);font-size:1.05rem;font-variant-numeric:tabular-nums}
+.srow.got .sname{text-decoration:line-through;color:var(--muted)}
+.srow details{margin:2px 0 0 30px}
+.srow summary{font-size:.75rem;color:var(--muted);cursor:pointer}
+.srow details p{font-size:.78rem;margin:4px 0 0;color:var(--muted)}

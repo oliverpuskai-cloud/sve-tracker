@@ -1,0 +1,5744 @@
+{
+"cooking": [
+{
+"id": "fried-egg",
+"n": "Fried Egg",
+"sve": false,
+"ing": [
+[
+"Egg",
+1
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "omelet",
+"n": "Omelet",
+"sve": false,
+"ing": [
+[
+"Egg",
+1
+],
+[
+"Milk",
+1
+]
+],
+"src": "Queen of Sauce TV: Spring 28, Year 1 · or Stardrop Saloon for 100g",
+"k": "tv"
+},
+{
+"id": "salad",
+"n": "Salad",
+"sve": false,
+"ing": [
+[
+"Leek",
+1
+],
+[
+"Dandelion",
+1
+],
+[
+"Vinegar",
+1
+]
+],
+"src": "Emily · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "cheese-cauliflower",
+"n": "Cheese Cauliflower",
+"sve": false,
+"ing": [
+[
+"Cauliflower",
+1
+],
+[
+"Cheese",
+1
+]
+],
+"src": "Pam · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "baked-fish",
+"n": "Baked Fish",
+"sve": false,
+"ing": [
+[
+"Sunfish",
+1
+],
+[
+"Bream",
+1
+],
+[
+"Wheat Flour",
+1
+]
+],
+"src": "Queen of Sauce TV: Summer 7, Year 1",
+"k": "tv"
+},
+{
+"id": "parsnip-soup",
+"n": "Parsnip Soup",
+"sve": false,
+"ing": [
+[
+"Parsnip",
+1
+],
+[
+"Milk",
+1
+],
+[
+"Vinegar",
+1
+]
+],
+"src": "Caroline · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "vegetable-medley",
+"n": "Vegetable Medley",
+"sve": false,
+"ing": [
+[
+"Tomato",
+1
+],
+[
+"Beet",
+1
+]
+],
+"src": "Caroline · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "complete-breakfast",
+"n": "Complete Breakfast",
+"sve": false,
+"ing": [
+[
+"Fried Egg",
+1,
+1
+],
+[
+"Milk",
+1
+],
+[
+"Hashbrowns",
+1,
+1
+],
+[
+"Pancakes",
+1,
+1
+]
+],
+"src": "Queen of Sauce TV: Spring 21, Year 2",
+"k": "tv"
+},
+{
+"id": "fried-calamari",
+"n": "Fried Calamari",
+"sve": false,
+"ing": [
+[
+"Squid",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "Jodi · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "strange-bun",
+"n": "Strange Bun",
+"sve": false,
+"ing": [
+[
+"Wheat Flour",
+1
+],
+[
+"Periwinkle",
+1
+],
+[
+"Void Mayonnaise",
+1
+]
+],
+"src": "Shane · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "lucky-lunch",
+"n": "Lucky Lunch",
+"sve": false,
+"ing": [
+[
+"Sea Cucumber",
+1
+],
+[
+"Tortilla",
+1,
+1
+],
+[
+"Blue Jazz",
+1
+]
+],
+"src": "Queen of Sauce TV: Spring 28, Year 2",
+"k": "tv"
+},
+{
+"id": "fried-mushroom",
+"n": "Fried Mushroom",
+"sve": false,
+"ing": [
+[
+"Common Mushroom",
+1
+],
+[
+"Morel",
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "Demetrius · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "pizza",
+"n": "Pizza",
+"sve": false,
+"ing": [
+[
+"Wheat Flour",
+1
+],
+[
+"Tomato",
+1
+],
+[
+"Cheese",
+1
+]
+],
+"src": "Queen of Sauce TV: Spring 7, Year 2 · or Stardrop Saloon for 150g",
+"k": "tv"
+},
+{
+"id": "bean-hotpot",
+"n": "Bean Hotpot",
+"sve": false,
+"ing": [
+[
+"Green Bean",
+2
+]
+],
+"src": "Clint · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "glazed-yams",
+"n": "Glazed Yams",
+"sve": false,
+"ing": [
+[
+"Yam",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Queen of Sauce TV: Fall 21, Year 1",
+"k": "tv"
+},
+{
+"id": "carp-surprise",
+"n": "Carp Surprise",
+"sve": false,
+"ing": [
+[
+"Carp",
+4
+]
+],
+"src": "Queen of Sauce TV: Summer 7, Year 2",
+"k": "tv"
+},
+{
+"id": "hashbrowns",
+"n": "Hashbrowns",
+"sve": false,
+"ing": [
+[
+"Potato",
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "Queen of Sauce TV: Spring 14, Year 2 · or Stardrop Saloon for 50g",
+"k": "tv"
+},
+{
+"id": "pancakes",
+"n": "Pancakes",
+"sve": false,
+"ing": [
+[
+"Wheat Flour",
+1
+],
+[
+"Egg",
+1
+]
+],
+"src": "Queen of Sauce TV: Summer 14, Year 1 · or Stardrop Saloon for 100g",
+"k": "tv"
+},
+{
+"id": "salmon-dinner",
+"n": "Salmon Dinner",
+"sve": false,
+"ing": [
+[
+"Salmon",
+1
+],
+[
+"Amaranth",
+1
+],
+[
+"Kale",
+1
+]
+],
+"src": "Gus · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "fish-taco",
+"n": "Fish Taco",
+"sve": false,
+"ing": [
+[
+"Tuna",
+1
+],
+[
+"Tortilla",
+1,
+1
+],
+[
+"Red Cabbage",
+1
+],
+[
+"Mayonnaise",
+1
+]
+],
+"src": "Linus · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "crispy-bass",
+"n": "Crispy Bass",
+"sve": false,
+"ing": [
+[
+"Largemouth Bass",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "Kent · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "pepper-poppers",
+"n": "Pepper Poppers",
+"sve": false,
+"ing": [
+[
+"Hot Pepper",
+1
+],
+[
+"Cheese",
+1
+]
+],
+"src": "Shane · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "bread",
+"n": "Bread",
+"sve": false,
+"ing": [
+[
+"Wheat Flour",
+1
+]
+],
+"src": "Queen of Sauce TV: Summer 28, Year 1 · or Stardrop Saloon for 100g",
+"k": "tv"
+},
+{
+"id": "tom-kha-soup",
+"n": "Tom Kha Soup",
+"sve": false,
+"ing": [
+[
+"Coconut",
+1
+],
+[
+"Shrimp",
+1
+],
+[
+"Common Mushroom",
+1
+]
+],
+"src": "Sandy · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "trout-soup",
+"n": "Trout Soup",
+"sve": false,
+"ing": [
+[
+"Rainbow Trout",
+1
+],
+[
+"Green Algae",
+1
+]
+],
+"src": "Queen of Sauce TV: Fall 14, Year 1",
+"k": "tv"
+},
+{
+"id": "chocolate-cake",
+"n": "Chocolate Cake",
+"sve": false,
+"ing": [
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Egg",
+1
+]
+],
+"src": "Queen of Sauce TV: Winter 14, Year 1",
+"k": "tv"
+},
+{
+"id": "pink-cake",
+"n": "Pink Cake",
+"sve": false,
+"ing": [
+[
+"Melon",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Egg",
+1
+]
+],
+"src": "Queen of Sauce TV: Summer 21, Year 2",
+"k": "tv"
+},
+{
+"id": "rhubarb-pie",
+"n": "Rhubarb Pie",
+"sve": false,
+"ing": [
+[
+"Rhubarb",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Marnie · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "cookie",
+"n": "Cookie",
+"sve": false,
+"ing": [
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Egg",
+1
+]
+],
+"src": "Evelyn (4-heart event)",
+"k": "friend"
+},
+{
+"id": "spaghetti",
+"n": "Spaghetti",
+"sve": false,
+"ing": [
+[
+"Wheat Flour",
+1
+],
+[
+"Tomato",
+1
+]
+],
+"src": "Lewis · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "fried-eel",
+"n": "Fried Eel",
+"sve": false,
+"ing": [
+[
+"Eel",
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "George · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "spicy-eel",
+"n": "Spicy Eel",
+"sve": false,
+"ing": [
+[
+"Eel",
+1
+],
+[
+"Hot Pepper",
+1
+]
+],
+"src": "George · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "sashimi",
+"n": "Sashimi",
+"sve": false,
+"ing": [
+[
+"Any Fish",
+1
+]
+],
+"src": "Linus · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "maki-roll",
+"n": "Maki Roll",
+"sve": false,
+"ing": [
+[
+"Any Fish",
+1
+],
+[
+"Seaweed",
+1
+],
+[
+"Rice",
+1
+]
+],
+"src": "Queen of Sauce TV: Summer 21, Year 1 · or Stardrop Saloon for 300g",
+"k": "tv"
+},
+{
+"id": "tortilla",
+"n": "Tortilla",
+"sve": false,
+"ing": [
+[
+"Corn",
+1
+]
+],
+"src": "Queen of Sauce TV: Fall 7, Year 1 · or Stardrop Saloon for 100g",
+"k": "tv"
+},
+{
+"id": "red-plate",
+"n": "Red Plate",
+"sve": false,
+"ing": [
+[
+"Red Cabbage",
+1
+],
+[
+"Radish",
+1
+]
+],
+"src": "Emily · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "eggplant-parmesan",
+"n": "Eggplant Parmesan",
+"sve": false,
+"ing": [
+[
+"Eggplant",
+1
+],
+[
+"Tomato",
+1
+]
+],
+"src": "Lewis · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "rice-pudding",
+"n": "Rice Pudding",
+"sve": false,
+"ing": [
+[
+"Milk",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Rice",
+1
+]
+],
+"src": "Evelyn · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "ice-cream",
+"n": "Ice Cream",
+"sve": false,
+"ing": [
+[
+"Milk",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Jodi · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "blueberry-tart",
+"n": "Blueberry Tart",
+"sve": false,
+"ing": [
+[
+"Blueberry",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Egg",
+1
+]
+],
+"src": "Pierre · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "autumn-s-bounty",
+"n": "Autumn's Bounty",
+"sve": false,
+"ing": [
+[
+"Yam",
+1
+],
+[
+"Pumpkin",
+1
+]
+],
+"src": "Demetrius · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "pumpkin-soup",
+"n": "Pumpkin Soup",
+"sve": false,
+"ing": [
+[
+"Pumpkin",
+1
+],
+[
+"Milk",
+1
+]
+],
+"src": "Robin · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "super-meal",
+"n": "Super Meal",
+"sve": false,
+"ing": [
+[
+"Bok Choy",
+1
+],
+[
+"Cranberries",
+1
+],
+[
+"Artichoke",
+1
+]
+],
+"src": "Kent · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "cranberry-sauce",
+"n": "Cranberry Sauce",
+"sve": false,
+"ing": [
+[
+"Cranberries",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Gus · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "stuffing",
+"n": "Stuffing",
+"sve": false,
+"ing": [
+[
+"Bread",
+1,
+1
+],
+[
+"Cranberries",
+1
+],
+[
+"Hazelnut",
+1
+]
+],
+"src": "Pam · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "farmer-s-lunch",
+"n": "Farmer's Lunch",
+"sve": false,
+"ing": [
+[
+"Omelet",
+1,
+1
+],
+[
+"Parsnip",
+1
+]
+],
+"src": "Farming Level 3",
+"k": "skill"
+},
+{
+"id": "survival-burger",
+"n": "Survival Burger",
+"sve": false,
+"ing": [
+[
+"Bread",
+1,
+1
+],
+[
+"Cave Carrot",
+1
+],
+[
+"Eggplant",
+1
+]
+],
+"src": "Foraging Level 8",
+"k": "skill"
+},
+{
+"id": "dish-o-the-sea",
+"n": "Dish O' The Sea",
+"sve": false,
+"ing": [
+[
+"Sardine",
+2
+],
+[
+"Hashbrowns",
+1,
+1
+]
+],
+"src": "Fishing Level 3",
+"k": "skill"
+},
+{
+"id": "miner-s-treat",
+"n": "Miner's Treat",
+"sve": false,
+"ing": [
+[
+"Cave Carrot",
+2
+],
+[
+"Sugar",
+1
+],
+[
+"Milk",
+1
+]
+],
+"src": "Mining Level 3",
+"k": "skill"
+},
+{
+"id": "roots-platter",
+"n": "Roots Platter",
+"sve": false,
+"ing": [
+[
+"Cave Carrot",
+1
+],
+[
+"Winter Root",
+1
+]
+],
+"src": "Combat Level 3",
+"k": "skill"
+},
+{
+"id": "triple-shot-espresso",
+"n": "Triple Shot Espresso",
+"sve": false,
+"ing": [
+[
+"Coffee",
+3
+]
+],
+"src": "Stardrop Saloon for 5,000g",
+"k": "shop"
+},
+{
+"id": "seafoam-pudding",
+"n": "Seafoam Pudding",
+"sve": false,
+"ing": [
+[
+"Flounder",
+1
+],
+[
+"Midnight Carp",
+1
+],
+[
+"Squid Ink",
+1
+]
+],
+"src": "Fishing Level 9",
+"k": "skill"
+},
+{
+"id": "algae-soup",
+"n": "Algae Soup",
+"sve": false,
+"ing": [
+[
+"Green Algae",
+4
+]
+],
+"src": "Clint · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "pale-broth",
+"n": "Pale Broth",
+"sve": false,
+"ing": [
+[
+"White Algae",
+2
+]
+],
+"src": "Marnie · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "plum-pudding",
+"n": "Plum Pudding",
+"sve": false,
+"ing": [
+[
+"Wild Plum",
+2
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Queen of Sauce TV: Winter 7, Year 1",
+"k": "tv"
+},
+{
+"id": "artichoke-dip",
+"n": "Artichoke Dip",
+"sve": false,
+"ing": [
+[
+"Artichoke",
+1
+],
+[
+"Milk",
+1
+]
+],
+"src": "Queen of Sauce TV: Fall 28, Year 1",
+"k": "tv"
+},
+{
+"id": "stir-fry",
+"n": "Stir Fry",
+"sve": false,
+"ing": [
+[
+"Cave Carrot",
+1
+],
+[
+"Common Mushroom",
+1
+],
+[
+"Kale",
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "Queen of Sauce TV: Spring 7, Year 1",
+"k": "tv"
+},
+{
+"id": "roasted-hazelnuts",
+"n": "Roasted Hazelnuts",
+"sve": false,
+"ing": [
+[
+"Hazelnut",
+3
+]
+],
+"src": "Queen of Sauce TV: Summer 28, Year 2",
+"k": "tv"
+},
+{
+"id": "pumpkin-pie",
+"n": "Pumpkin Pie",
+"sve": false,
+"ing": [
+[
+"Pumpkin",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Milk",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Queen of Sauce TV: Winter 21, Year 1",
+"k": "tv"
+},
+{
+"id": "radish-salad",
+"n": "Radish Salad",
+"sve": false,
+"ing": [
+[
+"Oil",
+1
+],
+[
+"Vinegar",
+1
+],
+[
+"Radish",
+1
+]
+],
+"src": "Queen of Sauce TV: Spring 21, Year 1",
+"k": "tv"
+},
+{
+"id": "fruit-salad",
+"n": "Fruit Salad",
+"sve": false,
+"ing": [
+[
+"Blueberry",
+1
+],
+[
+"Melon",
+1
+],
+[
+"Apricot",
+1
+]
+],
+"src": "Queen of Sauce TV: Fall 7, Year 2",
+"k": "tv"
+},
+{
+"id": "blackberry-cobbler",
+"n": "Blackberry Cobbler",
+"sve": false,
+"ing": [
+[
+"Blackberry",
+2
+],
+[
+"Sugar",
+1
+],
+[
+"Wheat Flour",
+1
+]
+],
+"src": "Queen of Sauce TV: Fall 14, Year 2",
+"k": "tv"
+},
+{
+"id": "cranberry-candy",
+"n": "Cranberry Candy",
+"sve": false,
+"ing": [
+[
+"Cranberries",
+1
+],
+[
+"Apple",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Queen of Sauce TV: Winter 28, Year 1",
+"k": "tv"
+},
+{
+"id": "bruschetta",
+"n": "Bruschetta",
+"sve": false,
+"ing": [
+[
+"Bread",
+1,
+1
+],
+[
+"Oil",
+1
+],
+[
+"Tomato",
+1
+]
+],
+"src": "Queen of Sauce TV: Winter 21, Year 2",
+"k": "tv"
+},
+{
+"id": "coleslaw",
+"n": "Coleslaw",
+"sve": false,
+"ing": [
+[
+"Red Cabbage",
+1
+],
+[
+"Vinegar",
+1
+],
+[
+"Mayonnaise",
+1
+]
+],
+"src": "Queen of Sauce TV: Spring 14, Year 1",
+"k": "tv"
+},
+{
+"id": "fiddlehead-risotto",
+"n": "Fiddlehead Risotto",
+"sve": false,
+"ing": [
+[
+"Oil",
+1
+],
+[
+"Fiddlehead Fern",
+1
+],
+[
+"Garlic",
+1
+]
+],
+"src": "Queen of Sauce TV: Fall 28, Year 2",
+"k": "tv"
+},
+{
+"id": "poppyseed-muffin",
+"n": "Poppyseed Muffin",
+"sve": false,
+"ing": [
+[
+"Poppy",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Queen of Sauce TV: Winter 7, Year 2",
+"k": "tv"
+},
+{
+"id": "chowder",
+"n": "Chowder",
+"sve": false,
+"ing": [
+[
+"Clam",
+1
+],
+[
+"Milk",
+1
+]
+],
+"src": "Willy · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "fish-stew",
+"n": "Fish Stew",
+"sve": false,
+"ing": [
+[
+"Crayfish",
+1
+],
+[
+"Mussel",
+1
+],
+[
+"Periwinkle",
+1
+],
+[
+"Tomato",
+1
+]
+],
+"src": "Willy · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "escargot",
+"n": "Escargot",
+"sve": false,
+"ing": [
+[
+"Snail",
+1
+],
+[
+"Garlic",
+1
+]
+],
+"src": "Willy · 5♥ (letter)",
+"k": "friend"
+},
+{
+"id": "lobster-bisque",
+"n": "Lobster Bisque",
+"sve": false,
+"ing": [
+[
+"Lobster",
+1
+],
+[
+"Milk",
+1
+]
+],
+"src": "Queen of Sauce TV: Winter 14, Year 2 · or Willy · 9♥ (letter)",
+"k": "friend"
+},
+{
+"id": "maple-bar",
+"n": "Maple Bar",
+"sve": false,
+"ing": [
+[
+"Maple Syrup",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Wheat Flour",
+1
+]
+],
+"src": "Queen of Sauce TV: Summer 14, Year 2",
+"k": "tv"
+},
+{
+"id": "crab-cakes",
+"n": "Crab Cakes",
+"sve": false,
+"ing": [
+[
+"Crab",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Egg",
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "Queen of Sauce TV: Fall 21, Year 2",
+"k": "tv"
+},
+{
+"id": "shrimp-cocktail",
+"n": "Shrimp Cocktail",
+"sve": false,
+"ing": [
+[
+"Tomato",
+1
+],
+[
+"Shrimp",
+1
+],
+[
+"Wild Horseradish",
+1
+]
+],
+"src": "Queen of Sauce TV: Winter 28, Year 2",
+"k": "tv"
+},
+{
+"id": "ginger-ale",
+"n": "Ginger Ale",
+"sve": false,
+"ing": [
+[
+"Ginger",
+3
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Dwarf Shop in Volcano Dungeon for 1,000g",
+"k": "shop"
+},
+{
+"id": "banana-pudding",
+"n": "Banana Pudding",
+"sve": false,
+"ing": [
+[
+"Banana",
+1
+],
+[
+"Milk",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Island Trader for Bone Fragment (30)",
+"k": "shop"
+},
+{
+"id": "mango-sticky-rice",
+"n": "Mango Sticky Rice",
+"sve": false,
+"ing": [
+[
+"Mango",
+1
+],
+[
+"Coconut",
+1
+],
+[
+"Rice",
+1
+]
+],
+"src": "Leo · 7♥ (letter)",
+"k": "friend"
+},
+{
+"id": "poi",
+"n": "Poi",
+"sve": false,
+"ing": [
+[
+"Taro Root",
+4
+]
+],
+"src": "Leo · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "tropical-curry",
+"n": "Tropical Curry",
+"sve": false,
+"ing": [
+[
+"Coconut",
+1
+],
+[
+"Pineapple",
+1
+],
+[
+"Hot Pepper",
+1
+]
+],
+"src": "Ginger Island Resort for 2,000g",
+"k": "shop"
+},
+{
+"id": "squid-ink-ravioli",
+"n": "Squid Ink Ravioli",
+"sve": false,
+"ing": [
+[
+"Squid Ink",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Tomato",
+1
+]
+],
+"src": "Combat Level 9",
+"k": "skill"
+},
+{
+"id": "moss-soup",
+"n": "Moss Soup",
+"sve": false,
+"ing": [
+[
+"Moss",
+20
+]
+],
+"src": "Foraging Level 3",
+"k": "skill"
+},
+{
+"id": "sve-baked-berry-oatmeal",
+"n": "Baked Berry Oatmeal",
+"sve": true,
+"ing": [
+[
+"Salmonberry",
+15
+],
+[
+"Blackberry",
+15
+],
+[
+"Sugar",
+1
+],
+[
+"Wheat Flour",
+1
+]
+],
+"src": "Bear's shop for 12,500g",
+"k": "shop"
+},
+{
+"id": "sve-baked-potato",
+"n": "Baked Potato",
+"sve": true,
+"ing": [
+[
+"Potato",
+1
+],
+[
+"Butter",
+1
+]
+],
+"src": "Gunther · 3♥",
+"k": "friend"
+},
+{
+"id": "sve-big-bark-burger",
+"n": "Big Bark Burger",
+"sve": true,
+"ing": [
+[
+"Puppyfish",
+1
+],
+[
+"Bread",
+1,
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "Stardrop Saloon",
+"k": "shop"
+},
+{
+"id": "sve-birch-syrup",
+"n": "Birch Syrup",
+"sve": true,
+"ing": [
+[
+"Birch Water",
+3
+],
+[
+"Sap",
+25
+]
+],
+"src": "Pierre's General Store",
+"k": "shop"
+},
+{
+"id": "sve-candy",
+"n": "Candy",
+"sve": true,
+"ing": [
+[
+"Birch Syrup",
+1,
+1
+],
+[
+"Birch Water",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Stardrop Saloon",
+"k": "shop"
+},
+{
+"id": "sve-cheese-charcuterie",
+"n": "Cheese Charcuterie",
+"sve": true,
+"ing": [
+[
+"Cheese",
+1
+],
+[
+"Goat Cheese",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Butter",
+1
+]
+],
+"src": "Scarlett · 3♥",
+"k": "friend"
+},
+{
+"id": "sve-chocolate-truffle-bar",
+"n": "Chocolate Truffle Bar",
+"sve": true,
+"ing": [
+[
+"Hazelnut",
+1
+],
+[
+"Truffle",
+1
+],
+[
+"Any Milk",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Traveling Cart at the Festival of Ice",
+"k": "shop"
+},
+{
+"id": "sve-fish-dumpling",
+"n": "Fish Dumpling",
+"sve": true,
+"ing": [
+[
+"Any Fish",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "Olivia · 3♥",
+"k": "friend"
+},
+{
+"id": "sve-flower-cookie",
+"n": "Flower Cookie",
+"sve": true,
+"ing": [
+[
+"Ferngill Primrose",
+1
+],
+[
+"Goldenrod",
+1
+],
+[
+"Winter Star Rose",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Any Egg",
+1
+]
+],
+"src": "Bear's shop for 8,750g",
+"k": "shop"
+},
+{
+"id": "sve-frog-legs",
+"n": "Frog Legs",
+"sve": true,
+"ing": [
+[
+"Frog",
+1
+],
+[
+"Oil",
+1
+],
+[
+"Wheat Flour",
+1
+]
+],
+"src": "Adventurer's Guild shop",
+"k": "shop"
+},
+{
+"id": "sve-gingerbread-man",
+"n": "Gingerbread Man",
+"sve": true,
+"ing": [
+[
+"Ginger",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Susan · 3♥ (in Winter)",
+"k": "friend"
+},
+{
+"id": "sve-glazed-butterfish",
+"n": "Glazed Butterfish",
+"sve": true,
+"ing": [
+[
+"Butterfish",
+1
+],
+[
+"Wheat Flour",
+2
+],
+[
+"Oil",
+2
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Stardrop Saloon",
+"k": "shop"
+},
+{
+"id": "sve-glazed-pear",
+"n": "Glazed Pear",
+"sve": true,
+"ing": [
+[
+"Pear",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Butter",
+1
+]
+],
+"src": "Morgan · 3♥",
+"k": "friend"
+},
+{
+"id": "sve-grilled-cheese-sandwich",
+"n": "Grilled Cheese Sandwich",
+"sve": true,
+"ing": [
+[
+"Cheese",
+1
+],
+[
+"Bread",
+1,
+1
+],
+[
+"Butter",
+1
+]
+],
+"src": "Martin · 3♥",
+"k": "friend"
+},
+{
+"id": "sve-ice-cream-sundae",
+"n": "Ice Cream Sundae",
+"sve": true,
+"ing": [
+[
+"Hazelnut",
+1
+],
+[
+"Any Milk",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Cherry",
+1
+]
+],
+"src": "Pierre at the Luau",
+"k": "shop"
+},
+{
+"id": "sve-mixed-berry-pie",
+"n": "Mixed Berry Pie",
+"sve": true,
+"ing": [
+[
+"Strawberry",
+1
+],
+[
+"Salal Berry",
+1
+],
+[
+"Blackberry",
+1
+],
+[
+"Bearberry",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Wheat Flour",
+1
+]
+],
+"src": "Stardrop Saloon",
+"k": "shop"
+},
+{
+"id": "sve-mushroom-berry-rice",
+"n": "Mushroom Berry Rice",
+"sve": true,
+"ing": [
+[
+"Poison Mushroom",
+3
+],
+[
+"Red Baneberry",
+10
+],
+[
+"Rice",
+1
+],
+[
+"Sugar",
+2
+]
+],
+"src": "Adventurer's Guild shop",
+"k": "shop"
+},
+{
+"id": "sve-nectarine-fruit-bread",
+"n": "Nectarine Fruit Bread",
+"sve": true,
+"ing": [
+[
+"Nectarine",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Claire · 3♥",
+"k": "friend"
+},
+{
+"id": "sve-pineapple-custard-crepe",
+"n": "Pineapple Custard Crepe",
+"sve": true,
+"ing": [
+[
+"Pineapple",
+1
+],
+[
+"Sugar",
+1
+],
+[
+"Wheat Flour",
+1
+],
+[
+"Butter",
+1
+]
+],
+"src": "Lance · 3♥",
+"k": "friend"
+},
+{
+"id": "sve-prismatic-pop",
+"n": "Prismatic Pop",
+"sve": true,
+"ing": [
+[
+"Prismatic Shard",
+1
+],
+[
+"Any Milk",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Stardew Valley Fair (Year 2+) for 2,000 star tokens",
+"k": "shop"
+},
+{
+"id": "sve-ramen",
+"n": "Ramen",
+"sve": true,
+"ing": [
+[
+"Wheat Flour",
+1
+],
+[
+"Seaweed",
+1
+],
+[
+"Any Egg",
+1
+],
+[
+"Oil",
+1
+]
+],
+"src": "Victor · 3♥",
+"k": "friend"
+},
+{
+"id": "sve-seaweed-salad",
+"n": "Seaweed Salad",
+"sve": true,
+"ing": [
+[
+"Dulse Seaweed",
+2
+],
+[
+"Seaweed",
+2
+],
+[
+"Oil",
+1
+]
+],
+"src": "Fish Shop",
+"k": "shop"
+},
+{
+"id": "sve-stuffed-persimmon",
+"n": "Stuffed Persimmon",
+"sve": true,
+"ing": [
+[
+"Persimmon",
+1
+],
+[
+"Stuffing",
+1,
+1
+],
+[
+"Bread",
+1,
+1
+],
+[
+"Butter",
+1
+]
+],
+"src": "Andy · 3♥",
+"k": "friend"
+},
+{
+"id": "sve-vegan-cone",
+"n": "Vegan Cone",
+"sve": true,
+"ing": [
+[
+"Coconut",
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Oasis (desert shop)",
+"k": "shop"
+},
+{
+"id": "sve-void-delight",
+"n": "Void Delight",
+"sve": true,
+"ing": [
+[
+"Void Eel",
+1
+],
+[
+"Void Essence",
+50
+],
+[
+"Solar Essence",
+20
+]
+],
+"src": "Krobus · 10♥",
+"k": "friend"
+},
+{
+"id": "sve-void-salmon-sushi",
+"n": "Void Salmon Sushi",
+"sve": true,
+"ing": [
+[
+"Void Salmon",
+1
+],
+[
+"Void Mayonnaise",
+1
+],
+[
+"Seaweed",
+3
+]
+],
+"src": "Krobus",
+"k": "shop"
+}
+],
+"crafting": [
+{
+"id": "cherry-bomb",
+"n": "Cherry Bomb",
+"sve": false,
+"cat": "Bombs",
+"ing": [
+[
+"Copper Ore",
+4
+],
+[
+"Coal",
+1
+]
+],
+"src": "Mining Level 1",
+"k": "skill"
+},
+{
+"id": "bomb",
+"n": "Bomb",
+"sve": false,
+"cat": "Bombs",
+"ing": [
+[
+"Iron Ore",
+4
+],
+[
+"Coal",
+1
+]
+],
+"src": "Mining Level 6",
+"k": "skill"
+},
+{
+"id": "mega-bomb",
+"n": "Mega Bomb",
+"sve": false,
+"cat": "Bombs",
+"ing": [
+[
+"Gold Ore",
+4
+],
+[
+"Solar Essence",
+1
+],
+[
+"Void Essence",
+1
+]
+],
+"src": "Mining Level 8",
+"k": "skill"
+},
+{
+"id": "sprinkler",
+"n": "Sprinkler",
+"sve": false,
+"cat": "Sprinklers",
+"ing": [
+[
+"Copper Bar",
+1
+],
+[
+"Iron Bar",
+1
+]
+],
+"src": "Farming Level 2",
+"k": "skill"
+},
+{
+"id": "quality-sprinkler",
+"n": "Quality Sprinkler",
+"sve": false,
+"cat": "Sprinklers",
+"ing": [
+[
+"Iron Bar",
+1
+],
+[
+"Gold Bar",
+1
+],
+[
+"Refined Quartz",
+1
+]
+],
+"src": "Farming Level 6",
+"k": "skill"
+},
+{
+"id": "iridium-sprinkler",
+"n": "Iridium Sprinkler",
+"sve": false,
+"cat": "Sprinklers",
+"ing": [
+[
+"Gold Bar",
+1
+],
+[
+"Iridium Bar",
+1
+],
+[
+"Battery Pack",
+1
+]
+],
+"src": "Farming Level 9",
+"k": "skill"
+},
+{
+"id": "mayonnaise-machine",
+"n": "Mayonnaise Machine",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Wood",
+15
+],
+[
+"Stone",
+15
+],
+[
+"Earth Crystal",
+1
+],
+[
+"Copper Bar",
+1
+]
+],
+"src": "Farming Level 2",
+"k": "skill"
+},
+{
+"id": "bee-house",
+"n": "Bee House",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Wood",
+40
+],
+[
+"Coal",
+8
+],
+[
+"Iron Bar",
+1
+],
+[
+"Maple Syrup",
+1
+]
+],
+"src": "Farming Level 3",
+"k": "skill"
+},
+{
+"id": "preserves-jar",
+"n": "Preserves Jar",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Wood",
+50
+],
+[
+"Stone",
+40
+],
+[
+"Coal",
+8
+]
+],
+"src": "Farming Level 4",
+"k": "skill"
+},
+{
+"id": "cheese-press",
+"n": "Cheese Press",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Wood",
+45
+],
+[
+"Stone",
+45
+],
+[
+"Hardwood",
+10
+],
+[
+"Copper Bar",
+1
+]
+],
+"src": "Farming Level 6",
+"k": "skill"
+},
+{
+"id": "loom",
+"n": "Loom",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Wood",
+60
+],
+[
+"Fiber",
+30
+],
+[
+"Pine Tar",
+1
+]
+],
+"src": "Farming Level 7",
+"k": "skill"
+},
+{
+"id": "keg",
+"n": "Keg",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Wood",
+30
+],
+[
+"Copper Bar",
+1
+],
+[
+"Iron Bar",
+1
+],
+[
+"Oak Resin",
+1
+]
+],
+"src": "Farming Level 8",
+"k": "skill"
+},
+{
+"id": "oil-maker",
+"n": "Oil Maker",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Slime",
+50
+],
+[
+"Hardwood",
+20
+],
+[
+"Gold Bar",
+1
+]
+],
+"src": "Farming Level 8",
+"k": "skill"
+},
+{
+"id": "cask",
+"n": "Cask",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Wood",
+20
+],
+[
+"Hardwood",
+1
+]
+],
+"src": "Farmhouse cellar upgrade",
+"k": "shop"
+},
+{
+"id": "fish-smoker",
+"n": "Fish Smoker",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Hardwood",
+10
+],
+[
+"Sea Jelly",
+1
+],
+[
+"River Jelly",
+1
+],
+[
+"Cave Jelly",
+1
+]
+],
+"src": "Fish Shop for 10,000g",
+"k": "shop"
+},
+{
+"id": "dehydrator",
+"n": "Dehydrator",
+"sve": false,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Wood",
+30
+],
+[
+"Clay",
+2
+],
+[
+"Fire Quartz",
+1
+]
+],
+"src": "Pierre's for 10,000g",
+"k": "shop"
+},
+{
+"id": "basic-fertilizer",
+"n": "Basic Fertilizer",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Sap",
+2
+]
+],
+"src": "Farming Level 1",
+"k": "skill"
+},
+{
+"id": "quality-fertilizer",
+"n": "Quality Fertilizer",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Sap",
+4
+],
+[
+"Any Fish",
+1
+]
+],
+"src": "Farming Level 9",
+"k": "skill",
+"yield": 2
+},
+{
+"id": "deluxe-fertilizer",
+"n": "Deluxe Fertilizer",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Iridium Bar",
+1
+],
+[
+"Sap",
+40
+]
+],
+"src": "Purchase from Mr Qi for 20",
+"k": "shop",
+"yield": 5
+},
+{
+"id": "speed-gro",
+"n": "Speed-Gro",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Pine Tar",
+1
+],
+[
+"Moss",
+5
+]
+],
+"src": "Farming Level 3",
+"k": "skill",
+"yield": 5
+},
+{
+"id": "deluxe-speed-gro",
+"n": "Deluxe Speed-Gro",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Oak Resin",
+1
+],
+[
+"Bone Fragment",
+5
+]
+],
+"src": "Farming Level 8",
+"k": "skill",
+"yield": 5
+},
+{
+"id": "hyper-speed-gro",
+"n": "Hyper Speed-Gro",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Radioactive Ore",
+1
+],
+[
+"Bone Fragment",
+3
+],
+[
+"Solar Essence",
+1
+]
+],
+"src": "Purchase from Mr Qi for 30",
+"k": "shop"
+},
+{
+"id": "basic-retaining-soil",
+"n": "Basic Retaining Soil",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Stone",
+2
+]
+],
+"src": "Farming Level 4",
+"k": "skill"
+},
+{
+"id": "quality-retaining-soil",
+"n": "Quality Retaining Soil",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Stone",
+3
+],
+[
+"Clay",
+1
+]
+],
+"src": "Farming Level 7",
+"k": "skill",
+"yield": 2
+},
+{
+"id": "deluxe-retaining-soil",
+"n": "Deluxe Retaining Soil",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Stone",
+5
+],
+[
+"Fiber",
+3
+],
+[
+"Clay",
+1
+]
+],
+"src": "Purchase from Island Trader for Cinder Shard (50)",
+"k": "shop"
+},
+{
+"id": "tree-fertilizer",
+"n": "Tree Fertilizer",
+"sve": false,
+"cat": "Fertilizer",
+"ing": [
+[
+"Fiber",
+5
+],
+[
+"Stone",
+5
+]
+],
+"src": "Foraging Level 7",
+"k": "skill"
+},
+{
+"id": "wild-seeds-spring",
+"n": "Wild Seeds (Spring)",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Wild Horseradish",
+1
+],
+[
+"Daffodil",
+1
+],
+[
+"Leek",
+1
+],
+[
+"Dandelion",
+1
+]
+],
+"src": "Foraging Level 1",
+"k": "skill"
+},
+{
+"id": "wild-seeds-summer",
+"n": "Wild Seeds (Summer)",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Spice Berry",
+1
+],
+[
+"Grape",
+1
+],
+[
+"Sweet Pea",
+1
+]
+],
+"src": "Foraging Level 4",
+"k": "skill"
+},
+{
+"id": "wild-seeds-fall",
+"n": "Wild Seeds (Fall)",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Common Mushroom",
+1
+],
+[
+"Wild Plum",
+1
+],
+[
+"Hazelnut",
+1
+],
+[
+"Blackberry",
+1
+]
+],
+"src": "Foraging Level 6",
+"k": "skill"
+},
+{
+"id": "wild-seeds-winter",
+"n": "Wild Seeds (Winter)",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Winter Root",
+1
+],
+[
+"Crystal Fruit",
+1
+],
+[
+"Snow Yam",
+1
+],
+[
+"Crocus",
+1
+]
+],
+"src": "Foraging Level 7",
+"k": "skill"
+},
+{
+"id": "ancient-seeds",
+"n": "Ancient Seeds",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Ancient Seed",
+1
+]
+],
+"src": "Donating Ancient Seed to museum",
+"k": "quest"
+},
+{
+"id": "grass-starter",
+"n": "Grass Starter",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Fiber",
+10
+]
+],
+"src": "Purchase from Pierre's for 1,000g",
+"k": "shop"
+},
+{
+"id": "blue-grass-starter",
+"n": "Blue Grass Starter",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Fiber",
+25
+],
+[
+"Moss",
+10
+],
+[
+"Mystic Syrup",
+1
+]
+],
+"src": "Qi's Walnut Room for 40",
+"k": "shop"
+},
+{
+"id": "tea-sapling",
+"n": "Tea Sapling",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Any Wild Seeds",
+2
+],
+[
+"Fiber",
+5
+],
+[
+"Wood",
+5
+]
+],
+"src": "Mail the day after Caroline's 2-heart event",
+"k": "friend"
+},
+{
+"id": "fiber-seeds",
+"n": "Fiber Seeds",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Mixed Seeds",
+1
+],
+[
+"Sap",
+5
+],
+[
+"Clay",
+1
+]
+],
+"src": "Linus (Special Order)",
+"k": "quest",
+"yield": 4
+},
+{
+"id": "mystic-tree-seed",
+"n": "Mystic Tree Seed",
+"sve": false,
+"cat": "Seeds",
+"ing": [
+[
+"Acorn",
+5
+],
+[
+"Maple Seed",
+5
+],
+[
+"Pine Cone",
+5
+],
+[
+"Mahogany Seed",
+5
+]
+],
+"src": "Foraging Mastery",
+"k": "skill"
+},
+{
+"id": "wood-floor",
+"n": "Wood Floor",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Wood",
+1
+]
+],
+"src": "Carpenter's Shop for 100g",
+"k": "shop"
+},
+{
+"id": "rustic-plank-floor",
+"n": "Rustic Plank Floor",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Wood",
+1
+]
+],
+"src": "Carpenter's Shop for 200g",
+"k": "shop"
+},
+{
+"id": "straw-floor",
+"n": "Straw Floor",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Wood",
+1
+],
+[
+"Fiber",
+1
+]
+],
+"src": "Carpenter's Shop for 200g",
+"k": "shop"
+},
+{
+"id": "weathered-floor",
+"n": "Weathered Floor",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Wood",
+1
+]
+],
+"src": "Dwarf (500g)",
+"k": "shop"
+},
+{
+"id": "crystal-floor",
+"n": "Crystal Floor",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Refined Quartz",
+1
+]
+],
+"src": "Krobus (500g)",
+"k": "shop",
+"yield": 5
+},
+{
+"id": "stone-floor",
+"n": "Stone Floor",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Stone",
+1
+]
+],
+"src": "Carpenter's Shop for 100g",
+"k": "shop"
+},
+{
+"id": "stone-walkway-floor",
+"n": "Stone Walkway Floor",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Stone",
+1
+]
+],
+"src": "Carpenter's Shop for 200g",
+"k": "shop"
+},
+{
+"id": "brick-floor",
+"n": "Brick Floor",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Clay",
+2
+],
+[
+"Stone",
+5
+]
+],
+"src": "Carpenter's Shop for 500g",
+"k": "shop",
+"yield": 5
+},
+{
+"id": "wood-path",
+"n": "Wood Path",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Wood",
+1
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "gravel-path",
+"n": "Gravel Path",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Stone",
+1
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "cobblestone-path",
+"n": "Cobblestone Path",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Stone",
+1
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "stepping-stone-path",
+"n": "Stepping Stone Path",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Stone",
+1
+]
+],
+"src": "Carpenter's Shop for 100g",
+"k": "shop"
+},
+{
+"id": "crystal-path",
+"n": "Crystal Path",
+"sve": false,
+"cat": "Decor",
+"ing": [
+[
+"Refined Quartz",
+1
+]
+],
+"src": "Carpenter's Shop for 200g",
+"k": "shop",
+"yield": 5
+},
+{
+"id": "spinner",
+"n": "Spinner",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Iron Bar",
+2
+]
+],
+"src": "Fishing Level 6",
+"k": "skill"
+},
+{
+"id": "trap-bobber",
+"n": "Trap Bobber",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Copper Bar",
+1
+],
+[
+"Sap",
+10
+]
+],
+"src": "Fishing Level 6",
+"k": "skill"
+},
+{
+"id": "sonar-bobber",
+"n": "Sonar Bobber",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Iron Bar",
+1
+],
+[
+"Refined Quartz",
+2
+]
+],
+"src": "Fishing Level 6",
+"k": "skill"
+},
+{
+"id": "cork-bobber",
+"n": "Cork Bobber",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Wood",
+10
+],
+[
+"Hardwood",
+5
+],
+[
+"Slime",
+10
+]
+],
+"src": "Fishing Level 7",
+"k": "skill"
+},
+{
+"id": "quality-bobber",
+"n": "Quality Bobber",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Copper Bar",
+1
+],
+[
+"Sap",
+20
+],
+[
+"Solar Essence",
+5
+]
+],
+"src": "Willy (Special Order)",
+"k": "quest"
+},
+{
+"id": "treasure-hunter",
+"n": "Treasure Hunter",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Gold Bar",
+2
+]
+],
+"src": "Fishing Level 7",
+"k": "skill"
+},
+{
+"id": "dressed-spinner",
+"n": "Dressed Spinner",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Iron Bar",
+2
+],
+[
+"Cloth",
+1
+]
+],
+"src": "Fishing Level 8",
+"k": "skill"
+},
+{
+"id": "barbed-hook",
+"n": "Barbed Hook",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Copper Bar",
+1
+],
+[
+"Iron Bar",
+1
+],
+[
+"Gold Bar",
+1
+]
+],
+"src": "Fishing Level 8",
+"k": "skill"
+},
+{
+"id": "magnet",
+"n": "Magnet",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Iron Bar",
+1
+]
+],
+"src": "Fishing Level 9",
+"k": "skill",
+"yield": 3
+},
+{
+"id": "bait",
+"n": "Bait",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Bug Meat",
+1
+]
+],
+"src": "Fishing Level 2",
+"k": "skill",
+"yield": 5
+},
+{
+"id": "deluxe-bait",
+"n": "Deluxe Bait",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Bait",
+5
+],
+[
+"Moss",
+2
+]
+],
+"src": "Fishing Level 4",
+"k": "skill",
+"yield": 5
+},
+{
+"id": "wild-bait",
+"n": "Wild Bait",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Fiber",
+10
+],
+[
+"Bug Meat",
+5
+],
+[
+"Slime",
+5
+]
+],
+"src": "Linus 4-heart event",
+"k": "friend",
+"yield": 5
+},
+{
+"id": "magic-bait",
+"n": "Magic Bait",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Radioactive Ore",
+1
+],
+[
+"Bug Meat",
+3
+]
+],
+"src": "Purchase from Mr Qi for 20",
+"k": "shop",
+"yield": 5
+},
+{
+"id": "challenge-bait",
+"n": "Challenge Bait",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Bone Fragment",
+5
+],
+[
+"Moss",
+2
+]
+],
+"src": "Fishing Mastery",
+"k": "skill",
+"yield": 5
+},
+{
+"id": "crab-pot",
+"n": "Crab Pot",
+"sve": false,
+"cat": "Fishing",
+"ing": [
+[
+"Wood",
+40
+],
+[
+"Iron Bar",
+3
+]
+],
+"src": "Fishing Level 3",
+"k": "skill",
+"note": "With the Trapper profession it costs less: Wood ×25, Copper Bar ×2"
+},
+{
+"id": "sturdy-ring",
+"n": "Sturdy Ring",
+"sve": false,
+"cat": "Rings",
+"ing": [
+[
+"Copper Bar",
+2
+],
+[
+"Bug Meat",
+25
+],
+[
+"Slime",
+25
+]
+],
+"src": "Combat Level 1",
+"k": "skill"
+},
+{
+"id": "warrior-ring",
+"n": "Warrior Ring",
+"sve": false,
+"cat": "Rings",
+"ing": [
+[
+"Iron Bar",
+10
+],
+[
+"Coal",
+25
+],
+[
+"Frozen Tear",
+10
+]
+],
+"src": "Combat Level 4",
+"k": "skill"
+},
+{
+"id": "ring-of-yoba",
+"n": "Ring of Yoba",
+"sve": false,
+"cat": "Rings",
+"ing": [
+[
+"Gold Bar",
+5
+],
+[
+"Iron Bar",
+5
+],
+[
+"Diamond",
+1
+]
+],
+"src": "Combat Level 7",
+"k": "skill"
+},
+{
+"id": "thorns-ring",
+"n": "Thorns Ring",
+"sve": false,
+"cat": "Rings",
+"ing": [
+[
+"Bone Fragment",
+50
+],
+[
+"Stone",
+50
+],
+[
+"Gold Bar",
+1
+]
+],
+"src": "Combat Level 7",
+"k": "skill"
+},
+{
+"id": "glowstone-ring",
+"n": "Glowstone Ring",
+"sve": false,
+"cat": "Rings",
+"ing": [
+[
+"Solar Essence",
+5
+],
+[
+"Iron Bar",
+5
+]
+],
+"src": "Mining Level 4",
+"k": "skill"
+},
+{
+"id": "iridium-band",
+"n": "Iridium Band",
+"sve": false,
+"cat": "Rings",
+"ing": [
+[
+"Iridium Bar",
+5
+],
+[
+"Solar Essence",
+50
+],
+[
+"Void Essence",
+50
+]
+],
+"src": "Combat Level 9",
+"k": "skill"
+},
+{
+"id": "wedding-ring",
+"n": "Wedding Ring",
+"sve": false,
+"cat": "Rings",
+"ing": [
+[
+"Iridium Bar",
+5
+],
+[
+"Prismatic Shard",
+1
+]
+],
+"src": "Traveling Cart for 500g",
+"k": "shop"
+},
+{
+"id": "field-snack",
+"n": "Field Snack",
+"sve": false,
+"cat": "Edible Items",
+"ing": [
+[
+"Acorn",
+1
+],
+[
+"Maple Seed",
+1
+],
+[
+"Pine Cone",
+1
+]
+],
+"src": "Foraging Level 1",
+"k": "skill"
+},
+{
+"id": "bug-steak",
+"n": "Bug Steak",
+"sve": false,
+"cat": "Edible Items",
+"ing": [
+[
+"Bug Meat",
+10
+]
+],
+"src": "Combat Level 1",
+"k": "skill"
+},
+{
+"id": "life-elixir",
+"n": "Life Elixir",
+"sve": false,
+"cat": "Edible Items",
+"ing": [
+[
+"Red Mushroom",
+1
+],
+[
+"Purple Mushroom",
+1
+],
+[
+"Morel",
+1
+],
+[
+"Chanterelle",
+1
+]
+],
+"src": "Combat Level 2",
+"k": "skill"
+},
+{
+"id": "oil-of-garlic",
+"n": "Oil of Garlic",
+"sve": false,
+"cat": "Edible Items",
+"ing": [
+[
+"Garlic",
+10
+],
+[
+"Oil",
+1
+]
+],
+"src": "Combat Level 6",
+"k": "skill"
+},
+{
+"id": "monster-musk",
+"n": "Monster Musk",
+"sve": false,
+"cat": "Consumables",
+"ing": [
+[
+"Bat Wing",
+30
+],
+[
+"Slime",
+30
+]
+],
+"src": "Wizard (Special Order)",
+"k": "quest"
+},
+{
+"id": "fairy-dust",
+"n": "Fairy Dust",
+"sve": false,
+"cat": "Consumables",
+"ing": [
+[
+"Diamond",
+1
+],
+[
+"Fairy Rose",
+1
+]
+],
+"src": "The Pirate's Wife Quest",
+"k": "quest"
+},
+{
+"id": "warp-totem-beach",
+"n": "Warp Totem: Beach",
+"sve": false,
+"cat": "Consumables",
+"ing": [
+[
+"Hardwood",
+1
+],
+[
+"Coral",
+2
+],
+[
+"Fiber",
+10
+]
+],
+"src": "Foraging Level 6",
+"k": "skill"
+},
+{
+"id": "warp-totem-mountains",
+"n": "Warp Totem: Mountains",
+"sve": false,
+"cat": "Consumables",
+"ing": [
+[
+"Hardwood",
+1
+],
+[
+"Iron Bar",
+1
+],
+[
+"Stone",
+25
+]
+],
+"src": "Foraging Level 7",
+"k": "skill"
+},
+{
+"id": "warp-totem-farm",
+"n": "Warp Totem: Farm",
+"sve": false,
+"cat": "Consumables",
+"ing": [
+[
+"Hardwood",
+1
+],
+[
+"Honey",
+1
+],
+[
+"Fiber",
+20
+]
+],
+"src": "Foraging Level 8",
+"k": "skill"
+},
+{
+"id": "warp-totem-desert",
+"n": "Warp Totem: Desert",
+"sve": false,
+"cat": "Consumables",
+"ing": [
+[
+"Hardwood",
+2
+],
+[
+"Coconut",
+1
+],
+[
+"Iridium Ore",
+4
+]
+],
+"src": "Desert Trader for Iridium Bar (10)",
+"k": "shop"
+},
+{
+"id": "warp-totem-island",
+"n": "Warp Totem: Island",
+"sve": false,
+"cat": "Consumables",
+"ing": [
+[
+"Hardwood",
+5
+],
+[
+"Dragon Tooth",
+1
+],
+[
+"Ginger",
+1
+]
+],
+"src": "Volcano Dwarf shop for 10,000g",
+"k": "shop"
+},
+{
+"id": "rain-totem",
+"n": "Rain Totem",
+"sve": false,
+"cat": "Consumables",
+"ing": [
+[
+"Hardwood",
+1
+],
+[
+"Truffle Oil",
+1
+],
+[
+"Pine Tar",
+5
+]
+],
+"src": "Foraging Level 9",
+"k": "skill"
+},
+{
+"id": "treasure-totem",
+"n": "Treasure Totem",
+"sve": false,
+"cat": "Consumables",
+"ing": [
+[
+"Hardwood",
+5
+],
+[
+"Mystic Syrup",
+1
+],
+[
+"Moss",
+10
+]
+],
+"src": "Foraging Mastery",
+"k": "skill"
+},
+{
+"id": "torch",
+"n": "Torch",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Wood",
+1
+],
+[
+"Sap",
+2
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "campfire",
+"n": "Campfire",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Stone",
+10
+],
+[
+"Wood",
+10
+],
+[
+"Fiber",
+10
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "wooden-brazier",
+"n": "Wooden Brazier",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Wood",
+10
+],
+[
+"Coal",
+1
+],
+[
+"Fiber",
+5
+]
+],
+"src": "Carpenter's Shop for 250g",
+"k": "shop"
+},
+{
+"id": "stone-brazier",
+"n": "Stone Brazier",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Stone",
+10
+],
+[
+"Coal",
+1
+],
+[
+"Fiber",
+5
+]
+],
+"src": "Carpenter's Shop for 400g",
+"k": "shop"
+},
+{
+"id": "gold-brazier",
+"n": "Gold Brazier",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Gold Bar",
+1
+],
+[
+"Coal",
+1
+],
+[
+"Fiber",
+5
+]
+],
+"src": "Carpenter's Shop for 1,000g",
+"k": "shop"
+},
+{
+"id": "carved-brazier",
+"n": "Carved Brazier",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Hardwood",
+10
+],
+[
+"Coal",
+1
+]
+],
+"src": "Carpenter's Shop for 2,000g",
+"k": "shop"
+},
+{
+"id": "stump-brazier",
+"n": "Stump Brazier",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Hardwood",
+5
+],
+[
+"Coal",
+1
+]
+],
+"src": "Carpenter's Shop for 800g",
+"k": "shop"
+},
+{
+"id": "barrel-brazier",
+"n": "Barrel Brazier",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Wood",
+50
+],
+[
+"Solar Essence",
+1
+],
+[
+"Coal",
+1
+]
+],
+"src": "Carpenter's Shop for 800g",
+"k": "shop"
+},
+{
+"id": "skull-brazier",
+"n": "Skull Brazier",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Bone Fragment",
+10
+]
+],
+"src": "Carpenter's Shop for 3,000g",
+"k": "shop"
+},
+{
+"id": "marble-brazier",
+"n": "Marble Brazier",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Marble",
+1
+],
+[
+"Aquamarine",
+1
+],
+[
+"Stone",
+100
+]
+],
+"src": "Carpenter's Shop for 5,000g",
+"k": "shop"
+},
+{
+"id": "wood-lamp-post",
+"n": "Wood Lamp-post",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Wood",
+50
+],
+[
+"Battery Pack",
+1
+]
+],
+"src": "Carpenter's Shop for 500g",
+"k": "shop"
+},
+{
+"id": "iron-lamp-post",
+"n": "Iron Lamp-post",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Iron Bar",
+1
+],
+[
+"Battery Pack",
+1
+]
+],
+"src": "Carpenter's Shop for 1,000g",
+"k": "shop"
+},
+{
+"id": "jack-o-lantern",
+"n": "Jack-O-Lantern",
+"sve": false,
+"cat": "Lighting",
+"ing": [
+[
+"Pumpkin",
+1
+],
+[
+"Torch",
+1,
+1
+]
+],
+"src": "Pierre's stand at Spirit's Eve festival (2,000g)",
+"k": "shop"
+},
+{
+"id": "charcoal-kiln",
+"n": "Charcoal Kiln",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Wood",
+20
+],
+[
+"Copper Bar",
+2
+]
+],
+"src": "Foraging Level 2",
+"k": "skill"
+},
+{
+"id": "crystalarium",
+"n": "Crystalarium",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Stone",
+99
+],
+[
+"Gold Bar",
+5
+],
+[
+"Iridium Bar",
+2
+],
+[
+"Battery Pack",
+1
+]
+],
+"src": "Mining Level 9",
+"k": "skill"
+},
+{
+"id": "furnace",
+"n": "Furnace",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Copper Ore",
+20
+],
+[
+"Stone",
+25
+]
+],
+"src": "Clint (Morning after collecting 1+ Copper Ore)",
+"k": "shop"
+},
+{
+"id": "heavy-furnace",
+"n": "Heavy Furnace",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Furnace",
+2,
+1
+],
+[
+"Iron Bar",
+3
+],
+[
+"Stone",
+50
+]
+],
+"src": "Mining Mastery",
+"k": "skill"
+},
+{
+"id": "lightning-rod",
+"n": "Lightning Rod",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Iron Bar",
+1
+],
+[
+"Refined Quartz",
+1
+],
+[
+"Bat Wing",
+5
+]
+],
+"src": "Foraging Level 6",
+"k": "skill"
+},
+{
+"id": "solar-panel",
+"n": "Solar Panel",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Refined Quartz",
+10
+],
+[
+"Iron Bar",
+5
+],
+[
+"Gold Bar",
+5
+]
+],
+"src": "Caroline (Special Order)",
+"k": "quest"
+},
+{
+"id": "recycling-machine",
+"n": "Recycling Machine",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Wood",
+25
+],
+[
+"Stone",
+25
+],
+[
+"Iron Bar",
+1
+]
+],
+"src": "Fishing Level 4",
+"k": "skill"
+},
+{
+"id": "seed-maker",
+"n": "Seed Maker",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Wood",
+25
+],
+[
+"Coal",
+10
+],
+[
+"Gold Bar",
+1
+]
+],
+"src": "Farming Level 9",
+"k": "skill"
+},
+{
+"id": "slime-incubator",
+"n": "Slime Incubator",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Iridium Bar",
+2
+],
+[
+"Slime",
+100
+]
+],
+"src": "Combat Level 8",
+"k": "skill"
+},
+{
+"id": "ostrich-incubator",
+"n": "Ostrich Incubator",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Bone Fragment",
+50
+],
+[
+"Hardwood",
+50
+],
+[
+"Cinder Shard",
+20
+]
+],
+"src": "Complete the Island Field Office Collection",
+"k": "quest"
+},
+{
+"id": "slime-egg-press",
+"n": "Slime Egg-Press",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Coal",
+25
+],
+[
+"Fire Quartz",
+1
+],
+[
+"Battery Pack",
+1
+]
+],
+"src": "Combat Level 6",
+"k": "skill"
+},
+{
+"id": "tapper",
+"n": "Tapper",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Wood",
+40
+],
+[
+"Copper Bar",
+2
+]
+],
+"src": "Foraging Level 4",
+"k": "skill"
+},
+{
+"id": "heavy-tapper",
+"n": "Heavy Tapper",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Hardwood",
+30
+],
+[
+"Radioactive Bar",
+1
+]
+],
+"src": "Purchase from Mr Qi for 20",
+"k": "shop"
+},
+{
+"id": "worm-bin",
+"n": "Worm Bin",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Hardwood",
+15
+],
+[
+"Gold Bar",
+1
+],
+[
+"Iron Bar",
+1
+],
+[
+"Fiber",
+50
+]
+],
+"src": "Fishing Level 4",
+"k": "skill"
+},
+{
+"id": "deluxe-worm-bin",
+"n": "Deluxe Worm Bin",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Worm Bin",
+1,
+1
+],
+[
+"Moss",
+30
+]
+],
+"src": "Fishing Level 8",
+"k": "skill"
+},
+{
+"id": "bone-mill",
+"n": "Bone Mill",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Bone Fragment",
+10
+],
+[
+"Clay",
+3
+],
+[
+"Stone",
+20
+]
+],
+"src": "Gunther (Special Order)",
+"k": "quest"
+},
+{
+"id": "geode-crusher",
+"n": "Geode Crusher",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Gold Bar",
+2
+],
+[
+"Stone",
+50
+],
+[
+"Diamond",
+1
+]
+],
+"src": "Clint (Special Order)",
+"k": "quest"
+},
+{
+"id": "mushroom-log",
+"n": "Mushroom Log",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Hardwood",
+10
+],
+[
+"Moss",
+10
+]
+],
+"src": "Foraging (Level 4)",
+"k": "skill"
+},
+{
+"id": "bait-maker",
+"n": "Bait Maker",
+"sve": false,
+"cat": "Refining Equipment",
+"ing": [
+[
+"Iron Bar",
+3
+],
+[
+"Coral",
+3
+],
+[
+"Sea Urchin",
+1
+]
+],
+"src": "Fishing (Level 6)",
+"k": "skill"
+},
+{
+"id": "tub-o-flowers",
+"n": "Tub o' Flowers",
+"sve": false,
+"cat": "Furniture",
+"ing": [
+[
+"Wood",
+15
+],
+[
+"Tulip Bulb",
+1
+],
+[
+"Jazz Seeds",
+1
+],
+[
+"Poppy Seeds",
+1
+],
+[
+"Spangle Seeds",
+1
+]
+],
+"src": "Pierre's stand at Flower Dance (1,000g)",
+"k": "shop"
+},
+{
+"id": "wicked-statue",
+"n": "Wicked Statue",
+"sve": false,
+"cat": "Furniture",
+"ing": [
+[
+"Stone",
+25
+],
+[
+"Coal",
+5
+]
+],
+"src": "Krobus'Shop (1,000g)",
+"k": "shop"
+},
+{
+"id": "flute-block",
+"n": "Flute Block",
+"sve": false,
+"cat": "Furniture",
+"ing": [
+[
+"Wood",
+10
+],
+[
+"Copper Ore",
+2
+],
+[
+"Fiber",
+20
+]
+],
+"src": "Robin 6-heart event",
+"k": "friend"
+},
+{
+"id": "drum-block",
+"n": "Drum Block",
+"sve": false,
+"cat": "Furniture",
+"ing": [
+[
+"Stone",
+10
+],
+[
+"Copper Ore",
+2
+],
+[
+"Fiber",
+20
+]
+],
+"src": "Robin 6-heart event",
+"k": "friend"
+},
+{
+"id": "chest",
+"n": "Chest",
+"sve": false,
+"cat": "Storage Equipment",
+"ing": [
+[
+"Wood",
+50
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "stone-chest",
+"n": "Stone Chest",
+"sve": false,
+"cat": "Storage Equipment",
+"ing": [
+[
+"Stone",
+50
+]
+],
+"src": "Robin special order",
+"k": "quest"
+},
+{
+"id": "big-chest",
+"n": "Big Chest",
+"sve": false,
+"cat": "Storage Equipment",
+"ing": [
+[
+"Wood",
+120
+],
+[
+"Copper Bar",
+2
+]
+],
+"src": "Carpenter's Shop for 5,000g",
+"k": "shop"
+},
+{
+"id": "big-stone-chest",
+"n": "Big Stone Chest",
+"sve": false,
+"cat": "Storage Equipment",
+"ing": [
+[
+"Stone",
+250
+]
+],
+"src": "Dwarf (5,000g)",
+"k": "shop"
+},
+{
+"id": "wood-sign",
+"n": "Wood Sign",
+"sve": false,
+"cat": "Signs",
+"ing": [
+[
+"Wood",
+25
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "stone-sign",
+"n": "Stone Sign",
+"sve": false,
+"cat": "Signs",
+"ing": [
+[
+"Stone",
+25
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "dark-sign",
+"n": "Dark Sign",
+"sve": false,
+"cat": "Signs",
+"ing": [
+[
+"Bat Wing",
+5
+],
+[
+"Bone Fragment",
+5
+]
+],
+"src": "Krobus · 3♥ (letter)",
+"k": "friend"
+},
+{
+"id": "text-sign",
+"n": "Text Sign",
+"sve": false,
+"cat": "Signs",
+"ing": [
+[
+"Wood",
+25
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "garden-pot",
+"n": "Garden Pot",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Clay",
+1
+],
+[
+"Stone",
+10
+],
+[
+"Refined Quartz",
+1
+]
+],
+"src": "Evelyn cutscene after completing the Greenhouse",
+"k": "event"
+},
+{
+"id": "scarecrow",
+"n": "Scarecrow",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Wood",
+50
+],
+[
+"Coal",
+1
+],
+[
+"Fiber",
+20
+]
+],
+"src": "Farming Level 1",
+"k": "skill"
+},
+{
+"id": "deluxe-scarecrow",
+"n": "Deluxe Scarecrow",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Wood",
+50
+],
+[
+"Fiber",
+40
+],
+[
+"Iridium Ore",
+1
+]
+],
+"src": "Mail the day after collecting all rarecrows",
+"k": "event"
+},
+{
+"id": "staircase",
+"n": "Staircase",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Stone",
+99
+]
+],
+"src": "Mining Level 2",
+"k": "skill"
+},
+{
+"id": "explosive-ammo",
+"n": "Explosive Ammo",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Iron Bar",
+1
+],
+[
+"Coal",
+2
+]
+],
+"src": "Combat Level 8",
+"k": "skill",
+"yield": 5
+},
+{
+"id": "transmute-fe",
+"n": "Transmute (Fe)",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Copper Bar",
+3
+]
+],
+"src": "Mining Level 4",
+"k": "skill"
+},
+{
+"id": "transmute-au",
+"n": "Transmute (Au)",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Iron Bar",
+2
+]
+],
+"src": "Mining Level 7",
+"k": "skill"
+},
+{
+"id": "mini-jukebox",
+"n": "Mini-Jukebox",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Iron Bar",
+2
+],
+[
+"Battery Pack",
+1
+]
+],
+"src": "Gus 5-Heart Event",
+"k": "friend"
+},
+{
+"id": "mini-obelisk",
+"n": "Mini-Obelisk",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Hardwood",
+30
+],
+[
+"Solar Essence",
+20
+],
+[
+"Gold Bar",
+3
+]
+],
+"src": "Wizard special order",
+"k": "quest"
+},
+{
+"id": "farm-computer",
+"n": "Farm Computer",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Dwarf Gadget",
+1
+],
+[
+"Battery Pack",
+1
+],
+[
+"Refined Quartz",
+10
+]
+],
+"src": "Demetrius special order",
+"k": "quest"
+},
+{
+"id": "hopper",
+"n": "Hopper",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Hardwood",
+10
+],
+[
+"Iridium Bar",
+1
+],
+[
+"Radioactive Bar",
+1
+]
+],
+"src": "Purchase from Mr Qi for 50",
+"k": "shop"
+},
+{
+"id": "cookout-kit",
+"n": "Cookout Kit",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Wood",
+15
+],
+[
+"Fiber",
+10
+],
+[
+"Coal",
+3
+]
+],
+"src": "Foraging Level 3",
+"k": "skill"
+},
+{
+"id": "tent-kit",
+"n": "Tent Kit",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Hardwood",
+10
+],
+[
+"Fiber",
+25
+],
+[
+"Cloth",
+1
+]
+],
+"src": "Foraging Level 8",
+"k": "skill"
+},
+{
+"id": "statue-of-the-dwarf-king",
+"n": "Statue Of The Dwarf King",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Iridium Bar",
+20
+]
+],
+"src": "Mining Mastery",
+"k": "skill"
+},
+{
+"id": "statue-of-blessings",
+"n": "Statue Of Blessings",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Sap",
+999
+],
+[
+"Fiber",
+999
+],
+[
+"Stone",
+999
+],
+[
+"Moss",
+333
+]
+],
+"src": "Farming Mastery",
+"k": "skill"
+},
+{
+"id": "anvil",
+"n": "Anvil",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Iron Bar",
+50
+]
+],
+"src": "Combat Mastery",
+"k": "skill"
+},
+{
+"id": "mini-forge",
+"n": "Mini-Forge",
+"sve": false,
+"cat": "Misc",
+"ing": [
+[
+"Dragon Tooth",
+5
+],
+[
+"Iron Bar",
+10
+],
+[
+"Gold Bar",
+10
+],
+[
+"Iridium Bar",
+5
+]
+],
+"src": "Combat Mastery",
+"k": "skill"
+},
+{
+"id": "sve-armor-elixir",
+"n": "Armor Elixir",
+"sve": true,
+"cat": "Consumables",
+"ing": [
+[
+"Solar Essence",
+50
+],
+[
+"Void Soul",
+5
+],
+[
+"Bone Fragment",
+30
+],
+[
+"Vinegar",
+1
+]
+],
+"src": "Combat Level 7",
+"k": "skill"
+},
+{
+"id": "sve-bombardier-elixir",
+"n": "Bombardier Elixir",
+"sve": true,
+"cat": "Consumables",
+"ing": [
+[
+"Solar Essence",
+30
+],
+[
+"Void Essence",
+30
+],
+[
+"Void Soul",
+10
+],
+[
+"Void Pebble",
+20
+],
+[
+"Bomb",
+5,
+1
+]
+],
+"src": "Combat Level 9",
+"k": "skill"
+},
+{
+"id": "sve-haste-elixir",
+"n": "Haste Elixir",
+"sve": true,
+"cat": "Consumables",
+"ing": [
+[
+"Void Essence",
+50
+],
+[
+"Void Soul",
+5
+],
+[
+"Spicy Eel",
+3,
+1
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Combat Level 8",
+"k": "skill"
+},
+{
+"id": "sve-hero-elixir",
+"n": "Hero Elixir",
+"sve": true,
+"cat": "Consumables",
+"ing": [
+[
+"Slime",
+50
+],
+[
+"Void Soul",
+5
+],
+[
+"Void Pebble",
+10
+],
+[
+"Oil",
+1
+]
+],
+"src": "Combat Level 9",
+"k": "skill"
+},
+{
+"id": "sve-marsh-tonic",
+"n": "Marsh Tonic",
+"sve": true,
+"cat": "Consumables",
+"ing": [
+[
+"Slime",
+30
+],
+[
+"Swamp Essence",
+15
+],
+[
+"Swamp Flower",
+10
+],
+[
+"Sugar",
+1
+]
+],
+"src": "Henchman · 4♥",
+"k": "friend"
+},
+{
+"id": "sve-seed-cookie",
+"n": "Seed Cookie",
+"sve": true,
+"cat": "Consumables",
+"ing": [
+[
+"Birch Seed",
+1
+],
+[
+"Fir Cone",
+1
+],
+[
+"Acorn",
+1
+],
+[
+"Maple Seed",
+1
+],
+[
+"Pine Cone",
+1
+]
+],
+"src": "Foraging Level 3",
+"k": "skill"
+},
+{
+"id": "sve-hedge-fence",
+"n": "Hedge Fence",
+"sve": true,
+"cat": "Fences",
+"ing": [
+[
+"Fiber",
+3
+],
+[
+"Wood",
+1
+]
+],
+"src": "Farming Level 6",
+"k": "skill"
+},
+{
+"id": "sve-small-hardwood-fence",
+"n": "Small Hardwood Fence",
+"sve": true,
+"cat": "Fences",
+"ing": [
+[
+"Hardwood",
+1
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "sve-butter-churner",
+"n": "Butter Churner",
+"sve": true,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Wood",
+25
+],
+[
+"Stone",
+25
+],
+[
+"Frozen Tear",
+1
+],
+[
+"Iron Bar",
+1
+]
+],
+"src": "Farming Level 3",
+"k": "skill"
+},
+{
+"id": "sve-yarn-spooler",
+"n": "Yarn Spooler",
+"sve": true,
+"cat": "Artisan Equipment",
+"ing": [
+[
+"Hardwood",
+25
+],
+[
+"Battery Pack",
+1
+],
+[
+"Fir Wax",
+1
+],
+[
+"Pine Tar",
+1
+]
+],
+"src": "Farming Level 9",
+"k": "skill"
+},
+{
+"id": "sve-sun-totem",
+"n": "Sun Totem",
+"sve": true,
+"cat": "Consumables",
+"ing": [
+[
+"Hardwood",
+1
+],
+[
+"Solar Essence",
+10
+],
+[
+"Birch Water",
+1
+]
+],
+"src": "Foraging Level 9",
+"k": "skill"
+},
+{
+"id": "sve-wind-totem",
+"n": "Wind Totem",
+"sve": true,
+"cat": "Consumables",
+"ing": [
+[
+"Hardwood",
+1
+],
+[
+"Bat Wing",
+10
+],
+[
+"Fir Wax",
+1
+]
+],
+"src": "Foraging Level 9",
+"k": "skill"
+}
+],
+"img": {
+"Acorn": "img/items/acorn.png",
+"Algae Soup": "img/items/algae-soup.png",
+"Amaranth": "img/items/amaranth.png",
+"Ancient Seed": "img/items/ancient-seed.png",
+"Ancient Seeds": "img/items/ancient-seeds.png",
+"Anvil": "img/items/anvil.png",
+"Apple": "img/items/apple.png",
+"Apricot": "img/items/apricot.png",
+"Aquamarine": "img/items/aquamarine.png",
+"Armor Elixir": "img/items/armor-elixir.png",
+"Artichoke": "img/items/artichoke.png",
+"Artichoke Dip": "img/items/artichoke-dip.png",
+"Autumn's Bounty": "img/items/autumn-s-bounty.png",
+"Bait": "img/items/bait.png",
+"Bait Maker": "img/items/bait-maker.png",
+"Baked Berry Oatmeal": "img/items/baked-berry-oatmeal.png",
+"Baked Fish": "img/items/baked-fish.png",
+"Baked Potato": "img/items/baked-potato.png",
+"Banana": "img/items/banana.png",
+"Banana Pudding": "img/items/banana-pudding.png",
+"Barbed Hook": "img/items/barbed-hook.png",
+"Barrel Brazier": "img/items/barrel-brazier.png",
+"Basic Fertilizer": "img/items/basic-fertilizer.png",
+"Basic Retaining Soil": "img/items/basic-retaining-soil.png",
+"Bat Wing": "img/items/bat-wing.png",
+"Battery Pack": "img/items/battery-pack.png",
+"Bean Hotpot": "img/items/bean-hotpot.png",
+"Bearberry": "img/items/bearberry.png",
+"Bee House": "img/items/bee-house.png",
+"Beet": "img/items/beet.png",
+"Big Bark Burger": "img/items/big-bark-burger.png",
+"Big Chest": "img/items/big-chest.png",
+"Big Stone Chest": "img/items/big-stone-chest.png",
+"Birch Seed": "img/items/birch-seed.png",
+"Birch Syrup": "img/items/birch-syrup.png",
+"Birch Water": "img/items/birch-water.png",
+"Blackberry": "img/items/blackberry.png",
+"Blackberry Cobbler": "img/items/blackberry-cobbler.png",
+"Blue Grass Starter": "img/items/blue-grass-starter.png",
+"Blue Jazz": "img/items/blue-jazz.png",
+"Blueberry": "img/items/blueberry.png",
+"Blueberry Tart": "img/items/blueberry-tart.png",
+"Bok Choy": "img/items/bok-choy.png",
+"Bomb": "img/items/bomb.png",
+"Bombardier Elixir": "img/items/bombardier-elixir.png",
+"Bone Fragment": "img/items/bone-fragment.png",
+"Bone Mill": "img/items/bone-mill.png",
+"Bread": "img/items/bread.png",
+"Bream": "img/fish/bream.png",
+"Bruschetta": "img/items/bruschetta.png",
+"Bug Meat": "img/items/bug-meat.png",
+"Bug Steak": "img/items/bug-steak.png",
+"Butter": "img/items/butter.png",
+"Butter Churner": "img/items/butter-churner.png",
+"Butterfish": "img/fish/butterfish.png",
+"Campfire": "img/items/campfire.png",
+"Candy": "img/items/candy.png",
+"Carp": "img/fish/carp.png",
+"Carp Surprise": "img/items/carp-surprise.png",
+"Carved Brazier": "img/items/carved-brazier.png",
+"Cask": "img/items/cask.png",
+"Cauliflower": "img/items/cauliflower.png",
+"Cave Carrot": "img/items/cave-carrot.png",
+"Cave Jelly": "img/items/cave-jelly.png",
+"Chanterelle": "img/items/chanterelle.png",
+"Charcoal Kiln": "img/items/charcoal-kiln.png",
+"Cheese": "img/items/cheese.png",
+"Cheese Cauliflower": "img/items/cheese-cauliflower.png",
+"Cheese Charcuterie": "img/items/cheese-charcuterie.png",
+"Cheese Press": "img/items/cheese-press.png",
+"Cherry": "img/items/cherry.png",
+"Cherry Bomb": "img/items/cherry-bomb.png",
+"Chest": "img/items/chest.png",
+"Chocolate Cake": "img/items/chocolate-cake.png",
+"Chocolate Truffle Bar": "img/items/chocolate-truffle-bar.png",
+"Chowder": "img/items/chowder.png",
+"Cinder Shard": "img/items/cinder-shard.png",
+"Clam": "img/fish/clam.png",
+"Clay": "img/items/clay.png",
+"Cloth": "img/items/cloth.png",
+"Coal": "img/items/coal.png",
+"Cobblestone Path": "img/items/cobblestone-path.png",
+"Coconut": "img/items/coconut.png",
+"Coffee": "img/items/coffee.png",
+"Coleslaw": "img/items/coleslaw.png",
+"Common Mushroom": "img/items/common-mushroom.png",
+"Complete Breakfast": "img/items/complete-breakfast.png",
+"Cookie": "img/items/cookie.png",
+"Cookout Kit": "img/items/cookout-kit.png",
+"Copper Bar": "img/items/copper-bar.png",
+"Copper Ore": "img/items/copper-ore.png",
+"Coral": "img/items/coral.png",
+"Cork Bobber": "img/items/cork-bobber.png",
+"Corn": "img/items/corn.png",
+"Crab": "img/fish/crab.png",
+"Crab Cakes": "img/items/crab-cakes.png",
+"Crab Pot": "img/items/crab-pot.png",
+"Cranberries": "img/items/cranberries.png",
+"Cranberry Candy": "img/items/cranberry-candy.png",
+"Cranberry Sauce": "img/items/cranberry-sauce.png",
+"Crayfish": "img/fish/crayfish.png",
+"Crispy Bass": "img/items/crispy-bass.png",
+"Crocus": "img/items/crocus.png",
+"Crystal Fruit": "img/items/crystal-fruit.png",
+"Crystalarium": "img/items/crystalarium.png",
+"Daffodil": "img/items/daffodil.png",
+"Dandelion": "img/items/dandelion.png",
+"Dark Sign": "img/items/dark-sign.png",
+"Dehydrator": "img/items/dehydrator.png",
+"Deluxe Retaining Soil": "img/items/deluxe-retaining-soil.png",
+"Deluxe Scarecrow": "img/items/deluxe-scarecrow.png",
+"Deluxe Worm Bin": "img/items/deluxe-worm-bin.png",
+"Diamond": "img/items/diamond.png",
+"Dish O' The Sea": "img/items/dish-o-the-sea.png",
+"Dragon Tooth": "img/items/dragon-tooth.png",
+"Dressed Spinner": "img/items/dressed-spinner.png",
+"Drum Block": "img/items/drum-block.png",
+"Dulse Seaweed": "img/fish/dulse-seaweed.png",
+"Dwarf Gadget": "img/items/dwarf-gadget.png",
+"Earth Crystal": "img/items/earth-crystal.png",
+"Eel": "img/fish/eel.png",
+"Egg": "img/items/egg.png",
+"Eggplant": "img/items/eggplant.png",
+"Eggplant Parmesan": "img/items/eggplant-parmesan.png",
+"Escargot": "img/items/escargot.png",
+"Fairy Dust": "img/items/fairy-dust.png",
+"Fairy Rose": "img/items/fairy-rose.png",
+"Farm Computer": "img/items/farm-computer.png",
+"Farmer's Lunch": "img/items/farmer-s-lunch.png",
+"Ferngill Primrose": "img/items/ferngill-primrose.png",
+"Fiber": "img/items/fiber.png",
+"Fiddlehead Fern": "img/items/fiddlehead-fern.png",
+"Fiddlehead Risotto": "img/items/fiddlehead-risotto.png",
+"Field Snack": "img/items/field-snack.png",
+"Fir Cone": "img/items/fir-cone.png",
+"Fir Wax": "img/items/fir-wax.png",
+"Fire Quartz": "img/items/fire-quartz.png",
+"Fish Dumpling": "img/items/fish-dumpling.png",
+"Fish Smoker": "img/items/fish-smoker.png",
+"Fish Stew": "img/items/fish-stew.png",
+"Fish Taco": "img/items/fish-taco.png",
+"Flounder": "img/fish/flounder.png",
+"Flower Cookie": "img/items/flower-cookie.png",
+"Flute Block": "img/items/flute-block.png",
+"Fried Calamari": "img/items/fried-calamari.png",
+"Fried Eel": "img/items/fried-eel.png",
+"Fried Egg": "img/items/fried-egg.png",
+"Fried Mushroom": "img/items/fried-mushroom.png",
+"Frog": "img/fish/frog.png",
+"Frog Legs": "img/items/frog-legs.png",
+"Frozen Tear": "img/items/frozen-tear.png",
+"Fruit Salad": "img/items/fruit-salad.png",
+"Furnace": "img/items/furnace.png",
+"Garden Pot": "img/items/garden-pot.png",
+"Garlic": "img/items/garlic.png",
+"Geode Crusher": "img/items/geode-crusher.png",
+"Ginger": "img/items/ginger.png",
+"Ginger Ale": "img/items/ginger-ale.png",
+"Gingerbread Man": "img/items/gingerbread-man.png",
+"Glazed Butterfish": "img/items/glazed-butterfish.png",
+"Glazed Pear": "img/items/glazed-pear.png",
+"Glazed Yams": "img/items/glazed-yams.png",
+"Glowstone Ring": "img/items/glowstone-ring.png",
+"Goat Cheese": "img/items/goat-cheese.png",
+"Gold Bar": "img/items/gold-bar.png",
+"Gold Brazier": "img/items/gold-brazier.png",
+"Gold Ore": "img/items/gold-ore.png",
+"Goldenrod": "img/items/goldenrod.png",
+"Grape": "img/items/grape.png",
+"Grass Starter": "img/items/grass-starter.png",
+"Gravel Path": "img/items/gravel-path.png",
+"Green Algae": "img/items/green-algae.png",
+"Green Bean": "img/items/green-bean.png",
+"Grilled Cheese Sandwich": "img/items/grilled-cheese-sandwich.png",
+"Hardwood": "img/items/hardwood.png",
+"Hashbrowns": "img/items/hashbrowns.png",
+"Haste Elixir": "img/items/haste-elixir.png",
+"Hazelnut": "img/items/hazelnut.png",
+"Heavy Furnace": "img/items/heavy-furnace.png",
+"Heavy Tapper": "img/items/heavy-tapper.png",
+"Hedge Fence": "img/items/hedge-fence.png",
+"Hero Elixir": "img/items/hero-elixir.png",
+"Honey": "img/items/honey.png",
+"Hopper": "img/items/hopper.png",
+"Hot Pepper": "img/items/hot-pepper.png",
+"Hyper Speed-Gro": "img/items/hyper-speed-gro.png",
+"Ice Cream": "img/items/ice-cream.png",
+"Ice Cream Sundae": "img/items/ice-cream-sundae.png",
+"Iridium Band": "img/items/iridium-band.png",
+"Iridium Bar": "img/items/iridium-bar.png",
+"Iridium Ore": "img/items/iridium-ore.png",
+"Iridium Sprinkler": "img/items/iridium-sprinkler.png",
+"Iron Bar": "img/items/iron-bar.png",
+"Iron Lamp-post": "img/items/iron-lamp-post.png",
+"Iron Ore": "img/items/iron-ore.png",
+"Jack-O-Lantern": "img/items/jack-o-lantern.png",
+"Jazz Seeds": "img/items/jazz-seeds.png",
+"Kale": "img/items/kale.png",
+"Keg": "img/items/keg.png",
+"Largemouth Bass": "img/fish/largemouth-bass.png",
+"Leek": "img/items/leek.png",
+"Life Elixir": "img/items/life-elixir.png",
+"Lightning Rod": "img/items/lightning-rod.png",
+"Lobster": "img/fish/lobster.png",
+"Lobster Bisque": "img/items/lobster-bisque.png",
+"Loom": "img/items/loom.png",
+"Lucky Lunch": "img/items/lucky-lunch.png",
+"Mahogany Seed": "img/items/mahogany-seed.png",
+"Maki Roll": "img/items/maki-roll.png",
+"Mango": "img/items/mango.png",
+"Mango Sticky Rice": "img/items/mango-sticky-rice.png",
+"Maple Bar": "img/items/maple-bar.png",
+"Maple Seed": "img/items/maple-seed.png",
+"Maple Syrup": "img/items/maple-syrup.png",
+"Marble": "img/items/marble.png",
+"Marble Brazier": "img/items/marble-brazier.png",
+"Marsh Tonic": "img/items/marsh-tonic.png",
+"Mayonnaise": "img/items/mayonnaise.png",
+"Mayonnaise Machine": "img/items/mayonnaise-machine.png",
+"Mega Bomb": "img/items/mega-bomb.png",
+"Melon": "img/items/melon.png",
+"Midnight Carp": "img/fish/midnight-carp.png",
+"Milk": "img/items/milk.png",
+"Miner's Treat": "img/items/miner-s-treat.png",
+"Mini-Forge": "img/items/mini-forge.png",
+"Mini-Jukebox": "img/items/mini-jukebox.png",
+"Mini-Obelisk": "img/items/mini-obelisk.png",
+"Mixed Berry Pie": "img/items/mixed-berry-pie.png",
+"Mixed Seeds": "img/items/mixed-seeds.png",
+"Monster Musk": "img/items/monster-musk.png",
+"Morel": "img/items/morel.png",
+"Moss": "img/items/moss.png",
+"Moss Soup": "img/items/moss-soup.png",
+"Mushroom Berry Rice": "img/items/mushroom-berry-rice.png",
+"Mushroom Log": "img/items/mushroom-log.png",
+"Mussel": "img/fish/mussel.png",
+"Mystic Syrup": "img/items/mystic-syrup.png",
+"Mystic Tree Seed": "img/items/mystic-tree-seed.png",
+"Nectarine": "img/items/nectarine.png",
+"Nectarine Fruit Bread": "img/items/nectarine-fruit-bread.png",
+"Oak Resin": "img/items/oak-resin.png",
+"Oil": "img/items/oil.png",
+"Oil Maker": "img/items/oil-maker.png",
+"Oil of Garlic": "img/items/oil-of-garlic.png",
+"Omelet": "img/items/omelet.png",
+"Ostrich Incubator": "img/items/ostrich-incubator.png",
+"Pale Broth": "img/items/pale-broth.png",
+"Pancakes": "img/items/pancakes.png",
+"Parsnip": "img/items/parsnip.png",
+"Parsnip Soup": "img/items/parsnip-soup.png",
+"Pear": "img/items/pear.png",
+"Pepper Poppers": "img/items/pepper-poppers.png",
+"Periwinkle": "img/fish/periwinkle.png",
+"Persimmon": "img/items/persimmon.png",
+"Pine Cone": "img/items/pine-cone.png",
+"Pine Tar": "img/items/pine-tar.png",
+"Pineapple": "img/items/pineapple.png",
+"Pineapple Custard Crepe": "img/items/pineapple-custard-crepe.png",
+"Pink Cake": "img/items/pink-cake.png",
+"Pizza": "img/items/pizza.png",
+"Plum Pudding": "img/items/plum-pudding.png",
+"Poi": "img/items/poi.png",
+"Poison Mushroom": "img/items/poison-mushroom.png",
+"Poppy": "img/items/poppy.png",
+"Poppy Seeds": "img/items/poppy-seeds.png",
+"Poppyseed Muffin": "img/items/poppyseed-muffin.png",
+"Potato": "img/items/potato.png",
+"Preserves Jar": "img/items/preserves-jar.png",
+"Prismatic Pop": "img/items/prismatic-pop.png",
+"Prismatic Shard": "img/items/prismatic-shard.png",
+"Pumpkin": "img/items/pumpkin.png",
+"Pumpkin Pie": "img/items/pumpkin-pie.png",
+"Pumpkin Soup": "img/items/pumpkin-soup.png",
+"Puppyfish": "img/fish/puppyfish.png",
+"Purple Mushroom": "img/items/purple-mushroom.png",
+"Quality Bobber": "img/items/quality-bobber.png",
+"Quality Sprinkler": "img/items/quality-sprinkler.png",
+"Radioactive Bar": "img/items/radioactive-bar.png",
+"Radioactive Ore": "img/items/radioactive-ore.png",
+"Radish": "img/items/radish.png",
+"Radish Salad": "img/items/radish-salad.png",
+"Rain Totem": "img/items/rain-totem.png",
+"Rainbow Trout": "img/fish/rainbow-trout.png",
+"Ramen": "img/items/ramen.png",
+"Recycling Machine": "img/items/recycling-machine.png",
+"Red Baneberry": "img/items/red-baneberry.png",
+"Red Cabbage": "img/items/red-cabbage.png",
+"Red Mushroom": "img/items/red-mushroom.png",
+"Red Plate": "img/items/red-plate.png",
+"Refined Quartz": "img/items/refined-quartz.png",
+"Rhubarb": "img/items/rhubarb.png",
+"Rhubarb Pie": "img/items/rhubarb-pie.png",
+"Rice": "img/items/rice.png",
+"Rice Pudding": "img/items/rice-pudding.png",
+"Ring of Yoba": "img/items/ring-of-yoba.png",
+"River Jelly": "img/items/river-jelly.png",
+"Roasted Hazelnuts": "img/items/roasted-hazelnuts.png",
+"Roots Platter": "img/items/roots-platter.png",
+"Rustic Plank Floor": "img/items/rustic-plank-floor.png",
+"Salad": "img/items/salad.png",
+"Salal Berry": "img/items/salal-berry.png",
+"Salmon": "img/fish/salmon.png",
+"Salmon Dinner": "img/items/salmon-dinner.png",
+"Salmonberry": "img/items/salmonberry.png",
+"Sap": "img/items/sap.png",
+"Sardine": "img/fish/sardine.png",
+"Sashimi": "img/items/sashimi.png",
+"Scarecrow": "img/items/scarecrow.png",
+"Sea Cucumber": "img/fish/sea-cucumber.png",
+"Sea Jelly": "img/items/sea-jelly.png",
+"Sea Urchin": "img/items/sea-urchin.png",
+"Seafoam Pudding": "img/items/seafoam-pudding.png",
+"Seaweed": "img/items/seaweed.png",
+"Seaweed Salad": "img/items/seaweed-salad.png",
+"Seed Cookie": "img/items/seed-cookie.png",
+"Seed Maker": "img/items/seed-maker.png",
+"Shrimp": "img/fish/shrimp.png",
+"Shrimp Cocktail": "img/items/shrimp-cocktail.png",
+"Skull Brazier": "img/items/skull-brazier.png",
+"Slime": "img/items/slime.png",
+"Slime Egg-Press": "img/items/slime-egg-press.png",
+"Slime Incubator": "img/items/slime-incubator.png",
+"Small Hardwood Fence": "img/items/small-hardwood-fence.png",
+"Snail": "img/fish/snail.png",
+"Snow Yam": "img/items/snow-yam.png",
+"Solar Essence": "img/items/solar-essence.png",
+"Solar Panel": "img/items/solar-panel.png",
+"Sonar Bobber": "img/items/sonar-bobber.png",
+"Spaghetti": "img/items/spaghetti.png",
+"Spangle Seeds": "img/items/spangle-seeds.png",
+"Spice Berry": "img/items/spice-berry.png",
+"Spicy Eel": "img/items/spicy-eel.png",
+"Spinner": "img/items/spinner.png",
+"Sprinkler": "img/items/sprinkler.png",
+"Squid": "img/fish/squid.png",
+"Squid Ink": "img/items/squid-ink.png",
+"Squid Ink Ravioli": "img/items/squid-ink-ravioli.png",
+"Staircase": "img/items/staircase.png",
+"Statue Of Blessings": "img/items/statue-of-blessings.png",
+"Statue Of The Dwarf King": "img/items/statue-of-the-dwarf-king.png",
+"Stepping Stone Path": "img/items/stepping-stone-path.png",
+"Stir Fry": "img/items/stir-fry.png",
+"Stone": "img/items/stone.png",
+"Stone Brazier": "img/items/stone-brazier.png",
+"Stone Chest": "img/items/stone-chest.png",
+"Stone Floor": "img/items/stone-floor.png",
+"Stone Sign": "img/items/stone-sign.png",
+"Stone Walkway Floor": "img/items/stone-walkway-floor.png",
+"Strange Bun": "img/items/strange-bun.png",
+"Straw Floor": "img/items/straw-floor.png",
+"Strawberry": "img/items/strawberry.png",
+"Stuffed Persimmon": "img/items/stuffed-persimmon.png",
+"Stuffing": "img/items/stuffing.png",
+"Stump Brazier": "img/items/stump-brazier.png",
+"Sturdy Ring": "img/items/sturdy-ring.png",
+"Sugar": "img/items/sugar.png",
+"Sun Totem": "img/items/sun-totem.png",
+"Sunfish": "img/fish/sunfish.png",
+"Super Meal": "img/items/super-meal.png",
+"Survival Burger": "img/items/survival-burger.png",
+"Swamp Essence": "img/items/swamp-essence.png",
+"Swamp Flower": "img/items/swamp-flower.png",
+"Sweet Pea": "img/items/sweet-pea.png",
+"Tapper": "img/items/tapper.png",
+"Taro Root": "img/items/taro-root.png",
+"Tea Sapling": "img/items/tea-sapling.png",
+"Tent Kit": "img/items/tent-kit.png",
+"Text Sign": "img/items/text-sign.png",
+"Thorns Ring": "img/items/thorns-ring.png",
+"Tom Kha Soup": "img/items/tom-kha-soup.png",
+"Tomato": "img/items/tomato.png",
+"Torch": "img/items/torch.png",
+"Tortilla": "img/items/tortilla.png",
+"Trap Bobber": "img/items/trap-bobber.png",
+"Treasure Hunter": "img/items/treasure-hunter.png",
+"Treasure Totem": "img/items/treasure-totem.png",
+"Tree Fertilizer": "img/items/tree-fertilizer.png",
+"Triple Shot Espresso": "img/items/triple-shot-espresso.png",
+"Tropical Curry": "img/items/tropical-curry.png",
+"Trout Soup": "img/items/trout-soup.png",
+"Truffle": "img/items/truffle.png",
+"Truffle Oil": "img/items/truffle-oil.png",
+"Tub o' Flowers": "img/items/tub-o-flowers.png",
+"Tulip Bulb": "img/items/tulip-bulb.png",
+"Tuna": "img/fish/tuna.png",
+"Vegan Cone": "img/items/vegan-cone.png",
+"Vegetable Medley": "img/items/vegetable-medley.png",
+"Vinegar": "img/items/vinegar.png",
+"Void Delight": "img/items/void-delight.png",
+"Void Eel": "img/fish/void-eel.png",
+"Void Essence": "img/items/void-essence.png",
+"Void Mayonnaise": "img/items/void-mayonnaise.png",
+"Void Pebble": "img/items/void-pebble.png",
+"Void Salmon": "img/fish/void-salmon.png",
+"Void Salmon Sushi": "img/items/void-salmon-sushi.png",
+"Void Soul": "img/items/void-soul.png",
+"Warp Totem: Beach": "img/items/warp-totem-beach.png",
+"Warp Totem: Desert": "img/items/warp-totem-desert.png",
+"Warp Totem: Farm": "img/items/warp-totem-farm.png",
+"Warp Totem: Island": "img/items/warp-totem-island.png",
+"Warp Totem: Mountains": "img/items/warp-totem-mountains.png",
+"Warrior Ring": "img/items/warrior-ring.png",
+"Weathered Floor": "img/items/weathered-floor.png",
+"Wedding Ring": "img/items/wedding-ring.png",
+"Wheat Flour": "img/items/wheat-flour.png",
+"White Algae": "img/items/white-algae.png",
+"Wicked Statue": "img/items/wicked-statue.png",
+"Wild Horseradish": "img/items/wild-horseradish.png",
+"Wild Plum": "img/items/wild-plum.png",
+"Wind Totem": "img/items/wind-totem.png",
+"Winter Root": "img/items/winter-root.png",
+"Winter Star Rose": "img/items/winter-star-rose.png",
+"Wood": "img/items/wood.png",
+"Wood Floor": "img/items/wood-floor.png",
+"Wood Lamp-post": "img/items/wood-lamp-post.png",
+"Wood Path": "img/items/wood-path.png",
+"Wood Sign": "img/items/wood-sign.png",
+"Wooden Brazier": "img/items/wooden-brazier.png",
+"Worm Bin": "img/items/worm-bin.png",
+"Yam": "img/items/yam.png",
+"Yarn Spooler": "img/items/yarn-spooler.png",
+"Transmute (Fe)": "img/items/transmute-fe.png",
+"Fiber Seeds": "img/items/fiber-seeds.png",
+"Challenge Bait": "img/items/challenge-bait.png",
+"Speed-Gro": "img/items/speed-gro.png",
+"Wild Seeds (Summer)": "img/items/wild-seeds-summer.png",
+"Magic Bait": "img/items/magic-bait.png",
+"Crystal Path": "img/items/crystal-path.png",
+"Deluxe Fertilizer": "img/items/deluxe-fertilizer.png",
+"Deluxe Speed-Gro": "img/items/deluxe-speed-gro.png",
+"Wild Bait": "img/items/wild-bait.png",
+"Explosive Ammo": "img/items/explosive-ammo.png",
+"Wild Seeds (Spring)": "img/items/wild-seeds-spring.png",
+"Wild Seeds (Winter)": "img/items/wild-seeds-winter.png",
+"Quality Retaining Soil": "img/items/quality-retaining-soil.png",
+"Magnet": "img/items/magnet.png",
+"Crystal Floor": "img/items/crystal-floor.png",
+"Quality Fertilizer": "img/items/quality-fertilizer.png",
+"Brick Floor": "img/items/brick-floor.png",
+"Wild Seeds (Fall)": "img/items/wild-seeds-fall.png",
+"Deluxe Bait": "img/items/deluxe-bait.png",
+"Transmute (Au)": "img/items/transmute-au.png"
+}
+}

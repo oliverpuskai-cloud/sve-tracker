@@ -8,7 +8,7 @@ const STORE_KEY = "sve-tracker:v1";
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
 
-let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {};
+let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {}, RECIPES = { cooking: [], crafting: [], img: {} };
 let store = load();
 let state = store.farms[store.active];
 
@@ -18,12 +18,12 @@ const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, 
 
 // ---------- storage ----------
 function newFarm(name) {
-  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
+  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], made: { cooking: {}, crafting: {} }, shop: { cooking: {}, crafting: {} }, qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
 }
 function fixFarm(f, name) {
   const b = newFarm(name);
   // farms saved before bundle sets existed used the standard bundles
-  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [] };
+  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [], made: { cooking: { ...(f && f.made && f.made.cooking) }, crafting: { ...(f && f.made && f.made.crafting) } }, shop: { cooking: { ...(f && f.shop && f.shop.cooking) }, crafting: { ...(f && f.shop && f.shop.crafting) } } };
 }
 function load() {
   let v = null;
@@ -543,6 +543,125 @@ function renderVillagers(main) {
   drawList();
 }
 
+// ---------- RECIPES (cooking + crafting) ----------
+const recState = { kind: "cooking", view: "list", q: "", src: "", unlock: "", hideMade: false, onlyMissing: true, hideHave: false };
+const UNLOCK = { friend: ["❤", "Friendship"], tv: ["📺", "Queen of Sauce"], skill: ["⭐", "Skill level"], shop: ["🛒", "Buy"], quest: ["📜", "Quest / order"], event: ["🎬", "Event"], starter: ["✔", "Known from the start"] };
+const ingImg = n => RECIPES.img[n] || BY_NAME[n]?.img || "";
+function ingChip(name, qty, made, hit) {
+  const src = ingImg(name);
+  const pic = src ? `<img alt="" loading="lazy" src="${src}">` : `<span class="noimg" aria-hidden="true">${name.startsWith("Any ") ? "✱" : "?"}</span>`;
+  return `<span class="gift ing${hit ? " hit" : ""}${made ? " madeof" : ""}" title="${made ? "Made from another recipe" : ""}">${pic}${esc(name)}${qty > 1 ? ` <b>×${qty}</b>` : ""}</span>`;
+}
+function recipeCard(r, kind, q) {
+  const made = !!state.made[kind][r.id], [icon, label] = UNLOCK[r.k] || ["•", ""];
+  const el = document.createElement("article");
+  el.className = "recipe" + (r.sve ? " sve" : "") + (made ? " made" : "");
+  const pic = RECIPES.img[r.n];
+  el.innerHTML = `<div class="rhead">${pic ? `<img class="rpic" alt="" loading="lazy" src="${pic}">` : '<span class="rpic noimg">?</span>'}
+      <div class="rmeta"><h3>${esc(r.n)}</h3><div class="tags">${r.sve ? '<span class="tag sve">SVE</span>' : ""}${r.cat ? `<span class="tag">${esc(r.cat)}</span>` : ""}${r.yield ? `<span class="tag need">makes ${r.yield}</span>` : ""}</div></div>
+      <label class="rmade"><input type="checkbox" ${made ? "checked" : ""}> ${kind === "cooking" ? "Cooked" : "Crafted"}</label></div>
+    <p class="unlock u-${r.k}" title="${esc(label)}"><span aria-hidden="true">${icon}</span> ${esc(r.src)}</p>
+    <div class="gifts">${r.ing.map(([n, qty, m]) => ingChip(n, qty, m, q && n.toLowerCase().includes(q))).join("")}</div>${r.note ? `<p class="gnote">${esc(r.note)}</p>` : ""}`;
+  el.querySelector("input").onchange = e => { if (e.target.checked) state.made[kind][r.id] = true; else delete state.made[kind][r.id]; save(); render(); };
+  return el;
+}
+// Total of every ingredient across a list of recipes: [{n, qty, recipes:[names], made}]
+function totals(list) {
+  const m = new Map();
+  for (const r of list) for (const [n, qty, made] of r.ing) {
+    const e = m.get(n) || { n, qty: 0, recipes: [], made: !!made };
+    e.qty += qty; e.recipes.push(r.n); m.set(n, e);
+  }
+  return [...m.values()].sort((a, b) => a.n.localeCompare(b.n));
+}
+
+function renderRecipes(main) {
+  const kind = recState.kind, all = RECIPES[kind], madeMap = state.made[kind];
+  const madeCount = all.filter(r => madeMap[r.id]).length;
+  const head = document.createElement("div");
+  head.innerHTML = `<div class="controls">
+      <div class="ctl"><span>Recipes</span><div class="seg" id="r-kind"><button data-k="cooking" aria-pressed="${kind === "cooking"}">🍳 Cooking (${RECIPES.cooking.length})</button><button data-k="crafting" aria-pressed="${kind === "crafting"}">🔨 Crafting (${RECIPES.crafting.length})</button></div></div>
+      <div class="ctl"><span>Show</span><div class="seg" id="r-view"><button data-v="list" aria-pressed="${recState.view === "list"}">Recipe list</button><button data-v="shop" aria-pressed="${recState.view === "shop"}">Ingredients for everything</button></div></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>${madeCount} / ${all.length}</b><span>${kind === "cooking" ? "dishes cooked" : "items crafted"} on this farm${kind === "cooking" ? " (Gourmet Chef needs every vanilla one)" : " (Craft Master needs every vanilla one)"}</span></div>
+      <div class="stat"><b>${all.filter(r => r.k === "friend").length}</b><span>need friendship ❤ to unlock</span></div>
+      <div class="stat"><b>${all.filter(r => r.sve).length}</b><span>added by SVE</span></div>
+    </div>
+    <div id="r-body"></div>`;
+  main.appendChild(head);
+  head.querySelectorAll("#r-kind button").forEach(b => b.onclick = () => { recState.kind = b.dataset.k; render(); });
+  head.querySelectorAll("#r-view button").forEach(b => b.onclick = () => { recState.view = b.dataset.v; render(); });
+  const body = $("r-body");
+  if (recState.view === "shop") return renderShopping(body, kind, all);
+
+  body.innerHTML = `<div class="controls">
+      <div class="ctl" style="flex:1 1 240px"><span>Search a recipe or an ingredient</span><input type="search" id="r-q" value="${esc(recState.q)}" placeholder="e.g. Pink Cake, Egg, Iron Bar…" style="font:inherit;padding:6px 10px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)"></div>
+      <div class="ctl"><span>Source</span><select id="r-src"><option value="">All recipes</option><option value="sve">SVE only</option><option value="vanilla">Vanilla only</option></select></div>
+      <div class="ctl"><span>Unlocked by</span><select id="r-unlock"><option value="">Anything</option>${Object.entries(UNLOCK).map(([k, [i, l]]) => `<option value="${k}">${i} ${l}</option>`).join("")}</select></div>
+      <label class="check"><input type="checkbox" id="r-hide" ${recState.hideMade ? "checked" : ""}> Hide ${kind === "cooking" ? "cooked" : "crafted"}</label>
+    </div>
+    <p class="lede">❤ friendship · 📺 Queen of Sauce (TV, Sundays and Wednesday reruns) · ⭐ skill level · 🛒 buy · 📜 quest or special order · 🎬 event · ✔ known from the start. Ingredients with a dashed border are made with another recipe.</p>
+    <div id="r-list"></div>`;
+  $("r-src").value = recState.src; $("r-unlock").value = recState.unlock;
+  $("r-src").onchange = e => { recState.src = e.target.value; draw(); };
+  $("r-unlock").onchange = e => { recState.unlock = e.target.value; draw(); };
+  $("r-hide").onchange = e => { recState.hideMade = e.target.checked; draw(); };
+  $("r-q").oninput = e => { recState.q = e.target.value; draw(); };
+  function draw() {
+    const q = recState.q.trim().toLowerCase(), out = $("r-list");
+    out.innerHTML = "";
+    const list = all.filter(r => (!recState.src || (recState.src === "sve") === r.sve) && (!recState.unlock || r.k === recState.unlock) && !(recState.hideMade && madeMap[r.id]));
+    if (q) {
+      const byName = list.filter(r => r.n.toLowerCase().includes(q));
+      const uses = list.filter(r => !byName.includes(r) && r.ing.some(([n]) => n.toLowerCase().includes(q)));
+      const grp = (title, rs) => { if (!rs.length) return; const sec = document.createElement("section"); sec.innerHTML = `<h2>${title}<span>${rs.length}</span></h2><div class="rgrid"></div>`; rs.forEach(r => sec.querySelector(".rgrid").appendChild(recipeCard(r, kind, q))); out.appendChild(sec); };
+      grp("Recipes", byName); grp(`Uses “${esc(recState.q.trim())}”`, uses);
+      if (!byName.length && !uses.length) out.innerHTML = '<p class="empty">No recipe or ingredient matches that.</p>';
+      return;
+    }
+    const groups = new Map();
+    for (const r of list) { const g = kind === "crafting" ? r.cat : (r.sve ? "SVE recipes" : "Vanilla recipes"); (groups.get(g) || groups.set(g, []).get(g)).push(r); }
+    for (const [g, rs] of groups) {
+      const sec = document.createElement("section");
+      sec.innerHTML = `<h2>${esc(g)}<span>${rs.filter(r => madeMap[r.id]).length} / ${rs.length} made</span></h2><div class="rgrid"></div>`;
+      rs.forEach(r => sec.querySelector(".rgrid").appendChild(recipeCard(r, kind, "")));
+      out.appendChild(sec);
+    }
+    if (!list.length) out.innerHTML = '<p class="empty">No recipes match these filters.</p>';
+  }
+  draw();
+}
+
+function renderShopping(body, kind, all) {
+  const shop = state.shop[kind], madeMap = state.made[kind];
+  const recipes = recState.onlyMissing ? all.filter(r => !madeMap[r.id]) : all;
+  const rows = totals(recipes);
+  const have = rows.filter(r => shop[r.n]).length;
+  body.innerHTML = `<div class="controls">
+      <label class="check"><input type="checkbox" id="s-missing" ${recState.onlyMissing ? "checked" : ""}> Only recipes I haven't ${kind === "cooking" ? "cooked" : "crafted"} yet (${recipes.length})</label>
+      <label class="check"><input type="checkbox" id="s-hide" ${recState.hideHave ? "checked" : ""}> Hide ingredients I've ticked</label>
+      <button type="button" class="btn small ghost" id="s-reset">Untick all</button>
+    </div>
+    <p class="lede">Everything you need to ${kind === "cooking" ? "cook" : "craft"} ${recState.onlyMissing ? "the recipes you haven't made yet" : "every recipe"} once. Tick an ingredient when you have the full amount. <b>${have} / ${rows.length}</b> ready. Ingredients made with another recipe are listed too, so make those first.</p>
+    <div class="panel shoplist"><ul id="s-list"></ul></div>`;
+  const ul = $("s-list");
+  for (const r of rows) {
+    if (recState.hideHave && shop[r.n]) continue;
+    const li = document.createElement("li");
+    li.className = "srow" + (shop[r.n] ? " got" : "");
+    const src = ingImg(r.n);
+    li.innerHTML = `<label><input type="checkbox" ${shop[r.n] ? "checked" : ""}>${src ? `<img alt="" loading="lazy" src="${src}">` : '<span class="noimg">✱</span>'}<span class="sname">${esc(r.n)}${r.made ? ' <span class="tag">made with a recipe</span>' : ""}</span><span class="sqty">×${r.qty.toLocaleString()}</span></label>
+      <details><summary>for ${r.recipes.length} recipe${r.recipes.length === 1 ? "" : "s"}</summary><p>${[...new Set(r.recipes)].map(esc).join(", ")}</p></details>`;
+    li.querySelector("input").onchange = e => { if (e.target.checked) shop[r.n] = true; else delete shop[r.n]; save(); render(); };
+    ul.appendChild(li);
+  }
+  if (!ul.children.length) ul.innerHTML = '<li class="tempty">Nothing left on the list.</li>';
+  $("s-missing").onchange = e => { recState.onlyMissing = e.target.checked; render(); };
+  $("s-hide").onchange = e => { recState.hideHave = e.target.checked; render(); };
+  $("s-reset").onclick = () => { state.shop[kind] = {}; save(); render(); };
+}
+
 // ---------- ALL FISH ----------
 const listFilter = { q: "", src: "", cat: "", hide: false, season: "All" };
 function renderFish(main) {
@@ -697,6 +816,10 @@ function mergeInto(f, v) {
     items += arr.length;
   }
   if (v.done && typeof v.done === "object") for (const id of Object.keys(v.done)) if (v.done[id]) { f.done[id] = true; items++; }
+  for (const k of ["cooking", "crafting"]) {
+    if (v.made && v.made[k]) for (const id in v.made[k]) if (v.made[k][id]) f.made[k][id] = true;
+    if (v.shop && v.shop[k]) for (const id in v.shop[k]) if (v.shop[k][id]) f.shop[k][id] = true;
+  }
   if (Array.isArray(v.todos)) {
     const ids = new Set((f.todos || []).map(t => t.id));
     f.todos = [...(f.todos || []), ...v.todos.filter(t => t && t.id && !ids.has(t.id))];
@@ -867,7 +990,7 @@ function toggleTheme() {
 if ($("theme")) { $("theme").onclick = toggleTheme; paintThemeButton(); }
 
 // ---------- shell ----------
-const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, fish: renderFish, map: renderMap, backup: renderBackup };
+const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, recipes: renderRecipes, fish: renderFish, map: renderMap, backup: renderBackup };
 function route() { const r = location.hash.slice(1); return ROUTES[r] ? r : "today"; }
 
 function render() {
@@ -887,8 +1010,9 @@ function render() {
 window.addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
 window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = load(); state = store.farms[store.active]; render(); } });
 
-Promise.all([fetch("data/fish.json").then(r => r.json()), fetch("data/bundles.json").then(r => r.json()), fetch("data/villagers.json").then(r => r.json())])
-  .then(([fd, bd, vd]) => {
+Promise.all([fetch("data/fish.json").then(r => r.json()), fetch("data/bundles.json").then(r => r.json()), fetch("data/villagers.json").then(r => r.json()), fetch("data/recipes.json").then(r => r.json())])
+  .then(([fd, bd, vd, rd]) => {
+    RECIPES = { cooking: [], crafting: [], ...rd, img: rd.img || {} };
     FISH = fd.fish; ORDER = fd.order; SETS = bd.sets; VILLAGERS = vd.villagers; UNIVERSAL = vd.universal; ITEM_IMG = vd.itemImg || {};
     for (const f of FISH) { BY_NAME[f.n] = f; const l = f.l.toLowerCase(); f.spots = SPOTS.filter(s => s.t(l)).map(s => s.id); }
     render();
