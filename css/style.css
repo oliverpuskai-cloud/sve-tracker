@@ -257,3 +257,25 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .event.bdayev img{width:44px;height:44px;image-rendering:pixelated;border-radius:6px;flex:none}
 @media (max-width:520px){.cal .day{min-height:64px;padding:3px}.cal .who img{width:26px;height:26px}.cal .who span{display:none}.cal .fest{font-size:.55rem}}
 @media (prefers-reduced-motion:reduce){.villager{transition:none}}
+/* my to-do */
+.todos{margin-top:26px}
+.tcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.tcol{display:flex;flex-direction:column;gap:8px;min-width:0}
+.tcol h3{font-family:var(--display);font-weight:500;font-size:1.1rem;margin:0}
+.tcol h3 small{font-family:var(--body);font-size:.8rem;color:var(--muted);font-weight:400;margin-left:6px}
+.tlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.titem{display:flex;gap:10px;align-items:flex-start;padding:6px 4px;border-bottom:1px dashed var(--line)}
+.titem input[type=checkbox]{width:20px;height:20px;margin:1px 0 0;flex:none;accent-color:var(--done-line);cursor:pointer}
+.ttext{flex:1;min-width:0;overflow-wrap:anywhere;font-size:.93rem}
+.titem.done .ttext{text-decoration:line-through;color:var(--muted)}
+.tmeta{display:block;font-size:.75rem;color:var(--muted)}
+.tmeta.late{color:var(--warn);font-weight:700}
+.tbtn{font:inherit;font-size:.75rem;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:4px;padding:1px 7px;cursor:pointer;flex:none}
+.tbtn.x{font-size:1rem;line-height:1;padding:0 6px}
+.tbtn:hover{color:var(--ink);border-color:var(--muted)}
+.tempty{font-size:.85rem;color:var(--muted);padding:4px 0}
+.tadd{display:flex;gap:6px;flex-wrap:wrap}
+.tadd input,.tadd select{font:inherit;font-size:.88rem;padding:6px 8px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink);min-width:0}
+.tadd input:first-child{flex:1 1 160px}
+.tadd input[type=number]{width:4.4em}
+.tclear{align-self:flex-start;font:inherit;font-size:.8rem;background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;padding:0}

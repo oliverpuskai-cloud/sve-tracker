@@ -18,12 +18,12 @@ const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, 
 
 // ---------- storage ----------
 function newFarm(name) {
-  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, qi: false, today: { season: "Spring", day: 1, rain: false, hour: "" } };
+  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
 }
 function fixFarm(f, name) {
   const b = newFarm(name);
   // farms saved before bundle sets existed used the standard bundles
-  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) } };
+  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [] };
 }
 function load() {
   let v = null;
@@ -201,6 +201,7 @@ function section(title, sub, items) {
 function conditionsHTML(ctx, p) {
   return `
     <div class="ctl"><span>Season</span><div class="seg" id="${p}-season">${SEASONS.map(s => `<button data-s="${s}" style="--c:${SC[s]}" aria-pressed="${ctx.season === s}">${s}</button>`).join("")}</div></div>
+    <div class="ctl"><span>Year</span><div class="day"><input id="${p}-year" type="number" min="1" max="99" value="${ctx.year || 1}" aria-label="Year" style="width:3.6em"></div></div>
     <div class="ctl"><span>Day</span><div class="day"><button id="${p}-prev" aria-label="Previous day">−</button><input id="${p}-day" type="number" min="1" max="28" value="${ctx.day}" aria-label="Day of the season"><button id="${p}-next" aria-label="Next day">+</button></div></div>
     <div class="ctl"><span>Weather (check the TV)</span><div class="seg" id="${p}-wx"><button data-r="0" style="--c:var(--sun)" aria-pressed="${!ctx.rain}">☀ Sunny / windy</button><button data-r="1" style="--c:var(--rain)" aria-pressed="${ctx.rain}">☂ Rain / storm</button></div></div>
     <div class="ctl"><span>Time</span><select id="${p}-hour"><option value="">Whole day</option>${Array.from({ length: 20 }, (_, i) => i + 6).map(h => `<option value="${h}" ${String(ctx.hour) === String(h) ? "selected" : ""}>${hourLabel(h)}</option>`).join("")}</select></div>`;
@@ -210,14 +211,16 @@ function wireConditions(root, ctx, p) {
   root.querySelectorAll(`#${p}-wx button`).forEach(b => b.onclick = () => { ctx.rain = b.dataset.r === "1"; save(); render(); });
   const step = d => {
     let day = ctx.day + d, si = SEASONS.indexOf(ctx.season);
-    if (day > 28) { day = 1; si = (si + 1) % 4; }
-    if (day < 1) { day = 28; si = (si + 3) % 4; }
-    ctx.day = day; ctx.season = SEASONS[si]; ctx.rain = false; save(); render();
+    let year = ctx.year || 1;
+    if (day > 28) { day = 1; si = (si + 1) % 4; if (si === 0) year++; }
+    if (day < 1) { day = 28; si = (si + 3) % 4; if (si === 3) year = Math.max(1, year - 1); }
+    ctx.day = day; ctx.season = SEASONS[si]; ctx.year = year; ctx.rain = false; save(); render();
   };
   $(`${p}-prev`).onclick = () => step(-1);
   $(`${p}-next`).onclick = () => step(1);
   $(`${p}-day`).onchange = e => { ctx.day = Math.min(28, Math.max(1, parseInt(e.target.value) || 1)); save(); render(); };
   $(`${p}-hour`).onchange = e => { ctx.hour = e.target.value; save(); render(); };
+  $(`${p}-year`).onchange = e => { ctx.year = Math.min(99, Math.max(1, parseInt(e.target.value) || 1)); save(); render(); };
 }
 // Why a fish can't be caught under these conditions ("" = it can)
 function whyNot(f, ctx) {
@@ -228,6 +231,74 @@ function whyNot(f, ctx) {
   if (f.c === "Legendary II" && !state.qi) return "Only during Qi's Extended Family quest";
   if (ctx.hour !== "" && ctx.hour != null && !availableOn(f, ctx)) return "Bites " + f.t;
   return "";
+}
+
+// ---------- MY TO-DO (written by the player, per farm) ----------
+// Each task has an in-game due day counted from Year 1 Spring 1 (null = no date).
+const absDay = c => ((c.year || 1) - 1) * 112 + SEASONS.indexOf(c.season) * 28 + c.day;
+const dateOf = n => ({ year: Math.floor((n - 1) / 112) + 1, season: SEASONS[Math.floor(((n - 1) % 112) / 28)], day: ((n - 1) % 28) + 1 });
+const dateLabel = n => { const d = dateOf(n); return `${d.season} ${d.day}${d.year !== (state.today.year || 1) ? `, Year ${d.year}` : ""}`; };
+let todoFocus = null; // which add-box to focus after re-render
+const todoForm = { season: "", day: "" };
+
+function renderTodos(box) {
+  const today = absDay(state.today), list = state.todos;
+  const forToday = list.filter(t => t.due !== null && (t.done ? t.due === today || t.doneOn === today : t.due <= today));
+  const later = list.filter(t => !t.done && (t.due === null || t.due > today)).sort((a, b) => (a.due ?? Infinity) - (b.due ?? Infinity));
+  const item = t => {
+    const late = !t.done && t.due !== null && t.due < today, future = t.due !== null && t.due > today;
+    const meta = late ? `<span class="tmeta late">from ${dateLabel(t.due)}</span>` : future ? `<span class="tmeta">${dateLabel(t.due)} · in ${t.due - today} day${t.due - today === 1 ? "" : "s"}</span>` : t.due === null && !t.done ? '<span class="tmeta">no date</span>' : "";
+    return `<li class="titem${t.done ? " done" : ""}" data-id="${t.id}"><input type="checkbox" ${t.done ? "checked" : ""} aria-label="Done: ${esc(t.text)}"><span class="ttext">${esc(t.text)}${meta}</span>${future || t.due === null ? '<button type="button" class="tbtn" data-act="now" title="Do it today">Today</button>' : ""}<button type="button" class="tbtn x" data-act="del" aria-label="Delete ${esc(t.text)}">×</button></li>`;
+  };
+  const doneToday = forToday.filter(t => t.done).length;
+  box.innerHTML = `<section class="todos"><h2>My to-do<span>your own notes for this farm, they sync if you're signed in</span></h2>
+    <div class="tcols">
+      <div class="panel tcol"><h3>Today <small>${state.today.season} ${state.today.day}</small></h3>
+        <ul class="tlist">${forToday.map(item).join("") || '<li class="tempty">Nothing yet. Add what you want to get done today, like “water the crops” or “give Abigail an amethyst”.</li>'}</ul>
+        <form class="tadd" data-list="today"><input id="td-today" maxlength="140" placeholder="Add a task for today…" aria-label="New task for today"><button class="btn small primary" type="submit">Add</button></form>
+        ${doneToday ? `<button type="button" class="tclear" id="td-clear">Clear ${doneToday} done</button>` : ""}
+      </div>
+      <div class="panel tcol"><h3>Coming up</h3>
+        <ul class="tlist">${later.map(item).join("") || '<li class="tempty">Plans for the next days, like “buy Rarecrow at Spirit’s Eve” or “save 10 Hardwood for the coop”. Pick a day and it moves to Today when that day comes.</li>'}</ul>
+        <form class="tadd" data-list="later"><input id="td-later" maxlength="140" placeholder="Add a plan…" aria-label="New plan">
+          <select id="td-season" aria-label="Season"><option value="">No date</option>${SEASONS.map(s => `<option ${todoForm.season === s ? "selected" : ""}>${s}</option>`).join("")}</select>
+          <input id="td-day" type="number" min="1" max="28" placeholder="Day" aria-label="Day" value="${todoForm.day}" ${todoForm.season ? "" : "disabled"}>
+          <button class="btn small primary" type="submit">Add</button></form>
+      </div>
+    </div></section>`;
+
+  box.querySelectorAll(".tadd").forEach(f => f.onsubmit = e => {
+    e.preventDefault();
+    const which = f.dataset.list, input = f.querySelector("input");
+    const text = input.value.trim();
+    if (!text) return;
+    let due = today;
+    if (which === "later") {
+      todoForm.season = $("td-season").value; todoForm.day = $("td-day").value;
+      if (!todoForm.season) due = null;
+      else {
+        const day = Math.min(28, Math.max(1, parseInt(todoForm.day) || 1));
+        due = absDay({ year: state.today.year, season: todoForm.season, day });
+        if (due <= today) due += 112; // a day that's already passed this year means next year
+      }
+    }
+    state.todos.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), text, due, done: false });
+    todoFocus = which === "later" ? "td-later" : "td-today";
+    save(); render();
+  });
+  $("td-season").onchange = e => { todoForm.season = e.target.value; $("td-day").disabled = !e.target.value; if (e.target.value && !$("td-day").value) $("td-day").value = Math.min(28, state.today.day + 1); };
+  box.querySelectorAll(".titem").forEach(li => {
+    const t = list.find(x => x.id === li.dataset.id);
+    li.querySelector("input").onchange = e => { t.done = e.target.checked; t.doneOn = t.done ? today : undefined; save(); render(); };
+    li.querySelectorAll(".tbtn").forEach(b => b.onclick = () => {
+      if (b.dataset.act === "del") state.todos = state.todos.filter(x => x.id !== t.id);
+      else t.due = today;
+      save(); render();
+    });
+  });
+  const clear = $("td-clear");
+  if (clear) clear.onclick = () => { state.todos = state.todos.filter(t => !(t.done && forToday.includes(t))); save(); render(); };
+  if (todoFocus) { const el = $(todoFocus); todoFocus = null; if (el) el.focus({ preventScroll: true }); }
 }
 
 // ---------- TODAY ----------
@@ -249,8 +320,10 @@ function renderToday(main) {
     <div class="stat"><b>${todo.length}</b><span>new fish you can catch ${ctx.hour !== "" ? "at " + hourLabel(+ctx.hour) : "today"}</span></div>
     <div class="stat"><b>${todo.filter(f => needs[f.n]).length}</b><span>of them still needed for bundles</span></div>
     <div class="stat"><b>${FISH.filter(f => leavesAfter(f, ctx.season) && !got.has(f.n) && f.c !== "Legendary II").length}</b><span>uncaught fish leave after ${ctx.season} · ${daysLeft} day${daysLeft === 1 ? "" : "s"} left</span></div>
-  </div>`;
+  </div>
+  <div id="t-todo"></div>`;
   main.appendChild(wrap);
+  renderTodos($("t-todo"));
 
   // events
   const ev = $("t-events"), e = EVENTS[ctx.season]?.[ctx.day];
@@ -624,6 +697,10 @@ function mergeInto(f, v) {
     items += arr.length;
   }
   if (v.done && typeof v.done === "object") for (const id of Object.keys(v.done)) if (v.done[id]) { f.done[id] = true; items++; }
+  if (Array.isArray(v.todos)) {
+    const ids = new Set((f.todos || []).map(t => t.id));
+    f.todos = [...(f.todos || []), ...v.todos.filter(t => t && t.id && !ids.has(t.id))];
+  }
   return { fish: known.length, items };
 }
 
