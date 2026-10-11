@@ -8,7 +8,7 @@ const STORE_KEY = "sve-tracker:v1";
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
 
-let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] };
+let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {};
 let store = load();
 let state = store.farms[store.active];
 
@@ -390,7 +390,8 @@ function daysUntil(v, season, day) {
 }
 function giftChip(item, hit) {
   const f = BY_NAME[item];
-  const pic = f ? `<img alt="" loading="lazy" src="${f.img}">` : "";
+  const src = f ? f.img : ITEM_IMG[item];
+  const pic = src ? `<img alt="" loading="lazy" src="${src}">` : "";
   const now = f && availableOn(f, state.today) ? ' title="Catchable on the day set in Today"' : "";
   return `<span class="gift${hit ? " hit" : ""}${f ? " fishy" : ""}"${now}>${pic}${esc(item)}${f && now ? " 🎣" : ""}</span>`;
 }
@@ -421,7 +422,7 @@ function renderVillagers(main) {
       <div class="ctl"><span>Show</span><div class="seg" id="v-who">${[["all", "Everyone"], ["marry", "Marriage"], ["sve", "SVE only"]].map(([k, l]) => `<button data-w="${k}" aria-pressed="${vilFilter.who === k}">${l}</button>`).join("")}</div></div>
     </div>
     <section><h2>${season} birthdays<span>${season === ctx.season ? `today is ${ctx.season} ${ctx.day} (set on the Today tab)` : "tap a birthday to jump to that villager"}</span></h2><div class="cal" id="v-cal"></div></section>
-    <div class="univbox"><b>Everyone loves</b> (almost): ${UNIVERSAL.vanilla.map(esc).join(", ")}; and in SVE also ${UNIVERSAL.sve.map(esc).join(", ")}. A birthday gift counts 8× towards friendship.</div>
+    <div class="univbox"><b>Everyone loves</b> (almost) these, and a birthday gift counts 8× towards friendship:<div class="gifts" style="margin-top:6px">${UNIVERSAL.vanilla.map(i => giftChip(i, false)).join("")}${UNIVERSAL.sve.map(i => giftChip(i, false)).join("")}</div></div>
     <div id="v-list"></div>`;
   main.appendChild(wrap);
 
@@ -795,7 +796,7 @@ window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = loa
 
 Promise.all([fetch("data/fish.json").then(r => r.json()), fetch("data/bundles.json").then(r => r.json()), fetch("data/villagers.json").then(r => r.json())])
   .then(([fd, bd, vd]) => {
-    FISH = fd.fish; ORDER = fd.order; SETS = bd.sets; VILLAGERS = vd.villagers; UNIVERSAL = vd.universal;
+    FISH = fd.fish; ORDER = fd.order; SETS = bd.sets; VILLAGERS = vd.villagers; UNIVERSAL = vd.universal; ITEM_IMG = vd.itemImg || {};
     for (const f of FISH) { BY_NAME[f.n] = f; const l = f.l.toLowerCase(); f.spots = SPOTS.filter(s => s.t(l)).map(s => s.id); }
     render();
     cloud.start({ getStore: () => store, replaceStore, mergeStores, onChange: renderAccount });

@@ -244,7 +244,8 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .glabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px}
 .gifts{display:flex;flex-wrap:wrap;gap:4px}
 .gift{display:inline-flex;align-items:center;gap:4px;font-size:.8rem;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
-.gift img{width:18px;height:18px;image-rendering:pixelated}
+.gift img{width:22px;height:22px;image-rendering:pixelated;margin-left:-4px}
+.gift{padding:2px 9px 2px 6px}
 .gift.fishy{border-color:var(--accent)}
 .gift.hit{background:var(--legend-bg);border-color:var(--legend);font-weight:700}
 .gnote{font-size:.76rem;color:var(--muted);font-style:italic;margin:6px 0 0}
