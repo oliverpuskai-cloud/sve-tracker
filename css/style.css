@@ -215,3 +215,44 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .sync.err{color:var(--warn)}
 .btn.google{display:inline-flex;gap:8px;align-items:center;font-weight:700}
 .btn.google span{font-family:var(--body);font-weight:700;color:#4285f4;background:#fff;border-radius:50%;width:18px;height:18px;display:grid;place-items:center;font-size:.75rem}
+/* villagers */
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal .dow{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;padding-bottom:2px}
+.cal .day{background:var(--panel);border:1px solid var(--line);border-radius:6px;min-height:78px;padding:4px 5px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.cal .day.has{border-color:var(--legend)}
+.cal .day.today{outline:3px solid var(--accent);outline-offset:-1px}
+.cal .dn{font-family:var(--display);font-size:.95rem;line-height:1}
+.cal .fest{font-size:.62rem;font-weight:700;color:var(--accent);line-height:1.15;overflow-wrap:anywhere}
+.cal .who{display:flex;flex-wrap:wrap;gap:2px}
+.cal .who button{display:flex;flex-direction:column;align-items:center;gap:0;background:none;border:0;padding:0;cursor:pointer;color:var(--ink);font:inherit;min-width:0;max-width:100%}
+.cal .who img{width:36px;height:36px;image-rendering:pixelated;border-radius:4px}
+.cal .who span{font-size:.62rem;font-weight:700;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.univbox{margin-top:18px;background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--legend);border-radius:8px;padding:10px 14px;font-size:.88rem}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.villager{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;min-width:0;transition:box-shadow .3s}
+.villager.sve{background:var(--sve-bg)}
+.villager.bday{border-color:var(--legend);box-shadow:0 0 0 2px var(--legend) inset}
+.villager.flash{box-shadow:0 0 0 3px var(--accent)}
+.vhead{display:flex;gap:12px;align-items:center}
+.portrait{width:64px;height:64px;image-rendering:pixelated;border-radius:6px;background:var(--bg);flex:none}
+.vmeta{min-width:0}
+.vmeta h3{font-family:var(--display);font-weight:500;font-size:1.2rem;margin:0}
+.vmeta h3 small{font-family:var(--body);font-size:.75rem;color:var(--muted)}
+.vmeta .tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:2px}
+.when{margin:4px 0 0;font-size:.85rem;color:var(--muted)}
+.when .soon{color:var(--legend)}
+.glabel{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px}
+.gifts{display:flex;flex-wrap:wrap;gap:4px}
+.gift{display:inline-flex;align-items:center;gap:4px;font-size:.8rem;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:2px 8px}
+.gift img{width:18px;height:18px;image-rendering:pixelated}
+.gift.fishy{border-color:var(--accent)}
+.gift.hit{background:var(--legend-bg);border-color:var(--legend);font-weight:700}
+.gnote{font-size:.76rem;color:var(--muted);font-style:italic;margin:6px 0 0}
+.none{font-size:.8rem;color:var(--muted)}
+.villager details{margin-top:8px}
+.villager summary{cursor:pointer;font-size:.8rem;font-weight:700;color:var(--muted)}
+.villager details .gifts{margin-top:6px}
+.event.bdayev{display:flex;gap:12px;align-items:center}
+.event.bdayev img{width:44px;height:44px;image-rendering:pixelated;border-radius:6px;flex:none}
+@media (max-width:520px){.cal .day{min-height:64px;padding:3px}.cal .who img{width:26px;height:26px}.cal .who span{display:none}.cal .fest{font-size:.55rem}}
+@media (prefers-reduced-motion:reduce){.villager{transition:none}}

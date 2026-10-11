@@ -1,0 +1,1496 @@
+{
+"universal": {
+"vanilla": [
+"Golden Pumpkin",
+"Magic Rock Candy",
+"Pearl",
+"Prismatic Shard",
+"Rabbit's Foot",
+"Stardrop Tea"
+],
+"sve": [
+"Prismatic Pop",
+"Golden Ocean Flower",
+"Gold Slime Egg",
+"Golden Goose Egg",
+"Magic Lamp",
+"Mega Purple Mushroom"
+]
+},
+"villagers": [
+{
+"id": "abigail",
+"n": "Abigail",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 13
+},
+"l": [
+"Amethyst",
+"Banana Pudding",
+"Blackberry Cobbler",
+"Chocolate Cake",
+"Monster Compendium",
+"Pufferfish",
+"Pumpkin",
+"Spicy Eel"
+],
+"k": [
+"Ancient Sword",
+"Basilisk Paw",
+"Bone Flute",
+"Combat Quarterly",
+"Quartz"
+],
+"note": "",
+"img": "img/villagers/abigail.png"
+},
+{
+"id": "alex",
+"n": "Alex",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 13
+},
+"l": [
+"Complete Breakfast",
+"Jack Be Nimble, Jack Be Thick",
+"Salmon Dinner"
+],
+"k": [
+"Dinosaur Egg",
+"Field Snack",
+"Parrot Egg"
+],
+"note": "",
+"img": "img/villagers/alex.png"
+},
+{
+"id": "andy",
+"n": "Andy",
+"sve": true,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 23
+},
+"l": [
+"Baked Berry Oatmeal",
+"Glazed Butterfish",
+"Mixed Berry Pie",
+"Stuffed Persimmon",
+"Butterfish",
+"Blackberry Cobbler",
+"Farmer's Lunch",
+"Beer",
+"Mead",
+"Pale Ale"
+],
+"k": [
+"Joja Cola",
+"Salal Berry",
+"Bearberry",
+"Golden Ocean Flower",
+"King Salmon"
+],
+"note": "",
+"img": "img/villagers/andy.png"
+},
+{
+"id": "apples",
+"n": "Apples",
+"sve": true,
+"marry": false,
+"roommate": false,
+"b": null,
+"l": [
+"Starfruit",
+"Raisins",
+"Stardrop"
+],
+"k": [
+"Golden Ocean Flower"
+],
+"note": "",
+"img": "img/villagers/apples.png"
+},
+{
+"id": "caroline",
+"n": "Caroline",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 7
+},
+"l": [
+"Fish Taco",
+"Green Tea",
+"Summer Spangle",
+"Tropical Curry"
+],
+"k": [
+"Daffodil",
+"Tea Leaves",
+"Wild Horseradish"
+],
+"note": "",
+"img": "img/villagers/caroline.png"
+},
+{
+"id": "claire",
+"n": "Claire",
+"sve": true,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 8
+},
+"l": [
+"Bruschetta",
+"Glazed Butterfish",
+"Mixed Berry Pie",
+"Nectarine Fruit Bread",
+"Energy Tonic",
+"Green Tea",
+"Apricot",
+"Sunflower",
+"Ocean Stone"
+],
+"k": [
+"Butterfish",
+"Cactus Fruit",
+"Coconut",
+"Hazelnut",
+"Tea Leaves"
+],
+"note": "",
+"img": "img/villagers/claire.png"
+},
+{
+"id": "clint",
+"n": "Clint",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 26
+},
+"l": [
+"Amethyst",
+"Aquamarine",
+"Artichoke Dip",
+"Emerald",
+"Fiddlehead Risotto",
+"Gold Bar",
+"Iridium Bar",
+"Jade",
+"Omni Geode",
+"Ruby",
+"Topaz"
+],
+"k": [
+"Copper Bar",
+"Iron Bar",
+"Mining Monthly"
+],
+"note": "",
+"img": "img/villagers/clint.png"
+},
+{
+"id": "demetrius",
+"n": "Demetrius",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 19
+},
+"l": [
+"Bean Hotpot",
+"Ice Cream",
+"Rice Pudding",
+"Strawberry"
+],
+"k": [
+"Dinosaur Egg",
+"Purple Mushroom"
+],
+"note": "",
+"img": "img/villagers/demetrius.png"
+},
+{
+"id": "dwarf",
+"n": "Dwarf",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 22
+},
+"l": [
+"Amethyst",
+"Aquamarine",
+"Emerald",
+"Jade",
+"Lava Eel",
+"Lemon Stone",
+"Omni Geode",
+"Ruby",
+"Topaz"
+],
+"k": [
+"Cave Carrot",
+"Quartz"
+],
+"note": "",
+"img": "img/villagers/dwarf.png"
+},
+{
+"id": "elliott",
+"n": "Elliott",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 5
+},
+"l": [
+"Crab Cakes",
+"Duck Feather",
+"Lobster",
+"Pomegranate",
+"Squid Ink",
+"Tom Kha Soup"
+],
+"k": [
+"Octopus",
+"Squid"
+],
+"note": "",
+"img": "img/villagers/elliott.png"
+},
+{
+"id": "emily",
+"n": "Emily",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 27
+},
+"l": [
+"Amethyst",
+"Aquamarine",
+"Cloth",
+"Emerald",
+"Jade",
+"Parrot Egg",
+"Ruby",
+"Survival Burger",
+"Topaz",
+"Wool"
+],
+"k": [
+"Daffodil",
+"Quartz"
+],
+"note": "",
+"img": "img/villagers/emily.png"
+},
+{
+"id": "evelyn",
+"n": "Evelyn",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 20
+},
+"l": [
+"Beet",
+"Chocolate Cake",
+"Diamond",
+"Fairy Rose",
+"Raisins",
+"Stuffing",
+"Tulip"
+],
+"k": [
+"Broken Glasses",
+"Clam",
+"Cockle",
+"Coral",
+"Daffodil",
+"Mussel",
+"Nautilus Shell",
+"Oyster",
+"Sea Urchin"
+],
+"note": "",
+"img": "img/villagers/evelyn.png"
+},
+{
+"id": "george",
+"n": "George",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 24
+},
+"l": [
+"Fried Mushroom",
+"Leek"
+],
+"k": [
+"Daffodil"
+],
+"note": "",
+"img": "img/villagers/george.png"
+},
+{
+"id": "gunther",
+"n": "Gunther",
+"sve": true,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 12
+},
+"l": [
+"Baked Potato",
+"Bean Hotpot",
+"Salmon Dinner",
+"Stone of Yoba",
+"Elvish Jewelry",
+"Ornamental Fan",
+"Ancient Sword",
+"Rare Disc",
+"Dwarvish Helm",
+"Dwarf Gadget",
+"Golden Mask",
+"Golden Relic",
+"Dinosaur Egg",
+"Star Shards",
+"Petrified Slime"
+],
+"k": [
+"Diamond",
+"Blue Moon Wine",
+"Aged Blue Moon Wine",
+"Conch",
+"Sand Dollar",
+"Swirl Stone",
+"Rusty Blade"
+],
+"note": "",
+"img": "img/villagers/gunther.png"
+},
+{
+"id": "gus",
+"n": "Gus",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 8
+},
+"l": [
+"Diamond",
+"Escargot",
+"Fish Taco",
+"Orange",
+"Tropical Curry"
+],
+"k": [
+"Daffodil",
+"Truffle"
+],
+"note": "",
+"img": "img/villagers/gus.png"
+},
+{
+"id": "haley",
+"n": "Haley",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 14
+},
+"l": [
+"Coconut",
+"Fruit Salad",
+"Pink Cake",
+"Sunflower"
+],
+"k": [
+"Daffodil"
+],
+"note": "All Universal Loves (except Prismatic Shard)",
+"img": "img/villagers/haley.png"
+},
+{
+"id": "harvey",
+"n": "Harvey",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 14
+},
+"l": [
+"Coffee",
+"Pickles",
+"Super Meal",
+"Truffle Oil",
+"Wine"
+],
+"k": [
+"Chanterelle",
+"Common Mushroom",
+"Daffodil",
+"Dandelion",
+"Duck Egg",
+"Duck Feather",
+"Ginger",
+"Goat Milk",
+"Hazelnut",
+"Holly",
+"Large Goat Milk",
+"Leek",
+"Magma Cap",
+"Morel",
+"Purple Mushroom",
+"Quartz",
+"Snow Yam",
+"Spring Onion",
+"Wild Horseradish",
+"Winter Root"
+],
+"note": "",
+"img": "img/villagers/harvey.png"
+},
+{
+"id": "henchman",
+"n": "Henchman",
+"sve": true,
+"marry": false,
+"roommate": false,
+"b": null,
+"l": [
+"Void Delight",
+"Void Salmon Sushi",
+"Marsh Tonic",
+"Void Root",
+"Swirl Stone",
+"Supernatural Goo",
+"Void Pebble",
+"Void Shard",
+"Void Mayonnaise"
+],
+"k": [
+"Rafflesia",
+"Void Soul",
+"Void Egg",
+"Void Salmon",
+"Void Essence",
+"Solar Essence",
+"Diamond"
+],
+"note": "",
+"img": "img/villagers/henchman.png"
+},
+{
+"id": "jas",
+"n": "Jas",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 4
+},
+"l": [
+"Ancient Doll",
+"Fairy Box",
+"Fairy Rose",
+"Pink Cake",
+"Plum Pudding",
+"Strange Doll (green)",
+"Strange Doll (yellow)"
+],
+"k": [
+"Coconut",
+"Daffodil"
+],
+"note": "",
+"img": "img/villagers/jas.png"
+},
+{
+"id": "jodi",
+"n": "Jodi",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 11
+},
+"l": [
+"Chocolate Cake",
+"Crispy Bass",
+"Diamond",
+"Eggplant Parmesan",
+"Fried Eel",
+"Pancakes",
+"Rhubarb Pie",
+"Vegetable Medley"
+],
+"k": [],
+"note": "",
+"img": "img/villagers/jodi.png"
+},
+{
+"id": "kent",
+"n": "Kent",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 4
+},
+"l": [
+"Fiddlehead Risotto",
+"Roasted Hazelnuts"
+],
+"k": [
+"Daffodil",
+"Dwarvish Safety Manual"
+],
+"note": "",
+"img": "img/villagers/kent.png"
+},
+{
+"id": "krobus",
+"n": "Krobus",
+"sve": false,
+"marry": false,
+"roommate": true,
+"b": {
+"s": "Winter",
+"d": 1
+},
+"l": [
+"Diamond",
+"Iridium Bar",
+"Monster Compendium",
+"Monster Musk",
+"Pumpkin",
+"Void Egg",
+"Void Mayonnaise",
+"Wild Horseradish"
+],
+"k": [
+"Gold Bar",
+"Quartz",
+"Seafoam Pudding",
+"Strange Bun"
+],
+"note": "",
+"img": "img/villagers/krobus.png"
+},
+{
+"id": "lance",
+"n": "Lance",
+"sve": true,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 8
+},
+"l": [
+"Pineapple Custard Crepe",
+"Aged Blue Moon Wine",
+"Monster Mushroom",
+"Tropical Curry",
+"Swirl Stone",
+"Daggerfish",
+"Gemfish",
+"Torpedo Trout",
+"Green Mushroom",
+"Ornate Treasure Chest",
+"Void Shard"
+],
+"k": [
+"Chocolate Truffle Bar",
+"Mushroom Berry Rice",
+"Void Delight",
+"Void Salmon Sushi",
+"Armor Elixir",
+"Haste Elixir",
+"Hero Elixir",
+"Aegis Elixir",
+"Barbarian Elixir",
+"Gravity Elixir",
+"Lightning Elixir",
+"Monster Fruit",
+"Salal Berry",
+"Slime Berry",
+"Void Root",
+"Bearberry",
+"Golden Ocean Flower",
+"Rafflesia",
+"Void Soul",
+"Bonefish",
+"Butterfish",
+"Glowfish",
+"King Salmon",
+"Kittyfish",
+"Lunaloo",
+"Meteor Carp",
+"Puppyfish",
+"Radioactive Bass",
+"Razor Trout",
+"Shiny Lunaloo",
+"Undeadfish",
+"Void Pebble",
+"Rusty Blade",
+"Rabbit's Foot"
+],
+"note": "",
+"img": "img/villagers/lance.png"
+},
+{
+"id": "leah",
+"n": "Leah",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 23
+},
+"l": [
+"Goat Cheese",
+"Poppyseed Muffin",
+"Salad",
+"Stir Fry",
+"Truffle",
+"Vegetable Medley",
+"Wine"
+],
+"k": [
+"Chanterelle",
+"Common Mushroom",
+"Daffodil",
+"Dandelion",
+"Driftwood",
+"Ginger",
+"Hazelnut",
+"Holly",
+"Leek",
+"Magma Cap",
+"Morel",
+"Purple Mushroom",
+"Snow Yam",
+"Spring Onion",
+"Wild Horseradish",
+"Winter Root"
+],
+"note": "",
+"img": "img/villagers/leah.png"
+},
+{
+"id": "leo",
+"n": "Leo",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 26
+},
+"l": [
+"Duck Feather",
+"Mango",
+"Ostrich Egg",
+"Parrot Egg",
+"Poi"
+],
+"k": [
+"Dragon Tooth",
+"Mango Sticky Rice",
+"Nautilus Shell",
+"Quartz",
+"Sea Urchin",
+"Spice Berry"
+],
+"note": "",
+"img": "img/villagers/leo.png"
+},
+{
+"id": "lewis",
+"n": "Lewis",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 7
+},
+"l": [
+"Autumn's Bounty",
+"Glazed Yams",
+"Green Tea",
+"Hot Pepper",
+"Vegetable Medley"
+],
+"k": [
+"Blueberry",
+"Cactus Fruit",
+"Coconut"
+],
+"note": "",
+"img": "img/villagers/lewis.png"
+},
+{
+"id": "linus",
+"n": "Linus",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 3
+},
+"l": [
+"Blueberry Tart",
+"Cactus Fruit",
+"Coconut",
+"Dish O' The Sea",
+"The Alleyway Buffet",
+"Yam"
+],
+"k": [
+"Chanterelle",
+"Common Mushroom",
+"Daffodil",
+"Dandelion",
+"Ginger",
+"Hazelnut",
+"Holly",
+"Leek",
+"Magma Cap",
+"Morel",
+"Purple Mushroom",
+"Snow Yam",
+"Spring Onion",
+"Wild Horseradish",
+"Winter Root"
+],
+"note": "",
+"img": "img/villagers/linus.png"
+},
+{
+"id": "magnus",
+"n": "Magnus",
+"sve": true,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 17
+},
+"l": [
+"Frog Legs",
+"Void Delight",
+"Void Salmon Sushi",
+"Armor Elixir",
+"Haste Elixir",
+"Hero Elixir",
+"Aegis Elixir",
+"Barbarian Elixir",
+"Lightning Elixir",
+"Gravity Elixir",
+"Ancient Fiber",
+"Void Root",
+"Swirl Stone",
+"Void Soul",
+"Shiny Lunaloo",
+"Supernatural Goo",
+"Void Pebble",
+"Void Shard"
+],
+"k": [
+"Aged Blue Moon Wine",
+"Blue Moon Wine",
+"Monster Fruit",
+"Monster Mushroom",
+"Slime Berry",
+"Golden Ocean Flower",
+"Poison Mushroom",
+"Rafflesia",
+"Red Baneberry",
+"Baby Lunaloo",
+"Daggerfish",
+"Frog",
+"Gemfish",
+"Glowfish",
+"Kittyfish",
+"Lunaloo",
+"Meteor Carp",
+"Radioactive Bass",
+"Water Grub",
+"Swamp Essence",
+"Rusty Blade",
+"Stone of Yoba"
+],
+"note": "",
+"img": "img/villagers/magnus.png",
+"aka": "the Wizard"
+},
+{
+"id": "marlon",
+"n": "Marlon",
+"sve": true,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 19
+},
+"l": [
+"Void Delight",
+"Armor Elixir",
+"Haste Elixir",
+"Hero Elixir",
+"Aegis Elixir",
+"Barbarian Elixir",
+"Gravity Elixir",
+"Lightning Elixir",
+"Aged Blue Moon Wine",
+"Slime Berry",
+"Swirl Stone",
+"Daggerfish",
+"Glowfish",
+"Void Pebble",
+"Void Shard"
+],
+"k": [
+"Mushroom Berry Rice",
+"Frog Legs",
+"Void Salmon Sushi",
+"Monster Fruit",
+"Monster Mushroom",
+"Void Root",
+"Golden Ocean Flower",
+"Void Soul",
+"Gemfish"
+],
+"note": "",
+"img": "img/villagers/marlon.png"
+},
+{
+"id": "marnie",
+"n": "Marnie",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 18
+},
+"l": [
+"Diamond",
+"Farmer's Lunch",
+"Pink Cake",
+"Pumpkin Pie"
+],
+"k": [
+"Stardew Valley Almanac",
+"Quartz"
+],
+"note": "",
+"img": "img/villagers/marnie.png"
+},
+{
+"id": "martin",
+"n": "Martin",
+"sve": true,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 6
+},
+"l": [
+"Big Bark Burger",
+"Candy",
+"Grilled Cheese Sandwich",
+"Mixed Berry Pie"
+],
+"k": [
+"Super Joja Cola",
+"Milk",
+"Large Milk"
+],
+"note": "",
+"img": "img/villagers/martin.png"
+},
+{
+"id": "maru",
+"n": "Maru",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 10
+},
+"l": [
+"Battery Pack",
+"Cauliflower",
+"Cheese Cauliflower",
+"Diamond",
+"Dwarf Gadget",
+"Gold Bar",
+"Iridium Bar",
+"Miner's Treat",
+"Pepper Poppers",
+"Radioactive Bar",
+"Rhubarb Pie",
+"Strawberry"
+],
+"k": [
+"Chanterelle",
+"Copper Bar",
+"Iron Bar",
+"Magma Cap",
+"Morel",
+"Oak Resin",
+"Pine Tar",
+"Purple Mushroom",
+"Quartz",
+"Radioactive Ore"
+],
+"note": "",
+"img": "img/villagers/maru.png"
+},
+{
+"id": "morgan",
+"n": "Morgan",
+"sve": true,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 7
+},
+"l": [
+"Candy",
+"Frog",
+"Glazed Pear",
+"Ice Rod",
+"Iridium Bar",
+"Void Egg",
+"Void Mayonnaise",
+"Void Soul"
+],
+"k": [
+"Void Delight",
+"Red Baneberry",
+"Armor Elixir",
+"Haste Elixir",
+"Hero Elixir",
+"Aegis Elixir",
+"Barbarian Elixir",
+"Gravity Elixir",
+"Lightning Elixir",
+"Monster Fruit",
+"Monster Mushroom",
+"Slime Berry",
+"Void Root",
+"Golden Ocean Flower",
+"Swirl Stone",
+"Gemfish",
+"Glowfish",
+"Kittyfish",
+"Meteor Carp",
+"Radioactive Bass",
+"Void Pebble",
+"Void Shard"
+],
+"note": "",
+"img": "img/villagers/morgan.png"
+},
+{
+"id": "morris",
+"n": "Morris",
+"sve": true,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 2
+},
+"l": [
+"Aged Blue Moon Wine",
+"Money Bag"
+],
+"k": [
+"Super Joja Cola",
+"Blue Moon Wine"
+],
+"note": "",
+"img": "img/villagers/morris.png"
+},
+{
+"id": "olivia",
+"n": "Olivia",
+"sve": true,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 15
+},
+"l": [
+"Fish Dumpling",
+"Aged Blue Moon Wine",
+"Blue Moon Wine",
+"Goldenrod",
+"Wine",
+"Chocolate Cake",
+"Pink Cake",
+"Golden Mask",
+"Golden Relic"
+],
+"k": [
+"Gold Carrot",
+"Monster Mushroom",
+"Butterfish",
+"King Salmon",
+"Amber",
+"Gold Bar",
+"Pumpkin",
+"Big Bark Burger",
+"Glazed Butterfish"
+],
+"note": "",
+"img": "img/villagers/olivia.png"
+},
+{
+"id": "pam",
+"n": "Pam",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 18
+},
+"l": [
+"Beer",
+"Cactus Fruit",
+"Glazed Yams",
+"Mead",
+"Pale Ale",
+"Parsnip",
+"Parsnip Soup",
+"Piña Colada"
+],
+"k": [
+"Daffodil"
+],
+"note": "",
+"img": "img/villagers/pam.png"
+},
+{
+"id": "penny",
+"n": "Penny",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 2
+},
+"l": [
+"Diamond",
+"Emerald",
+"Melon",
+"Poppy",
+"Poppyseed Muffin",
+"Red Plate",
+"Roots Platter",
+"Sandfish",
+"Tom Kha Soup"
+],
+"k": [
+"Dandelion",
+"Leek"
+],
+"note": "All Universal Loves (except Rabbit's Foot) + all books",
+"img": "img/villagers/penny.png"
+},
+{
+"id": "pierre",
+"n": "Pierre",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 26
+},
+"l": [
+"Fried Calamari",
+"Price Catalogue"
+],
+"k": [
+"Daffodil",
+"Dandelion"
+],
+"note": "",
+"img": "img/villagers/pierre.png"
+},
+{
+"id": "robin",
+"n": "Robin",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 21
+},
+"l": [
+"Goat Cheese",
+"Peach",
+"Spaghetti",
+"Woody's Secret"
+],
+"k": [
+"Hardwood",
+"Quartz",
+"Woodcutter's Weekly"
+],
+"note": "",
+"img": "img/villagers/robin.png"
+},
+{
+"id": "sam",
+"n": "Sam",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 17
+},
+"l": [
+"Cactus Fruit",
+"Maple Bar",
+"Pizza",
+"Tigerseye"
+],
+"k": [
+"Joja Cola"
+],
+"note": "",
+"img": "img/villagers/sam.png"
+},
+{
+"id": "sandy",
+"n": "Sandy",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 15
+},
+"l": [
+"Crocus",
+"Daffodil",
+"Mango Sticky Rice",
+"Sweet Pea"
+],
+"k": [
+"Goat Milk",
+"Large Goat Milk",
+"Quartz",
+"Wool"
+],
+"note": "",
+"img": "img/villagers/sandy.png"
+},
+{
+"id": "scarlett",
+"n": "Scarlett",
+"sve": true,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 7
+},
+"l": [
+"Baked Berry Oatmeal",
+"Cheese Charcuterie",
+"Aged Blue Moon Wine",
+"Grampleton Orange Chicken",
+"Large Goat Milk",
+"Maple Syrup",
+"Cherry"
+],
+"k": [
+"Truffle",
+"Truffle Oil"
+],
+"note": "",
+"img": "img/villagers/scarlett.png"
+},
+{
+"id": "sebastian",
+"n": "Sebastian",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 10
+},
+"l": [
+"Frog Egg",
+"Frozen Tear",
+"Obsidian",
+"Pumpkin Soup",
+"Sashimi",
+"Void Egg"
+],
+"k": [
+"Combat Quarterly",
+"Flounder",
+"Monster Compendium",
+"Quartz"
+],
+"note": "",
+"img": "img/villagers/sebastian.png"
+},
+{
+"id": "shane",
+"n": "Shane",
+"sve": false,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 20
+},
+"l": [
+"Beer",
+"Hot Pepper",
+"Pepper Poppers",
+"Pizza"
+],
+"k": [],
+"note": "",
+"img": "img/villagers/shane.png"
+},
+{
+"id": "sophia",
+"n": "Sophia",
+"sve": true,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Winter",
+"d": 27
+},
+"l": [
+"Candy",
+"Flower Cookie",
+"Mixed Berry Pie",
+"Vegan Cone",
+"Grampleton Orange Chicken",
+"Puppyfish",
+"Fairy Rose",
+"Fairy Box",
+"Fairy Stone"
+],
+"k": [
+"Rabbit's Foot",
+"Fairy Dust"
+],
+"note": "",
+"img": "img/villagers/sophia.png"
+},
+{
+"id": "susan",
+"n": "Susan",
+"sve": true,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Fall",
+"d": 28
+},
+"l": [
+"Blueberry Tart",
+"Blackberry Cobbler",
+"Chocolate Cake",
+"Cookie",
+"Gingerbread Man",
+"Ice Cream",
+"Mixed Berry Pie",
+"Pancakes",
+"Pink Cake"
+],
+"k": [
+"Aged Blue Moon Wine",
+"Blue Moon Wine",
+"Big Bark Burger",
+"Rabbit's Foot",
+"Emerald",
+"Prismatic Shard",
+"Glazed Butterfish",
+"Golden Pumpkin",
+"Quartz",
+"Copper Bar",
+"Iron Bar",
+"Gold Bar",
+"Sweet Pea"
+],
+"note": "",
+"img": "img/villagers/susan.png"
+},
+{
+"id": "victor",
+"n": "Victor",
+"sve": true,
+"marry": true,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 23
+},
+"l": [
+"Ramen",
+"Aged Blue Moon Wine",
+"Blue Moon Wine",
+"Ancient Fiber",
+"Butterfish",
+"Spaghetti",
+"Duck Feather",
+"Lunarite",
+"Battery Pack"
+],
+"k": [
+"Energy Tonic",
+"Melon",
+"Nautilus Shell",
+"Rainbow Shell",
+"Big Bark Burger",
+"Glazed Butterfish"
+],
+"note": "",
+"img": "img/villagers/victor.png"
+},
+{
+"id": "vincent",
+"n": "Vincent",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Spring",
+"d": 10
+},
+"l": [
+"Cranberry Candy",
+"Frog Egg",
+"Ginger Ale",
+"Grape",
+"Pink Cake",
+"Snail"
+],
+"k": [
+"Coconut",
+"Daffodil"
+],
+"note": "",
+"img": "img/villagers/vincent.png"
+},
+{
+"id": "willy",
+"n": "Willy",
+"sve": false,
+"marry": false,
+"roommate": false,
+"b": {
+"s": "Summer",
+"d": 24
+},
+"l": [
+"Catfish",
+"Diamond",
+"Gold Bar",
+"Iridium Bar",
+"Jewels Of The Sea",
+"Mead",
+"Octopus",
+"Pumpkin",
+"Sea Cucumber",
+"Sturgeon",
+"The Art O' Crabbing"
+],
+"k": [
+"Bait And Bobber",
+"Baked Fish",
+"Carp Surprise",
+"Chowder",
+"Crab Cakes",
+"Crispy Bass",
+"Escargot",
+"Fish Stew",
+"Fish Taco",
+"Fried Calamari",
+"Fried Eel",
+"Lingcod",
+"Lobster Bisque",
+"Quartz",
+"Salmon Dinner",
+"Seafoam Pudding",
+"Tiger Trout",
+"Trout Soup"
+],
+"note": "",
+"img": "img/villagers/willy.png"
+}
+]
+}

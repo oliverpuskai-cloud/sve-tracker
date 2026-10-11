@@ -8,7 +8,7 @@ const STORE_KEY = "sve-tracker:v1";
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
 
-let FISH = [], ORDER = [], SETS = {}, BY_NAME = {};
+let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] };
 let store = load();
 let state = store.farms[store.active];
 
@@ -256,6 +256,7 @@ function renderToday(main) {
   const ev = $("t-events"), e = EVENTS[ctx.season]?.[ctx.day];
   const notes = [];
   if (e) notes.push(`<div class="event" style="--c:${SC[ctx.season]}"><b>${esc(e[0])}</b>${esc(e[1])}</div>`);
+  for (const v of birthdaysOn(ctx.season, ctx.day)) notes.push(`<div class="event bdayev" style="--c:var(--legend)"><img alt="" src="${v.img}"><span><b>${esc(v.n)}'s birthday</b>A gift counts 8× today. Loves: ${v.l.slice(0, 6).map(esc).join(", ") || "the universal loves"}${v.l.length > 6 ? "…" : ""} <a href="#villagers">See all</a></span></div>`);
   if (ctx.rain) {
     const rainOnly = todo.filter(f => f.w === "Rain");
     if (rainOnly.length) notes.push(`<div class="event" style="--c:var(--rain)"><b>Rainy day</b>Go for the rain-only fish: ${rainOnly.map(f => esc(f.n)).join(", ")}.</div>`);
@@ -376,6 +377,96 @@ function renderBundles(main) {
     }
     main.appendChild(sec);
   }
+}
+
+// ---------- VILLAGERS ----------
+const vilFilter = { q: "", who: "all", season: null };
+const birthdaysOn = (season, day) => VILLAGERS.filter(v => v.b && v.b.s === season && v.b.d === day);
+// days from (season, day) until a villager's next birthday (0 = today)
+function daysUntil(v, season, day) {
+  if (!v.b) return Infinity;
+  const at = (SEASONS.indexOf(v.b.s) * 28 + v.b.d) - (SEASONS.indexOf(season) * 28 + day);
+  return (at + 112) % 112;
+}
+function giftChip(item, hit) {
+  const f = BY_NAME[item];
+  const pic = f ? `<img alt="" loading="lazy" src="${f.img}">` : "";
+  const now = f && availableOn(f, state.today) ? ' title="Catchable on the day set in Today"' : "";
+  return `<span class="gift${hit ? " hit" : ""}${f ? " fishy" : ""}"${now}>${pic}${esc(item)}${f && now ? " 🎣" : ""}</span>`;
+}
+function villagerCard(v, q) {
+  const ctx = state.today, until = daysUntil(v, ctx.season, ctx.day);
+  const match = s => q && s.toLowerCase().includes(q);
+  const el = document.createElement("article");
+  el.className = "villager" + (v.sve ? " sve" : "") + (until === 0 ? " bday" : "");
+  el.id = "v-" + v.id;
+  const when = !v.b ? "No birthday listed" : `${v.b.s} ${v.b.d}` + (until === 0 ? ' · <b class="soon">Birthday today!</b>' : until <= 7 ? ` · <b class="soon">in ${until} day${until === 1 ? "" : "s"}</b>` : "");
+  el.innerHTML = `<div class="vhead"><img class="portrait" alt="" loading="lazy" src="${v.img}">
+      <div class="vmeta"><h3>${esc(v.n)}${v.aka ? ` <small>(${esc(v.aka)})</small>` : ""}</h3>
+      <div class="tags">${v.sve ? '<span class="tag sve">SVE</span>' : ""}${v.marry ? '<span class="tag need">Marriage</span>' : ""}${v.roommate ? '<span class="tag">Roommate</span>' : ""}</div>
+      <p class="when">🎂 ${when}</p></div></div>
+    <p class="glabel">Loves</p><div class="gifts">${v.l.map(i => giftChip(i, match(i))).join("") || '<span class="none">Only the universal loves</span>'}</div>
+    ${v.note ? `<p class="gnote">${esc(v.note)}</p>` : ""}
+    ${v.k.length ? `<details ${q && v.k.some(match) ? "open" : ""}><summary>Likes (${v.k.length})</summary><div class="gifts">${v.k.map(i => giftChip(i, match(i))).join("")}</div></details>` : ""}`;
+  return el;
+}
+
+function renderVillagers(main) {
+  const ctx = state.today, season = vilFilter.season || ctx.season;
+  const q = vilFilter.q.trim().toLowerCase();
+  const wrap = document.createElement("div");
+  wrap.innerHTML = `<div class="controls">
+      <div class="ctl"><span>Birthday calendar</span><div class="seg" id="v-season">${SEASONS.map(s => `<button data-s="${s}" style="--c:${SC[s]}" aria-pressed="${season === s}">${s}</button>`).join("")}</div></div>
+      <div class="ctl" style="flex:1 1 220px"><span>Search a villager or a gift</span><input type="search" id="v-q" value="${esc(vilFilter.q)}" placeholder="e.g. Abigail, Diamond, Pink Cake…" style="font:inherit;padding:6px 10px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)"></div>
+      <div class="ctl"><span>Show</span><div class="seg" id="v-who">${[["all", "Everyone"], ["marry", "Marriage"], ["sve", "SVE only"]].map(([k, l]) => `<button data-w="${k}" aria-pressed="${vilFilter.who === k}">${l}</button>`).join("")}</div></div>
+    </div>
+    <section><h2>${season} birthdays<span>${season === ctx.season ? `today is ${ctx.season} ${ctx.day} (set on the Today tab)` : "tap a birthday to jump to that villager"}</span></h2><div class="cal" id="v-cal"></div></section>
+    <div class="univbox"><b>Everyone loves</b> (almost): ${UNIVERSAL.vanilla.map(esc).join(", ")}; and in SVE also ${UNIVERSAL.sve.map(esc).join(", ")}. A birthday gift counts 8× towards friendship.</div>
+    <div id="v-list"></div>`;
+  main.appendChild(wrap);
+
+  // calendar: 4 weeks of Mon–Sun, like the in-game one
+  const cal = $("v-cal");
+  cal.innerHTML = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(d => `<div class="dow">${d}</div>`).join("");
+  for (let d = 1; d <= 28; d++) {
+    const who = birthdaysOn(season, d), ev = EVENTS[season]?.[d];
+    const cell = document.createElement("div");
+    cell.className = "day" + (season === ctx.season && d === ctx.day ? " today" : "") + (who.length ? " has" : "");
+    cell.innerHTML = `<span class="dn">${d}</span>${ev ? `<span class="fest">${esc(ev[0])}</span>` : ""}<span class="who">${who.map(v => `<button type="button" data-v="${v.id}" title="${esc(v.n)}"><img alt="${esc(v.n)}" src="${v.img}"><span>${esc(v.n)}</span></button>`).join("")}</span>`;
+    cal.appendChild(cell);
+  }
+  cal.querySelectorAll("button[data-v]").forEach(b => b.onclick = () => {
+    vilFilter.q = ""; render();
+    const el = document.getElementById("v-" + b.dataset.v);
+    if (el) { el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600); }
+  });
+  wrap.querySelectorAll("#v-season button").forEach(b => b.onclick = () => { vilFilter.season = b.dataset.s; render(); });
+  wrap.querySelectorAll("#v-who button").forEach(b => b.onclick = () => { vilFilter.who = b.dataset.w; render(); });
+  $("v-q").oninput = e => { vilFilter.q = e.target.value; drawList(); };
+
+  function drawList() {
+    const q = vilFilter.q.trim().toLowerCase(), out = $("v-list");
+    out.innerHTML = "";
+    let list = VILLAGERS.filter(v => vilFilter.who === "all" || (vilFilter.who === "marry" ? v.marry : v.sve));
+    if (q) {
+      const byName = list.filter(v => v.n.toLowerCase().includes(q));
+      const loves = list.filter(v => !byName.includes(v) && v.l.some(i => i.toLowerCase().includes(q)));
+      const likes = list.filter(v => !byName.includes(v) && !loves.includes(v) && v.k.some(i => i.toLowerCase().includes(q)));
+      const universal = [...UNIVERSAL.vanilla, ...UNIVERSAL.sve].filter(i => i.toLowerCase().includes(q));
+      if (universal.length) out.insertAdjacentHTML("beforeend", `<p class="lede" style="margin-top:16px">${universal.map(esc).join(", ")} ${universal.length === 1 ? "is a" : "are"} universal love: almost everyone loves ${universal.length === 1 ? "it" : "them"}.</p>`);
+      const grp = (title, vs) => { if (!vs.length) return; const sec = document.createElement("section"); sec.innerHTML = `<h2>${title}<span>${vs.length}</span></h2><div class="vgrid"></div>`; vs.forEach(v => sec.querySelector(".vgrid").appendChild(villagerCard(v, q))); out.appendChild(sec); };
+      grp("Villagers", byName); grp(`Love “${esc(vilFilter.q.trim())}”`, loves); grp(`Like “${esc(vilFilter.q.trim())}”`, likes);
+      if (!byName.length && !loves.length && !likes.length && !universal.length) out.innerHTML = '<p class="empty">No villager or gift matches that. Try a shorter word.</p>';
+      return;
+    }
+    // no search: soonest birthday first, from the Today tab's date
+    list = [...list].sort((a, b) => daysUntil(a, ctx.season, ctx.day) - daysUntil(b, ctx.season, ctx.day) || a.n.localeCompare(b.n));
+    const sec = document.createElement("section");
+    sec.innerHTML = `<h2>All villagers<span>${list.length} · next birthday first, counting from ${ctx.season} ${ctx.day}</span></h2><div class="vgrid"></div>`;
+    list.forEach(v => sec.querySelector(".vgrid").appendChild(villagerCard(v, "")));
+    out.appendChild(sec);
+  }
+  drawList();
 }
 
 // ---------- ALL FISH ----------
@@ -682,7 +773,7 @@ function renderCloudPanel(p) {
 }
 
 // ---------- shell ----------
-const ROUTES = { today: renderToday, bundles: renderBundles, fish: renderFish, map: renderMap, backup: renderBackup };
+const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, fish: renderFish, map: renderMap, backup: renderBackup };
 function route() { const r = location.hash.slice(1); return ROUTES[r] ? r : "today"; }
 
 function render() {
@@ -702,9 +793,9 @@ function render() {
 window.addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
 window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = load(); state = store.farms[store.active]; render(); } });
 
-Promise.all([fetch("data/fish.json").then(r => r.json()), fetch("data/bundles.json").then(r => r.json())])
-  .then(([fd, bd]) => {
-    FISH = fd.fish; ORDER = fd.order; SETS = bd.sets;
+Promise.all([fetch("data/fish.json").then(r => r.json()), fetch("data/bundles.json").then(r => r.json()), fetch("data/villagers.json").then(r => r.json())])
+  .then(([fd, bd, vd]) => {
+    FISH = fd.fish; ORDER = fd.order; SETS = bd.sets; VILLAGERS = vd.villagers; UNIVERSAL = vd.universal;
     for (const f of FISH) { BY_NAME[f.n] = f; const l = f.l.toLowerCase(); f.spots = SPOTS.filter(s => s.t(l)).map(s => s.id); }
     render();
     cloud.start({ getStore: () => store, replaceStore, mergeStores, onChange: renderAccount });
