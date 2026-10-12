@@ -957,11 +957,6 @@ function renderBackup(main) {
   const nFarms = Object.keys(store.farms).length;
   div.innerHTML = `
     <div class="panel stack" id="k-cloud" hidden></div>
-    ${location.hostname !== OLD_HOST ? `<div class="panel stack">
-      <h2 style="font-family:var(--display);font-weight:500;margin:0">Progress from the old address</h2>
-      <p class="lede" style="margin:0">This site used to live at oliverpuskai-cloud.github.io/sve-tracker. If you ticked things there without signing in, bring them here. They're added to what you have now; nothing gets unticked.</p>
-      <div><a class="btn primary" href="${MOVE_HELPER}">Bring my progress from the old address</a></div>
-    </div>` : ""}
     <div class="panel stack">
       <h2 style="font-family:var(--display);font-weight:500;margin:0">Save a backup</h2>
       <p class="lede" style="margin:0">Your progress lives in this browser only. The backup file holds all ${nFarms} farm${nFarms === 1 ? "" : "s"}. Download one now and then, or to move to another device.</p>
@@ -1062,39 +1057,6 @@ function renderFarmBar() {
   };
 }
 
-// ---------- moving from the old address (oliverpuskai-cloud.github.io/sve-tracker) ----------
-// Browser saves belong to one web address, so progress from the old address can't be read here directly.
-// A tiny helper page on the old address reads it and sends it back in the link (#move=...), never to a server.
-const OLD_HOST = "oliverpuskai-cloud.github.io";
-const MOVE_HELPER = "https://oliverpuskai-cloud.github.io/junimo-move/";
-let moveMsg = "";
-const hasProgress = s => Object.values(s.farms).some(f => f.caught.length || Object.keys(f.bundles).length || Object.keys(f.done).length || (f.todos || []).length || Object.keys(f.made.cooking).length || Object.keys(f.made.crafting).length);
-function takeMovedProgress() {
-  const h = location.hash;
-  if (h === "#move-none") { moveMsg = "No saved progress was found at the old address in this browser."; }
-  else if (h.startsWith("#move=")) {
-    try {
-      const json = decodeURIComponent(escape(atob(decodeURIComponent(h.slice(6)))));
-      const v = JSON.parse(json);
-      if (v && v.store && v.store.farms) {
-        const merged = hasProgress(store) ? mergeStores(v.store, store) : parseStore(v.store);
-        store = merged; state = store.farms[store.active]; save();
-        if (v.theme === "dark") { document.documentElement.dataset.theme = "dark"; try { localStorage.setItem(THEME_KEY, "dark"); } catch (e) {} }
-        moveMsg = `Your progress from the old address is here: ${Object.keys(v.store.farms).length} farm${Object.keys(v.store.farms).length === 1 ? "" : "s"} moved over. 🎉`;
-      }
-    } catch (e) { moveMsg = "Couldn't read the moved progress. Download a backup on the old address and restore it here instead."; }
-  } else return;
-  store.prefs.moveDismissed = true;   // they've used the move once; don't keep inviting them
-  save();
-  history.replaceState(null, "", location.pathname + "#today");
-}
-function moveBanner() {
-  if (location.hostname === OLD_HOST) return "";
-  if (moveMsg) return `<div class="movebar done"><span>${esc(moveMsg)}</span><button type="button" class="btn small ghost" id="mv-x">OK</button></div>`;
-  if (store.prefs.moveDismissed || hasProgress(store)) return "";
-  return `<div class="movebar"><span><b>Used this tracker before at oliverpuskai-cloud.github.io?</b> Your ticks were saved under that old address. Bring them here in one click.</span><a class="btn small primary" href="${MOVE_HELPER}">Bring my progress</a><button type="button" class="btn small ghost" id="mv-x">No thanks</button></div>`;
-}
-
 // ---------- account (optional Google sign-in) ----------
 function renderAccount() {
   const el = $("account");
@@ -1174,8 +1136,7 @@ function route() { const r = location.hash.slice(1); return ROUTES[r] ? r : "tod
 function render() {
   const r = route(), main = $("view"), y = window.scrollY;
   document.querySelectorAll("nav.main a").forEach(a => { if (a.getAttribute("href") === "#" + r) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
-  main.innerHTML = moveBanner();
-  if ($("mv-x")) $("mv-x").onclick = () => { store.prefs.moveDismissed = true; moveMsg = ""; save(); render(); };
+  main.innerHTML = "";
   renderFarmBar();
   paintGameSwitch();
   ROUTES[r](main);
@@ -1201,7 +1162,6 @@ Promise.all([fetch(dataUrl("fish")).then(r => r.json()), fetch(dataUrl("bundles"
       const parts = f.l.toLowerCase().split(/[,;|]/).map(s => s.trim()).filter(Boolean);
       f.spots = SPOTS.filter(s => parts.some(part => s.t(part))).map(s => s.id);
     }
-    takeMovedProgress();   // after the data has loaded: merging checks fish names against it
     render();
     cloud.start({ getStore: () => store, replaceStore, mergeStores, onChange: renderAccount });
   })

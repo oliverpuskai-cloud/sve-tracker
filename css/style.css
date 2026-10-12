@@ -397,8 +397,3 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .cstats s{color:var(--muted);font-size:.75rem}
 .cseed{font-size:.8rem;margin:4px 0 0;color:var(--ink)}
 @media (max-width:420px){.cstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-/* moving from the old address */
-.movebar{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-top:14px;padding:10px 14px;border-radius:6px;background:var(--need-bg);border:2px solid var(--need);font-size:.9rem}
-.movebar span{flex:1 1 260px;min-width:0}
-.movebar.done{background:var(--done);border-color:var(--done-line)}
-.movebar a.btn{text-decoration:none}
