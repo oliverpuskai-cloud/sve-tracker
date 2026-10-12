@@ -109,11 +109,11 @@
 ],
 "t": "6AM–8PM",
 "w": "Any",
-"l": "Ocean (Beach)",
+"l": "Ocean (Beach), Ginger Island ocean",
 "d": 50,
 "b": "Sinker",
 "p": 100,
-"x": "Also Ginger Island ocean",
+"x": "All seasons on Ginger Island ocean",
 "a": "Ocean / Beach",
 "img": "img/fish/flounder.png",
 "id": "flounder",
@@ -124,7 +124,8 @@
 "w": "Midnight Carp, Squid Ink",
 "sve": false
 }
-]
+],
+"gi": true
 },
 {
 "n": "Eel",
@@ -188,11 +189,11 @@
 ],
 "t": "6AM–7PM",
 "w": "Any",
-"l": "Ocean (Beach)",
+"l": "Ocean (Beach), Ginger Island ocean",
 "d": 70,
 "b": "Smooth",
 "p": 100,
-"x": "Also Ginger Island ocean",
+"x": "All seasons on Ginger Island ocean",
 "a": "Ocean / Beach",
 "img": "img/fish/tuna.png",
 "id": "tuna",
@@ -203,7 +204,8 @@
 "w": "Tortilla, Red Cabbage, Mayonnaise",
 "sve": false
 }
-]
+],
+"gi": true
 },
 {
 "n": "Red Snapper",
@@ -219,7 +221,7 @@
 "d": 40,
 "b": "Mixed",
 "p": 50,
-"x": "",
+"x": "Also in Winter on a rainy day made with a Rain Totem",
 "a": "Ocean / Beach",
 "img": "img/fish/red-snapper.png",
 "id": "red-snapper"
@@ -233,14 +235,15 @@
 ],
 "t": "12PM–4PM",
 "w": "Sun",
-"l": "Ocean (Beach)",
+"l": "Ocean (Beach), Ginger Island ocean",
 "d": 80,
 "b": "Floater",
 "p": 200,
 "x": "All seasons on Ginger Island ocean",
 "a": "Ocean / Beach",
 "img": "img/fish/pufferfish.png",
-"id": "pufferfish"
+"id": "pufferfish",
+"gi": true
 },
 {
 "n": "Octopus",
@@ -251,14 +254,15 @@
 ],
 "t": "6AM–1PM",
 "w": "Any",
-"l": "Ocean (Beach)",
+"l": "Ocean (Beach), Ginger Island ocean",
 "d": 95,
 "b": "Sinker",
 "p": 150,
-"x": "Very hard – bring Trap Bobber",
+"x": "Very hard – bring Trap Bobber · Also Ginger Island ocean all year",
 "a": "Ocean / Beach",
 "img": "img/fish/octopus.png",
-"id": "octopus"
+"id": "octopus",
+"gi": true
 },
 {
 "n": "Super Cucumber",
@@ -270,14 +274,15 @@
 ],
 "t": "6PM–2AM",
 "w": "Any",
-"l": "Ocean (Beach)",
+"l": "Ocean (Beach), Ginger Island ocean",
 "d": 80,
 "b": "Sinker",
 "p": 250,
 "x": "All seasons on Ginger Island",
 "a": "Ocean / Beach",
 "img": "img/fish/super-cucumber.png",
-"id": "super-cucumber"
+"id": "super-cucumber",
+"gi": true
 },
 {
 "n": "Tilapia",
@@ -289,14 +294,15 @@
 ],
 "t": "6AM–2PM",
 "w": "Any",
-"l": "Ocean (Beach)",
+"l": "Ocean (Beach), Ginger Island rivers",
 "d": 50,
 "b": "Mixed",
 "p": 75,
 "x": "All seasons on Ginger Island",
 "a": "Ocean / Beach",
 "img": "img/fish/tilapia.png",
-"id": "tilapia"
+"id": "tilapia",
+"gi": true
 },
 {
 "n": "Sea Cucumber",
@@ -407,11 +413,11 @@
 ],
 "t": "6AM–12AM",
 "w": "Rain",
-"l": "Rivers (Town + Forest); Secret Woods pond (Spring–Fall)",
+"l": "Rivers (Town + Forest); Secret Woods pond; Witch's Swamp",
 "d": 75,
 "b": "Mixed",
 "p": 200,
-"x": "",
+"x": "Secret Woods pond: Spring & Summer · Winter with a Rain Totem",
 "a": "Secret Woods / Junimo Woods",
 "img": "img/fish/catfish.png",
 "id": "catfish"
@@ -446,7 +452,7 @@
 ],
 "t": "Any",
 "w": "Any",
-"l": "Rivers (Town + Forest)",
+"l": "Town river, Forest Pond",
 "d": 28,
 "b": "Mixed",
 "p": 50,
@@ -546,7 +552,7 @@
 ],
 "t": "6AM–7PM",
 "w": "Any",
-"l": "Rivers (Town + Forest)",
+"l": "Rivers (Town + Forest), Forest waterfalls",
 "d": 50,
 "b": "Mixed",
 "p": 75,
@@ -576,7 +582,7 @@
 "d": 45,
 "b": "Smooth",
 "p": 105,
-"x": "",
+"x": "Also in Winter on a rainy day made with a Rain Totem",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/walleye.png",
 "id": "walleye"
@@ -703,11 +709,12 @@
 "ss": [
 "Spring",
 "Summer",
-"Fall"
+"Fall",
+"Winter"
 ],
 "t": "Any",
 "w": "Any",
-"l": "Mountain Lake, Secret Woods, Sewers",
+"l": "Mountain Lake, Secret Woods, Sewers, Mutant Bug Lair",
 "d": 15,
 "b": "Mixed",
 "p": 30,
@@ -757,7 +764,7 @@
 ],
 "t": "Any",
 "w": "Any",
-"l": "Forest Pond, Mountain Lake",
+"l": "Forest river, Mountain Lake",
 "d": 35,
 "b": "Dart",
 "p": 50,
@@ -795,11 +802,11 @@
 ],
 "t": "10PM–2AM",
 "w": "Any",
-"l": "Mountain Lake, Forest Pond",
+"l": "Mountain Lake, Forest Pond, Ginger Island rivers",
 "d": 55,
 "b": "Mixed",
 "p": 150,
-"x": "",
+"x": "Also Ginger Island rivers all year",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/midnight-carp.png",
 "id": "midnight-carp",
@@ -810,7 +817,8 @@
 "w": "Flounder, Squid Ink",
 "sve": false
 }
-]
+],
+"gi": true
 },
 {
 "n": "Woodskip",
@@ -824,7 +832,7 @@
 ],
 "t": "Any",
 "w": "Any",
-"l": "Secret Woods pond",
+"l": "Secret Woods pond; Forest Farm map",
 "d": 50,
 "b": "Mixed",
 "p": 75,
@@ -849,7 +857,7 @@
 "d": 50,
 "b": "Mixed",
 "p": 45,
-"x": "",
+"x": "Ghosts in the Mines can also drop it",
 "a": "Mines / Caves",
 "img": "img/fish/ghostfish.png",
 "id": "ghostfish"
@@ -954,7 +962,7 @@
 "d": 90,
 "b": "Dart",
 "p": 150,
-"x": "",
+"x": "Needs fishing level 4",
 "a": "Desert / Badlands",
 "img": "img/fish/scorpion-carp.png",
 "id": "scorpion-carp"
@@ -1133,7 +1141,7 @@
 "ss": [
 "Spring"
 ],
-"t": "6AM–8PM",
+"t": "Any",
 "w": "Rain",
 "l": "Mountain Lake (by the log, near the river inlet)",
 "d": 110,
@@ -1151,7 +1159,7 @@
 "ss": [
 "Summer"
 ],
-"t": "6AM–8PM",
+"t": "Any",
 "w": "Any",
 "l": "Beach – east pier, very end",
 "d": 95,
@@ -1171,7 +1179,7 @@
 ],
 "t": "Any",
 "w": "Any",
-"l": "Town – north of JoJaMart, on the wooden plank bridge",
+"l": "Town – near the waterfall north of JojaMart",
 "d": 85,
 "b": "Smooth",
 "p": 900,
@@ -1187,7 +1195,7 @@
 "ss": [
 "Winter"
 ],
-"t": "6AM–8PM",
+"t": "Any",
 "w": "Any",
 "l": "Cindersap Forest – south tip of Arrowhead Island",
 "d": 100,
@@ -1224,15 +1232,18 @@
 "s": "Vanilla",
 "c": "Legendary II",
 "ss": [
-"Summer"
+"Spring",
+"Summer",
+"Fall",
+"Winter"
 ],
-"t": "6AM–8PM",
+"t": "Any",
 "w": "Any",
 "l": "Beach – east pier, very end (same spot as Crimsonfish)",
 "d": 95,
 "b": "Mixed",
 "p": 1500,
-"x": "Only during Qi's 'Extended Family' quest",
+"x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/son-of-crimsonfish.png",
 "id": "son-of-crimsonfish"
@@ -1242,15 +1253,18 @@
 "s": "Vanilla",
 "c": "Legendary II",
 "ss": [
-"Fall"
+"Spring",
+"Summer",
+"Fall",
+"Winter"
 ],
 "t": "Any",
 "w": "Any",
-"l": "Town – north of JoJaMart, on the wooden plank bridge (same spot as Angler)",
+"l": "Town – near the waterfall north of JojaMart (same spot as Angler)",
 "d": 85,
 "b": "Smooth",
 "p": 900,
-"x": "Only during Qi's 'Extended Family' quest",
+"x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/ms-angler.png",
 "id": "ms-angler"
@@ -1260,15 +1274,18 @@
 "s": "Vanilla",
 "c": "Legendary II",
 "ss": [
-"Spring"
+"Spring",
+"Summer",
+"Fall",
+"Winter"
 ],
-"t": "6AM–8PM",
-"w": "Rain",
+"t": "Any",
+"w": "Any",
 "l": "Mountain Lake (by the log, near the river inlet) (same spot as Legend)",
 "d": 110,
 "b": "Mixed",
 "p": 5000,
-"x": "Only during Qi's 'Extended Family' quest",
+"x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/legend-ii.png",
 "id": "legend-ii"
@@ -1278,15 +1295,18 @@
 "s": "Vanilla",
 "c": "Legendary II",
 "ss": [
+"Spring",
+"Summer",
+"Fall",
 "Winter"
 ],
-"t": "6AM–8PM",
+"t": "Any",
 "w": "Any",
 "l": "Cindersap Forest – south tip of Arrowhead Island (same spot as Glacierfish)",
 "d": 100,
 "b": "Mixed",
 "p": 1000,
-"x": "Only during Qi's 'Extended Family' quest",
+"x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/glacierfish-jr.png",
 "id": "glacierfish-jr"
@@ -1307,7 +1327,7 @@
 "d": 80,
 "b": "Dart",
 "p": 1000,
-"x": "Only during Qi's 'Extended Family' quest",
+"x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Sewers / Swamp / Bugland",
 "img": "img/fish/radioactive-carp.png",
 "id": "radioactive-carp"

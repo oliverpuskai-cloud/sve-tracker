@@ -5,6 +5,7 @@ A free progress tracker for **Stardew Valley Expanded**:
 - **Today**: pick the season, day, weather and time, and see which fish you can still catch, which ones bundles need, and which ones won't be back until next year. Festivals, fishing events and birthdays are flagged. **My to-do** holds your own tasks for today and plans for coming days (per farm).
 - **Bundles**: three bundle sets per farm: Standard (vanilla), SVE Normal and SVE Hard, each with the JojaMart Missing Bundle. Tap items as you donate them, or mark a bundle, a room or the whole Community Center done in one click. Fish items show where and when to catch them.
 - **Villagers**: birthday calendar, loved and liked gifts for 33 vanilla and 16 SVE villagers, and a gift search ("who loves Diamond?").
+- **Crops**: what to plant on the chosen day — growth time (with Speed-Gro / Agriculturist), harvests left before the season ends, last day to plant, seed cost and profit per plant, for 43 vanilla and 12 SVE crops.
 - **Recipes**: 107 cooking and 157 crafting recipes (vanilla + SVE) with ingredients and how to unlock each one, a cooked/crafted tick per farm, and an "ingredients for everything" checklist.
 - **All fish**: all 115 catches (SVE + vanilla 1.6) with filters.
 - **Map**: the valley map with fish per spot, for every fish or only the ones you haven't caught.
@@ -27,13 +28,14 @@ supabase/           database table + setup guide
 data/fish.json      fish: seasons, times, weather, locations
 data/villagers.json birthdays + gift tastes
 data/recipes.json   cooking + crafting recipes, unlock sources, sprite index
+data/crops.json     crop seasons, growth/regrowth days, seed shops and prices, sell prices
 data/bundles.json   bundle sets (vanilla, SVE Normal, SVE Hard) and their items
 img/                fish + item sprites and the valley map
 ```
 
 To change data (for example a fish's location), edit the JSON files. The page reads them on load.
 
-When you publish changes to `js/app.js` or `css/style.css`, bump the `?v=` number on them in `index.html` (and `privacy.html`), so visitors' browsers load the new version instead of an old saved copy.
+When you publish changes, bump the `?v=` number on `js/app.js` and `css/style.css` in `index.html` (and `privacy.html`). The data files reuse the same number automatically, so visitors' browsers load the new version instead of an old saved copy.
 
 ## Run it on your computer
 

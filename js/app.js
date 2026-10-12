@@ -5,10 +5,13 @@
 import * as cloud from "./cloud.js";
 
 const STORE_KEY = "sve-tracker:v1";
+// the ?v= number on this script (set in index.html) is reused for the data files, so one bump refreshes both
+const DATA_V = new URL(import.meta.url).searchParams.get("v") || "dev";
+const dataUrl = name => `data/${name}.json?v=${DATA_V}`;
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
 
-let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {}, RECIPES = { cooking: [], crafting: [], img: {} };
+let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {}, RECIPES = { cooking: [], crafting: [], img: {} }, CROPS = [];
 let store = load();
 let state = store.farms[store.active];
 
@@ -91,8 +94,10 @@ function ranges(t) {
 }
 const hourLabel = h => { const x = h % 24; return (x % 12 || 12) + (x < 12 ? "AM" : "PM"); };
 
-function availableOn(f, ctx) {
-  if (!f.ss.includes(ctx.season)) return false;
+// Some fish are catchable all year on Ginger Island but only in their seasons elsewhere (f.gi).
+const gingerOnly = (f, ctx) => !!f.gi && !f.ss.includes(ctx.season);
+function availableOn(f, ctx, spot) {
+  if (!f.ss.includes(ctx.season) && !(f.gi && (spot === undefined || spot === "ginger"))) return false;
   if (f.w === "Rain" && !ctx.rain) return false;
   if (f.w === "Sun" && ctx.rain) return false;
   if (f.c === "Night Market" && !(ctx.season === "Winter" && ctx.day >= 15 && ctx.day <= 17)) return false;
@@ -104,7 +109,7 @@ function availableOn(f, ctx) {
   return true;
 }
 const nextSeason = s => SEASONS[(SEASONS.indexOf(s) + 1) % 4];
-const leavesAfter = (f, season) => f.ss.includes(season) && !f.ss.includes(nextSeason(season));
+const leavesAfter = (f, season) => !f.gi && f.ss.includes(season) && !f.ss.includes(nextSeason(season));
 
 // ---------- festivals & fishing events (game 1.6) ----------
 const EVENTS = {
@@ -186,6 +191,7 @@ function card(f, opts = {}) {
     ...(opts.needs || []).map(n => `<span class="tag need">Bundle: ${esc(n)}</span>`),
     opts.last ? '<span class="tag last">Last chance this year</span>' : "",
     opts.wx ? '<span class="tag wx">☂ Rain day</span>' : "",
+    opts.gi ? '<span class="tag gi">🏝 Ginger Island only</span>' : "",
   ].join("");
   b.innerHTML = `<span class="sprite"><img alt="" loading="lazy" src="${f.img}"></span>
     <span class="nm">${esc(f.n)}<span class="tags">${tags}</span></span>
@@ -233,13 +239,13 @@ function wireConditions(root, ctx, p) {
   $(`${p}-year`).onchange = e => { ctx.year = Math.min(99, Math.max(1, parseInt(e.target.value) || 1)); save(); render(); };
 }
 // Why a fish can't be caught under these conditions ("" = it can)
-function whyNot(f, ctx) {
-  if (!f.ss.includes(ctx.season)) return f.ss.length === 4 ? "" : "Only in " + f.ss.join(", ");
+function whyNot(f, ctx, spot) {
+  if (!f.ss.includes(ctx.season) && !(f.gi && spot === "ginger")) return f.gi ? `Only on Ginger Island in ${ctx.season}` : "Only in " + f.ss.join(", ");
   if (f.w === "Rain" && !ctx.rain) return "Needs rain";
   if (f.w === "Sun" && ctx.rain) return "Not in the rain";
   if (f.c === "Night Market" && !(ctx.season === "Winter" && ctx.day >= 15 && ctx.day <= 17)) return "Night Market only (Winter 15–17)";
   if (f.c === "Legendary II" && !state.qi) return "Only during Qi's Extended Family quest";
-  if (ctx.hour !== "" && ctx.hour != null && !availableOn(f, ctx)) return "Bites " + f.t;
+  if (ctx.hour !== "" && ctx.hour != null && !availableOn(f, ctx, spot)) return "Bites " + f.t;
   return "";
 }
 
@@ -354,7 +360,7 @@ function renderToday(main) {
 
   // fish lists
   const shown = store.prefs.showCaught ? avail : todo;
-  const opts = f => ({ needs: needs[f.n], last: leavesAfter(f, ctx.season) && f.c !== "Legendary II", wx: ctx.rain && f.w === "Rain" });
+  const opts = f => ({ needs: needs[f.n], last: leavesAfter(f, ctx.season) && f.c !== "Legendary II", wx: ctx.rain && f.w === "Rain", gi: gingerOnly(f, ctx) });
   const priority = shown.filter(f => !got.has(f.n) && (needs[f.n] || opts(f).last || opts(f).wx || f.c === "Legendary"));
   const pset = new Set(priority);
   priority.sort((a, b) => (needs[b.n] ? 2 : 0) - (needs[a.n] ? 2 : 0) || byTime(a, b));
@@ -552,6 +558,113 @@ function renderVillagers(main) {
     out.appendChild(sec);
   }
   drawList();
+}
+
+// ---------- CROPS: what to plant today ----------
+// Growth speed-ups work like the game: days removed = ceil(total days × speed bonus).
+const FERT = { none: ["No fertilizer", 0], speed: ["Speed-Gro", 0.10], deluxe: ["Deluxe Speed-Gro", 0.25], hyper: ["Hyper Speed-Gro", 0.33] };
+const cropList = () => sveOn() ? CROPS : CROPS.filter(c => !c.sve);
+function growDays(c, opts) {
+  const boost = FERT[opts.fert][1] + (opts.agri ? 0.10 : 0);
+  return Math.max(1, c.days - Math.ceil(c.days * boost - 1e-9));
+}
+function seedCost(c, opts) {
+  const ok = c.shops.filter(s => (opts.joja || s.shop !== "JojaMart") && (opts.jojaRoute || s.shop !== "Joja Emporium"));
+  if (!ok.length) return null;
+  return ok.reduce((a, b) => (b.price < a.price ? b : a));
+}
+// What one harvested item is worth after processing (game 1.6 rules).
+// Tiller (+10%) only counts for raw crops; Artisan (+40%) only for artisan goods.
+const PROC = { raw: "Sell raw", keg: "Keg", jar: "Preserves Jar", best: "Best of the three" };
+function productOptions(c, opts) {
+  const raw = { how: "raw", name: c.n, unit: Math.floor(c.price * (opts.tiller ? 1.1 : 1)) };
+  const art = v => Math.floor(v * (opts.artisan ? 1.4 : 1));
+  const out = [raw];
+  if (c.type === "fruit") {
+    out.push({ how: "keg", name: "Wine", unit: art(c.price * 3) });
+    out.push({ how: "jar", name: "Jelly", unit: art(c.price * 2 + 50) });
+  } else if (c.type === "veg") {
+    out.push({ how: "keg", name: "Juice", unit: art(c.price * 2.25) });
+    out.push({ how: "jar", name: "Pickles", unit: art(c.price * 2 + 50) });
+  } else if (c.type === "special" && c.proc && c.proc.keg) {
+    out.push({ how: "keg", name: c.proc.keg[0], unit: art(c.proc.keg[1]), note: c.proc.kegNote });
+  }
+  return out;
+}
+function bestProduct(c, opts) {
+  const all = productOptions(c, opts);
+  if (opts.proc === "best") return all.reduce((a, b) => (b.unit > a.unit ? b : a));
+  return all.find(o => o.how === opts.proc) || all[0];   // flowers etc. can't be processed: sold raw
+}
+
+// Plan one plant put in the ground on ctx (season, day) and harvested until the crop dies.
+function planCrop(c, ctx, opts) {
+  const si = SEASONS.indexOf(ctx.season);
+  if (!c.seasons.includes(ctx.season)) return null;
+  let seasonsLeft = 0;
+  while (seasonsLeft < 4 && c.seasons.includes(SEASONS[(si + seasonsLeft) % 4])) seasonsLeft++;
+  const daysLeft = seasonsLeft * 28 - ctx.day;          // days until the crop dies at the end of its last season
+  const g = growDays(c, opts);
+  const product = bestProduct(c, opts), price = product.unit;
+  const seed = seedCost(c, opts), cost = seed ? seed.price : 0;
+  let harvests = 0, profit = 0, plantings = 1;
+  if (g <= daysLeft) {
+    if (c.regrow) { harvests = 1 + Math.floor((daysLeft - g) / c.regrow); profit = harvests * c.yield * price - cost; }
+    else { plantings = Math.floor(daysLeft / g); harvests = plantings; profit = harvests * (c.yield * price - cost); }
+  }
+  const lastAbs = seasonsLeft * 28 - g;                   // last day (counted from day 1 of this season) to plant
+  const last = lastAbs >= 1 ? { season: SEASONS[(si + Math.floor((lastAbs - 1) / 28)) % 4], day: ((lastAbs - 1) % 28) + 1 } : null;
+  return { g, daysLeft, harvests, plantings, profit, perDay: harvests ? profit / daysLeft : 0, price, product, seed, last, ok: harvests > 0 };
+}
+
+function renderCrops(main) {
+  const ctx = state.today, opts = { fert: "none", agri: false, tiller: false, artisan: false, proc: "raw", joja: true, jojaRoute: false, unsold: false, ...store.prefs.crops };
+  if (!PROC[opts.proc]) opts.proc = "raw";
+  if (!FERT[opts.fert]) opts.fert = "none";
+  const wrap = document.createElement("div");
+  wrap.innerHTML = `<div class="controls">${conditionsHTML(ctx, "c")}</div>
+    <div class="controls">
+      <div class="ctl"><span>What you do with the harvest</span><div class="seg" id="c-proc">${Object.entries(PROC).map(([k, l]) => `<button type="button" data-p="${k}" aria-pressed="${opts.proc === k}">${l}</button>`).join("")}</div></div>
+      <div class="ctl"><span>Fertilizer</span><select id="c-fert">${Object.entries(FERT).map(([k, [l]]) => `<option value="${k}" ${opts.fert === k ? "selected" : ""}>${l}</option>`).join("")}</select></div>
+      <label class="check"><input type="checkbox" id="c-agri" ${opts.agri ? "checked" : ""}> Agriculturist (grows 10% faster)</label>
+      <label class="check"><input type="checkbox" id="c-tiller" ${opts.tiller ? "checked" : ""}> Tiller (raw crops sell for 10% more)</label>
+      <label class="check"><input type="checkbox" id="c-artisan" ${opts.artisan ? "checked" : ""}> Artisan (artisan goods sell for 40% more)</label>
+      <label class="check"><input type="checkbox" id="c-joja" ${opts.joja ? "checked" : ""}> Buy at JojaMart too</label>
+      ${sveOn() ? `<label class="check"><input type="checkbox" id="c-jojaRoute" ${opts.jojaRoute ? "checked" : ""}> I'm on the Joja route (Joja Emporium seeds)</label>` : ""}
+      <label class="check"><input type="checkbox" id="c-unsold" ${opts.unsold ? "checked" : ""}> Also show crops whose seeds aren't sold in shops (profit without seed cost)</label>
+    </div>
+    <p class="lede">For one plant put in the ground on <b>${ctx.season} ${ctx.day}</b>, kept until the crop dies at the end of its season. Profit is base-quality value × harvests, minus seeds (single-harvest crops are replanted each time). ${opts.proc === "raw" ? "" : "Processing assumes you have enough Kegs or Jars; a Keg takes about a week for Wine and 4 days for Juice, a Jar 2–3 days. "} Prices and days from the Stardew Valley wiki${sveOn() ? " and the SVE wiki" : ""}.</p>
+    <div id="c-list"></div>`;
+  main.appendChild(wrap);
+  wireConditions(wrap, ctx, "c");
+  const setOpt = (k, v) => { store.prefs.crops = { ...opts, [k]: v }; save(); render(); };
+  $("c-fert").onchange = e => setOpt("fert", e.target.value);
+  wrap.querySelectorAll("#c-proc button").forEach(b => b.onclick = () => setOpt("proc", b.dataset.p));
+  for (const k of ["agri", "tiller", "artisan", "joja", "jojaRoute", "unsold"]) if ($("c-" + k)) $("c-" + k).onchange = e => setOpt(k, e.target.checked);
+
+  const rows = cropList().map(c => ({ c, p: planCrop(c, ctx, opts) })).filter(r => r.p && (opts.unsold ? (opts.jojaRoute || !r.c.shops.some(s => s.shop === "Joja Emporium")) : r.p.seed));
+  const good = rows.filter(r => r.p.ok && r.p.profit > 0).sort((a, b) => b.p.profit - a.p.profit);
+  const loss = rows.filter(r => r.p.ok && r.p.profit <= 0).sort((a, b) => b.p.profit - a.p.profit);
+  const late = rows.filter(r => !r.p.ok);
+  const out = $("c-list");
+  const row = ({ c, p }) => {
+    const seedTxt = p.seed ? `${esc(c.seed || "Seeds")}: ${p.seed.price.toLocaleString()}g at ${esc(p.seed.shop)}` : `${esc(c.seed || "Seeds")}: not sold in shops`;
+    const tags = [c.sve ? '<span class="tag sve">SVE</span>' : "", c.regrow ? `<span class="tag need">regrows every ${c.regrow}d</span>` : "", c.trellis ? '<span class="tag">trellis</span>' : "", c.giant ? '<span class="tag">giant crop</span>' : "", c.seasons.length > 1 ? `<span class="tag">${c.seasons.join(" + ")}</span>` : ""].join("");
+    return `<article class="crop${p.ok ? "" : " late"}">
+      <div class="chead"><img alt="" loading="lazy" src="${c.img}"><div class="cmeta"><h3>${esc(c.n)}</h3><div class="tags">${tags}</div></div>
+        ${p.ok ? `<div class="cprofit"><b class="${p.profit < 0 ? "neg" : ""}">${p.profit.toLocaleString()}g</b><span>${p.perDay.toFixed(1)}g / day</span></div>` : '<div class="cprofit"><b class="neg">Too late</b></div>'}</div>
+      <dl class="cstats">
+        <div><dt>Grows in</dt><dd>${p.g} day${p.g === 1 ? "" : "s"}${p.g !== c.days ? ` <s>${c.days}</s>` : ""}</dd></div>
+        <div><dt>Harvests left</dt><dd>${p.harvests}${c.yield > 1 ? ` × ${c.yield}` : ""}</dd></div>
+        <div><dt>${p.product.how === "raw" ? "Sells for" : "As " + esc(p.product.name)}</dt><dd>${p.price.toLocaleString()}g</dd></div>
+        <div><dt>Last day to plant</dt><dd>${p.last ? `${p.last.season} ${p.last.day}` : "—"}</dd></div>
+      </dl>
+      <p class="cseed">🌱 ${seedTxt}</p>${opts.proc !== "raw" && p.product.how === "raw" ? `<p class="gnote">${c.type === "flower" ? "Flowers can't go in a Keg or Jar, so this is the raw price (they do make nearby honey better)." : opts.proc === "best" ? "Selling raw pays most for this one." : "Can't be processed this way, so this is the raw price."}</p>` : ""}${p.product.note ? `<p class="gnote">${esc(p.product.note)}</p>` : ""}${c.note ? `<p class="gnote">${esc(c.note)}</p>` : ""}
+    </article>`;
+  };
+  out.innerHTML = (good.length ? `<section><h2>Worth planting today<span>${good.length} crops · most profit first</span></h2><div class="cgrid">${good.map(row).join("")}</div></section>` : `<p class="empty">${ctx.season === "Winter" ? "Almost nothing grows outdoors in Winter. Try the greenhouse, or pick another season." : "Nothing will finish growing before the season ends. Try an earlier day."}</p>`)
+    + (loss.length ? `<section><h2>Would lose money<span>ready in time, but the seeds cost more than you'd earn</span></h2><div class="cgrid">${loss.map(row).join("")}</div></section>` : "")
+    + (late.length ? `<section><h2>Too late this season<span>won't be ready before ${ctx.season} ends</span></h2><div class="cgrid">${late.map(row).join("")}</div></section>` : "");
 }
 
 // ---------- RECIPES (cooking + crafting) ----------
@@ -774,16 +887,17 @@ function renderMap(main) {
     const list = by[s.id];
     const total = fishList().filter(f => f.spots.includes(s.id)).length;
     if (!total) continue;
-    const live = list.filter(can), cleared = mode === "todo" && !list.length, dim = !cleared && !live.length;
+    const here = f => availableOn(f, ctx, s.id);
+    const live = list.filter(here), cleared = mode === "todo" && !list.length, dim = !cleared && !live.length;
     const pin = document.createElementNS(NS, "g");
     pin.setAttribute("class", "pin" + (mapState.spot === s.id ? " sel" : "") + (cleared ? " clear" : "") + (dim ? " dim" : "") + (OFFMAP.has(s.id) ? " off" : ""));
     pin.setAttribute("tabindex", "0");
     pin.setAttribute("role", "button");
     pin.setAttribute("aria-label", `${s.nm}: ${live.length} fish catchable now`);
     // catchable fish first, then the rest faded
-    const show = [...live, ...list.filter(f => !can(f))].slice(0, 3), n = show.length, w = Math.max(n * 30 + 8, 46);
+    const show = [...live, ...list.filter(f => !here(f))].slice(0, 3), n = show.length, w = Math.max(n * 30 + 8, 46);
     let inner = `<rect x="${s.x - w / 2}" y="${s.y - 20}" width="${w}" height="38" rx="8" class="pinbox"/>`;
-    show.forEach((f, i) => { inner += `<image href="${f.img}" x="${s.x - w / 2 + 6 + i * 30}" y="${s.y - 17}" width="30" height="30" class="pix${can(f) ? "" : " off"}${got.has(f.n) ? " got" : ""}"/>`; });
+    show.forEach((f, i) => { inner += `<image href="${f.img}" x="${s.x - w / 2 + 6 + i * 30}" y="${s.y - 17}" width="30" height="30" class="pix${here(f) ? "" : " off"}${got.has(f.n) ? " got" : ""}"/>`; });
     if (!n) inner += `<text x="${s.x}" y="${s.y + 6}" text-anchor="middle" class="tick">✓</text>`;
     if (!cleared) inner += `<circle cx="${s.x + w / 2}" cy="${s.y - 20}" r="12" class="badge"/><text x="${s.x + w / 2}" y="${s.y - 16}" text-anchor="middle" class="badgetxt">${live.length}</text>`;
     inner += `<text x="${s.x}" y="${s.y + 34}" text-anchor="middle" class="plabel">${esc(s.nm)}</text>`;
@@ -801,12 +915,13 @@ function renderMap(main) {
   const panel = $("spotpanel");
   if (mapState.spot) {
     const s = SPOTS.find(x => x.id === mapState.spot), list = (by[mapState.spot] || []).sort(byTime);
-    const live = list.filter(can), later = list.filter(f => !can(f));
-    const sec = section(s.nm, `${live.length} catchable now${later.length ? ` · ${later.length} not right now` : ""}`, live.map(f => card(f, { needs: needs[f.n], wx: ctx.rain && f.w === "Rain" })));
+    const here = f => availableOn(f, ctx, s.id);
+    const live = list.filter(here), later = list.filter(f => !here(f));
+    const sec = section(s.nm, `${live.length} catchable now${later.length ? ` · ${later.length} not right now` : ""}`, live.map(f => card(f, { needs: needs[f.n], wx: ctx.rain && f.w === "Rain", gi: s.id === "ginger" && gingerOnly(f, ctx) })));
     if (!live.length) sec.querySelector(".grid").innerHTML = `<p class="empty">${list.length ? "Nothing bites here on " + esc(when) + "." : "All caught here."}</p>`;
     panel.appendChild(sec);
     if (later.length) {
-      const sec2 = section("Not right now", "change the season, weather or time to catch these", later.map(f => { const c = card(f, { needs: needs[f.n] }); c.classList.add("later"); c.querySelector(".nm").insertAdjacentHTML("beforeend", `<span class="why">${esc(whyNot(f, ctx))}</span>`); return c; }));
+      const sec2 = section("Not right now", "change the season, weather or time to catch these", later.map(f => { const c = card(f, { needs: needs[f.n] }); c.classList.add("later"); c.querySelector(".nm").insertAdjacentHTML("beforeend", `<span class="why">${esc(whyNot(f, ctx, s.id))}</span>`); return c; }));
       panel.appendChild(sec2);
     }
   } else panel.innerHTML = '<p class="empty">Tap a spot on the map to list its fish.</p>';
@@ -914,7 +1029,7 @@ function renderFarmBar() {
   } else {
     extra = `<button class="btn small" id="fm-new" type="button">+ New farm</button><button class="btn small ghost" id="fm-rename" type="button">Rename</button>${ids.length > 1 ? '<button class="btn small ghost" id="fm-del" type="button">Delete</button>' : ""}`;
   }
-  bar.innerHTML = `<label for="fm-pick">Farm</label><select id="fm-pick">${opts}</select>${extra}`;
+  bar.innerHTML = `<label for="fm-pick">Farm</label><select id="fm-pick">${opts}</select><span class="farmextra${farmMode ? " active" : ""}">${extra}</span>`;
   $("fm-pick").onchange = e => { farmMode = null; switchFarm(e.target.value); };
   const on = (id, fn) => { const el = $(id); if (el) el.onclick = fn; };
   on("fm-new", () => { farmMode = "new"; renderFarmBar(); $("fm-name").focus(); });
@@ -991,6 +1106,13 @@ function paintGameSwitch() {
 }
 if ($("game")) $("game").querySelectorAll("button").forEach(b => b.onclick = () => { store.prefs.sve = b.dataset.g === "sve"; save(); render(); });
 
+// ---------- phone menu: on small screens the less-used header controls fold into ☰ Menu ----------
+if ($("menubtn")) $("menubtn").onclick = () => {
+  const open = document.querySelector("header").classList.toggle("open");
+  $("menubtn").setAttribute("aria-expanded", open);
+  $("menubtn").textContent = open ? "✕ Close" : "☰ Menu";
+};
+
 // ---------- Day / Night theme (remembered on this device) ----------
 const THEME_KEY = "sve-tracker:theme";
 function paintThemeButton() {
@@ -1008,7 +1130,7 @@ function toggleTheme() {
 if ($("theme")) { $("theme").onclick = toggleTheme; paintThemeButton(); }
 
 // ---------- shell ----------
-const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, recipes: renderRecipes, fish: renderFish, map: renderMap, backup: renderBackup };
+const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, crops: renderCrops, recipes: renderRecipes, fish: renderFish, map: renderMap, backup: renderBackup };
 function route() { const r = location.hash.slice(1); return ROUTES[r] ? r : "today"; }
 
 function render() {
@@ -1029,11 +1151,17 @@ function render() {
 window.addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
 window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = load(); state = store.farms[store.active]; render(); } });
 
-Promise.all([fetch("data/fish.json").then(r => r.json()), fetch("data/bundles.json").then(r => r.json()), fetch("data/villagers.json").then(r => r.json()), fetch("data/recipes.json").then(r => r.json())])
-  .then(([fd, bd, vd, rd]) => {
+Promise.all([fetch(dataUrl("fish")).then(r => r.json()), fetch(dataUrl("bundles")).then(r => r.json()), fetch(dataUrl("villagers")).then(r => r.json()), fetch(dataUrl("recipes")).then(r => r.json()), fetch(dataUrl("crops")).then(r => r.json())])
+  .then(([fd, bd, vd, rd, cd]) => {
+    CROPS = cd.crops;
     RECIPES = { cooking: [], crafting: [], ...rd, img: rd.img || {} };
     FISH = fd.fish; ORDER = fd.order; SETS = bd.sets; VILLAGERS = vd.villagers; UNIVERSAL = vd.universal; ITEM_IMG = vd.itemImg || {};
-    for (const f of FISH) { BY_NAME[f.n] = f; const l = f.l.toLowerCase(); f.spots = SPOTS.filter(s => s.t(l)).map(s => s.id); }
+    for (const f of FISH) {
+      BY_NAME[f.n] = f;
+      // check each listed place on its own, so "Sewers, Mutant Bug Lair" puts the fish on both spots
+      const parts = f.l.toLowerCase().split(/[,;|]/).map(s => s.trim()).filter(Boolean);
+      f.spots = SPOTS.filter(s => parts.some(part => s.t(part))).map(s => s.id);
+    }
     render();
     cloud.start({ getStore: () => store, replaceStore, mergeStores, onChange: renderAccount });
   })

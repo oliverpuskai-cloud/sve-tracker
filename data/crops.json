@@ -1,0 +1,1454 @@
+{
+"crops": [
+{
+"id": "blue-jazz",
+"n": "Blue Jazz",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 7,
+"regrow": null,
+"price": 50,
+"yield": 1,
+"seed": "Jazz Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 30
+},
+{
+"shop": "JojaMart",
+"price": 37
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/blue-jazz.png",
+"type": "flower"
+},
+{
+"id": "carrot",
+"n": "Carrot",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 3,
+"regrow": null,
+"price": 35,
+"yield": 1,
+"seed": null,
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds from seed spots and Spring Seeds, not sold in shops",
+"img": "img/items/carrot.png",
+"type": "veg"
+},
+{
+"id": "cauliflower",
+"n": "Cauliflower",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 12,
+"regrow": null,
+"price": 175,
+"yield": 1,
+"seed": "Cauliflower Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 80
+},
+{
+"shop": "JojaMart",
+"price": 100
+}
+],
+"trellis": false,
+"giant": true,
+"year2": false,
+"note": "",
+"img": "img/items/cauliflower.png",
+"type": "veg"
+},
+{
+"id": "coffee-bean",
+"n": "Coffee Bean",
+"sve": false,
+"seasons": [
+"Spring",
+"Summer"
+],
+"days": 10,
+"regrow": 2,
+"price": 15,
+"yield": 4,
+"seed": "Coffee Bean",
+"shops": [
+{
+"shop": "Traveling Cart",
+"price": 2500
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Also dropped by Dust Sprites in the Mines",
+"img": "img/items/coffee-bean.png",
+"type": "special",
+"proc": {
+"keg": [
+"Coffee",
+30
+],
+"kegNote": "5 beans make 1 Coffee (150g)"
+}
+},
+{
+"id": "garlic",
+"n": "Garlic",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 4,
+"regrow": null,
+"price": 60,
+"yield": 1,
+"seed": "Garlic Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 40
+}
+],
+"trellis": false,
+"giant": false,
+"year2": true,
+"note": "Pierre's sells the seeds from Year 2",
+"img": "img/items/garlic.png",
+"type": "veg"
+},
+{
+"id": "green-bean",
+"n": "Green Bean",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 10,
+"regrow": 3,
+"price": 40,
+"yield": 1,
+"seed": "Bean Starter",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 60
+},
+{
+"shop": "JojaMart",
+"price": 75
+}
+],
+"trellis": true,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/green-bean.png",
+"type": "veg"
+},
+{
+"id": "kale",
+"n": "Kale",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 6,
+"regrow": null,
+"price": 110,
+"yield": 1,
+"seed": "Kale Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 70
+},
+{
+"shop": "JojaMart",
+"price": 87
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/kale.png",
+"type": "veg"
+},
+{
+"id": "parsnip",
+"n": "Parsnip",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 4,
+"regrow": null,
+"price": 35,
+"yield": 1,
+"seed": "Parsnip Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 20
+},
+{
+"shop": "JojaMart",
+"price": 25
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/parsnip.png",
+"type": "veg"
+},
+{
+"id": "potato",
+"n": "Potato",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 6,
+"regrow": null,
+"price": 80,
+"yield": 1,
+"seed": "Potato Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 50
+},
+{
+"shop": "JojaMart",
+"price": 62
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Chance of extra potatoes each harvest",
+"img": "img/items/potato.png",
+"type": "veg"
+},
+{
+"id": "rhubarb",
+"n": "Rhubarb",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 13,
+"regrow": null,
+"price": 220,
+"yield": 1,
+"seed": "Rhubarb Seeds",
+"shops": [
+{
+"shop": "Oasis",
+"price": 100
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/rhubarb.png",
+"type": "fruit"
+},
+{
+"id": "strawberry",
+"n": "Strawberry",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 8,
+"regrow": 4,
+"price": 120,
+"yield": 1,
+"seed": "Strawberry Seeds",
+"shops": [
+{
+"shop": "Egg Festival",
+"price": 100
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds only at the Egg Festival (Spring 13)",
+"img": "img/items/strawberry.png",
+"type": "fruit"
+},
+{
+"id": "tulip",
+"n": "Tulip",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 6,
+"regrow": null,
+"price": 30,
+"yield": 1,
+"seed": "Tulip Bulb",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 20
+},
+{
+"shop": "JojaMart",
+"price": 25
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/tulip.png",
+"type": "flower"
+},
+{
+"id": "unmilled-rice",
+"n": "Unmilled Rice",
+"sve": false,
+"seasons": [
+"Spring"
+],
+"days": 8,
+"regrow": null,
+"price": 30,
+"yield": 1,
+"seed": "Rice Shoot",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 40
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Grows faster when planted next to water",
+"img": "img/items/unmilled-rice.png",
+"type": "veg"
+},
+{
+"id": "blueberry",
+"n": "Blueberry",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 13,
+"regrow": 4,
+"price": 50,
+"yield": 3,
+"seed": "Blueberry Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 80
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/blueberry.png",
+"type": "fruit"
+},
+{
+"id": "corn",
+"n": "Corn",
+"sve": false,
+"seasons": [
+"Summer",
+"Fall"
+],
+"days": 14,
+"regrow": 4,
+"price": 50,
+"yield": 1,
+"seed": "Corn Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 150
+},
+{
+"shop": "JojaMart",
+"price": 187
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/corn.png",
+"type": "veg"
+},
+{
+"id": "hops",
+"n": "Hops",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 11,
+"regrow": 1,
+"price": 25,
+"yield": 1,
+"seed": "Hops Starter",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 60
+},
+{
+"shop": "JojaMart",
+"price": 75
+}
+],
+"trellis": true,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/hops.png",
+"type": "special",
+"proc": {
+"keg": [
+"Pale Ale",
+300
+]
+}
+},
+{
+"id": "hot-pepper",
+"n": "Hot Pepper",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 5,
+"regrow": 3,
+"price": 40,
+"yield": 1,
+"seed": "Pepper Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 40
+},
+{
+"shop": "JojaMart",
+"price": 50
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/hot-pepper.png",
+"type": "fruit"
+},
+{
+"id": "melon",
+"n": "Melon",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 12,
+"regrow": null,
+"price": 250,
+"yield": 1,
+"seed": "Melon Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 80
+},
+{
+"shop": "JojaMart",
+"price": 100
+}
+],
+"trellis": false,
+"giant": true,
+"year2": false,
+"note": "",
+"img": "img/items/melon.png",
+"type": "fruit"
+},
+{
+"id": "poppy",
+"n": "Poppy",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 7,
+"regrow": null,
+"price": 140,
+"yield": 1,
+"seed": "Poppy Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 100
+},
+{
+"shop": "JojaMart",
+"price": 125
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/poppy.png",
+"type": "flower"
+},
+{
+"id": "radish",
+"n": "Radish",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 6,
+"regrow": null,
+"price": 90,
+"yield": 1,
+"seed": "Radish Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 40
+},
+{
+"shop": "JojaMart",
+"price": 50
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/radish.png",
+"type": "veg"
+},
+{
+"id": "red-cabbage",
+"n": "Red Cabbage",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 9,
+"regrow": null,
+"price": 260,
+"yield": 1,
+"seed": "Red Cabbage Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 100
+}
+],
+"trellis": false,
+"giant": false,
+"year2": true,
+"note": "Pierre's sells the seeds from Year 2",
+"img": "img/items/red-cabbage.png",
+"type": "veg"
+},
+{
+"id": "starfruit",
+"n": "Starfruit",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 13,
+"regrow": null,
+"price": 750,
+"yield": 1,
+"seed": "Starfruit Seeds",
+"shops": [
+{
+"shop": "Oasis",
+"price": 400
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/starfruit.png",
+"type": "fruit"
+},
+{
+"id": "summer-spangle",
+"n": "Summer Spangle",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 8,
+"regrow": null,
+"price": 90,
+"yield": 1,
+"seed": "Spangle Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 50
+},
+{
+"shop": "JojaMart",
+"price": 62
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/summer-spangle.png",
+"type": "flower"
+},
+{
+"id": "summer-squash",
+"n": "Summer Squash",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 6,
+"regrow": 3,
+"price": 45,
+"yield": 1,
+"seed": null,
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds from seed spots, not sold in shops",
+"img": "img/items/summer-squash.png",
+"type": "veg"
+},
+{
+"id": "sunflower",
+"n": "Sunflower",
+"sve": false,
+"seasons": [
+"Summer",
+"Fall"
+],
+"days": 8,
+"regrow": null,
+"price": 80,
+"yield": 1,
+"seed": "Sunflower Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 200
+},
+{
+"shop": "JojaMart",
+"price": 125
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/sunflower.png",
+"type": "flower"
+},
+{
+"id": "tomato",
+"n": "Tomato",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 11,
+"regrow": 4,
+"price": 60,
+"yield": 1,
+"seed": "Tomato Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 50
+},
+{
+"shop": "JojaMart",
+"price": 62
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/tomato.png",
+"type": "veg"
+},
+{
+"id": "wheat",
+"n": "Wheat",
+"sve": false,
+"seasons": [
+"Summer",
+"Fall"
+],
+"days": 4,
+"regrow": null,
+"price": 25,
+"yield": 1,
+"seed": "Wheat Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 10
+},
+{
+"shop": "JojaMart",
+"price": 12
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/wheat.png",
+"type": "special",
+"proc": {
+"keg": [
+"Beer",
+200
+]
+}
+},
+{
+"id": "amaranth",
+"n": "Amaranth",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 7,
+"regrow": null,
+"price": 150,
+"yield": 1,
+"seed": "Amaranth Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 70
+},
+{
+"shop": "JojaMart",
+"price": 87
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/amaranth.png",
+"type": "veg"
+},
+{
+"id": "artichoke",
+"n": "Artichoke",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 8,
+"regrow": null,
+"price": 160,
+"yield": 1,
+"seed": "Artichoke Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 30
+}
+],
+"trellis": false,
+"giant": false,
+"year2": true,
+"note": "Pierre's sells the seeds from Year 2",
+"img": "img/items/artichoke.png",
+"type": "veg"
+},
+{
+"id": "beet",
+"n": "Beet",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 6,
+"regrow": null,
+"price": 100,
+"yield": 1,
+"seed": "Beet Seeds",
+"shops": [
+{
+"shop": "Oasis",
+"price": 20
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/beet.png",
+"type": "veg"
+},
+{
+"id": "bok-choy",
+"n": "Bok Choy",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 4,
+"regrow": null,
+"price": 80,
+"yield": 1,
+"seed": "Bok Choy Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 50
+},
+{
+"shop": "JojaMart",
+"price": 62
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/bok-choy.png",
+"type": "veg"
+},
+{
+"id": "broccoli",
+"n": "Broccoli",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 8,
+"regrow": 4,
+"price": 70,
+"yield": 1,
+"seed": null,
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds from seed spots, not sold in shops",
+"img": "img/items/broccoli.png",
+"type": "veg"
+},
+{
+"id": "cranberries",
+"n": "Cranberries",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 7,
+"regrow": 5,
+"price": 75,
+"yield": 2,
+"seed": "Cranberry Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 240
+},
+{
+"shop": "JojaMart",
+"price": 300
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/cranberries.png",
+"type": "fruit"
+},
+{
+"id": "eggplant",
+"n": "Eggplant",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 5,
+"regrow": 5,
+"price": 60,
+"yield": 1,
+"seed": "Eggplant Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 20
+},
+{
+"shop": "JojaMart",
+"price": 25
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/eggplant.png",
+"type": "veg"
+},
+{
+"id": "fairy-rose",
+"n": "Fairy Rose",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 12,
+"regrow": null,
+"price": 290,
+"yield": 1,
+"seed": "Fairy Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 200
+},
+{
+"shop": "JojaMart",
+"price": 250
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/fairy-rose.png",
+"type": "flower"
+},
+{
+"id": "grape",
+"n": "Grape",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 10,
+"regrow": 3,
+"price": 80,
+"yield": 1,
+"seed": "Grape Starter",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 60
+},
+{
+"shop": "JojaMart",
+"price": 75
+}
+],
+"trellis": true,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/grape.png",
+"type": "fruit"
+},
+{
+"id": "pumpkin",
+"n": "Pumpkin",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 13,
+"regrow": null,
+"price": 320,
+"yield": 1,
+"seed": "Pumpkin Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 100
+},
+{
+"shop": "JojaMart",
+"price": 125
+}
+],
+"trellis": false,
+"giant": true,
+"year2": false,
+"note": "",
+"img": "img/items/pumpkin.png",
+"type": "veg"
+},
+{
+"id": "yam",
+"n": "Yam",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 10,
+"regrow": null,
+"price": 160,
+"yield": 1,
+"seed": "Yam Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 60
+},
+{
+"shop": "JojaMart",
+"price": 75
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/yam.png",
+"type": "veg"
+},
+{
+"id": "powdermelon",
+"n": "Powdermelon",
+"sve": false,
+"seasons": [
+"Winter"
+],
+"days": 7,
+"regrow": null,
+"price": 60,
+"yield": 1,
+"seed": null,
+"shops": [],
+"trellis": false,
+"giant": true,
+"year2": false,
+"note": "Seeds from seed spots, not sold in shops",
+"img": "img/items/powdermelon.png",
+"type": "fruit"
+},
+{
+"id": "ancient-fruit",
+"n": "Ancient Fruit",
+"sve": false,
+"seasons": [
+"Spring",
+"Summer",
+"Fall"
+],
+"days": 28,
+"regrow": 7,
+"price": 550,
+"yield": 1,
+"seed": null,
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds: Seed Maker or donating an Ancient Seed",
+"img": "img/items/ancient-fruit.png",
+"type": "fruit"
+},
+{
+"id": "pineapple",
+"n": "Pineapple",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 14,
+"regrow": 7,
+"price": 300,
+"yield": 1,
+"seed": null,
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds: Island Trader (Magma Cap). Grows all year on the Ginger Island farm",
+"img": "img/items/pineapple.png",
+"type": "fruit"
+},
+{
+"id": "taro-root",
+"n": "Taro Root",
+"sve": false,
+"seasons": [
+"Summer"
+],
+"days": 10,
+"regrow": null,
+"price": 100,
+"yield": 1,
+"seed": null,
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds: Island Trader (Bone Fragment). Grows all year on the Ginger Island farm",
+"img": "img/items/taro-root.png",
+"type": "veg"
+},
+{
+"id": "sweet-gem-berry",
+"n": "Sweet Gem Berry",
+"sve": false,
+"seasons": [
+"Fall"
+],
+"days": 24,
+"regrow": null,
+"price": 3000,
+"yield": 1,
+"seed": "Rare Seed",
+"shops": [
+{
+"shop": "Traveling Cart",
+"price": 1000
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Rare Seed from the Traveling Cart",
+"img": "img/items/sweet-gem-berry.png",
+"type": "special",
+"proc": {}
+},
+{
+"id": "sve-ancient-fiber",
+"n": "Ancient Fiber",
+"sve": true,
+"seasons": [
+"Summer"
+],
+"days": 12,
+"regrow": null,
+"price": 145,
+"yield": 2,
+"seed": "Ancient Fern Seed",
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds from artifact spots in the Secret Woods · 2–4 per harvest",
+"img": "img/items/ancient-fiber.png",
+"type": "veg"
+},
+{
+"id": "sve-butternut-squash",
+"n": "Butternut Squash",
+"sve": true,
+"seasons": [
+"Summer"
+],
+"days": 12,
+"regrow": null,
+"price": 200,
+"yield": 1,
+"seed": "Butternut Squash Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 60
+},
+{
+"shop": "JojaMart",
+"price": 75
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/butternut-squash.png",
+"type": "veg"
+},
+{
+"id": "sve-cucumber",
+"n": "Cucumber",
+"sve": true,
+"seasons": [
+"Spring"
+],
+"days": 12,
+"regrow": 2,
+"price": 35,
+"yield": 2,
+"seed": "Cucumber Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 150
+},
+{
+"shop": "JojaMart",
+"price": 188
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "2–3 per harvest",
+"img": "img/items/cucumber.png",
+"type": "veg"
+},
+{
+"id": "sve-gold-carrot",
+"n": "Gold Carrot",
+"sve": true,
+"seasons": [
+"Spring",
+"Summer",
+"Fall"
+],
+"days": 6,
+"regrow": null,
+"price": 1000,
+"yield": 1,
+"seed": "Gold Carrot Seeds",
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds: Desert Trader for 3 Gold Bars",
+"img": "img/items/gold-carrot.png",
+"type": "veg"
+},
+{
+"id": "sve-joja-berry",
+"n": "Joja Berry",
+"sve": true,
+"seasons": [
+"Spring",
+"Summer",
+"Fall"
+],
+"days": 25,
+"regrow": 4,
+"price": 650,
+"yield": 1,
+"seed": "Joja Berry Starter",
+"shops": [
+{
+"shop": "Joja Emporium",
+"price": 6500
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Joja route only: after the Community Development Form and Morris' 10-heart event",
+"img": "img/items/joja-berry.png",
+"type": "fruit"
+},
+{
+"id": "sve-joja-veggie",
+"n": "Joja Veggie",
+"sve": true,
+"seasons": [
+"Spring",
+"Summer",
+"Fall"
+],
+"days": 13,
+"regrow": null,
+"price": 1140,
+"yield": 1,
+"seed": "Joja Veggie Seeds",
+"shops": [
+{
+"shop": "Joja Emporium",
+"price": 600
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Joja route only: after the Community Development Form and Morris' 10-heart event",
+"img": "img/items/joja-veggie.png",
+"type": "fruit"
+},
+{
+"id": "sve-monster-fruit",
+"n": "Monster Fruit",
+"sve": true,
+"seasons": [
+"Summer"
+],
+"days": 25,
+"regrow": null,
+"price": 1525,
+"yield": 1,
+"seed": "Stalk Seed",
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds not sold in shops",
+"img": "img/items/monster-fruit.png",
+"type": "fruit"
+},
+{
+"id": "sve-monster-mushroom",
+"n": "Monster Mushroom",
+"sve": true,
+"seasons": [
+"Fall"
+],
+"days": 13,
+"regrow": null,
+"price": 850,
+"yield": 1,
+"seed": "Fungus Seed",
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds not sold in shops",
+"img": "img/items/monster-mushroom.png",
+"type": "veg"
+},
+{
+"id": "sve-salal-berry",
+"n": "Salal Berry",
+"sve": true,
+"seasons": [
+"Spring",
+"Summer"
+],
+"days": 13,
+"regrow": 4,
+"price": 75,
+"yield": 1,
+"seed": "Shrub Seed",
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds not sold in shops",
+"img": "img/items/salal-berry.png",
+"type": "fruit"
+},
+{
+"id": "sve-slime-berry",
+"n": "Slime Berry",
+"sve": true,
+"seasons": [
+"Spring"
+],
+"days": 13,
+"regrow": 4,
+"price": 65,
+"yield": 1,
+"seed": "Slime Seed",
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds not sold in shops",
+"img": "img/items/slime-berry.png",
+"type": "fruit"
+},
+{
+"id": "sve-sweet-potato",
+"n": "Sweet Potato",
+"sve": true,
+"seasons": [
+"Fall"
+],
+"days": 12,
+"regrow": null,
+"price": 280,
+"yield": 1,
+"seed": "Sweet Potato Seeds",
+"shops": [
+{
+"shop": "Pierre's",
+"price": 90
+},
+{
+"shop": "JojaMart",
+"price": 113
+}
+],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "",
+"img": "img/items/sweet-potato.png",
+"type": "veg"
+},
+{
+"id": "sve-void-root",
+"n": "Void Root",
+"sve": true,
+"seasons": [
+"Winter"
+],
+"days": 8,
+"regrow": null,
+"price": 235,
+"yield": 1,
+"seed": "Void Seed",
+"shops": [],
+"trellis": false,
+"giant": false,
+"year2": false,
+"note": "Seeds not sold in shops",
+"img": "img/items/void-root.png",
+"type": "veg"
+}
+]
+}
