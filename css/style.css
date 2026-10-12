@@ -140,7 +140,17 @@ nav.main a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 .day button,.btn{font:inherit;font-size:.9rem;border:2px solid var(--line);background:var(--panel);color:var(--ink);border-radius:5px;padding:6px 10px;cursor:pointer}
 .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
 .ctl select{font:inherit;font-size:.9rem;padding:6px 8px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)}
-.check{display:flex;gap:6px;align-items:center;font-size:.88rem;cursor:pointer}
+/* Tick boxes: one custom square everywhere (clear border, green with a check mark when ticked),
+   and option toggles (.check) sit in a framed chip so they read as something you can click. */
+input[type=checkbox]{appearance:none;-webkit-appearance:none;width:20px;height:20px;margin:0;flex:none;display:inline-grid;place-content:center;border:2px solid var(--muted);border-radius:4px;background:var(--panel);cursor:pointer;transition:background .12s,border-color .12s}
+input[type=checkbox]::before{content:"";width:12px;height:12px;background:var(--accent-ink);clip-path:polygon(12% 46%,0 62%,40% 100%,100% 18%,86% 4%,40% 70%);transform:scale(0);transition:transform .12s}
+input[type=checkbox]:checked{background:var(--accent);border-color:var(--accent)}
+input[type=checkbox]:checked::before{transform:scale(1)}
+input[type=checkbox]:hover{border-color:var(--accent)}
+input[type=checkbox]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.check{display:inline-flex;gap:10px;align-items:center;font-size:.9rem;cursor:pointer;padding:8px 12px;border:2px solid var(--line);border-radius:6px;background:var(--panel);box-shadow:0 2px 0 var(--line);transition:border-color .12s,background .12s}
+.check:hover{border-color:var(--accent)}
+.check:has(input:checked){background:var(--done);border-color:var(--done-line);box-shadow:0 2px 0 var(--done-line);color:var(--done-ink);font-weight:700}
 .events{display:flex;flex-direction:column;gap:8px;margin-top:16px}
 .event{border-left:4px solid var(--c,var(--accent));background:var(--panel);padding:10px 14px;border-radius:0 6px 6px 0;font-size:.9rem}
 .event b{font-family:var(--display);font-weight:500;font-size:1.05rem;margin-right:6px}
