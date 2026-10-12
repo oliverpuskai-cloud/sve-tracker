@@ -1,3 +1,7 @@
+/* Pixelify draws 2, 3 and 5 with hooks that make them blur into 8 (and 5 into S) at small sizes.
+   This tiny font only redraws those three digits with flat, open pixel shapes; every other character still comes from Pixelify Sans. */
+@font-face{font-family:"Pixelify Five";src:url(../fonts/five-500.woff2) format("woff2");font-weight:400 600;unicode-range:U+0032,U+0033,U+0035;font-display:swap}
+@font-face{font-family:"Pixelify Five";src:url(../fonts/five-700.woff2) format("woff2");font-weight:700 900;unicode-range:U+0032,U+0033,U+0035;font-display:swap}
 /* Layout: a fishing log — sticky header with progress + season tabs, then area sections of sprite cards you tap to tick off. */
 :root{
   /* cozy farmhouse palette: parchment ground, cream panels, wood-brown ink and edges, leaf-green accent */
@@ -8,7 +12,7 @@
   --rain:#3a6fb0; --sun:#a87400;
   --sea:#9cc4cc; --land:#cfe3b0; --hill:#b9cf98; --hill2:#c8c0a4; --wood:#a9cc8e; --water:#5fa9cf; --sand:#ead9a8; --edge:#7a5a36;
   --wood:#a86a32; --wood-dark:#5e3818; --wood-light:#e0b06e;
-  --display:"Pixelify Sans","Courier New",monospace; --body:"Atkinson Hyperlegible",system-ui,-apple-system,sans-serif;
+  --display:"Pixelify Five","Pixelify Sans","Courier New",monospace; --body:"Atkinson Hyperlegible",system-ui,-apple-system,sans-serif;
   color-scheme:light;
 }
 /* Night theme: a farmhouse after dark. Warm wood browns, cream text. Chosen with the Day/Night button. */
