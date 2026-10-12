@@ -37,6 +37,9 @@
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.45}
 .wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:0 48px}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:3px solid var(--line);padding-block:14px 10px}
+/* The wooden card frames stick out a few px past the content edge; widen the sticky header's backdrop
+   (sideways and above) so those edges don't peek out beside it while scrolling. */
+header::before{content:"";position:absolute;z-index:-1;inset:-40px -12px 0;background:var(--bg);pointer-events:none}
 .top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:flex-end;justify-content:space-between}
 h1{font-family:var(--display);font-weight:700;font-size:1.9rem;margin:0;line-height:1;text-wrap:balance}
 h1 small{display:block;font-family:var(--body);font-weight:400;font-size:.85rem;color:var(--muted);margin-top:6px}
