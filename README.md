@@ -7,8 +7,8 @@ https://junimoplanner.com — a free planner and progress tracker for **Stardew 
 - **Villagers**: birthday calendar, loved and liked gifts for 33 vanilla and 16 SVE villagers, and a gift search ("who loves Diamond?").
 - **Crops**: what to plant on the chosen day — growth time (with Speed-Gro / Agriculturist), harvests left before the season ends, last day to plant, seed cost and profit per plant, for 43 vanilla and 12 SVE crops.
 - **Recipes**: 107 cooking and 157 crafting recipes (vanilla + SVE) with ingredients and how to unlock each one, a cooked/crafted tick per farm, and an "ingredients for everything" checklist.
-- **Collections**: the museum (42 artifacts + 53 minerals, plus 7 SVE artifacts) with where to find each item and the donation rewards, and the shipping collection (154 vanilla items, plus the 50 SVE adds), ticked off per farm.
-- **All fish**: all 115 catches (SVE + vanilla 1.6) with filters.
+- **Collections**: the museum (42 artifacts + 53 minerals, plus 7 SVE artifacts) with where to find each item and the donation rewards, the shipping collection (154 vanilla items, plus the 50 SVE adds), and the 7 Stardrops, ticked off per farm.
+- **All fish**: every catch (SVE + vanilla 1.6) with filters and what each fish produces in a fish pond.
 - **Map**: the valley map with fish per spot, for every fish or only the ones you haven't caught.
 - **Farms**: keep separate progress for each save file (new, rename, delete in the header).
 - **Backup**: download a backup of all farms, restore one, or paste a progress code.
@@ -30,6 +30,7 @@ data/fish.json      fish: seasons, times, weather, locations
 data/villagers.json birthdays + gift tastes
 data/recipes.json   cooking + crafting recipes, unlock sources, sprite index
 data/collections.json museum items, rewards and the shipping collection
+data/stardrops.json  the 7 Stardrops and how to get them
 data/crops.json     crop seasons, growth/regrowth days, seed shops and prices, sell prices
 data/bundles.json   bundle sets (vanilla, SVE Normal, SVE Hard) and their items
 img/                fish + item sprites and the valley map

@@ -408,3 +408,4 @@ footer .about{margin:0 0 10px;max-width:90ch;line-height:1.5}
 .rewards ul{margin:8px 0;padding-left:20px;font-size:.88rem;columns:2 300px}
 .rewards li{break-inside:avoid;margin:2px 0}
 .rewards li.got{color:var(--done-ink);text-decoration:line-through}
+.pond{border-top:none;padding-top:0}

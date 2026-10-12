@@ -1,0 +1,32 @@
+{
+"stardrops": [
+{
+"id": "fair",
+"how": "Buy at the Stardew Valley Fair (Fall 16) for 2,000 star tokens"
+},
+{
+"id": "mines",
+"how": "Treasure chest on floor 100 of the Mines"
+},
+{
+"id": "spouse",
+"how": "From your spouse or roommate at 12.5 hearts"
+},
+{
+"id": "krobus",
+"how": "Buy from Krobus in the Sewers for 20,000g"
+},
+{
+"id": "cannoli",
+"how": "Give Old Master Cannoli (statue in the Secret Woods) a Sweet Gem Berry"
+},
+{
+"id": "angler",
+"how": "Letter from Willy the day after the Master Angler achievement (catch every fish)"
+},
+{
+"id": "museum",
+"how": "Reward for donating all items to the Museum"
+}
+]
+}

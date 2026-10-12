@@ -29,7 +29,7 @@
 "n": "Dwarf Scroll IV",
 "kind": "Artifact",
 "sve": false,
-"where": "Any Monster (other than Serpent , Skeleton , Wilderness Golem , Carbon Ghost , Iridium Bat , Iridium Crab , and Haunted Skull ) (0.1%) Tilling in…",
+"where": "Any Monster (other than Serpent, Skeleton, Wilderness Golem, Carbon Ghost, Iridium Bat, Iridium Crab, and Haunted Skull) (0.1%) Tilling in…",
 "img": "img/items/dwarf-scroll-iv.png"
 },
 {
@@ -53,7 +53,7 @@
 "n": "Ancient Doll",
 "kind": "Artifact",
 "sve": false,
-"where": "Mountain (3%) Forest (2.4%) Bus Stop (2.4%) Town (0.8%) Fishing Chest (0.8-0.9% [2] ) Feast of the Winter Star Artifact Trove (3.6%)",
+"where": "Mountain (3%) Forest (2.4%) Bus Stop (2.4%) Town (0.8%) Fishing Chest (0.8-0.9%) Feast of the Winter Star Artifact Trove (3.6%)",
 "img": "img/items/ancient-doll.png"
 },
 {
@@ -61,7 +61,7 @@
 "n": "Elvish Jewelry",
 "kind": "Artifact",
 "sve": false,
-"where": "Forest (0.8%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Forest (0.8%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/elvish-jewelry.png"
 },
 {
@@ -69,7 +69,7 @@
 "n": "Chewing Stick",
 "kind": "Artifact",
 "sve": false,
-"where": "Mountain (1.5%) Forest (1.5%) Town (0.8%) Fishing Chest (0.8-0.9% [2] ) Duggy drop (2%) Artifact Trove (3.6%)",
+"where": "Mountain (1.5%) Forest (1.5%) Town (0.8%) Fishing Chest (0.8-0.9%) Duggy drop (2%) Artifact Trove (3.6%)",
 "img": "img/items/chewing-stick.png"
 },
 {
@@ -77,7 +77,7 @@
 "n": "Ornamental Fan",
 "kind": "Artifact",
 "sve": false,
-"where": "Beach (1.6%) Forest (0.7%) Town (0.6%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Beach (1.6%) Forest (0.7%) Town (0.6%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/ornamental-fan.png"
 },
 {
@@ -85,7 +85,7 @@
 "n": "Dinosaur Egg",
 "kind": "Artifact",
 "sve": false,
-"where": "Mountain (0.6%) Fishing Chest (0.8-0.9% [2] ) Foraged on prehistoric floors of the Skull Cavern Pepper Rex drop (10%)",
+"where": "Mountain (0.6%) Fishing Chest (0.8-0.9%) Foraged on prehistoric floors of the Skull Cavern Pepper Rex drop (10%)",
 "img": "img/items/dinosaur-egg.png"
 },
 {
@@ -93,7 +93,7 @@
 "n": "Rare Disc",
 "kind": "Artifact",
 "sve": false,
-"where": "Fishing Chest (0.8-0.9% [2] ) Bats drop (except Iridium Bat) (0.1%) Shadow Brute , Shadow Shaman , Spider drop (0.3%) Artifact Trove (3.6%)",
+"where": "Fishing Chest (0.8-0.9%) Bats drop (except Iridium Bat) (0.1%) Shadow Brute, Shadow Shaman, Spider drop (0.3%) Artifact Trove (3.6%)",
 "img": "img/items/rare-disc.png"
 },
 {
@@ -101,7 +101,7 @@
 "n": "Ancient Sword",
 "kind": "Artifact",
 "sve": false,
-"where": "Forest (0.7%) Mountain (0.6%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Forest (0.7%) Mountain (0.6%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/ancient-sword.png"
 },
 {
@@ -109,7 +109,7 @@
 "n": "Rusty Spoon",
 "kind": "Artifact",
 "sve": false,
-"where": "Town (4% + 6-11% [3] ) Fishing Chest (0.8-0.9% [2] ) Tilling in Mines/Skull Cavern (any floor) (0.16%) Artifact Trove (3.6%)",
+"where": "Town (4% + 6-11%) Fishing Chest (0.8-0.9%) Tilling in Mines/Skull Cavern (any floor) (0.16%) Artifact Trove (3.6%)",
 "img": "img/items/rusty-spoon.png"
 },
 {
@@ -117,7 +117,7 @@
 "n": "Rusty Spur",
 "kind": "Artifact",
 "sve": false,
-"where": "Farm (10%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Farm (10%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/rusty-spur.png"
 },
 {
@@ -125,7 +125,7 @@
 "n": "Rusty Cog",
 "kind": "Artifact",
 "sve": false,
-"where": "Mountain (4%) Tilling in Mines/Skull Cavern (any floor) (0.16%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Mountain (4%) Tilling in Mines/Skull Cavern (any floor) (0.16%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/rusty-cog.png"
 },
 {
@@ -133,7 +133,7 @@
 "n": "Chicken Statue",
 "kind": "Artifact",
 "sve": false,
-"where": "Farm (9%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Farm (9%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/chicken-statue.png"
 },
 {
@@ -141,7 +141,7 @@
 "n": "Ancient Seed",
 "kind": "Artifact",
 "sve": false,
-"where": "Forest (0.7%) Mountain (0.7%) Fishing Chest (0.8-0.9% [2] ) Monster drop ( Bug , Cave Fly , Grub , Mutant Fly , Mutant Grub : 0.5%) Artifact Trove…",
+"where": "Forest (0.7%) Mountain (0.7%) Fishing Chest (0.8-0.9%) Monster drop (Bug, Cave Fly, Grub, Mutant Fly, Mutant Grub: 0.5%) Artifact Trove…",
 "img": "img/items/ancient-seed.png"
 },
 {
@@ -149,7 +149,7 @@
 "n": "Prehistoric Tool",
 "kind": "Artifact",
 "sve": false,
-"where": "Bus Stop (3%) Forest (2.1%) Mountain (2%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Bus Stop (3%) Forest (2.1%) Mountain (2%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/prehistoric-tool.png"
 },
 {
@@ -157,7 +157,7 @@
 "n": "Dried Starfish",
 "kind": "Artifact",
 "sve": false,
-"where": "Beach (8%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Beach (8%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/dried-starfish.png"
 },
 {
@@ -165,7 +165,7 @@
 "n": "Anchor",
 "kind": "Artifact",
 "sve": false,
-"where": "Beach (4%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Beach (4%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/anchor.png"
 },
 {
@@ -173,7 +173,7 @@
 "n": "Glass Shards",
 "kind": "Artifact",
 "sve": false,
-"where": "Beach (7%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Beach (7%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/glass-shards.png"
 },
 {
@@ -181,7 +181,7 @@
 "n": "Bone Flute",
 "kind": "Artifact",
 "sve": false,
-"where": "Forest (0.7%) Mountain (0.7%) Town (0.4%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"where": "Forest (0.7%) Mountain (0.7%) Town (0.4%) Fishing Chest (0.8-0.9%) Artifact Trove (3.6%)",
 "img": "img/items/bone-flute.png"
 },
 {
@@ -253,7 +253,7 @@
 "n": "Prehistoric Scapula",
 "kind": "Artifact",
 "sve": false,
-"where": "Forest (3-6% [3] ) Town (0.7%) Skeleton drop (0.5%) Bone Nodes (0.8%)",
+"where": "Forest (3-6%) Town (0.7%) Skeleton drop (0.5%) Bone Nodes (0.8%)",
 "img": "img/items/prehistoric-scapula.png"
 },
 {
@@ -261,7 +261,7 @@
 "n": "Prehistoric Tibia",
 "kind": "Artifact",
 "sve": false,
-"where": "Railroad (4-8% [3] ) Forest (0.6%) Pepper Rex drop (30%) Bone Nodes (0.8%)",
+"where": "Railroad (4-8%) Forest (0.6%) Pepper Rex drop (30%) Bone Nodes (0.8%)",
 "img": "img/items/prehistoric-tibia.png"
 },
 {
@@ -269,7 +269,7 @@
 "n": "Prehistoric Skull",
 "kind": "Artifact",
 "sve": false,
-"where": "Mountain (0.6% + 3-6% [3] ) Haunted Skull drop (1.3%) Bone Nodes (0.8%)",
+"where": "Mountain (0.6% + 3-6%) Haunted Skull drop (1.3%) Bone Nodes (0.8%)",
 "img": "img/items/prehistoric-skull.png"
 },
 {
@@ -277,7 +277,7 @@
 "n": "Skeletal Hand",
 "kind": "Artifact",
 "sve": false,
-"where": "Backwoods (4-8% [3] ) Beach (0.6%) Haunted Skull drop (1.3%) Bone Nodes (0.8%)",
+"where": "Backwoods (4-8%) Beach (0.6%) Haunted Skull drop (1.3%) Bone Nodes (0.8%)",
 "img": "img/items/skeletal-hand.png"
 },
 {
@@ -285,7 +285,7 @@
 "n": "Prehistoric Rib",
 "kind": "Artifact",
 "sve": false,
-"where": "Town (2.2-4% [3] ) Farm (0.8%) Pepper Rex drop (30%) Bone Nodes (0.8%)",
+"where": "Town (2.2-4%) Farm (0.8%) Pepper Rex drop (30%) Bone Nodes (0.8%)",
 "img": "img/items/prehistoric-rib.png"
 },
 {
@@ -293,7 +293,7 @@
 "n": "Prehistoric Vertebra",
 "kind": "Artifact",
 "sve": false,
-"where": "Bus Stop (0.7% + 3-5% [3] ) Pepper Rex drop (30%) Bone Nodes (0.8%)",
+"where": "Bus Stop (0.7% + 3-5%) Pepper Rex drop (30%) Bone Nodes (0.8%)",
 "img": "img/items/prehistoric-vertebra.png"
 },
 {
@@ -301,7 +301,7 @@
 "n": "Skeletal Tail",
 "kind": "Artifact",
 "sve": false,
-"where": "Tilling in Mines/Skull Cavern (any floor) Fishing Chest (3.1-3.4% [2] ) Bone Nodes (0.8%)",
+"where": "Tilling in Mines/Skull Cavern (any floor) Fishing Chest (3.1-3.4%) Bone Nodes (0.8%)",
 "img": "img/items/skeletal-tail.png"
 },
 {
@@ -309,7 +309,7 @@
 "n": "Nautilus Fossil",
 "kind": "Artifact",
 "sve": false,
-"where": "Beach (1.8%) Fishing Chest (3.1-3.4% [2] ) Bone Nodes (0.8%)",
+"where": "Beach (1.8%) Fishing Chest (3.1-3.4%) Bone Nodes (0.8%)",
 "img": "img/items/nautilus-fossil.png"
 },
 {
@@ -317,7 +317,7 @@
 "n": "Amphibian Fossil",
 "kind": "Artifact",
 "sve": false,
-"where": "Forest (0.6%) Mountain (0.6%) Fishing Chest (3.1-3.4% [2] ) Bone Nodes (0.8%)",
+"where": "Forest (0.6%) Mountain (0.6%) Fishing Chest (3.1-3.4%) Bone Nodes (0.8%)",
 "img": "img/items/amphibian-fossil.png"
 },
 {
@@ -325,7 +325,7 @@
 "n": "Palm Fossil",
 "kind": "Artifact",
 "sve": false,
-"where": "Desert (7%) Forest (0.6% + 3-5% [3] ) Beach (0.6%) Bone Nodes (0.8%)",
+"where": "Desert (7%) Forest (0.6% + 3-5%) Beach (0.6%) Bone Nodes (0.8%)",
 "img": "img/items/palm-fossil.png"
 },
 {
@@ -333,7 +333,7 @@
 "n": "Trilobite",
 "kind": "Artifact",
 "sve": false,
-"where": "Beach (1.7% + 2.3-5% [3] ) Forest (1.9%) Mountain (1.8%) Bone Nodes (0.8%)",
+"where": "Beach (1.7% + 2.3-5%) Forest (1.9%) Mountain (1.8%) Bone Nodes (0.8%)",
 "img": "img/items/trilobite.png"
 },
 {
@@ -429,7 +429,7 @@
 "n": "Prismatic Shard",
 "kind": "Gem",
 "sve": false,
-"where": "Iridium Node (4%) Mystic Stone (25%) Omni Geode (0 . 4%) Shadow Brute (0 . 05%) Shadow Shaman (0 . 05%) Mummy (0 . 1%) Serpent (0 . 1%) Fishing…",
+"where": "Iridium Node (4%) Mystic Stone (25%) Omni Geode (0. 4%) Shadow Brute (0. 05%) Shadow Shaman (0. 05%) Mummy (0. 1%) Serpent (0. 1%) Fishing…",
 "img": "img/items/prismatic-shard.png"
 },
 {

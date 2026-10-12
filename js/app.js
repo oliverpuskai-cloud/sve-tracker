@@ -11,7 +11,7 @@ const dataUrl = name => `data/${name}.json?v=${DATA_V}`;
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
 
-let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {}, RECIPES = { cooking: [], crafting: [], img: {} }, CROPS = [], COLL = { museum: [], shipping: [], milestones: [], special: [] };
+let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {}, RECIPES = { cooking: [], crafting: [], img: {} }, CROPS = [], COLL = { museum: [], shipping: [], milestones: [], special: [] }, STARDROPS = [];
 let store = load();
 let state = store.farms[store.active];
 
@@ -20,13 +20,14 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;",
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 // ---------- storage ----------
+function newPerf() { return { stardrops: {} }; }
 function newFarm(name) {
-  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], made: { cooking: {}, crafting: {} }, shop: { cooking: {}, crafting: {} }, col: { museum: {}, shipping: {} }, qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
+  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], made: { cooking: {}, crafting: {} }, shop: { cooking: {}, crafting: {} }, col: { museum: {}, shipping: {} }, perf: newPerf(), qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
 }
 function fixFarm(f, name) {
   const b = newFarm(name);
   // farms saved before bundle sets existed used the standard bundles
-  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [], made: { cooking: { ...(f && f.made && f.made.cooking) }, crafting: { ...(f && f.made && f.made.crafting) } }, shop: { cooking: { ...(f && f.shop && f.shop.cooking) }, crafting: { ...(f && f.shop && f.shop.crafting) } }, col: { museum: { ...(f && f.col && f.col.museum) }, shipping: { ...(f && f.col && f.col.shipping) } } };
+  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [], made: { cooking: { ...(f && f.made && f.made.cooking) }, crafting: { ...(f && f.made && f.made.crafting) } }, shop: { cooking: { ...(f && f.shop && f.shop.cooking) }, crafting: { ...(f && f.shop && f.shop.crafting) } }, col: { museum: { ...(f && f.col && f.col.museum) }, shipping: { ...(f && f.col && f.col.shipping) } }, perf: { stardrops: { ...(f && f.perf && f.perf.stardrops) } } };
 }
 function load() {
   let v = null;
@@ -133,6 +134,7 @@ function setDonated(b, idx, on) {
 // One switch for the whole site (header). Vanilla mode only hides SVE content; nothing saved is removed.
 const sveOn = () => store.prefs.sve !== false;
 const fishList = () => sveOn() ? FISH : FISH.filter(f => f.s !== "SVE");
+const collectionFish = () => fishList().filter(f => !f.nc);   // the game's Fish collection tab (Legendary II don't count)
 const villagerList = () => VILLAGERS.filter(v => sveOn() ? !v.vanillaOnly : !v.sve);
 const recipeList = kind => sveOn() ? RECIPES[kind] : RECIPES[kind].filter(r => !r.sve);
 const universalLoves = () => sveOn() ? [...UNIVERSAL.vanilla, ...UNIVERSAL.sve] : UNIVERSAL.vanilla;
@@ -169,6 +171,12 @@ function bundleNeeds() {
 }
 const itemImg = it => it.fish ? BY_NAME[it.n]?.img : `img/items/${/^\d/.test(it.n) ? "gold" : slug(it.n)}.png`;
 
+// Fish pond produce (Stardew Valley wiki): "item" at a population of at least "pop"
+function pondHTML(f) {
+  if (!f.pond || !f.pond.length) return "";
+  const parts = f.pond.map(p => `${esc(p.item)}${p.pop !== "1" ? ` <span class="with">(${esc(p.pop)}+ fish)</span>` : ""}`);
+  return `<span class="recipes pond">🐟 Fish pond: ${parts.join(" · ")}</span>`;
+}
 // "Used in" line on a fish card: cooking recipes that need this exact fish
 function recipesHTML(f) {
   const rs = (f.r || []).filter(r => sveOn() || !r.sve);
@@ -192,12 +200,13 @@ function card(f, opts = {}) {
     opts.last ? '<span class="tag last">Last chance this year</span>' : "",
     opts.wx ? '<span class="tag wx">☂ Rain day</span>' : "",
     opts.gi ? '<span class="tag gi">🏝 Ginger Island only</span>' : "",
+    f.nc ? '<span class="tag">not in the fish collection</span>' : "",
   ].join("");
   b.innerHTML = `<span class="sprite"><img alt="" loading="lazy" src="${f.img}"></span>
     <span class="nm">${esc(f.n)}<span class="tags">${tags}</span></span>
     <span class="box" aria-hidden="true">${done ? "✓" : ""}</span>
     <span class="meta"><span>🕑 ${esc(f.t)}</span><span class="w-${f.w}">${f.w === "Any" ? "Any weather" : f.w === "Rain" ? "☂ Rain only" : "☀ Sun only"}</span><span class="dots" aria-label="${f.ss.join(", ")}">${dots}</span>${f.d !== "—" ? `<span>Diff ${f.d} · ${esc(f.b)}</span>` : ""}<span>${Number(f.p).toLocaleString()}g</span></span>
-    <span class="loc">${esc(f.l)}</span>${f.x ? `<span class="note">${esc(f.x)}</span>` : ""}${recipesHTML(f)}`;
+    <span class="loc">${esc(f.l)}</span>${f.x ? `<span class="note">${esc(f.x)}</span>` : ""}${recipesHTML(f)}${pondHTML(f)}`;
   b.onclick = () => { setCaught(f.n, !done); render(); };
   return b;
 }
@@ -686,7 +695,7 @@ function renderCollections(main) {
   const doneM = museum.filter(m => state.col.museum[m.id]).length, doneS = shipping.filter(s => state.col.shipping[s.id]).length;
   const wrap = document.createElement("div");
   wrap.innerHTML = `<div class="controls">
-      <div class="ctl"><span>Collection</span><div class="seg" id="k-part"><button data-p="museum" aria-pressed="${part === "museum"}">🏛 Museum (${doneM}/${museum.length})</button><button data-p="shipping" aria-pressed="${part === "shipping"}">📦 Shipping (${doneS}/${shipping.length})</button></div></div>
+      <div class="ctl"><span>Collection</span><div class="seg" id="k-part"><button data-p="museum" aria-pressed="${part === "museum"}">🏛 Museum (${doneM}/${museum.length})</button><button data-p="shipping" aria-pressed="${part === "shipping"}">📦 Shipping (${doneS}/${shipping.length})</button><button data-p="stardrops" aria-pressed="${part === "stardrops"}">⭐ Stardrops (${STARDROPS.filter(s => state.perf.stardrops[s.id]).length}/7)</button></div></div>
       <div class="ctl" style="flex:1 1 200px"><span>Search</span><input type="search" id="k-q" value="${esc(colState.q)}" placeholder="${part === "museum" ? "e.g. Dwarf Scroll, Amethyst, Skull Cavern…" : "e.g. Truffle Oil, Mango, Coral…"}" style="font:inherit;padding:6px 10px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)"></div>
       ${part === "museum" ? `<div class="ctl"><span>Show</span><select id="k-kind"><option value="">Everything</option><option value="Artifact">Artifacts</option><option value="min">Minerals & gems</option></select></div>` : ""}
       <label class="check"><input type="checkbox" id="k-hide" ${colState.hide ? "checked" : ""}> Hide ${part === "museum" ? "donated" : "shipped"}</label>
@@ -697,6 +706,21 @@ function renderCollections(main) {
   $("k-hide").onchange = e => { colState.hide = e.target.checked; render(); };
   $("k-q").oninput = e => { colState.q = e.target.value; draw(); };
   const body = $("k-body");
+  if (part === "stardrops") {
+    // no search or filters needed for 7 items
+    wrap.querySelector(".controls").querySelectorAll(".ctl:not(:first-child), .check").forEach(el => el.remove());
+    const have = STARDROPS.filter(s => state.perf.stardrops[s.id]).length;
+    body.innerHTML = `<div class="stats"><div class="stat"><b>${have} / 7</b><span>Stardrops found · each one permanently raises your max energy by 34</span></div></div><div class="items panel" id="sd-list" style="margin-top:14px"></div>`;
+    const img = ITEM_IMG["Stardrop"] || "img/items/stardrop.png";
+    for (const s of STARDROPS) {
+      const done = !!state.perf.stardrops[s.id], b = document.createElement("button");
+      b.type = "button"; b.className = "item" + (done ? " got" : ""); b.setAttribute("aria-pressed", done);
+      b.innerHTML = `<img alt="" src="${img}"><span class="in"><b>${esc(s.how)}</b></span><span class="box" aria-hidden="true">${done ? "✓" : ""}</span>`;
+      b.onclick = () => { if (done) delete state.perf.stardrops[s.id]; else state.perf.stardrops[s.id] = true; save(); render(); };
+      $("sd-list").appendChild(b);
+    }
+    return;
+  }
   const head = document.createElement("div");
   if (part === "museum") {
     const arts = museum.filter(m => m.kind === "Artifact"), mins = museum.filter(m => m.kind !== "Artifact");
@@ -1024,6 +1048,7 @@ function mergeInto(f, v) {
     items += arr.length;
   }
   if (v.done && typeof v.done === "object") for (const id of Object.keys(v.done)) if (v.done[id]) { f.done[id] = true; items++; }
+  if (v.perf && v.perf.stardrops) for (const k in v.perf.stardrops) if (v.perf.stardrops[k]) f.perf.stardrops[k] = true;
   for (const k of ["museum", "shipping"]) if (v.col && v.col[k]) for (const id in v.col[k]) if (v.col[k][id]) f.col[k][id] = true;
   for (const k of ["cooking", "crafting"]) {
     if (v.made && v.made[k]) for (const id in v.made[k]) if (v.made[k][id]) f.made[k][id] = true;
@@ -1228,7 +1253,7 @@ function render() {
   ROUTES[r](main);
   renderAccount();
   window.scrollTo(0, y);
-  const got = caught(), shown = fishList(), tot = shown.length;
+  const got = caught(), shown = collectionFish(), tot = shown.length;
   $("tot").textContent = tot;
   $("cnt").textContent = shown.filter(f => got.has(f.n)).length;
   $("barfill").style.width = (shown.filter(f => got.has(f.n)).length / tot * 100) + "%";
@@ -1237,8 +1262,9 @@ function render() {
 window.addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
 window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = load(); state = store.farms[store.active]; render(); } });
 
-Promise.all([fetch(dataUrl("fish")).then(r => r.json()), fetch(dataUrl("bundles")).then(r => r.json()), fetch(dataUrl("villagers")).then(r => r.json()), fetch(dataUrl("recipes")).then(r => r.json()), fetch(dataUrl("crops")).then(r => r.json()), fetch(dataUrl("collections")).then(r => r.json())])
-  .then(([fd, bd, vd, rd, cd, kd]) => {
+Promise.all([fetch(dataUrl("fish")).then(r => r.json()), fetch(dataUrl("bundles")).then(r => r.json()), fetch(dataUrl("villagers")).then(r => r.json()), fetch(dataUrl("recipes")).then(r => r.json()), fetch(dataUrl("crops")).then(r => r.json()), fetch(dataUrl("collections")).then(r => r.json()), fetch(dataUrl("stardrops")).then(r => r.json())])
+  .then(([fd, bd, vd, rd, cd, kd, pd]) => {
+    STARDROPS = pd.stardrops;
     COLL = kd;
     CROPS = cd.crops;
     RECIPES = { cooking: [], crafting: [], ...rd, img: rd.img || {} };

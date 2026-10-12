@@ -3528,7 +3528,8 @@
 ]
 ],
 "src": "Traveling Cart for 500g",
-"k": "shop"
+"k": "shop",
+"np": true
 },
 {
 "id": "field-snack",
@@ -5295,6 +5296,77 @@
 ],
 "src": "Foraging Level 9",
 "k": "skill"
+},
+{
+"id": "gate",
+"n": "Gate",
+"sve": false,
+"cat": "Fences",
+"ing": [
+[
+"Wood",
+10
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "wood-fence",
+"n": "Wood Fence",
+"sve": false,
+"cat": "Fences",
+"ing": [
+[
+"Wood",
+2
+]
+],
+"src": "Starter",
+"k": "starter"
+},
+{
+"id": "stone-fence",
+"n": "Stone Fence",
+"sve": false,
+"cat": "Fences",
+"ing": [
+[
+"Stone",
+2
+]
+],
+"src": "Farming Level 2",
+"k": "skill"
+},
+{
+"id": "iron-fence",
+"n": "Iron Fence",
+"sve": false,
+"cat": "Fences",
+"ing": [
+[
+"Iron Bar",
+1
+]
+],
+"src": "Farming Level 4",
+"k": "skill",
+"yield": 10
+},
+{
+"id": "hardwood-fence",
+"n": "Hardwood Fence",
+"sve": false,
+"cat": "Fences",
+"ing": [
+[
+"Hardwood",
+1
+]
+],
+"src": "Farming Level 6",
+"k": "skill"
 }
 ],
 "img": {
@@ -5739,6 +5811,11 @@
 "Brick Floor": "img/items/brick-floor.png",
 "Wild Seeds (Fall)": "img/items/wild-seeds-fall.png",
 "Deluxe Bait": "img/items/deluxe-bait.png",
-"Transmute (Au)": "img/items/transmute-au.png"
+"Transmute (Au)": "img/items/transmute-au.png",
+"Gate": "img/items/gate.png",
+"Wood Fence": "img/items/wood-fence.png",
+"Stone Fence": "img/items/stone-fence.png",
+"Iron Fence": "img/items/iron-fence.png",
+"Hardwood Fence": "img/items/hardwood-fence.png"
 }
 }

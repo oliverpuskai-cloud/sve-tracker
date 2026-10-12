@@ -30,7 +30,13 @@
 "x": "",
 "a": "Ocean / Beach",
 "img": "img/fish/anchovy.png",
-"id": "anchovy"
+"id": "anchovy",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Sardine",
@@ -58,6 +64,12 @@
 "w": "Hashbrowns",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
 ]
 },
 {
@@ -77,7 +89,13 @@
 "x": "",
 "a": "Ocean / Beach",
 "img": "img/fish/herring.png",
-"id": "herring"
+"id": "herring",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Halibut",
@@ -97,7 +115,13 @@
 "x": "",
 "a": "Ocean / Beach",
 "img": "img/fish/halibut.png",
-"id": "halibut"
+"id": "halibut",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Flounder",
@@ -125,7 +149,17 @@
 "sve": false
 }
 ],
-"gi": true
+"gi": true,
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Sea Jelly",
+"pop": "7"
+}
+]
 },
 {
 "n": "Eel",
@@ -158,6 +192,12 @@
 "w": "Hot Pepper",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
 ]
 },
 {
@@ -177,7 +217,13 @@
 "x": "",
 "a": "Ocean / Beach",
 "img": "img/fish/red-mullet.png",
-"id": "red-mullet"
+"id": "red-mullet",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Tuna",
@@ -205,7 +251,13 @@
 "sve": false
 }
 ],
-"gi": true
+"gi": true,
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Red Snapper",
@@ -224,7 +276,13 @@
 "x": "Also in Winter on a rainy day made with a Rain Totem",
 "a": "Ocean / Beach",
 "img": "img/fish/red-snapper.png",
-"id": "red-snapper"
+"id": "red-snapper",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Pufferfish",
@@ -243,7 +301,13 @@
 "a": "Ocean / Beach",
 "img": "img/fish/pufferfish.png",
 "id": "pufferfish",
-"gi": true
+"gi": true,
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Octopus",
@@ -262,7 +326,17 @@
 "a": "Ocean / Beach",
 "img": "img/fish/octopus.png",
 "id": "octopus",
-"gi": true
+"gi": true,
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-10 Omni Geode",
+"pop": "9"
+}
+]
 },
 {
 "n": "Super Cucumber",
@@ -282,7 +356,21 @@
 "a": "Ocean / Beach",
 "img": "img/fish/super-cucumber.png",
 "id": "super-cucumber",
-"gi": true
+"gi": true,
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-3 Iridium Ore",
+"pop": "9"
+},
+{
+"item": "1-3 Amethyst",
+"pop": "9"
+}
+]
 },
 {
 "n": "Tilapia",
@@ -302,7 +390,13 @@
 "a": "Ocean / Beach",
 "img": "img/fish/tilapia.png",
 "id": "tilapia",
-"gi": true
+"gi": true,
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Sea Cucumber",
@@ -329,6 +423,12 @@
 "w": "Tortilla, Blue Jazz",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
 ]
 },
 {
@@ -348,7 +448,13 @@
 "x": "",
 "a": "Ocean / Beach",
 "img": "img/fish/albacore.png",
-"id": "albacore"
+"id": "albacore",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Squid",
@@ -373,6 +479,12 @@
 "q": 1,
 "w": "Wheat Flour, Oil",
 "sve": false
+}
+],
+"pond": [
+{
+"item": "1 Squid Ink",
+"pop": "1"
 }
 ]
 },
@@ -401,6 +513,16 @@
 "w": "Bream, Wheat Flour",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Solar Essence",
+"pop": "10"
+}
 ]
 },
 {
@@ -420,7 +542,13 @@
 "x": "Secret Woods pond: Spring & Summer · Winter with a Rain Totem",
 "a": "Secret Woods / Junimo Woods",
 "img": "img/fish/catfish.png",
-"id": "catfish"
+"id": "catfish",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Shad",
@@ -440,7 +568,13 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/shad.png",
-"id": "shad"
+"id": "shad",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Smallmouth Bass",
@@ -459,7 +593,13 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/smallmouth-bass.png",
-"id": "smallmouth-bass"
+"id": "smallmouth-bass",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Rainbow Trout",
@@ -485,6 +625,20 @@
 "w": "Green Algae",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Rainbow Shell",
+"pop": "9"
+},
+{
+"item": "1 Prismatic Shard",
+"pop": "9"
+}
 ]
 },
 {
@@ -504,7 +658,17 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/pike.png",
-"id": "pike"
+"id": "pike",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "20 Bug Meat",
+"pop": "9"
+}
+]
 },
 {
 "n": "Dorado",
@@ -522,7 +686,17 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/dorado.png",
-"id": "dorado"
+"id": "dorado",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "20 Bug Meat",
+"pop": "9"
+}
+]
 },
 {
 "n": "Tiger Trout",
@@ -541,7 +715,13 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/tiger-trout.png",
-"id": "tiger-trout"
+"id": "tiger-trout",
+"pond": [
+{
+"item": "1-2 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Salmon",
@@ -567,6 +747,12 @@
 "w": "Amaranth, Kale",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
 ]
 },
 {
@@ -585,7 +771,13 @@
 "x": "Also in Winter on a rainy day made with a Rain Totem",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/walleye.png",
-"id": "walleye"
+"id": "walleye",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Perch",
@@ -603,7 +795,13 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/perch.png",
-"id": "perch"
+"id": "perch",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Lingcod",
@@ -621,7 +819,17 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/lingcod.png",
-"id": "lingcod"
+"id": "lingcod",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "20 Bug Meat",
+"pop": "9"
+}
+]
 },
 {
 "n": "Bream",
@@ -650,6 +858,12 @@
 "w": "Sunfish, Wheat Flour",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
 ]
 },
 {
@@ -671,7 +885,13 @@
 "x": "Added in 1.6 – fish right at the waterfall",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/goby.png",
-"id": "goby"
+"id": "goby",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Largemouth Bass",
@@ -699,6 +919,12 @@
 "q": 1,
 "w": "Wheat Flour, Oil",
 "sve": false
+}
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
 }
 ]
 },
@@ -729,6 +955,12 @@
 "w": "",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
 ]
 },
 {
@@ -750,7 +982,13 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/bullhead.png",
-"id": "bullhead"
+"id": "bullhead",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Chub",
@@ -771,7 +1009,13 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/chub.png",
-"id": "chub"
+"id": "chub",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Sturgeon",
@@ -790,7 +1034,13 @@
 "x": "",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/sturgeon.png",
-"id": "sturgeon"
+"id": "sturgeon",
+"pond": [
+{
+"item": "1-2 Roe",
+"pop": "1"
+}
+]
 },
 {
 "n": "Midnight Carp",
@@ -818,7 +1068,17 @@
 "sve": false
 }
 ],
-"gi": true
+"gi": true,
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 River Jelly",
+"pop": "7"
+}
+]
 },
 {
 "n": "Woodskip",
@@ -839,7 +1099,33 @@
 "x": "Needs Steel Axe to enter Secret Woods",
 "a": "Secret Woods / Junimo Woods",
 "img": "img/fish/woodskip.png",
-"id": "woodskip"
+"id": "woodskip",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-10 Wood",
+"pop": "1"
+},
+{
+"item": "5 Hardwood",
+"pop": "6"
+},
+{
+"item": "1-5 Acorn",
+"pop": "9"
+},
+{
+"item": "1-5 Maple Seed",
+"pop": "9"
+},
+{
+"item": "1-5 Pine Cone",
+"pop": "9"
+}
+]
 },
 {
 "n": "Ghostfish",
@@ -860,7 +1146,29 @@
 "x": "Ghosts in the Mines can also drop it",
 "a": "Mines / Caves",
 "img": "img/fish/ghostfish.png",
-"id": "ghostfish"
+"id": "ghostfish",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-3 Quartz",
+"pop": "3"
+},
+{
+"item": "5 White Algae",
+"pop": "9"
+},
+{
+"item": "1 Refined Quartz",
+"pop": "9"
+},
+{
+"item": "3 Pale Broth",
+"pop": "9"
+}
+]
 },
 {
 "n": "Stonefish",
@@ -881,7 +1189,29 @@
 "x": "",
 "a": "Mines / Caves",
 "img": "img/fish/stonefish.png",
-"id": "stonefish"
+"id": "stonefish",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "5 Copper Ore",
+"pop": "3"
+},
+{
+"item": "1-5 Geode",
+"pop": "9"
+},
+{
+"item": "30 Stone",
+"pop": "9"
+},
+{
+"item": "1 Diamond",
+"pop": "9"
+}
+]
 },
 {
 "n": "Ice Pip",
@@ -902,7 +1232,29 @@
 "x": "",
 "a": "Mines / Caves",
 "img": "img/fish/ice-pip.png",
-"id": "ice-pip"
+"id": "ice-pip",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "5 Iron Ore",
+"pop": "3"
+},
+{
+"item": "1-5 Frozen Geode",
+"pop": "9"
+},
+{
+"item": "5 Frozen Tear",
+"pop": "9"
+},
+{
+"item": "1 Diamond",
+"pop": "9"
+}
+]
 },
 {
 "n": "Lava Eel",
@@ -923,7 +1275,29 @@
 "x": "",
 "a": "Mines / Caves",
 "img": "img/fish/lava-eel.png",
-"id": "lava-eel"
+"id": "lava-eel",
+"pond": [
+{
+"item": "1-3 Roe",
+"pop": "1"
+},
+{
+"item": "5 Gold Ore",
+"pop": "3"
+},
+{
+"item": "1-3 Cave Jelly",
+"pop": "8"
+},
+{
+"item": "5 Spicy Eel",
+"pop": "9"
+},
+{
+"item": "5-10 Magma Geode",
+"pop": "9"
+}
+]
 },
 {
 "n": "Sandfish",
@@ -944,7 +1318,17 @@
 "x": "",
 "a": "Desert / Badlands",
 "img": "img/fish/sandfish.png",
-"id": "sandfish"
+"id": "sandfish",
+"pond": [
+{
+"item": "1-3 Roe",
+"pop": "1"
+},
+{
+"item": "2-5 Cactus Seeds",
+"pop": "10"
+}
+]
 },
 {
 "n": "Scorpion Carp",
@@ -965,7 +1349,17 @@
 "x": "Needs fishing level 4",
 "a": "Desert / Badlands",
 "img": "img/fish/scorpion-carp.png",
-"id": "scorpion-carp"
+"id": "scorpion-carp",
+"pond": [
+{
+"item": "1-3 Roe",
+"pop": "1"
+},
+{
+"item": "2-5 Cactus Seeds",
+"pop": "10"
+}
+]
 },
 {
 "n": "Void Salmon",
@@ -994,6 +1388,20 @@
 "w": "Void Mayonnaise, Seaweed ×3",
 "sve": true
 }
+],
+"pond": [
+{
+"item": "1-3 Roe",
+"pop": "1"
+},
+{
+"item": "5-10 Void Essence",
+"pop": "8"
+},
+{
+"item": "1 Void Egg",
+"pop": "9"
+}
 ]
 },
 {
@@ -1015,7 +1423,25 @@
 "x": "",
 "a": "Sewers / Swamp / Bugland",
 "img": "img/fish/slimejack.png",
-"id": "slimejack"
+"id": "slimejack",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Green Algae",
+"pop": "3"
+},
+{
+"item": "10-50 Slime",
+"pop": "9"
+},
+{
+"item": "1 Green Slime Egg",
+"pop": "9"
+}
+]
 },
 {
 "n": "Lionfish",
@@ -1036,7 +1462,21 @@
 "x": "",
 "a": "Fable Reef / Ginger Island",
 "img": "img/fish/lionfish.png",
-"id": "lionfish"
+"id": "lionfish",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "2-5 Taro Tuber",
+"pop": "4"
+},
+{
+"item": "1 Tiger Slime Egg",
+"pop": "9"
+}
+]
 },
 {
 "n": "Blue Discus",
@@ -1057,7 +1497,21 @@
 "x": "",
 "a": "Fable Reef / Ginger Island",
 "img": "img/fish/blue-discus.png",
-"id": "blue-discus"
+"id": "blue-discus",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Banana",
+"pop": "4"
+},
+{
+"item": "1 Golden Coconut",
+"pop": "9"
+}
+]
 },
 {
 "n": "Stingray",
@@ -1078,7 +1532,29 @@
 "x": "Pirate Cove open after 8PM most days",
 "a": "Fable Reef / Ginger Island",
 "img": "img/fish/stingray.png",
-"id": "stingray"
+"id": "stingray",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Magma Cap",
+"pop": "4"
+},
+{
+"item": "2-5 Cinder Shard",
+"pop": "7"
+},
+{
+"item": "1 Dragon Tooth",
+"pop": "9"
+},
+{
+"item": "1 Battery Pack",
+"pop": "9"
+}
+]
 },
 {
 "n": "Midnight Squid",
@@ -1096,7 +1572,13 @@
 "x": "Winter 15–17 only",
 "a": "Night Market (Winter 15–17)",
 "img": "img/fish/midnight-squid.png",
-"id": "midnight-squid"
+"id": "midnight-squid",
+"pond": [
+{
+"item": "1-2 Squid Ink",
+"pop": "1"
+}
+]
 },
 {
 "n": "Spook Fish",
@@ -1114,7 +1596,17 @@
 "x": "Winter 15–17 only",
 "a": "Night Market (Winter 15–17)",
 "img": "img/fish/spook-fish.png",
-"id": "spook-fish"
+"id": "spook-fish",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Treasure Chest",
+"pop": "9"
+}
+]
 },
 {
 "n": "Blobfish",
@@ -1132,7 +1624,21 @@
 "x": "Winter 15–17 only",
 "a": "Night Market (Winter 15–17)",
 "img": "img/fish/blobfish.png",
-"id": "blobfish"
+"id": "blobfish",
+"pond": [
+{
+"item": "1-2 Roe",
+"pop": "1"
+},
+{
+"item": "1 Pearl",
+"pop": "9"
+},
+{
+"item": "5 Warp Totem: Farm",
+"pop": "9"
+}
+]
 },
 {
 "n": "Legend",
@@ -1150,7 +1656,17 @@
 "x": "Fishing level 10. Once per save.",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/legend.png",
-"id": "legend"
+"id": "legend",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Crimsonfish",
@@ -1168,7 +1684,17 @@
 "x": "Fishing level 5. Once per save.",
 "a": "Ocean / Beach",
 "img": "img/fish/crimsonfish.png",
-"id": "crimsonfish"
+"id": "crimsonfish",
+"pond": [
+{
+"item": "1-2 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Angler",
@@ -1186,7 +1712,17 @@
 "x": "Fishing level 3. Once per save.",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/angler.png",
-"id": "angler"
+"id": "angler",
+"pond": [
+{
+"item": "1-4 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Glacierfish",
@@ -1204,7 +1740,17 @@
 "x": "Fishing level 6. Once per save.",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/glacierfish.png",
-"id": "glacierfish"
+"id": "glacierfish",
+"pond": [
+{
+"item": "1-4 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Mutant Carp",
@@ -1225,7 +1771,17 @@
 "x": "Needs Rusty Key",
 "a": "Sewers / Swamp / Bugland",
 "img": "img/fish/mutant-carp.png",
-"id": "mutant-carp"
+"id": "mutant-carp",
+"pond": [
+{
+"item": "1-4 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Son of Crimsonfish",
@@ -1246,7 +1802,18 @@
 "x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/son-of-crimsonfish.png",
-"id": "son-of-crimsonfish"
+"id": "son-of-crimsonfish",
+"nc": true,
+"pond": [
+{
+"item": "1-2 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Ms. Angler",
@@ -1267,7 +1834,18 @@
 "x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/ms-angler.png",
-"id": "ms-angler"
+"id": "ms-angler",
+"nc": true,
+"pond": [
+{
+"item": "1-4 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Legend II",
@@ -1288,7 +1866,18 @@
 "x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/legend-ii.png",
-"id": "legend-ii"
+"id": "legend-ii",
+"nc": true,
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Glacierfish Jr.",
@@ -1309,7 +1898,18 @@
 "x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/glacierfish-jr.png",
-"id": "glacierfish-jr"
+"id": "glacierfish-jr",
+"nc": true,
+"pond": [
+{
+"item": "1-4 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Radioactive Carp",
@@ -1330,7 +1930,18 @@
 "x": "Only while Qi's 'Extended Family' quest is active; then any season, weather and time",
 "a": "Sewers / Swamp / Bugland",
 "img": "img/fish/radioactive-carp.png",
-"id": "radioactive-carp"
+"id": "radioactive-carp",
+"nc": true,
+"pond": [
+{
+"item": "1-4 Roe",
+"pop": "1"
+},
+{
+"item": "1-2 Roe (Only if above roll fails)",
+"pop": "1"
+}
+]
 },
 {
 "n": "Lobster",
@@ -1358,6 +1969,52 @@
 "q": 1,
 "w": "Milk",
 "sve": false
+}
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-3 Seaweed",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "1 Coral",
+"pop": "5"
+},
+{
+"item": "1 Sea Urchin",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Beach",
+"pop": "9"
+},
+{
+"item": "1 Nautilus Shell",
+"pop": "9"
 }
 ]
 },
@@ -1387,6 +2044,52 @@
 "q": 1,
 "w": "Wheat Flour, Egg, Oil",
 "sve": false
+}
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-3 Seaweed",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "1 Coral",
+"pop": "5"
+},
+{
+"item": "1 Sea Urchin",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Beach",
+"pop": "9"
+},
+{
+"item": "1 Nautilus Shell",
+"pop": "9"
 }
 ]
 },
@@ -1423,6 +2126,52 @@
 "w": "Tomato, Wild Horseradish",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-3 Seaweed",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "1 Coral",
+"pop": "5"
+},
+{
+"item": "1 Sea Urchin",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Beach",
+"pop": "9"
+},
+{
+"item": "1 Nautilus Shell",
+"pop": "9"
+}
 ]
 },
 {
@@ -1444,7 +2193,53 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/cockle.png",
-"id": "cockle"
+"id": "cockle",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-3 Seaweed",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "1 Coral",
+"pop": "5"
+},
+{
+"item": "1 Sea Urchin",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Beach",
+"pop": "9"
+},
+{
+"item": "1 Nautilus Shell",
+"pop": "9"
+}
+]
 },
 {
 "n": "Mussel",
@@ -1473,6 +2268,52 @@
 "w": "Crayfish, Periwinkle, Tomato",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-3 Seaweed",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "1 Coral",
+"pop": "5"
+},
+{
+"item": "1 Sea Urchin",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Beach",
+"pop": "9"
+},
+{
+"item": "1 Nautilus Shell",
+"pop": "9"
+}
 ]
 },
 {
@@ -1494,7 +2335,53 @@
 "x": "",
 "a": "Crab Pots",
 "img": "img/fish/oyster.png",
-"id": "oyster"
+"id": "oyster",
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-3 Seaweed",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "1 Coral",
+"pop": "5"
+},
+{
+"item": "1 Sea Urchin",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Beach",
+"pop": "9"
+},
+{
+"item": "1 Nautilus Shell",
+"pop": "9"
+}
+]
 },
 {
 "n": "Clam",
@@ -1522,6 +2409,52 @@
 "q": 1,
 "w": "Milk",
 "sve": false
+}
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1-3 Seaweed",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "1 Coral",
+"pop": "5"
+},
+{
+"item": "1 Sea Urchin",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Beach",
+"pop": "9"
+},
+{
+"item": "1 Nautilus Shell",
+"pop": "9"
 }
 ]
 },
@@ -1552,6 +2485,44 @@
 "w": "Mussel, Periwinkle, Tomato",
 "sve": false
 }
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1-3 Green Algae",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "2-3 Mixed Seeds",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Mountains",
+"pop": "9"
+}
 ]
 },
 {
@@ -1580,6 +2551,44 @@
 "q": 1,
 "w": "Garlic",
 "sve": false
+}
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1-3 Green Algae",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "2-3 Mixed Seeds",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Mountains",
+"pop": "9"
 }
 ]
 },
@@ -1615,6 +2624,44 @@
 "q": 1,
 "w": "Crayfish, Mussel, Tomato",
 "sve": false
+}
+],
+"pond": [
+{
+"item": "1 Roe",
+"pop": "1"
+},
+{
+"item": "1 Trash",
+"pop": "1"
+},
+{
+"item": "1-3 Green Algae",
+"pop": "1"
+},
+{
+"item": "1 Driftwood",
+"pop": "1"
+},
+{
+"item": "1 Broken Glasses",
+"pop": "1"
+},
+{
+"item": "1 Broken CD",
+"pop": "1"
+},
+{
+"item": "1 Soggy Newspaper",
+"pop": "1"
+},
+{
+"item": "2-3 Mixed Seeds",
+"pop": "5"
+},
+{
+"item": "1 Warp Totem: Mountains",
+"pop": "9"
 }
 ]
 },
@@ -2561,6 +3608,132 @@
 "a": "Forest West / Shearwater",
 "img": "img/fish/wolf-snapper.png",
 "id": "wolf-snapper"
+},
+{
+"n": "Sea Jelly",
+"s": "Vanilla",
+"c": "Jelly & algae",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Ocean (Beach), Ginger Island ocean, Night Market submarine",
+"d": "—",
+"b": "—",
+"p": 200,
+"x": "A rare catch; Luck buffs raise the chance",
+"a": "Ocean / Beach",
+"id": "sea-jelly",
+"img": "img/fish/sea-jelly.png"
+},
+{
+"n": "River Jelly",
+"s": "Vanilla",
+"c": "Jelly & algae",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Rivers (Town + Forest), Mountain Lake, Forest Pond, Secret Woods pond, Desert pond, Ginger Island rivers",
+"d": "—",
+"b": "—",
+"p": 125,
+"x": "A rare catch; Luck buffs raise the chance",
+"a": "Town / Rivers / Lakes",
+"id": "river-jelly",
+"img": "img/fish/river-jelly.png"
+},
+{
+"n": "Cave Jelly",
+"s": "Vanilla",
+"c": "Jelly & algae",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mines floor 20, 60 & 100",
+"d": "—",
+"b": "—",
+"p": 180,
+"x": "A rare catch; Luck buffs raise the chance",
+"a": "Mines / Caves",
+"id": "cave-jelly",
+"img": "img/fish/cave-jelly.png"
+},
+{
+"n": "Seaweed",
+"s": "Vanilla",
+"c": "Jelly & algae",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Ocean (Beach)",
+"d": "—",
+"b": "—",
+"p": 20,
+"x": "A common catch while fishing there",
+"a": "Ocean / Beach",
+"id": "seaweed",
+"img": "img/fish/seaweed.png"
+},
+{
+"n": "Green Algae",
+"s": "Vanilla",
+"c": "Jelly & algae",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Rivers (Town + Forest), Mountain Lake, Forest Pond, Secret Woods pond",
+"d": "—",
+"b": "—",
+"p": 15,
+"x": "A common catch while fishing there",
+"a": "Town / Rivers / Lakes",
+"id": "green-algae",
+"img": "img/fish/green-algae.png"
+},
+{
+"n": "White Algae",
+"s": "Vanilla",
+"c": "Jelly & algae",
+"ss": [
+"Spring",
+"Summer",
+"Fall",
+"Winter"
+],
+"t": "Any",
+"w": "Any",
+"l": "Mines floor 20 & 60, Sewers, Mutant Bug Lair, Witch's Swamp",
+"d": "—",
+"b": "—",
+"p": 25,
+"x": "A common catch while fishing there",
+"a": "Mines / Caves",
+"id": "white-algae",
+"img": "img/fish/white-algae.png"
 }
 ]
 }
