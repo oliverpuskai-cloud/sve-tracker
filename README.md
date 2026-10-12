@@ -1,6 +1,6 @@
-# SVE Fish Log
+# Junimo Planner
 
-A free progress tracker for **Stardew Valley Expanded**:
+https://junimoplanner.com — a free planner and progress tracker for **Stardew Valley** and **Stardew Valley Expanded**:
 
 - **Today**: pick the season, day, weather and time, and see which fish you can still catch, which ones bundles need, and which ones won't be back until next year. Festivals, fishing events and birthdays are flagged. **My to-do** holds your own tasks for today and plans for coming days (per farm).
 - **Bundles**: three bundle sets per farm: Standard (vanilla), SVE Normal and SVE Hard, each with the JojaMart Missing Bundle. Tap items as you donate them, or mark a bundle, a room or the whole Community Center done in one click. Fish items show where and when to catch them.
