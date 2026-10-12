@@ -398,3 +398,13 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .cseed{font-size:.8rem;margin:4px 0 0;color:var(--ink)}
 @media (max-width:420px){.cstats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 footer .about{margin:0 0 10px;max-width:90ch;line-height:1.5}
+/* collections */
+.colgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 12px}
+.colitem{background:var(--panel);border:1px solid var(--line);align-items:start}
+.colitem img{margin-top:2px}
+.colitem .hl{background:var(--legend-bg)}
+.rewards{margin-top:14px}
+.rewards summary{cursor:pointer}
+.rewards ul{margin:8px 0;padding-left:20px;font-size:.88rem;columns:2 300px}
+.rewards li{break-inside:avoid;margin:2px 0}
+.rewards li.got{color:var(--done-ink);text-decoration:line-through}

@@ -1,0 +1,2220 @@
+{
+"museum": [
+{
+"id": "a-dwarf-scroll-i",
+"n": "Dwarf Scroll I",
+"kind": "Artifact",
+"sve": false,
+"where": "Tilling in Mines/Skull Cavern (any floor) (0.16%) Several monsters (0.5% each)",
+"img": "img/items/dwarf-scroll-i.png"
+},
+{
+"id": "a-dwarf-scroll-ii",
+"n": "Dwarf Scroll II",
+"kind": "Artifact",
+"sve": false,
+"where": "Tilling in Mines (floor 1-39) (0.1%) Ghost drop (0.5%) Frost Bat drop (0.5%) Dust Sprite drop (0.5%) Blue Slime drop (0.5%)",
+"img": "img/items/dwarf-scroll-ii.png"
+},
+{
+"id": "a-dwarf-scroll-iii",
+"n": "Dwarf Scroll III",
+"kind": "Artifact",
+"sve": false,
+"where": "Several monsters drop (1.5% for Blue Slime, 0.5% for others)",
+"img": "img/items/dwarf-scroll-iii.png"
+},
+{
+"id": "a-dwarf-scroll-iv",
+"n": "Dwarf Scroll IV",
+"kind": "Artifact",
+"sve": false,
+"where": "Any Monster (other than Serpent , Skeleton , Wilderness Golem , Carbon Ghost , Iridium Bat , Iridium Crab , and Haunted Skull ) (0.1%) Tilling in…",
+"img": "img/items/dwarf-scroll-iv.png"
+},
+{
+"id": "a-chipped-amphora",
+"n": "Chipped Amphora",
+"kind": "Artifact",
+"sve": false,
+"where": "Town (3%) Artifact Trove (3.6%)",
+"img": "img/items/chipped-amphora.png"
+},
+{
+"id": "a-arrowhead",
+"n": "Arrowhead",
+"kind": "Artifact",
+"sve": false,
+"where": "Mountain (1.6%) Forest (1.6%) Bus Stop (1.6%) Artifact Trove (3.6%)",
+"img": "img/items/arrowhead.png"
+},
+{
+"id": "a-ancient-doll",
+"n": "Ancient Doll",
+"kind": "Artifact",
+"sve": false,
+"where": "Mountain (3%) Forest (2.4%) Bus Stop (2.4%) Town (0.8%) Fishing Chest (0.8-0.9% [2] ) Feast of the Winter Star Artifact Trove (3.6%)",
+"img": "img/items/ancient-doll.png"
+},
+{
+"id": "a-elvish-jewelry",
+"n": "Elvish Jewelry",
+"kind": "Artifact",
+"sve": false,
+"where": "Forest (0.8%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/elvish-jewelry.png"
+},
+{
+"id": "a-chewing-stick",
+"n": "Chewing Stick",
+"kind": "Artifact",
+"sve": false,
+"where": "Mountain (1.5%) Forest (1.5%) Town (0.8%) Fishing Chest (0.8-0.9% [2] ) Duggy drop (2%) Artifact Trove (3.6%)",
+"img": "img/items/chewing-stick.png"
+},
+{
+"id": "a-ornamental-fan",
+"n": "Ornamental Fan",
+"kind": "Artifact",
+"sve": false,
+"where": "Beach (1.6%) Forest (0.7%) Town (0.6%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/ornamental-fan.png"
+},
+{
+"id": "a-dinosaur-egg",
+"n": "Dinosaur Egg",
+"kind": "Artifact",
+"sve": false,
+"where": "Mountain (0.6%) Fishing Chest (0.8-0.9% [2] ) Foraged on prehistoric floors of the Skull Cavern Pepper Rex drop (10%)",
+"img": "img/items/dinosaur-egg.png"
+},
+{
+"id": "a-rare-disc",
+"n": "Rare Disc",
+"kind": "Artifact",
+"sve": false,
+"where": "Fishing Chest (0.8-0.9% [2] ) Bats drop (except Iridium Bat) (0.1%) Shadow Brute , Shadow Shaman , Spider drop (0.3%) Artifact Trove (3.6%)",
+"img": "img/items/rare-disc.png"
+},
+{
+"id": "a-ancient-sword",
+"n": "Ancient Sword",
+"kind": "Artifact",
+"sve": false,
+"where": "Forest (0.7%) Mountain (0.6%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/ancient-sword.png"
+},
+{
+"id": "a-rusty-spoon",
+"n": "Rusty Spoon",
+"kind": "Artifact",
+"sve": false,
+"where": "Town (4% + 6-11% [3] ) Fishing Chest (0.8-0.9% [2] ) Tilling in Mines/Skull Cavern (any floor) (0.16%) Artifact Trove (3.6%)",
+"img": "img/items/rusty-spoon.png"
+},
+{
+"id": "a-rusty-spur",
+"n": "Rusty Spur",
+"kind": "Artifact",
+"sve": false,
+"where": "Farm (10%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/rusty-spur.png"
+},
+{
+"id": "a-rusty-cog",
+"n": "Rusty Cog",
+"kind": "Artifact",
+"sve": false,
+"where": "Mountain (4%) Tilling in Mines/Skull Cavern (any floor) (0.16%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/rusty-cog.png"
+},
+{
+"id": "a-chicken-statue",
+"n": "Chicken Statue",
+"kind": "Artifact",
+"sve": false,
+"where": "Farm (9%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/chicken-statue.png"
+},
+{
+"id": "a-ancient-seed",
+"n": "Ancient Seed",
+"kind": "Artifact",
+"sve": false,
+"where": "Forest (0.7%) Mountain (0.7%) Fishing Chest (0.8-0.9% [2] ) Monster drop ( Bug , Cave Fly , Grub , Mutant Fly , Mutant Grub : 0.5%) Artifact Trove…",
+"img": "img/items/ancient-seed.png"
+},
+{
+"id": "a-prehistoric-tool",
+"n": "Prehistoric Tool",
+"kind": "Artifact",
+"sve": false,
+"where": "Bus Stop (3%) Forest (2.1%) Mountain (2%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/prehistoric-tool.png"
+},
+{
+"id": "a-dried-starfish",
+"n": "Dried Starfish",
+"kind": "Artifact",
+"sve": false,
+"where": "Beach (8%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/dried-starfish.png"
+},
+{
+"id": "a-anchor",
+"n": "Anchor",
+"kind": "Artifact",
+"sve": false,
+"where": "Beach (4%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/anchor.png"
+},
+{
+"id": "a-glass-shards",
+"n": "Glass Shards",
+"kind": "Artifact",
+"sve": false,
+"where": "Beach (7%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/glass-shards.png"
+},
+{
+"id": "a-bone-flute",
+"n": "Bone Flute",
+"kind": "Artifact",
+"sve": false,
+"where": "Forest (0.7%) Mountain (0.7%) Town (0.4%) Fishing Chest (0.8-0.9% [2] ) Artifact Trove (3.6%)",
+"img": "img/items/bone-flute.png"
+},
+{
+"id": "a-prehistoric-handaxe",
+"n": "Prehistoric Handaxe",
+"kind": "Artifact",
+"sve": false,
+"where": "Bus Stop (4%) Mountain (3%) Forest (3%) Artifact Trove (3.6%)",
+"img": "img/items/prehistoric-handaxe.png"
+},
+{
+"id": "a-dwarvish-helm",
+"n": "Dwarvish Helm",
+"kind": "Artifact",
+"sve": false,
+"where": "Tilling in Mines (floor 1-39) (0.1%) Geode (3%) Omni Geode (1%) Artifact Trove (3.6%)",
+"img": "img/items/dwarvish-helm.png"
+},
+{
+"id": "a-dwarf-gadget",
+"n": "Dwarf Gadget",
+"kind": "Artifact",
+"sve": false,
+"where": "Tilling in Mines (floor 40-79) (0.1%) Magma Geode (4%) Omni Geode (1%) Artifact Trove (3.6%)",
+"img": "img/items/dwarf-gadget.png"
+},
+{
+"id": "a-ancient-drum",
+"n": "Ancient Drum",
+"kind": "Artifact",
+"sve": false,
+"where": "Bus Stop (0.7%) Forest (0.7%) Town (0.4%) Frozen Geode (3%) Omni Geode (1%) Artifact Trove (3.6%)",
+"img": "img/items/ancient-drum.png"
+},
+{
+"id": "a-golden-mask",
+"n": "Golden Mask",
+"kind": "Artifact",
+"sve": false,
+"where": "Desert (3%) Artifact Trove (3.6%)",
+"img": "img/items/golden-mask.png"
+},
+{
+"id": "a-golden-relic",
+"n": "Golden Relic",
+"kind": "Artifact",
+"sve": false,
+"where": "Desert (6%) Artifact Trove (3.6%)",
+"img": "img/items/golden-relic.png"
+},
+{
+"id": "a-strange-doll-green",
+"n": "Strange Doll (green)",
+"kind": "Artifact",
+"sve": false,
+"where": "Farm (0.08%) Bus Stop (0.07%) Town (0.07%) Forest (0.06%) Mountain (0.06%) Beach (0.06%) Tilling in Mines/Skull Cavern (any floor) (0.03%) Fishing…",
+"img": "img/items/strange-doll-green.png"
+},
+{
+"id": "a-strange-doll-yellow",
+"n": "Strange Doll (yellow)",
+"kind": "Artifact",
+"sve": false,
+"where": "Farm (0.08%) Bus Stop (0.07%) Town (0.07%) Forest (0.06%) Mountain (0.06%) Beach (0.06%) Tilling in Mines/Skull Cavern (any floor) (0.03%) Fishing…",
+"img": "img/items/strange-doll-yellow.png"
+},
+{
+"id": "a-prehistoric-scapula",
+"n": "Prehistoric Scapula",
+"kind": "Artifact",
+"sve": false,
+"where": "Forest (3-6% [3] ) Town (0.7%) Skeleton drop (0.5%) Bone Nodes (0.8%)",
+"img": "img/items/prehistoric-scapula.png"
+},
+{
+"id": "a-prehistoric-tibia",
+"n": "Prehistoric Tibia",
+"kind": "Artifact",
+"sve": false,
+"where": "Railroad (4-8% [3] ) Forest (0.6%) Pepper Rex drop (30%) Bone Nodes (0.8%)",
+"img": "img/items/prehistoric-tibia.png"
+},
+{
+"id": "a-prehistoric-skull",
+"n": "Prehistoric Skull",
+"kind": "Artifact",
+"sve": false,
+"where": "Mountain (0.6% + 3-6% [3] ) Haunted Skull drop (1.3%) Bone Nodes (0.8%)",
+"img": "img/items/prehistoric-skull.png"
+},
+{
+"id": "a-skeletal-hand",
+"n": "Skeletal Hand",
+"kind": "Artifact",
+"sve": false,
+"where": "Backwoods (4-8% [3] ) Beach (0.6%) Haunted Skull drop (1.3%) Bone Nodes (0.8%)",
+"img": "img/items/skeletal-hand.png"
+},
+{
+"id": "a-prehistoric-rib",
+"n": "Prehistoric Rib",
+"kind": "Artifact",
+"sve": false,
+"where": "Town (2.2-4% [3] ) Farm (0.8%) Pepper Rex drop (30%) Bone Nodes (0.8%)",
+"img": "img/items/prehistoric-rib.png"
+},
+{
+"id": "a-prehistoric-vertebra",
+"n": "Prehistoric Vertebra",
+"kind": "Artifact",
+"sve": false,
+"where": "Bus Stop (0.7% + 3-5% [3] ) Pepper Rex drop (30%) Bone Nodes (0.8%)",
+"img": "img/items/prehistoric-vertebra.png"
+},
+{
+"id": "a-skeletal-tail",
+"n": "Skeletal Tail",
+"kind": "Artifact",
+"sve": false,
+"where": "Tilling in Mines/Skull Cavern (any floor) Fishing Chest (3.1-3.4% [2] ) Bone Nodes (0.8%)",
+"img": "img/items/skeletal-tail.png"
+},
+{
+"id": "a-nautilus-fossil",
+"n": "Nautilus Fossil",
+"kind": "Artifact",
+"sve": false,
+"where": "Beach (1.8%) Fishing Chest (3.1-3.4% [2] ) Bone Nodes (0.8%)",
+"img": "img/items/nautilus-fossil.png"
+},
+{
+"id": "a-amphibian-fossil",
+"n": "Amphibian Fossil",
+"kind": "Artifact",
+"sve": false,
+"where": "Forest (0.6%) Mountain (0.6%) Fishing Chest (3.1-3.4% [2] ) Bone Nodes (0.8%)",
+"img": "img/items/amphibian-fossil.png"
+},
+{
+"id": "a-palm-fossil",
+"n": "Palm Fossil",
+"kind": "Artifact",
+"sve": false,
+"where": "Desert (7%) Forest (0.6% + 3-5% [3] ) Beach (0.6%) Bone Nodes (0.8%)",
+"img": "img/items/palm-fossil.png"
+},
+{
+"id": "a-trilobite",
+"n": "Trilobite",
+"kind": "Artifact",
+"sve": false,
+"where": "Beach (1.7% + 2.3-5% [3] ) Forest (1.9%) Mountain (1.8%) Bone Nodes (0.8%)",
+"img": "img/items/trilobite.png"
+},
+{
+"id": "m-quartz",
+"n": "Quartz",
+"kind": "Mineral",
+"sve": false,
+"where": "The Mines (Floors 1-120) Garbage Can Stone Golem (10%)",
+"img": "img/items/quartz.png"
+},
+{
+"id": "m-earth-crystal",
+"n": "Earth Crystal",
+"kind": "Mineral",
+"sve": false,
+"where": "The Mines (Floors 1-39) Duggy (10%) Haunted Skull (1.3%) Fishing Treasure Chest Panning Geode Omni Geode Garbage Can",
+"img": "img/items/earth-crystal.png"
+},
+{
+"id": "m-frozen-tear",
+"n": "Frozen Tear",
+"kind": "Mineral",
+"sve": false,
+"where": "The Mines (Floors 40-79) Fishing Treasure Chest Panning Frozen Geode Omni Geode Dust Sprite (2%) Garbage Can",
+"img": "img/items/frozen-tear.png"
+},
+{
+"id": "m-fire-quartz",
+"n": "Fire Quartz",
+"kind": "Mineral",
+"sve": false,
+"where": "The Mines (Floors 80-120) Fishing Treasure Chest Panning Magma Geode Omni Geode Garbage Can",
+"img": "img/items/fire-quartz.png"
+},
+{
+"id": "m-emerald",
+"n": "Emerald",
+"kind": "Gem",
+"sve": false,
+"where": "Emerald Node Gem Node Dwarvish Sentry Panning Garbage Can Fishing Treasure Chest Feast of the Winter Star",
+"img": "img/items/emerald.png"
+},
+{
+"id": "m-aquamarine",
+"n": "Aquamarine",
+"kind": "Gem",
+"sve": false,
+"where": "Aquamarine Node Gem Node Dwarvish Sentry Panning Garbage Can Fishing Treasure Chest",
+"img": "img/items/aquamarine.png"
+},
+{
+"id": "m-ruby",
+"n": "Ruby",
+"kind": "Gem",
+"sve": false,
+"where": "Ruby Node Gem Node Dwarvish Sentry Panning Garbage Can Fishing Treasure Chest Feast of the Winter Star",
+"img": "img/items/ruby.png"
+},
+{
+"id": "m-amethyst",
+"n": "Amethyst",
+"kind": "Gem",
+"sve": false,
+"where": "Amethyst Node Gem Node Green Slimes Dwarvish Sentry Panning Garbage Can Fishing Treasure Chest",
+"img": "img/items/amethyst.png"
+},
+{
+"id": "m-topaz",
+"n": "Topaz",
+"kind": "Gem",
+"sve": false,
+"where": "Topaz Node Gem Node Dwarvish Sentry Panning Garbage Can Fishing Treasure Chest",
+"img": "img/items/topaz.png"
+},
+{
+"id": "m-jade",
+"n": "Jade",
+"kind": "Gem",
+"sve": false,
+"where": "Jade Node Gem Node Blue Slimes Dwarvish Sentry Garbage Can Fishing Treasure Chest Feast of the Winter Star",
+"img": "img/items/jade.png"
+},
+{
+"id": "m-diamond",
+"n": "Diamond",
+"kind": "Gem",
+"sve": false,
+"where": "Diamond Node Gem Node Dwarvish Sentry Panning Garbage Can Fishing Treasure Chest Any monster after reaching the bottom of the mines (0.05%)",
+"img": "img/items/diamond.png"
+},
+{
+"id": "m-prismatic-shard",
+"n": "Prismatic Shard",
+"kind": "Gem",
+"sve": false,
+"where": "Iridium Node (4%) Mystic Stone (25%) Omni Geode (0 . 4%) Shadow Brute (0 . 05%) Shadow Shaman (0 . 05%) Mummy (0 . 1%) Serpent (0 . 1%) Fishing…",
+"img": "img/items/prismatic-shard.png"
+},
+{
+"id": "m-tigerseye",
+"n": "Tigerseye",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/tigerseye.png"
+},
+{
+"id": "m-opal",
+"n": "Opal",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/opal.png"
+},
+{
+"id": "m-fire-opal",
+"n": "Fire Opal",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/fire-opal.png"
+},
+{
+"id": "m-alamite",
+"n": "Alamite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/alamite.png"
+},
+{
+"id": "m-bixite",
+"n": "Bixite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode Black Slime",
+"img": "img/items/bixite.png"
+},
+{
+"id": "m-baryte",
+"n": "Baryte",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/baryte.png"
+},
+{
+"id": "m-aerinite",
+"n": "Aerinite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/aerinite.png"
+},
+{
+"id": "m-calcite",
+"n": "Calcite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/calcite.png"
+},
+{
+"id": "m-dolomite",
+"n": "Dolomite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/dolomite.png"
+},
+{
+"id": "m-esperite",
+"n": "Esperite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/esperite.png"
+},
+{
+"id": "m-fluorapatite",
+"n": "Fluorapatite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/fluorapatite.png"
+},
+{
+"id": "m-geminite",
+"n": "Geminite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/geminite.png"
+},
+{
+"id": "m-helvite",
+"n": "Helvite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/helvite.png"
+},
+{
+"id": "m-jamborite",
+"n": "Jamborite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/jamborite.png"
+},
+{
+"id": "m-jagoite",
+"n": "Jagoite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/jagoite.png"
+},
+{
+"id": "m-kyanite",
+"n": "Kyanite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/kyanite.png"
+},
+{
+"id": "m-lunarite",
+"n": "Lunarite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/lunarite.png"
+},
+{
+"id": "m-malachite",
+"n": "Malachite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/malachite.png"
+},
+{
+"id": "m-neptunite",
+"n": "Neptunite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode Black Slime",
+"img": "img/items/neptunite.png"
+},
+{
+"id": "m-lemon-stone",
+"n": "Lemon Stone",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/lemon-stone.png"
+},
+{
+"id": "m-nekoite",
+"n": "Nekoite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/nekoite.png"
+},
+{
+"id": "m-orpiment",
+"n": "Orpiment",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/orpiment.png"
+},
+{
+"id": "m-petrified-slime",
+"n": "Petrified Slime",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode Slime Ball",
+"img": "img/items/petrified-slime.png"
+},
+{
+"id": "m-thunder-egg",
+"n": "Thunder Egg",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/thunder-egg.png"
+},
+{
+"id": "m-pyrite",
+"n": "Pyrite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/pyrite.png"
+},
+{
+"id": "m-ocean-stone",
+"n": "Ocean Stone",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/ocean-stone.png"
+},
+{
+"id": "m-ghost-crystal",
+"n": "Ghost Crystal",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/ghost-crystal.png"
+},
+{
+"id": "m-jasper",
+"n": "Jasper",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/jasper.png"
+},
+{
+"id": "m-celestine",
+"n": "Celestine",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/celestine.png"
+},
+{
+"id": "m-marble",
+"n": "Marble",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/marble.png"
+},
+{
+"id": "m-sandstone",
+"n": "Sandstone",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/sandstone.png"
+},
+{
+"id": "m-granite",
+"n": "Granite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/granite.png"
+},
+{
+"id": "m-basalt",
+"n": "Basalt",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/basalt.png"
+},
+{
+"id": "m-limestone",
+"n": "Limestone",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/limestone.png"
+},
+{
+"id": "m-soapstone",
+"n": "Soapstone",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/soapstone.png"
+},
+{
+"id": "m-hematite",
+"n": "Hematite",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/hematite.png"
+},
+{
+"id": "m-mudstone",
+"n": "Mudstone",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/mudstone.png"
+},
+{
+"id": "m-obsidian",
+"n": "Obsidian",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/obsidian.png"
+},
+{
+"id": "m-slate",
+"n": "Slate",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Geode Omni Geode",
+"img": "img/items/slate.png"
+},
+{
+"id": "m-fairy-stone",
+"n": "Fairy Stone",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Frozen Geode Omni Geode",
+"img": "img/items/fairy-stone.png"
+},
+{
+"id": "m-star-shards",
+"n": "Star Shards",
+"kind": "Geode mineral",
+"sve": false,
+"where": "Magma Geode Omni Geode",
+"img": "img/items/star-shards.png"
+},
+{
+"id": "sve-a-amber",
+"n": "Amber",
+"kind": "Artifact",
+"sve": true,
+"where": "Artifact spots: Adventurer's Summit, Backwoods, Blue Moon Vineyard, Cindersap Forest, The Farm, The Mines, The Mountain, Railroad",
+"img": "img/items/amber.png"
+},
+{
+"id": "sve-a-boomerang",
+"n": "Boomerang",
+"kind": "Artifact",
+"sve": true,
+"where": "Artifact spots: Adventurer's Summit, Backwoods, Cindersap Forest, The Mountain, Railroad",
+"img": "img/items/boomerang.png"
+},
+{
+"id": "sve-a-faded-button",
+"n": "Faded Button",
+"kind": "Artifact",
+"sve": true,
+"where": "Artifact spots: Backwoods, Blue Moon Vineyard, Old Community Garden, Pelican Town, Shearwater Bridge",
+"img": "img/items/faded-button.png"
+},
+{
+"id": "sve-a-fossilized-apple",
+"n": "Fossilized Apple",
+"kind": "Artifact",
+"sve": true,
+"where": "Artifact spots: Backwoods, Blue Moon Vineyard, The Farm",
+"img": "img/items/fossilized-apple.png"
+},
+{
+"id": "sve-a-old-coin",
+"n": "Old Coin",
+"kind": "Artifact",
+"sve": true,
+"where": "Artifact spots: Backwoods, Bus Stop, Old Community Garden, Pelican Town",
+"img": "img/items/old-coin.png"
+},
+{
+"id": "sve-a-rusty-shield",
+"n": "Rusty Shield",
+"kind": "Artifact",
+"sve": true,
+"where": "Artifact spots: Adventurer's Summit, Backwoods, Cindersap Forest, The Mountain",
+"img": "img/items/rusty-shield.png"
+},
+{
+"id": "sve-a-stone-of-yoba",
+"n": "Stone of Yoba",
+"kind": "Artifact",
+"sve": true,
+"where": "Artifact spots: Adventurer's Summit, Backwoods, The Desert, The Farm, The Mines, Railroad",
+"img": "img/items/stone-of-yoba.png"
+}
+],
+"milestones": [
+{
+"at": 5,
+"reward": "Cauliflower Seeds (9)"
+},
+{
+"at": 10,
+"reward": "Melon Seeds (9)"
+},
+{
+"at": 15,
+"reward": "Starfruit Seeds (1)"
+},
+{
+"at": 20,
+"reward": "'A Night On Eco-Hill' Painting"
+},
+{
+"at": 25,
+"reward": "'Jade Hills' Painting"
+},
+{
+"at": 30,
+"reward": "Lg. Futan Bear"
+},
+{
+"at": 35,
+"reward": "Pumpkin Seeds (9)"
+},
+{
+"at": 40,
+"reward": "Rarecrow #8 + Treasure Trove Achievement"
+},
+{
+"at": 50,
+"reward": "Bear Statue"
+},
+{
+"at": 60,
+"reward": "Rusty Key (Gunther will deliver it the next day)"
+},
+{
+"at": 70,
+"reward": "Triple Shot Espresso (3)"
+},
+{
+"at": 80,
+"reward": "Warp Totem: Farm (5)"
+},
+{
+"at": 90,
+"reward": "Magic Rock Candy"
+},
+{
+"at": 95,
+"reward": "Stardrop + A Complete Collection Achievement"
+}
+],
+"special": [
+{
+"need": "11 artifacts, including Rare Disc and Dwarf Gadget",
+"reward": "'Burnt Offering'"
+},
+{
+"need": "15 artifacts",
+"reward": "Skeleton Statue"
+},
+{
+"need": "20 artifacts",
+"reward": "Rarecrow #7"
+},
+{
+"need": "3 artifacts, including Ancient Drum",
+"reward": "Drum Block"
+},
+{
+"need": "Ancient Seed",
+"reward": "Ancient Seeds (1) + Crafting Recipe"
+},
+{
+"need": "3 artifacts, including Bone Flute",
+"reward": "Flute Block"
+},
+{
+"need": "5 artifacts, including Chicken Statue",
+"reward": "Chicken Statue"
+},
+{
+"need": "Dwarf Scrolls I, II, III and IV",
+"reward": "Dwarvish Translation Guide"
+},
+{
+"need": "Prehistoric Skull, Skeletal Hand and Prehistoric Scapula",
+"reward": "Sloth Skeleton L"
+},
+{
+"need": "Prehistoric Rib and Prehistoric Vertebra",
+"reward": "Sloth Skeleton M"
+},
+{
+"need": "Prehistoric Tibia and Skeletal Tail",
+"reward": "Sloth Skeleton R"
+},
+{
+"need": "11 minerals",
+"reward": "Standing Geode"
+},
+{
+"need": "21 minerals",
+"reward": "Singing Stone"
+},
+{
+"need": "31 minerals",
+"reward": "Obsidian Vase"
+},
+{
+"need": "41 minerals",
+"reward": "Crystal Chair"
+},
+{
+"need": "50 minerals",
+"reward": "Crystalarium"
+}
+],
+"shipping": [
+{
+"id": "s-wild-horseradish",
+"n": "Wild Horseradish",
+"cat": "Forage",
+"img": "img/items/wild-horseradish.png"
+},
+{
+"id": "s-daffodil",
+"n": "Daffodil",
+"cat": "Forage",
+"img": "img/items/daffodil.png"
+},
+{
+"id": "s-leek",
+"n": "Leek",
+"cat": "Forage",
+"img": "img/items/leek.png"
+},
+{
+"id": "s-dandelion",
+"n": "Dandelion",
+"cat": "Forage",
+"img": "img/items/dandelion.png"
+},
+{
+"id": "s-parsnip",
+"n": "Parsnip",
+"cat": "Crop",
+"img": "img/items/parsnip.png"
+},
+{
+"id": "s-cave-carrot",
+"n": "Cave Carrot",
+"cat": "Forage",
+"img": "img/items/cave-carrot.png"
+},
+{
+"id": "s-coconut",
+"n": "Coconut",
+"cat": "Forage",
+"img": "img/items/coconut.png"
+},
+{
+"id": "s-cactus-fruit",
+"n": "Cactus Fruit",
+"cat": "Forage",
+"img": "img/items/cactus-fruit.png"
+},
+{
+"id": "s-banana",
+"n": "Banana",
+"cat": "Fruit tree",
+"img": "img/items/banana.png"
+},
+{
+"id": "s-sap",
+"n": "Sap",
+"cat": "Resource",
+"img": "img/items/sap.png"
+},
+{
+"id": "s-wood",
+"n": "Wood",
+"cat": "Resource",
+"img": "img/items/wood.png"
+},
+{
+"id": "s-stone",
+"n": "Stone",
+"cat": "Resource",
+"img": "img/items/stone.png"
+},
+{
+"id": "s-nautilus-shell",
+"n": "Nautilus Shell",
+"cat": "Forage",
+"img": "img/items/nautilus-shell.png"
+},
+{
+"id": "s-coral",
+"n": "Coral",
+"cat": "Forage",
+"img": "img/items/coral.png"
+},
+{
+"id": "s-rainbow-shell",
+"n": "Rainbow Shell",
+"cat": "Forage",
+"img": "img/items/rainbow-shell.png"
+},
+{
+"id": "s-spice-berry",
+"n": "Spice Berry",
+"cat": "Forage",
+"img": "img/items/spice-berry.png"
+},
+{
+"id": "s-sea-urchin",
+"n": "Sea Urchin",
+"cat": "Forage",
+"img": "img/items/sea-urchin.png"
+},
+{
+"id": "s-grape",
+"n": "Grape",
+"cat": "Crop",
+"img": "img/items/grape.png"
+},
+{
+"id": "s-spring-onion",
+"n": "Spring Onion",
+"cat": "Forage",
+"img": "img/items/spring-onion.png"
+},
+{
+"id": "s-strawberry",
+"n": "Strawberry",
+"cat": "Crop",
+"img": "img/items/strawberry.png"
+},
+{
+"id": "s-magma-cap",
+"n": "Magma Cap",
+"cat": "Forage",
+"img": "img/items/magma-cap.png"
+},
+{
+"id": "s-bone-fragment",
+"n": "Bone Fragment",
+"cat": "Resource",
+"img": "img/items/bone-fragment.png"
+},
+{
+"id": "s-radioactive-ore",
+"n": "Radioactive Ore",
+"cat": "Resource",
+"img": "img/items/radioactive-ore.png"
+},
+{
+"id": "s-radioactive-bar",
+"n": "Radioactive Bar",
+"cat": "Resource",
+"img": "img/items/radioactive-bar.png"
+},
+{
+"id": "s-smoked-fish",
+"n": "Smoked Fish",
+"cat": "Artisan good",
+"img": "img/items/smoked-fish.png"
+},
+{
+"id": "s-moss",
+"n": "Moss",
+"cat": "Forage",
+"img": "img/items/moss.png"
+},
+{
+"id": "s-mystic-syrup",
+"n": "Mystic Syrup",
+"cat": "Artisan good",
+"img": "img/items/mystic-syrup.png"
+},
+{
+"id": "s-raisins",
+"n": "Raisins",
+"cat": "Artisan good",
+"img": "img/items/raisins.png"
+},
+{
+"id": "s-dried-fruit",
+"n": "Dried Fruit",
+"cat": "Artisan good",
+"img": "img/items/dried-fruit.png"
+},
+{
+"id": "s-dried-mushrooms",
+"n": "Dried Mushrooms",
+"cat": "Artisan good",
+"img": "img/items/dried-mushrooms.png"
+},
+{
+"id": "s-large-egg-white",
+"n": "Large Egg (white)",
+"cat": "Animal product",
+"img": "img/items/large-egg-white.png"
+},
+{
+"id": "s-egg-white",
+"n": "Egg (white)",
+"cat": "Animal product",
+"img": "img/items/egg-white.png"
+},
+{
+"id": "s-egg-brown",
+"n": "Egg (brown)",
+"cat": "Animal product",
+"img": "img/items/egg-brown.png"
+},
+{
+"id": "s-large-egg-brown",
+"n": "Large Egg (brown)",
+"cat": "Animal product",
+"img": "img/items/large-egg-brown.png"
+},
+{
+"id": "s-milk",
+"n": "Milk",
+"cat": "Animal product",
+"img": "img/items/milk.png"
+},
+{
+"id": "s-large-milk",
+"n": "Large Milk",
+"cat": "Animal product",
+"img": "img/items/large-milk.png"
+},
+{
+"id": "s-green-bean",
+"n": "Green Bean",
+"cat": "Crop",
+"img": "img/items/green-bean.png"
+},
+{
+"id": "s-cauliflower",
+"n": "Cauliflower",
+"cat": "Crop",
+"img": "img/items/cauliflower.png"
+},
+{
+"id": "s-potato",
+"n": "Potato",
+"cat": "Crop",
+"img": "img/items/potato.png"
+},
+{
+"id": "s-garlic",
+"n": "Garlic",
+"cat": "Crop",
+"img": "img/items/garlic.png"
+},
+{
+"id": "s-sweet-pea",
+"n": "Sweet Pea",
+"cat": "Forage",
+"img": "img/items/sweet-pea.png"
+},
+{
+"id": "s-common-mushroom",
+"n": "Common Mushroom",
+"cat": "Forage",
+"img": "img/items/common-mushroom.png"
+},
+{
+"id": "s-wild-plum",
+"n": "Wild Plum",
+"cat": "Forage",
+"img": "img/items/wild-plum.png"
+},
+{
+"id": "s-hazelnut",
+"n": "Hazelnut",
+"cat": "Forage",
+"img": "img/items/hazelnut.png"
+},
+{
+"id": "s-blackberry",
+"n": "Blackberry",
+"cat": "Forage",
+"img": "img/items/blackberry.png"
+},
+{
+"id": "s-winter-root",
+"n": "Winter Root",
+"cat": "Forage",
+"img": "img/items/winter-root.png"
+},
+{
+"id": "s-crystal-fruit",
+"n": "Crystal Fruit",
+"cat": "Forage",
+"img": "img/items/crystal-fruit.png"
+},
+{
+"id": "s-snow-yam",
+"n": "Snow Yam",
+"cat": "Forage",
+"img": "img/items/snow-yam.png"
+},
+{
+"id": "s-sweet-gem-berry",
+"n": "Sweet Gem Berry",
+"cat": "Crop",
+"img": "img/items/sweet-gem-berry.png"
+},
+{
+"id": "s-crocus",
+"n": "Crocus",
+"cat": "Forage",
+"img": "img/items/crocus.png"
+},
+{
+"id": "s-carrot",
+"n": "Carrot",
+"cat": "Crop",
+"img": "img/items/carrot.png"
+},
+{
+"id": "s-summer-squash",
+"n": "Summer Squash",
+"cat": "Crop",
+"img": "img/items/summer-squash.png"
+},
+{
+"id": "s-broccoli",
+"n": "Broccoli",
+"cat": "Crop",
+"img": "img/items/broccoli.png"
+},
+{
+"id": "s-powdermelon",
+"n": "Powdermelon",
+"cat": "Crop",
+"img": "img/items/powdermelon.png"
+},
+{
+"id": "s-kale",
+"n": "Kale",
+"cat": "Crop",
+"img": "img/items/kale.png"
+},
+{
+"id": "s-rhubarb",
+"n": "Rhubarb",
+"cat": "Crop",
+"img": "img/items/rhubarb.png"
+},
+{
+"id": "s-melon",
+"n": "Melon",
+"cat": "Crop",
+"img": "img/items/melon.png"
+},
+{
+"id": "s-tomato",
+"n": "Tomato",
+"cat": "Crop",
+"img": "img/items/tomato.png"
+},
+{
+"id": "s-morel",
+"n": "Morel",
+"cat": "Forage",
+"img": "img/items/morel.png"
+},
+{
+"id": "s-blueberry",
+"n": "Blueberry",
+"cat": "Crop",
+"img": "img/items/blueberry.png"
+},
+{
+"id": "s-fiddlehead-fern",
+"n": "Fiddlehead Fern",
+"cat": "Forage",
+"img": "img/items/fiddlehead-fern.png"
+},
+{
+"id": "s-hot-pepper",
+"n": "Hot Pepper",
+"cat": "Crop",
+"img": "img/items/hot-pepper.png"
+},
+{
+"id": "s-wheat",
+"n": "Wheat",
+"cat": "Crop",
+"img": "img/items/wheat.png"
+},
+{
+"id": "s-radish",
+"n": "Radish",
+"cat": "Crop",
+"img": "img/items/radish.png"
+},
+{
+"id": "s-red-mushroom",
+"n": "Red Mushroom",
+"cat": "Forage",
+"img": "img/items/red-mushroom.png"
+},
+{
+"id": "s-sunflower",
+"n": "Sunflower",
+"cat": "Crop",
+"img": "img/items/sunflower.png"
+},
+{
+"id": "s-purple-mushroom",
+"n": "Purple Mushroom",
+"cat": "Forage",
+"img": "img/items/purple-mushroom.png"
+},
+{
+"id": "s-cheese",
+"n": "Cheese",
+"cat": "Artisan good",
+"img": "img/items/cheese.png"
+},
+{
+"id": "s-goat-cheese",
+"n": "Goat Cheese",
+"cat": "Artisan good",
+"img": "img/items/goat-cheese.png"
+},
+{
+"id": "s-cloth",
+"n": "Cloth",
+"cat": "Artisan good",
+"img": "img/items/cloth.png"
+},
+{
+"id": "s-truffle",
+"n": "Truffle",
+"cat": "Forage",
+"img": "img/items/truffle.png"
+},
+{
+"id": "s-truffle-oil",
+"n": "Truffle Oil",
+"cat": "Artisan good",
+"img": "img/items/truffle-oil.png"
+},
+{
+"id": "s-coffee-bean",
+"n": "Coffee Bean",
+"cat": "Crop",
+"img": "img/items/coffee-bean.png"
+},
+{
+"id": "s-goat-milk",
+"n": "Goat Milk",
+"cat": "Animal product",
+"img": "img/items/goat-milk.png"
+},
+{
+"id": "s-red-cabbage",
+"n": "Red Cabbage",
+"cat": "Crop",
+"img": "img/items/red-cabbage.png"
+},
+{
+"id": "s-starfruit",
+"n": "Starfruit",
+"cat": "Crop",
+"img": "img/items/starfruit.png"
+},
+{
+"id": "s-corn",
+"n": "Corn",
+"cat": "Crop",
+"img": "img/items/corn.png"
+},
+{
+"id": "s-unmilled-rice",
+"n": "Unmilled Rice",
+"cat": "Crop",
+"img": "img/items/unmilled-rice.png"
+},
+{
+"id": "s-eggplant",
+"n": "Eggplant",
+"cat": "Crop",
+"img": "img/items/eggplant.png"
+},
+{
+"id": "s-artichoke",
+"n": "Artichoke",
+"cat": "Crop",
+"img": "img/items/artichoke.png"
+},
+{
+"id": "s-pumpkin",
+"n": "Pumpkin",
+"cat": "Crop",
+"img": "img/items/pumpkin.png"
+},
+{
+"id": "s-bok-choy",
+"n": "Bok Choy",
+"cat": "Crop",
+"img": "img/items/bok-choy.png"
+},
+{
+"id": "s-yam",
+"n": "Yam",
+"cat": "Crop",
+"img": "img/items/yam.png"
+},
+{
+"id": "s-chanterelle",
+"n": "Chanterelle",
+"cat": "Forage",
+"img": "img/items/chanterelle.png"
+},
+{
+"id": "s-large-goat-milk",
+"n": "Large Goat Milk",
+"cat": "Animal product",
+"img": "img/items/large-goat-milk.png"
+},
+{
+"id": "s-wool",
+"n": "Wool",
+"cat": "Animal product",
+"img": "img/items/wool.png"
+},
+{
+"id": "s-duck-egg",
+"n": "Duck Egg",
+"cat": "Animal product",
+"img": "img/items/duck-egg.png"
+},
+{
+"id": "s-duck-feather",
+"n": "Duck Feather",
+"cat": "Animal product",
+"img": "img/items/duck-feather.png"
+},
+{
+"id": "s-caviar",
+"n": "Caviar",
+"cat": "Artisan good",
+"img": "img/items/caviar.png"
+},
+{
+"id": "s-rabbit-s-foot",
+"n": "Rabbit's Foot",
+"cat": "Animal product",
+"img": "img/items/rabbit-s-foot.png"
+},
+{
+"id": "s-aged-roe",
+"n": "Aged Roe",
+"cat": "Artisan good",
+"img": "img/items/aged-roe.png"
+},
+{
+"id": "s-ancient-fruit",
+"n": "Ancient Fruit",
+"cat": "Crop",
+"img": "img/items/ancient-fruit.png"
+},
+{
+"id": "s-mead",
+"n": "Mead",
+"cat": "Artisan good",
+"img": "img/items/mead.png"
+},
+{
+"id": "s-tulip",
+"n": "Tulip",
+"cat": "Crop",
+"img": "img/items/tulip.png"
+},
+{
+"id": "s-cranberries",
+"n": "Cranberries",
+"cat": "Crop",
+"img": "img/items/cranberries.png"
+},
+{
+"id": "s-holly",
+"n": "Holly",
+"cat": "Forage",
+"img": "img/items/holly.png"
+},
+{
+"id": "s-beet",
+"n": "Beet",
+"cat": "Crop",
+"img": "img/items/beet.png"
+},
+{
+"id": "s-ostrich-egg",
+"n": "Ostrich Egg",
+"cat": "Animal product",
+"img": "img/items/ostrich-egg.png"
+},
+{
+"id": "s-salmonberry",
+"n": "Salmonberry",
+"cat": "Forage",
+"img": "img/items/salmonberry.png"
+},
+{
+"id": "s-amaranth",
+"n": "Amaranth",
+"cat": "Crop",
+"img": "img/items/amaranth.png"
+},
+{
+"id": "s-pale-ale",
+"n": "Pale Ale",
+"cat": "Artisan good",
+"img": "img/items/pale-ale.png"
+},
+{
+"id": "s-hops",
+"n": "Hops",
+"cat": "Crop",
+"img": "img/items/hops.png"
+},
+{
+"id": "s-void-egg",
+"n": "Void Egg",
+"cat": "Animal product",
+"img": "img/items/void-egg.png"
+},
+{
+"id": "s-mayonnaise",
+"n": "Mayonnaise",
+"cat": "Artisan good",
+"img": "img/items/mayonnaise.png"
+},
+{
+"id": "s-summer-spangle",
+"n": "Summer Spangle",
+"cat": "Crop",
+"img": "img/items/summer-spangle.png"
+},
+{
+"id": "s-fairy-rose",
+"n": "Fairy Rose",
+"cat": "Crop",
+"img": "img/items/fairy-rose.png"
+},
+{
+"id": "s-blue-jazz",
+"n": "Blue Jazz",
+"cat": "Crop",
+"img": "img/items/blue-jazz.png"
+},
+{
+"id": "s-apple",
+"n": "Apple",
+"cat": "Fruit tree",
+"img": "img/items/apple.png"
+},
+{
+"id": "s-green-tea",
+"n": "Green Tea",
+"cat": "Artisan good",
+"img": "img/items/green-tea.png"
+},
+{
+"id": "s-apricot",
+"n": "Apricot",
+"cat": "Fruit tree",
+"img": "img/items/apricot.png"
+},
+{
+"id": "s-orange",
+"n": "Orange",
+"cat": "Fruit tree",
+"img": "img/items/orange.png"
+},
+{
+"id": "s-peach",
+"n": "Peach",
+"cat": "Fruit tree",
+"img": "img/items/peach.png"
+},
+{
+"id": "s-pomegranate",
+"n": "Pomegranate",
+"cat": "Fruit tree",
+"img": "img/items/pomegranate.png"
+},
+{
+"id": "s-cherry",
+"n": "Cherry",
+"cat": "Fruit tree",
+"img": "img/items/cherry.png"
+},
+{
+"id": "s-duck-mayonnaise",
+"n": "Duck Mayonnaise",
+"cat": "Artisan good",
+"img": "img/items/duck-mayonnaise.png"
+},
+{
+"id": "s-void-mayonnaise",
+"n": "Void Mayonnaise",
+"cat": "Artisan good",
+"img": "img/items/void-mayonnaise.png"
+},
+{
+"id": "s-clay",
+"n": "Clay",
+"cat": "Resource",
+"img": "img/items/clay.png"
+},
+{
+"id": "s-copper-bar",
+"n": "Copper Bar",
+"cat": "Resource",
+"img": "img/items/copper-bar.png"
+},
+{
+"id": "s-iron-bar",
+"n": "Iron Bar",
+"cat": "Resource",
+"img": "img/items/iron-bar.png"
+},
+{
+"id": "s-gold-bar",
+"n": "Gold Bar",
+"cat": "Resource",
+"img": "img/items/gold-bar.png"
+},
+{
+"id": "s-iridium-bar",
+"n": "Iridium Bar",
+"cat": "Resource",
+"img": "img/items/iridium-bar.png"
+},
+{
+"id": "s-refined-quartz",
+"n": "Refined Quartz",
+"cat": "Resource",
+"img": "img/items/refined-quartz.png"
+},
+{
+"id": "s-honey",
+"n": "Honey",
+"cat": "Artisan good",
+"img": "img/items/honey.png"
+},
+{
+"id": "s-jelly",
+"n": "Jelly",
+"cat": "Artisan good",
+"img": "img/items/jelly.png"
+},
+{
+"id": "s-bug-meat",
+"n": "Bug Meat",
+"cat": "Resource",
+"img": "img/items/bug-meat.png"
+},
+{
+"id": "s-hardwood",
+"n": "Hardwood",
+"cat": "Resource",
+"img": "img/items/hardwood.png"
+},
+{
+"id": "s-maple-syrup",
+"n": "Maple Syrup",
+"cat": "Artisan good",
+"img": "img/items/maple-syrup.png"
+},
+{
+"id": "s-oak-resin",
+"n": "Oak Resin",
+"cat": "Artisan good",
+"img": "img/items/oak-resin.png"
+},
+{
+"id": "s-pine-tar",
+"n": "Pine Tar",
+"cat": "Artisan good",
+"img": "img/items/pine-tar.png"
+},
+{
+"id": "s-slime",
+"n": "Slime",
+"cat": "Resource",
+"img": "img/items/slime.png"
+},
+{
+"id": "s-bat-wing",
+"n": "Bat Wing",
+"cat": "Resource",
+"img": "img/items/bat-wing.png"
+},
+{
+"id": "s-solar-essence",
+"n": "Solar Essence",
+"cat": "Resource",
+"img": "img/items/solar-essence.png"
+},
+{
+"id": "s-void-essence",
+"n": "Void Essence",
+"cat": "Resource",
+"img": "img/items/void-essence.png"
+},
+{
+"id": "s-fiber",
+"n": "Fiber",
+"cat": "Resource",
+"img": "img/items/fiber.png"
+},
+{
+"id": "s-pickles",
+"n": "Pickles",
+"cat": "Artisan good",
+"img": "img/items/pickles.png"
+},
+{
+"id": "s-beer",
+"n": "Beer",
+"cat": "Artisan good",
+"img": "img/items/beer.png"
+},
+{
+"id": "s-wine",
+"n": "Wine",
+"cat": "Artisan good",
+"img": "img/items/wine.png"
+},
+{
+"id": "s-juice",
+"n": "Juice",
+"cat": "Artisan good",
+"img": "img/items/juice.png"
+},
+{
+"id": "s-poppy",
+"n": "Poppy",
+"cat": "Crop",
+"img": "img/items/poppy.png"
+},
+{
+"id": "s-copper-ore",
+"n": "Copper Ore",
+"cat": "Resource",
+"img": "img/items/copper-ore.png"
+},
+{
+"id": "s-iron-ore",
+"n": "Iron Ore",
+"cat": "Resource",
+"img": "img/items/iron-ore.png"
+},
+{
+"id": "s-coal",
+"n": "Coal",
+"cat": "Resource",
+"img": "img/items/coal.png"
+},
+{
+"id": "s-gold-ore",
+"n": "Gold Ore",
+"cat": "Resource",
+"img": "img/items/gold-ore.png"
+},
+{
+"id": "s-iridium-ore",
+"n": "Iridium Ore",
+"cat": "Resource",
+"img": "img/items/iridium-ore.png"
+},
+{
+"id": "s-battery-pack",
+"n": "Battery Pack",
+"cat": "Resource",
+"img": "img/items/battery-pack.png"
+},
+{
+"id": "s-dinosaur-mayonnaise",
+"n": "Dinosaur Mayonnaise",
+"cat": "Artisan good",
+"img": "img/items/dinosaur-mayonnaise.png"
+},
+{
+"id": "s-roe",
+"n": "Roe",
+"cat": "Animal product",
+"img": "img/items/roe.png"
+},
+{
+"id": "s-squid-ink",
+"n": "Squid Ink",
+"cat": "Animal product",
+"img": "img/items/squid-ink.png"
+},
+{
+"id": "s-tea-leaves",
+"n": "Tea Leaves",
+"cat": "Crop",
+"img": "img/items/tea-leaves.png"
+},
+{
+"id": "s-ginger",
+"n": "Ginger",
+"cat": "Forage",
+"img": "img/items/ginger.png"
+},
+{
+"id": "s-taro-root",
+"n": "Taro Root",
+"cat": "Crop",
+"img": "img/items/taro-root.png"
+},
+{
+"id": "s-pineapple",
+"n": "Pineapple",
+"cat": "Crop",
+"img": "img/items/pineapple.png"
+},
+{
+"id": "s-mango",
+"n": "Mango",
+"cat": "Fruit tree",
+"img": "img/items/mango.png"
+},
+{
+"id": "s-cinder-shard",
+"n": "Cinder Shard",
+"cat": "Resource",
+"img": "img/items/cinder-shard.png"
+},
+{
+"id": "sve-s-ancient-fiber",
+"n": "Ancient Fiber",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/ancient-fiber.png"
+},
+{
+"id": "sve-s-bearberry",
+"n": "Bearberry",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/bearberry.png"
+},
+{
+"id": "sve-s-conch",
+"n": "Conch",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/conch.png"
+},
+{
+"id": "sve-s-birch-water",
+"n": "Birch Water",
+"cat": "Artisan good",
+"sve": true,
+"img": "img/items/birch-water.png"
+},
+{
+"id": "sve-s-butter",
+"n": "Butter",
+"cat": "Artisan good",
+"sve": true,
+"img": "img/items/butter.png"
+},
+{
+"id": "sve-s-butternut-squash",
+"n": "Butternut Squash",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/butternut-squash.png"
+},
+{
+"id": "sve-s-camel-wool",
+"n": "Camel Wool",
+"cat": "Animal product",
+"sve": true,
+"img": "img/items/camel-wool.png"
+},
+{
+"id": "sve-s-cucumber",
+"n": "Cucumber",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/cucumber.png"
+},
+{
+"id": "sve-s-diamond-flower",
+"n": "Diamond Flower",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/diamond-flower.png"
+},
+{
+"id": "sve-s-sand-dollar",
+"n": "Sand Dollar",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/sand-dollar.png"
+},
+{
+"id": "sve-s-ferngill-primrose",
+"n": "Ferngill Primrose",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/ferngill-primrose.png"
+},
+{
+"id": "sve-s-fir-wax",
+"n": "Fir Wax",
+"cat": "Artisan good",
+"sve": true,
+"img": "img/items/fir-wax.png"
+},
+{
+"id": "sve-s-gold-carrot",
+"n": "Gold Carrot",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/gold-carrot.png"
+},
+{
+"id": "sve-s-gold-slime-egg",
+"n": "Gold Slime Egg",
+"cat": "Animal product",
+"sve": true,
+"img": "img/items/gold-slime-egg.png"
+},
+{
+"id": "sve-s-golden-goose-egg",
+"n": "Golden Goose Egg",
+"cat": "Animal product",
+"sve": true,
+"img": "img/items/golden-goose-egg.png"
+},
+{
+"id": "sve-s-golden-ocean-flower",
+"n": "Golden Ocean Flower",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/golden-ocean-flower.png"
+},
+{
+"id": "sve-s-goldenrod",
+"n": "Goldenrod",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/goldenrod.png"
+},
+{
+"id": "sve-s-goose-egg",
+"n": "Goose Egg",
+"cat": "Animal product",
+"sve": true,
+"img": "img/items/goose-egg.png"
+},
+{
+"id": "sve-s-goose-mayonnaise",
+"n": "Goose Mayonnaise",
+"cat": "Artisan good",
+"sve": true,
+"img": "img/items/goose-mayonnaise.png"
+},
+{
+"id": "sve-s-green-mushroom",
+"n": "Green Mushroom",
+"cat": "Monster loot & rare find",
+"sve": true,
+"img": "img/items/green-mushroom.png"
+},
+{
+"id": "sve-s-honey-jar",
+"n": "Honey Jar",
+"cat": "Animal product",
+"sve": true,
+"img": "img/items/honey-jar.png"
+},
+{
+"id": "sve-s-four-leaf-clover",
+"n": "Four Leaf Clover",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/four-leaf-clover.png"
+},
+{
+"id": "sve-s-magic-lamp",
+"n": "Magic Lamp",
+"cat": "Monster loot & rare find",
+"sve": true,
+"img": "img/items/magic-lamp.png"
+},
+{
+"id": "sve-s-mega-purple-mushroom",
+"n": "Mega Purple Mushroom",
+"cat": "Monster loot & rare find",
+"sve": true,
+"img": "img/items/mega-purple-mushroom.png"
+},
+{
+"id": "sve-s-monster-fruit",
+"n": "Monster Fruit",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/monster-fruit.png"
+},
+{
+"id": "sve-s-monster-mushroom",
+"n": "Monster Mushroom",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/monster-mushroom.png"
+},
+{
+"id": "sve-s-mushroom-colony",
+"n": "Mushroom Colony",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/mushroom-colony.png"
+},
+{
+"id": "sve-s-nectarine",
+"n": "Nectarine",
+"cat": "Fruit tree",
+"sve": true,
+"img": "img/items/nectarine.png"
+},
+{
+"id": "sve-s-pear",
+"n": "Pear",
+"cat": "Fruit tree",
+"sve": true,
+"img": "img/items/pear.png"
+},
+{
+"id": "sve-s-persimmon",
+"n": "Persimmon",
+"cat": "Fruit tree",
+"sve": true,
+"img": "img/items/persimmon.png"
+},
+{
+"id": "sve-s-poison-mushroom",
+"n": "Poison Mushroom",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/poison-mushroom.png"
+},
+{
+"id": "sve-s-red-baneberry",
+"n": "Red Baneberry",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/red-baneberry.png"
+},
+{
+"id": "sve-s-rusty-blade",
+"n": "Rusty Blade",
+"cat": "Monster loot & rare find",
+"sve": true,
+"img": "img/items/rusty-blade.png"
+},
+{
+"id": "sve-s-salal-berry",
+"n": "Salal Berry",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/salal-berry.png"
+},
+{
+"id": "sve-s-shark-tooth",
+"n": "Shark Tooth",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/shark-tooth.png"
+},
+{
+"id": "sve-s-slime-berry",
+"n": "Slime Berry",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/slime-berry.png"
+},
+{
+"id": "sve-s-sludge",
+"n": "Sludge",
+"cat": "Monster loot & rare find",
+"sve": true,
+"img": "img/items/sludge.png"
+},
+{
+"id": "sve-s-rafflesia",
+"n": "Rafflesia",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/rafflesia.png"
+},
+{
+"id": "sve-s-supernatural-goo",
+"n": "Supernatural Goo",
+"cat": "Monster loot & rare find",
+"sve": true,
+"img": "img/items/supernatural-goo.png"
+},
+{
+"id": "sve-s-swamp-essence",
+"n": "Swamp Essence",
+"cat": "Monster loot & rare find",
+"sve": true,
+"img": "img/items/swamp-essence.png"
+},
+{
+"id": "sve-s-swamp-flower",
+"n": "Swamp Flower",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/swamp-flower.png"
+},
+{
+"id": "sve-s-sweet-potato",
+"n": "Sweet Potato",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/sweet-potato.png"
+},
+{
+"id": "sve-s-swirl-stone",
+"n": "Swirl Stone",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/swirl-stone.png"
+},
+{
+"id": "sve-s-thistle",
+"n": "Thistle",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/thistle.png"
+},
+{
+"id": "sve-s-void-pebble",
+"n": "Void Pebble",
+"cat": "Monster loot & rare find",
+"sve": true,
+"img": "img/items/void-pebble.png"
+},
+{
+"id": "sve-s-void-root",
+"n": "Void Root",
+"cat": "Crop",
+"sve": true,
+"img": "img/items/void-root.png"
+},
+{
+"id": "sve-s-void-shard",
+"n": "Void Shard",
+"cat": "Monster loot & rare find",
+"sve": true,
+"img": "img/items/void-shard.png"
+},
+{
+"id": "sve-s-void-soul",
+"n": "Void Soul",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/void-soul.png"
+},
+{
+"id": "sve-s-winter-star-rose",
+"n": "Winter Star Rose",
+"cat": "Forage",
+"sve": true,
+"img": "img/items/winter-star-rose.png"
+},
+{
+"id": "sve-s-yarn",
+"n": "Yarn",
+"cat": "Artisan good",
+"sve": true,
+"img": "img/items/yarn.png"
+}
+]
+}

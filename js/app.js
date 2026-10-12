@@ -11,7 +11,7 @@ const dataUrl = name => `data/${name}.json?v=${DATA_V}`;
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
 
-let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {}, RECIPES = { cooking: [], crafting: [], img: {} }, CROPS = [];
+let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {}, RECIPES = { cooking: [], crafting: [], img: {} }, CROPS = [], COLL = { museum: [], shipping: [], milestones: [], special: [] };
 let store = load();
 let state = store.farms[store.active];
 
@@ -21,12 +21,12 @@ const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, 
 
 // ---------- storage ----------
 function newFarm(name) {
-  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], made: { cooking: {}, crafting: {} }, shop: { cooking: {}, crafting: {} }, qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
+  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], made: { cooking: {}, crafting: {} }, shop: { cooking: {}, crafting: {} }, col: { museum: {}, shipping: {} }, qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
 }
 function fixFarm(f, name) {
   const b = newFarm(name);
   // farms saved before bundle sets existed used the standard bundles
-  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [], made: { cooking: { ...(f && f.made && f.made.cooking) }, crafting: { ...(f && f.made && f.made.crafting) } }, shop: { cooking: { ...(f && f.shop && f.shop.cooking) }, crafting: { ...(f && f.shop && f.shop.crafting) } } };
+  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [], made: { cooking: { ...(f && f.made && f.made.cooking) }, crafting: { ...(f && f.made && f.made.crafting) } }, shop: { cooking: { ...(f && f.shop && f.shop.cooking) }, crafting: { ...(f && f.shop && f.shop.crafting) } }, col: { museum: { ...(f && f.col && f.col.museum) }, shipping: { ...(f && f.col && f.col.shipping) } } };
 }
 function load() {
   let v = null;
@@ -667,6 +667,91 @@ function renderCrops(main) {
     + (late.length ? `<section><h2>Too late this season<span>won't be ready before ${ctx.season} ends</span></h2><div class="cgrid">${late.map(row).join("")}</div></section>` : "");
 }
 
+// ---------- COLLECTIONS: museum + shipping ----------
+const colState = { part: "museum", kind: "", q: "", hide: false };
+function colTile(item, part, sub, q) {
+  const done = !!state.col[part][item.id];
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "item colitem" + (done ? " got" : "");
+  b.setAttribute("aria-pressed", done);
+  const hit = q && item.n.toLowerCase().includes(q);
+  b.innerHTML = `<img alt="" loading="lazy" src="${item.img}"><span class="in"><b${hit ? ' class="hl"' : ""}>${esc(item.n)}</b>${item.sve ? ' <span class="tag sve">SVE</span>' : ""}<small>${esc(sub)}</small></span><span class="box" aria-hidden="true">${done ? "✓" : ""}</span>`;
+  b.onclick = () => { if (done) delete state.col[part][item.id]; else state.col[part][item.id] = true; save(); render(); };
+  return b;
+}
+function renderCollections(main) {
+  const part = colState.part, q = colState.q.trim().toLowerCase();
+  const museum = COLL.museum.filter(m => sveOn() || !m.sve), shipping = COLL.shipping.filter(s => sveOn() || !s.sve);
+  const doneM = museum.filter(m => state.col.museum[m.id]).length, doneS = shipping.filter(s => state.col.shipping[s.id]).length;
+  const wrap = document.createElement("div");
+  wrap.innerHTML = `<div class="controls">
+      <div class="ctl"><span>Collection</span><div class="seg" id="k-part"><button data-p="museum" aria-pressed="${part === "museum"}">🏛 Museum (${doneM}/${museum.length})</button><button data-p="shipping" aria-pressed="${part === "shipping"}">📦 Shipping (${doneS}/${shipping.length})</button></div></div>
+      <div class="ctl" style="flex:1 1 200px"><span>Search</span><input type="search" id="k-q" value="${esc(colState.q)}" placeholder="${part === "museum" ? "e.g. Dwarf Scroll, Amethyst, Skull Cavern…" : "e.g. Truffle Oil, Mango, Coral…"}" style="font:inherit;padding:6px 10px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)"></div>
+      ${part === "museum" ? `<div class="ctl"><span>Show</span><select id="k-kind"><option value="">Everything</option><option value="Artifact">Artifacts</option><option value="min">Minerals & gems</option></select></div>` : ""}
+      <label class="check"><input type="checkbox" id="k-hide" ${colState.hide ? "checked" : ""}> Hide ${part === "museum" ? "donated" : "shipped"}</label>
+    </div><div id="k-body"></div>`;
+  main.appendChild(wrap);
+  wrap.querySelectorAll("#k-part button").forEach(b => b.onclick = () => { colState.part = b.dataset.p; colState.kind = ""; render(); });
+  if ($("k-kind")) { $("k-kind").value = colState.kind; $("k-kind").onchange = e => { colState.kind = e.target.value; render(); }; }
+  $("k-hide").onchange = e => { colState.hide = e.target.checked; render(); };
+  $("k-q").oninput = e => { colState.q = e.target.value; draw(); };
+  const body = $("k-body");
+  const head = document.createElement("div");
+  if (part === "museum") {
+    const arts = museum.filter(m => m.kind === "Artifact"), mins = museum.filter(m => m.kind !== "Artifact");
+    const next = COLL.milestones.find(x => x.at > doneM);
+    head.innerHTML = `<div class="stats">
+        <div class="stat"><b>${doneM} / ${museum.length}</b><span>donated to the museum</span></div>
+        <div class="stat"><b>${arts.filter(m => state.col.museum[m.id]).length} / ${arts.length}</b><span>artifacts</span></div>
+        <div class="stat"><b>${mins.filter(m => state.col.museum[m.id]).length} / ${mins.length}</b><span>minerals & gems</span></div>
+      </div>
+      <details class="panel rewards"><summary><b>Museum rewards</b> · ${next ? `next at ${next.at} donations: ${esc(next.reward)}` : "all donation rewards collected"}</summary>
+        <ul>${COLL.milestones.map(x => `<li class="${doneM >= x.at ? "got" : ""}"><b>${x.at}${x.at === 95 ? (sveOn() ? " vanilla items (all 102 in SVE)" : " (all items)") : ""}</b> ${esc(x.reward)}</li>`).join("")}</ul>
+        <p class="lede" style="margin:6px 0">Gunther also gives rewards for special sets:</p>
+        <ul>${COLL.special.map(x => `<li><b>${esc(x.need)}</b> → ${esc(x.reward)}</li>`).join("")}</ul>
+      </details>`;
+  } else {
+    head.innerHTML = `<div class="stats">
+        <div class="stat"><b>${doneS} / ${shipping.length}</b><span>items shipped (the Full Shipment achievement)</span></div>
+        <div class="stat"><b>${shipping.length - doneS}</b><span>still to ship</span></div>
+      </div>
+      <p class="lede">Put one of each in the shipping bin. Fish have their own collection (the Fish tabs), and cooked dishes count on the Recipes tab.${sveOn() ? " Includes the 50 items SVE adds to the shipping tab (marked SVE)." : ""}</p>`;
+  }
+  body.appendChild(head);
+  const out = document.createElement("div");
+  body.appendChild(out);
+  function draw() {
+    const q = colState.q.trim().toLowerCase();
+    out.innerHTML = "";
+    if (part === "museum") {
+      const list = museum.filter(m => (!colState.kind || (colState.kind === "Artifact" ? m.kind === "Artifact" : m.kind !== "Artifact")) && !(colState.hide && state.col.museum[m.id]) && (!q || (m.n + " " + m.where).toLowerCase().includes(q)));
+      for (const [title, items] of [["Artifacts", list.filter(m => m.kind === "Artifact")], ["Minerals & gems", list.filter(m => m.kind !== "Artifact")]]) {
+        if (!items.length) continue;
+        const sec = document.createElement("section");
+        sec.innerHTML = `<h2>${title}<span>${items.length} shown</span></h2><div class="colgrid"></div>`;
+        items.forEach(m => sec.querySelector(".colgrid").appendChild(colTile(m, "museum", (m.kind !== "Artifact" ? m.kind + " · " : "") + m.where, q)));
+        out.appendChild(sec);
+      }
+      if (!list.length) out.innerHTML = '<p class="empty">Nothing matches.</p>';
+    } else {
+      const list = shipping.filter(s => !(colState.hide && state.col.shipping[s.id]) && (!q || s.n.toLowerCase().includes(q)));
+      const cats = ["Crop", "Fruit tree", "Forage", "Animal product", "Artisan good", "Resource", "Monster loot & rare find"];
+      for (const c of cats) {
+        const items = list.filter(s => s.cat === c);
+        if (!items.length) continue;
+        const all = shipping.filter(s => s.cat === c);
+        const sec = document.createElement("section");
+        sec.innerHTML = `<h2>${({ "Fruit tree": "Fruit trees", Forage: "Forage", "Monster loot & rare find": "Monster loot & rare finds" })[c] || c + "s"}<span>${all.filter(s => state.col.shipping[s.id]).length} / ${all.length} shipped</span></h2><div class="colgrid"></div>`;
+        items.forEach(s => sec.querySelector(".colgrid").appendChild(colTile(s, "shipping", c, q)));
+        out.appendChild(sec);
+      }
+      if (!list.length) out.innerHTML = '<p class="empty">Nothing matches.</p>';
+    }
+  }
+  draw();
+}
+
 // ---------- RECIPES (cooking + crafting) ----------
 const recState = { kind: "cooking", view: "list", q: "", src: "", unlock: "", hideMade: false, onlyMissing: true, hideHave: false };
 const UNLOCK = { friend: ["❤", "Friendship"], tv: ["📺", "Queen of Sauce"], skill: ["⭐", "Skill level"], shop: ["🛒", "Buy"], quest: ["📜", "Quest / order"], event: ["🎬", "Event"], starter: ["✔", "Known from the start"] };
@@ -939,6 +1024,7 @@ function mergeInto(f, v) {
     items += arr.length;
   }
   if (v.done && typeof v.done === "object") for (const id of Object.keys(v.done)) if (v.done[id]) { f.done[id] = true; items++; }
+  for (const k of ["museum", "shipping"]) if (v.col && v.col[k]) for (const id in v.col[k]) if (v.col[k][id]) f.col[k][id] = true;
   for (const k of ["cooking", "crafting"]) {
     if (v.made && v.made[k]) for (const id in v.made[k]) if (v.made[k][id]) f.made[k][id] = true;
     if (v.shop && v.shop[k]) for (const id in v.shop[k]) if (v.shop[k][id]) f.shop[k][id] = true;
@@ -1130,7 +1216,7 @@ function toggleTheme() {
 if ($("theme")) { $("theme").onclick = toggleTheme; paintThemeButton(); }
 
 // ---------- shell ----------
-const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, crops: renderCrops, recipes: renderRecipes, fish: renderFish, map: renderMap, backup: renderBackup };
+const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, crops: renderCrops, recipes: renderRecipes, collections: renderCollections, fish: renderFish, map: renderMap, backup: renderBackup };
 function route() { const r = location.hash.slice(1); return ROUTES[r] ? r : "today"; }
 
 function render() {
@@ -1151,8 +1237,9 @@ function render() {
 window.addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
 window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = load(); state = store.farms[store.active]; render(); } });
 
-Promise.all([fetch(dataUrl("fish")).then(r => r.json()), fetch(dataUrl("bundles")).then(r => r.json()), fetch(dataUrl("villagers")).then(r => r.json()), fetch(dataUrl("recipes")).then(r => r.json()), fetch(dataUrl("crops")).then(r => r.json())])
-  .then(([fd, bd, vd, rd, cd]) => {
+Promise.all([fetch(dataUrl("fish")).then(r => r.json()), fetch(dataUrl("bundles")).then(r => r.json()), fetch(dataUrl("villagers")).then(r => r.json()), fetch(dataUrl("recipes")).then(r => r.json()), fetch(dataUrl("crops")).then(r => r.json()), fetch(dataUrl("collections")).then(r => r.json())])
+  .then(([fd, bd, vd, rd, cd, kd]) => {
+    COLL = kd;
     CROPS = cd.crops;
     RECIPES = { cooking: [], crafting: [], ...rd, img: rd.img || {} };
     FISH = fd.fish; ORDER = fd.order; SETS = bd.sets; VILLAGERS = vd.villagers; UNIVERSAL = vd.universal; ITEM_IMG = vd.itemImg || {};
