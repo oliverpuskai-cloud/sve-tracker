@@ -379,7 +379,7 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
   .farmbar{margin-top:8px;flex:1 1 auto;min-width:0;flex-wrap:wrap}
   .farmbar label{display:none}
   .farmbar select{max-width:55vw}
-  .menubtn{display:inline-flex;margin-top:8px}
+  .menubtn,.menubtn.searchbtn-m{display:inline-flex;margin-top:8px}
   .farmextra{display:none}
   .farmextra.active,header.open .farmextra{display:flex;flex-wrap:wrap;gap:8px;width:100%}
   .headright{display:none;width:100%;justify-content:flex-start;margin-top:4px}
@@ -426,3 +426,46 @@ footer .about{margin:0 0 10px;max-width:90ch;line-height:1.5}
 .rewards li{break-inside:avoid;margin:2px 0}
 .rewards li.got{color:var(--done-ink);text-decoration:line-through}
 .pond{border-top:none;padding-top:0}
+
+/* ---------- search everything ---------- */
+.searchbtn{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.88rem;color:var(--muted);background:var(--panel);border:2px solid var(--line);border-radius:6px;padding:4px 8px 4px 10px;margin-bottom:6px;cursor:pointer;min-width:200px}
+.searchbtn:hover{border-color:var(--accent);color:var(--ink)}
+.searchbtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.searchbtn .sl{flex:1;text-align:left}
+.menubtn.searchbtn-m{display:none}
+@media (max-width:1080px){.searchbtn{min-width:0}.searchbtn .sl,.searchbtn kbd{display:none}}
+.searchbtn kbd{font:inherit;font-size:.75rem;border:1px solid var(--line);border-radius:4px;padding:0 6px;background:var(--bg)}
+.flash{outline:4px solid var(--accent);outline-offset:3px;transition:outline-color .3s}
+dialog.search{width:min(720px,calc(100vw - 24px));max-height:min(80vh,760px);padding:0;margin:8vh auto auto;border:3px solid var(--wood);border-radius:6px;background:var(--panel);color:var(--ink);box-shadow:0 0 0 2px var(--wood-dark),inset 0 0 0 2px var(--wood-light),0 12px 40px rgba(30,15,5,.45);overflow:hidden}
+dialog.search[open]{display:flex;flex-direction:column}
+dialog.search::backdrop{background:rgba(40,25,10,.45)}
+.shead{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:2px solid var(--line)}
+.shead input{flex:1;min-width:0;font:inherit;font-size:1.05rem;padding:8px 10px;border:2px solid var(--line);border-radius:5px;background:var(--bg);color:var(--ink)}
+.shead input:focus{outline:none;border-color:var(--accent)}
+.sclose{font:inherit;font-size:1rem;border:2px solid var(--line);background:var(--panel);color:var(--ink);border-radius:5px;width:36px;height:36px;cursor:pointer;flex:none}
+.sclose:hover{border-color:var(--accent)}
+.sres{overflow-y:auto;padding:8px 14px 14px;overscroll-behavior:contain}
+.shint,.scount{color:var(--muted);font-size:.9rem;margin:8px 2px;line-height:1.8}
+.scount{margin:4px 2px 8px;font-size:.8rem}
+.stry{font:inherit;font-size:.85rem;border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:1px 10px;cursor:pointer}
+.stry:hover{border-color:var(--accent)}
+.sitem{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px dashed var(--line)}
+.sitem:first-of-type{border-top:0}
+.sitem>img,.sitem>.noimg{width:36px;height:36px;flex:none;object-fit:contain;image-rendering:pixelated;display:grid;place-items:center;color:var(--muted)}
+.sbody{flex:1;min-width:0}
+.sbody h3{font-family:var(--display);font-weight:500;font-size:1.1rem;margin:4px 0 4px}
+.sbody mark{background:var(--done);color:var(--done-ink);border-radius:2px}
+.sbody ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+.sfact{display:flex;gap:8px;align-items:baseline;width:100%;text-align:left;font:inherit;font-size:.86rem;line-height:1.4;color:var(--ink);background:none;border:1px solid transparent;border-radius:5px;padding:4px 6px}
+button.sfact{cursor:pointer}
+button.sfact:hover,button.sfact:focus-visible{background:var(--bg);border-color:var(--line);outline:none}
+.sico{flex:none;width:1.2em;text-align:center}
+.stxt{flex:1;min-width:0}
+.sgo{flex:none;font-size:.78rem;font-weight:700;color:var(--accent);white-space:nowrap}
+@media (max-width:700px){
+  .searchbtn{display:none}
+  .headrow{grid-template-columns:minmax(0,1fr) auto auto}
+  .menubtn.searchbtn-m{display:inline-flex}
+  dialog.search{margin-top:12px;max-height:calc(100dvh - 24px)}
+  .sgo{display:none}
+}

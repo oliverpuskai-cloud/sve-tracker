@@ -1,0 +1,16 @@
+{
+  "name": "Junimo Planner",
+  "short_name": "Junimo",
+  "description": "Stardew Valley and SVE planner and progress tracker: fish, bundles, villagers, crops, recipes and collections.",
+  "id": "/",
+  "start_url": "/#today",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#e6d6b0",
+  "theme_color": "#e6d6b0",
+  "icons": [
+    { "src": "img/icons/junimo-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "img/icons/junimo-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "img/icons/junimo-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

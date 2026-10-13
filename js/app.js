@@ -456,6 +456,7 @@ function renderBundles(main) {
       const d = donated(b.id), complete = bundleDone(b), flagged = !!state.done[b.id] && d.size < b.need;
       const el = document.createElement("div");
       el.className = "bundle" + (complete ? " complete" : "");
+      el.id = "b-" + b.id;
       el.innerHTML = `<div class="bhead"><h3>${esc(b.name)}</h3><span class="n">${flagged ? "Done" : Math.min(d.size, b.need) + " / " + b.need}${complete ? " ✓" : ""}</span></div>
         <p class="reward">Reward: ${esc(b.reward)}</p>${b.need < b.items.length ? `<p class="pick">Any ${b.need} of these ${b.items.length}</p>` : ""}<div class="items"></div><div class="bfoot"></div>`;
       el.querySelector(".bfoot").appendChild(bulkButton("b:" + b.id, complete, "All done", "Reset bundle", () => completeBundles([b]), () => resetBundles([b])));
@@ -1239,6 +1240,140 @@ function toggleTheme() {
   paintThemeButton();
 }
 if ($("theme")) { $("theme").onclick = toggleTheme; paintThemeButton(); }
+
+// ---------- search everything ----------
+// One box that looks through every list on the site and gathers what each page knows about a name:
+// a fish's times and places, who loves it, which recipes and bundles need it, whether it's donated…
+// Each line opens the page that has it, with that page's own search filled in.
+const listNames = (a, max = 6) => a.length <= max ? a.join(", ") : `${a.slice(0, max).join(", ")} and ${a.length - max} more`;
+function searchIndex() {
+  const idx = new Map(), got = caught();
+  const add = (name, img, fact) => {
+    const k = name.toLowerCase();
+    let e = idx.get(k);
+    if (!e) idx.set(k, e = { n: name, img: "", facts: [] });
+    if (!e.img && img) e.img = img;
+    if (fact) e.facts.push(fact);
+  };
+  const places = {};
+  for (const f of fishList()) {
+    const wx = f.w === "Any" ? "any weather" : f.w === "Rain" ? "rain only" : "sun only";
+    add(f.n, f.img, { icon: "🎣", text: `${f.c === "Fish" ? "Fish" : f.c}${f.s === "SVE" ? " (SVE)" : ""} · ${f.ss.join(", ")} · ${f.t} · ${wx} · ${f.l}${got.has(f.n) ? " · ✓ caught" : ""}`,
+      go: ["fish", () => Object.assign(listFilter, { q: f.n, season: "All", cat: "", src: "", hide: false })] });
+    for (const part of f.l.split(/[,;]/)) {
+      const place = part.split(/ [–-] |\(/)[0].trim();
+      if (place.length > 2 && place.length < 32) (places[place] ||= new Set()).add(f.n);
+    }
+  }
+  for (const [place, fish] of Object.entries(places)) {
+    if (idx.has(place.toLowerCase())) continue;
+    add(place, null, { icon: "📍", text: `Fishing spot · ${listNames([...fish], 8)}`, go: ["fish", () => Object.assign(listFilter, { q: place, season: "All", cat: "", src: "", hide: false })] });
+  }
+  const loves = {}, likes = {};
+  for (const v of villagerList()) {
+    add(v.n, v.img, { icon: "🎂", text: `Villager${v.sve ? " (SVE)" : ""} · ${v.b ? `birthday ${v.b.s} ${v.b.d}` : "no birthday listed"}${v.l.length ? ` · loves ${listNames(v.l, 4)}` : ""}`,
+      go: ["villagers", () => Object.assign(vilFilter, { q: v.n, who: "all" })] });
+    for (const i of v.l) (loves[i] ||= []).push(v.n);
+    for (const i of v.k) (likes[i] ||= []).push(v.n);
+  }
+  for (const [i, who] of Object.entries(loves)) add(i, ITEM_IMG[i], { icon: "❤", text: `Gift loved by ${listNames(who)}`, go: ["villagers", () => Object.assign(vilFilter, { q: i, who: "all" })] });
+  for (const [i, who] of Object.entries(likes)) add(i, ITEM_IMG[i], { icon: "🙂", text: `Gift liked by ${listNames(who)}`, go: ["villagers", () => Object.assign(vilFilter, { q: i, who: "all" })] });
+  for (const kind of ["cooking", "crafting"]) {
+    const uses = {}, icon = kind === "cooking" ? "🍳" : "🔨", open = q => ["recipes", () => Object.assign(recState, { kind, view: "list", q, src: "", unlock: "", hideMade: false })];
+    for (const r of recipeList(kind)) {
+      add(r.n, RECIPES.img[r.n], { icon, text: `${kind === "cooking" ? "Cooking" : "Crafting"} recipe · ${r.ing.map(([n, q]) => q > 1 ? `${n} ×${q}` : n).join(", ")} · ${r.src}${state.made[kind][r.id] ? " · ✓ made" : ""}`, go: open(r.n) });
+      for (const [n] of r.ing) (uses[n] ||= []).push(r.n);
+    }
+    for (const [n, rs] of Object.entries(uses)) add(n, ingImg(n), { icon, text: `Ingredient in ${listNames(rs)}`, go: open(n) });
+  }
+  for (const c of cropList()) {
+    const shops = [...new Set(c.shops.map(x => x.shop))];
+    add(c.n, c.img, { icon: "🌱", text: `Crop · ${c.seasons.join(", ")} · ${c.days} days${c.regrow ? `, regrows every ${c.regrow}` : ""} · sells for ${c.price}g${shops.length ? ` · ${c.seed} at ${shops.join(", ")}` : ""}` });
+  }
+  for (const r of rooms()) for (const b of r.bundles) {
+    const have = donated(b.id), done = bundleDone(b);
+    b.items.forEach((it, i) => add(it.n, itemImg(it), { icon: "🧺", text: `${b.name} bundle (${r.room})${it.q > 1 ? ` · ${it.q} needed` : ""}${it.gold ? " · gold quality" : it.silver ? " · silver quality" : ""}${done || have.has(i) ? " · ✓ done" : ""}`,
+      go: ["bundles", () => { store.prefs.hideDone = false; }, "b-" + b.id] }));
+  }
+  for (const m of COLL.museum) if (sveOn() || !m.sve)
+    add(m.n, m.img, { icon: "🏛", text: `Museum ${m.kind.toLowerCase()} · ${m.where.length > 90 ? m.where.slice(0, 90).replace(/\s+\S*$/, "") + "…" : m.where}${state.col.museum[m.id] ? " · ✓ donated" : ""}`, go: ["collections", () => Object.assign(colState, { part: "museum", q: m.n, kind: "", hide: false })] });
+  for (const x of COLL.shipping) if (sveOn() || !x.sve)
+    add(x.n, x.img, { icon: "📦", text: `Shipping collection · ${x.cat}${state.col.shipping[x.id] ? " · ✓ shipped" : ""}`, go: ["collections", () => Object.assign(colState, { part: "shipping", q: x.n, kind: "", hide: false })] });
+  return idx;
+}
+function searchFor(q) {
+  q = q.trim().toLowerCase();
+  if (q.length < 2) return [];
+  const rank = e => {
+    const n = e.n.toLowerCase();
+    return n === q ? 0 : n.startsWith(q) ? 1 : n.split(/[\s'-]+/).some(w => w.startsWith(q)) ? 2 : n.includes(q) ? 3 : 9;
+  };
+  return [...searchIndex().values()].map(e => [rank(e), e]).filter(([r]) => r < 9)
+    .sort((a, b) => a[0] - b[0] || a[1].n.localeCompare(b[1].n)).slice(0, 40).map(([, e]) => e);
+}
+let searchActs = [];
+function paintSearch() {
+  const q = $("sq").value, box = $("sres");
+  searchActs = [];
+  if (q.trim().length < 2) {
+    box.innerHTML = `<p class="shint">Search fish, villagers, gifts, recipes, ingredients, crops, bundles and collections at once. Try ${["Pufferfish", "Abigail", "Diamond", "Egg", "Fable Reef"].filter(t => t !== "Fable Reef" || sveOn()).map(t => `<button type="button" class="stry" data-try="${t}">${t}</button>`).join(" ")}</p>`;
+    return;
+  }
+  const res = searchFor(q);
+  if (!res.length) { box.innerHTML = `<p class="shint">Nothing found for “${esc(q.trim())}”.${sveOn() ? "" : " SVE content is switched off (Vanilla is selected at the top)."}</p>`; return; }
+  const ql = q.trim().toLowerCase();
+  const mark = n => { const i = n.toLowerCase().indexOf(ql); return i < 0 ? esc(n) : esc(n.slice(0, i)) + "<mark>" + esc(n.slice(i, i + ql.length)) + "</mark>" + esc(n.slice(i + ql.length)); };
+  box.innerHTML = `<p class="scount">${res.length === 40 ? "First 40 matches" : `${res.length} match${res.length === 1 ? "" : "es"}`}</p>` + res.map(e => `<article class="sitem">${e.img ? `<img alt="" loading="lazy" src="${e.img}">` : '<span class="noimg" aria-hidden="true">✱</span>'}
+      <div class="sbody"><h3>${mark(e.n)}</h3><ul>${e.facts.map(f => `<li>${f.go ? `<button type="button" class="sfact" data-a="${searchActs.push(f.go) - 1}">` : '<span class="sfact">'}<span class="sico" aria-hidden="true">${f.icon}</span><span class="stxt">${esc(f.text)}</span>${f.go ? '<span class="sgo">Open ›</span></button>' : "</span>"}</li>`).join("")}</ul></div></article>`).join("");
+}
+function openSearch() {
+  const d = $("search");
+  if (!d || d.open) return;
+  d.showModal();
+  requestAnimationFrame(() => { $("sq").focus(); $("sq").select(); });   // old text is selected, so typing replaces it
+  paintSearch();
+}
+function runSearchAct(i) {
+  const [page, set, focus] = searchActs[i];
+  set();
+  $("search").close();
+  const show = () => {
+    const el = focus && $(focus);
+    if (!el) return;
+    el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+    el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600);
+  };
+  if (location.hash === "#" + page) { window.scrollTo(0, 0); render(); requestAnimationFrame(show); }
+  else { window.addEventListener("hashchange", () => requestAnimationFrame(show), { once: true }); location.hash = page; }
+}
+if ($("search")) {
+  $("searchbtn").onclick = $("searchbtn2").onclick = openSearch;
+  $("sq").oninput = paintSearch;
+  $("sq").onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); if (searchActs.length) runSearchAct(0); } };
+  $("sclose").onclick = () => $("search").close();
+  $("search").onclick = e => {
+    if (e.target === $("search")) return $("search").close();   // click on the dimmed backdrop
+    const t = e.target.closest("[data-try],[data-a]");
+    if (!t) return;
+    if (t.dataset.try) { $("sq").value = t.dataset.try; paintSearch(); $("sq").focus(); }
+    else runSearchAct(+t.dataset.a);
+  };
+  document.addEventListener("keydown", e => {
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
+    if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !typing)) { e.preventDefault(); openSearch(); }
+  });
+}
+
+// ---------- installable app ----------
+// The service worker lets the site be installed ("Add to Home Screen") and open offline.
+// Only on the real https site, so local previews never get stuck on cached files.
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  navigator.serviceWorker.register("sw.js").then(() => navigator.serviceWorker.ready).then(reg => {
+    // hand over what this page already loaded, so it's there offline from the first visit
+    const urls = [location.origin + "/", ...performance.getEntriesByType("resource").map(e => e.name)];
+    reg.active?.postMessage({ type: "cache", urls });
+  }).catch(() => {});
+}
 
 // ---------- shell ----------
 const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, crops: renderCrops, recipes: renderRecipes, collections: renderCollections, fish: renderFish, map: renderMap, backup: renderBackup };

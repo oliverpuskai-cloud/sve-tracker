@@ -26,10 +26,17 @@
 <link rel="icon" type="image/png" sizes="32x32" href="img/icons/junimo-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="img/icons/junimo-16.png">
 <link rel="apple-touch-icon" href="img/icons/junimo-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#e6d6b0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#2b2018" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-title" content="Junimo">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
-<link rel="stylesheet" href="css/style.css?v=2026-10-12k">
+<link rel="stylesheet" href="css/style.css?v=2026-10-13a">
 </head>
 <body>
 <div class="wrap">
@@ -42,7 +49,7 @@
       <div class="mini" id="mini"></div>
     </div>
   </div>
-  <div class="headrow"><div class="farmbar" id="farmbar"></div><button type="button" class="menubtn" id="menubtn" aria-expanded="false" aria-controls="headright">☰ Menu</button><div class="headright" id="headright"><div class="account" id="account" hidden></div><div class="seg gameseg" id="game" role="group" aria-label="Game version"><button type="button" data-g="vanilla">Vanilla</button><button type="button" data-g="sve">SVE modded</button></div><button type="button" class="themebtn" id="theme" aria-label="Switch to night theme">🌙 Night</button></div></div>
+  <div class="headrow"><div class="farmbar" id="farmbar"></div><button type="button" class="menubtn searchbtn-m" id="searchbtn2" aria-haspopup="dialog" aria-controls="search" aria-label="Search everything">🔍</button><button type="button" class="menubtn" id="menubtn" aria-expanded="false" aria-controls="headright">☰ Menu</button><div class="headright" id="headright"><div class="account" id="account" hidden></div><div class="seg gameseg" id="game" role="group" aria-label="Game version"><button type="button" data-g="vanilla">Vanilla</button><button type="button" data-g="sve">SVE modded</button></div><button type="button" class="themebtn" id="theme" aria-label="Switch to night theme">🌙 Night</button></div></div>
   <nav class="main" aria-label="Sections">
     <a href="#today">Today</a>
     <a href="#bundles">Bundles</a>
@@ -53,8 +60,13 @@
     <a href="#fish">All fish</a>
     <a href="#map">Map</a>
     <a href="#backup">Backup</a>
+    <button type="button" class="searchbtn" id="searchbtn" aria-haspopup="dialog" aria-controls="search" title="Search everything (press / )"><span aria-hidden="true">🔍</span><span class="sl">Search everything</span><kbd aria-hidden="true">/</kbd></button>
   </nav>
 </header>
+<dialog id="search" class="search" aria-label="Search everything">
+  <div class="shead"><span aria-hidden="true">🔍</span><input type="search" id="sq" placeholder="Fish, villager, gift, recipe, crop, bundle item…" autocomplete="off" aria-label="Search everything"><button type="button" class="sclose" id="sclose" aria-label="Close search">✕</button></div>
+  <div class="sres" id="sres" aria-live="polite"></div>
+</dialog>
 <main id="view"><p class="empty">Loading…</p></main>
 <footer>
   <p class="about"><b>Junimo Planner</b> is a free planner and progress tracker for <b>Stardew Valley</b> and <b>Stardew Valley Expanded (SVE)</b>. See which fish you can catch today by season, weather and time, tick off Community Center bundles (standard, SVE Normal and SVE Hard), track your museum donations and shipping collection, look up villager birthdays and loved gifts, plan which crops to plant and whether to sell them raw or make wine and jelly, find every cooking and crafting recipe with its ingredients, and see every fishing spot on the map. Progress is saved per farm, in your browser or synced with a Google sign-in.</p>
@@ -63,7 +75,7 @@
   Fish data: SVE wiki + Stardew Valley wiki (game 1.6). Bundles: standard set from the Stardew Valley wiki, SVE Normal and Hard sets from the SVE wiki.
 </footer>
 </div>
-<script src="js/app.js?v=2026-10-12k" type="module"></script>
+<script src="js/app.js?v=2026-10-13a" type="module"></script>
 <!-- Cloudflare Web Analytics: cookie-free visitor counts --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "56c1af3d41d14104ac9767c62f8822ce"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
