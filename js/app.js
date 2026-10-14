@@ -624,7 +624,7 @@ function planCrop(c, ctx, opts) {
   }
   const lastAbs = seasonsLeft * 28 - g;                   // last day (counted from day 1 of this season) to plant
   const last = lastAbs >= 1 ? { season: SEASONS[(si + Math.floor((lastAbs - 1) / 28)) % 4], day: ((lastAbs - 1) % 28) + 1 } : null;
-  return { g, daysLeft, harvests, plantings, profit, perDay: harvests ? profit / daysLeft : 0, price, product, seed, last, ok: harvests > 0 };
+  return { g, daysLeft, harvests, plantings, profit, perDay: harvests ? profit / daysLeft : 0, price, product, seed, last, ok: harvests > 0, seasonsLeft, endSeason: SEASONS[(si + seasonsLeft - 1) % 4] };
 }
 
 function renderCrops(main) {
@@ -643,7 +643,7 @@ function renderCrops(main) {
       ${sveOn() ? `<label class="check"><input type="checkbox" id="c-jojaRoute" ${opts.jojaRoute ? "checked" : ""}> I'm on the Joja route (Joja Emporium seeds)</label>` : ""}
       <label class="check"><input type="checkbox" id="c-unsold" ${opts.unsold ? "checked" : ""}> Also show crops whose seeds aren't sold in shops (profit without seed cost)</label>
     </div>
-    <p class="lede">For one plant put in the ground on <b>${ctx.season} ${ctx.day}</b>, kept until the crop dies at the end of its season. Profit is base-quality value × harvests, minus seeds (single-harvest crops are replanted each time). ${opts.proc === "raw" ? "" : "Processing assumes you have enough Kegs or Jars; a Keg takes about a week for Wine and 4 days for Juice, a Jar 2–3 days. "} Prices and days from the Stardew Valley wiki${sveOn() ? " and the SVE wiki" : ""}.</p>
+    <p class="lede">For one plant put in the ground on <b>${ctx.season} ${ctx.day}</b>, kept until the crop dies at the end of its last season (crops that grow in several seasons keep going, so their total covers all of them). Profit is base-quality value × harvests, minus seeds (single-harvest crops are replanted each time). ${opts.proc === "raw" ? "" : "Processing assumes you have enough Kegs or Jars; a Keg takes about a week for Wine and 4 days for Juice, a Jar 2–3 days. "} Prices and days from the Stardew Valley wiki${sveOn() ? " and the SVE wiki" : ""}.</p>
     <div id="c-list"></div>`;
   main.appendChild(wrap);
   wireConditions(wrap, ctx, "c");
@@ -663,6 +663,7 @@ function renderCrops(main) {
     return `<article class="crop${p.ok ? "" : " late"}">
       <div class="chead"><img alt="" loading="lazy" src="${c.img}"><div class="cmeta"><h3>${esc(c.n)}</h3><div class="tags">${tags}</div></div>
         ${p.ok ? `<div class="cprofit"><b class="${p.profit < 0 ? "neg" : ""}">${p.profit.toLocaleString()}g</b><span>${p.perDay.toFixed(1)}g / day</span></div>` : '<div class="cprofit"><b class="neg">Too late</b></div>'}</div>
+      ${p.ok && p.seasonsLeft > 1 ? `<p class="cspan">Profit covers ${p.harvests} harvest${p.harvests === 1 ? "" : "s"}, until the end of ${p.endSeason}</p>` : ""}
       <dl class="cstats">
         <div><dt>Grows in</dt><dd>${p.g} day${p.g === 1 ? "" : "s"}${p.g !== c.days ? ` <s>${c.days}</s>` : ""}</dd></div>
         <div><dt>Harvests left</dt><dd>${p.harvests}${c.yield > 1 ? ` × ${c.yield}` : ""}</dd></div>

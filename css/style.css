@@ -407,6 +407,7 @@ footer{margin-top:40px;font-size:.78rem;color:var(--muted);border-top:1px solid 
 .cprofit b{display:block;font-family:var(--display);font-size:1.25rem;color:var(--done-ink);font-variant-numeric:tabular-nums}
 .cprofit b.neg{color:var(--warn)}
 .cprofit span{font-size:.75rem;color:var(--muted)}
+.cspan{margin:8px 0 0;font-size:.78rem;font-weight:700;color:var(--done-ink);background:var(--done);border-radius:4px;padding:3px 8px}
 .cstats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:10px 0 6px}
 .cstats div{background:var(--bg);border-radius:4px;padding:4px 6px;min-width:0}
 .cstats dt{font-size:.65rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
