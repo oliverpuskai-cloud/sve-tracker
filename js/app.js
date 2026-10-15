@@ -1398,7 +1398,7 @@ function openFeedback() {
 if ($("feedback")) {
   const d = $("feedback"), msg = $("fbmsg"), status = $("fbstatus"), send = $("fbsend");
   const say = (text, kind) => { status.textContent = text; status.className = "fbstatus " + (kind || ""); };
-  $("fbbtn").onclick = $("fbbtn2").onclick = openFeedback;
+  $("fbbtn").onclick = $("fbbtn2").onclick = $("fbfloat").onclick = openFeedback;
   $("fbclose").onclick = $("fbcancel").onclick = () => d.close();
   d.addEventListener("click", e => { if (e.target === d) d.close(); });
   d.querySelectorAll("#fbkind button").forEach(b => b.onclick = () => {

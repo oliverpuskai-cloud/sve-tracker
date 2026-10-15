@@ -508,3 +508,22 @@ button.sfact:hover,button.sfact:focus-visible{background:var(--bg);border-color:
 /* the three "What is it about?" choices: equal width, filling the row */
 #fbkind{display:grid;grid-template-columns:repeat(3,1fr)}
 #fbkind button{display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;padding:8px 6px;line-height:1.25}
+
+/* feedback buttons that stand out: green in the header, plus a floating one in the corner */
+.themebtn.fbhot{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.themebtn.fbhot:hover{filter:brightness(1.08);border-color:var(--accent)}
+.fbfloat{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:20;display:flex;align-items:center;gap:8px;font:inherit;color:var(--accent-ink);background:var(--accent);border:3px solid var(--wood);border-radius:999px;padding:6px 16px 6px 8px;cursor:pointer;box-shadow:0 0 0 2px var(--wood-dark),0 6px 16px rgba(40,20,5,.35);transition:transform .15s}
+.fbfloat:hover{transform:translateY(-2px)}
+.fbfloat:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.fbface{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--panel);font-size:1.15rem}
+.fbtxt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.1}
+.fbtxt b{font-family:var(--display);font-weight:500;font-size:1.05rem}
+.fbtxt small{font-size:.72rem;opacity:.9}
+@media (prefers-reduced-motion:no-preference){.fbfloat{animation:fbhello .8s ease-in-out 3s 2}}
+@keyframes fbhello{0%,100%{transform:translateY(0)}30%{transform:translateY(-6px) rotate(-3deg)}60%{transform:translateY(0) rotate(2deg)}}
+footer{padding-bottom:64px}
+@media (max-width:700px){
+  .fbfloat{padding:5px 12px 5px 6px}
+  .fbface{width:30px;height:30px;font-size:1rem}
+  .fbtxt small{display:none}
+}
