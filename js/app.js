@@ -22,12 +22,12 @@ const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, 
 // ---------- storage ----------
 function newPerf() { return { stardrops: {} }; }
 function newFarm(name) {
-  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], made: { cooking: {}, crafting: {} }, shop: { cooking: {}, crafting: {} }, col: { museum: {}, shipping: {} }, perf: newPerf(), qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
+  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], made: { cooking: {}, crafting: {} }, shop: { cooking: {}, crafting: {} }, col: { museum: {}, shipping: {} }, perf: newPerf(), maxed: {}, qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
 }
 function fixFarm(f, name) {
   const b = newFarm(name);
   // farms saved before bundle sets existed used the standard bundles
-  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [], made: { cooking: { ...(f && f.made && f.made.cooking) }, crafting: { ...(f && f.made && f.made.crafting) } }, shop: { cooking: { ...(f && f.shop && f.shop.cooking) }, crafting: { ...(f && f.shop && f.shop.crafting) } }, col: { museum: { ...(f && f.col && f.col.museum) }, shipping: { ...(f && f.col && f.col.shipping) } }, perf: { stardrops: { ...(f && f.perf && f.perf.stardrops) } } };
+  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [], made: { cooking: { ...(f && f.made && f.made.cooking) }, crafting: { ...(f && f.made && f.made.crafting) } }, shop: { cooking: { ...(f && f.shop && f.shop.cooking) }, crafting: { ...(f && f.shop && f.shop.crafting) } }, col: { museum: { ...(f && f.col && f.col.museum) }, shipping: { ...(f && f.col && f.col.shipping) } }, perf: { stardrops: { ...(f && f.perf && f.perf.stardrops) } }, maxed: { ...(f && f.maxed) } };
 }
 function load() {
   let v = null;
@@ -481,6 +481,8 @@ function renderBundles(main) {
 
 // ---------- VILLAGERS ----------
 const vilFilter = { q: "", who: "all", season: null };
+// villagers ticked "at max hearts" on this farm drop out of the birthday calendar and the list (into a folded section at the bottom)
+const isMaxed = v => !!state.maxed[v.id];
 const birthdaysOn = (season, day) => villagerList().filter(v => v.b && v.b.s === season && v.b.d === day);
 // days from (season, day) until a villager's next birthday (0 = today)
 function daysUntil(v, season, day) {
@@ -499,16 +501,21 @@ function villagerCard(v, q) {
   const ctx = state.today, until = daysUntil(v, ctx.season, ctx.day);
   const match = s => q && s.toLowerCase().includes(q);
   const el = document.createElement("article");
-  el.className = "villager" + (v.sve ? " sve" : "") + (until === 0 ? " bday" : "");
+  const maxed = isMaxed(v);
+  el.className = "villager" + (v.sve ? " sve" : "") + (until === 0 ? " bday" : "") + (maxed ? " maxed" : "");
   el.id = "v-" + v.id;
   const when = !v.b ? "No birthday listed" : `${v.b.s} ${v.b.d}` + (until === 0 ? ' · <b class="soon">Birthday today!</b>' : until <= 7 ? ` · <b class="soon">in ${until} day${until === 1 ? "" : "s"}</b>` : "");
-  el.innerHTML = `<div class="vhead"><img class="portrait" alt="" loading="lazy" src="${v.img}">
+  el.innerHTML = `<button type="button" class="maxbtn" aria-pressed="${maxed}" title="${maxed ? "Marked as max hearts: tap to undo" : "Mark as already at max hearts"}">${maxed ? "❤ Max hearts" : "♡ Max hearts?"}</button><div class="vhead"><img class="portrait" alt="" loading="lazy" src="${v.img}">
       <div class="vmeta"><h3>${esc(v.n)}${v.aka ? ` <small>(${esc(v.aka)})</small>` : ""}</h3>
       <div class="tags">${v.sve ? '<span class="tag sve">SVE</span>' : ""}${v.marry ? '<span class="tag need">Marriage</span>' : ""}${v.roommate ? '<span class="tag">Roommate</span>' : ""}</div>
       <p class="when">🎂 ${when}</p></div></div>
     <p class="glabel">Loves</p><div class="gifts">${v.l.map(i => giftChip(i, match(i))).join("") || '<span class="none">Only the universal loves</span>'}</div>
     ${v.note ? `<p class="gnote">${esc(v.note)}</p>` : ""}
     ${v.k.length ? `<details ${q && v.k.some(match) ? "open" : ""}><summary>Likes (${v.k.length})</summary><div class="gifts">${v.k.map(i => giftChip(i, match(i))).join("")}</div></details>` : ""}`;
+  el.querySelector(".maxbtn").onclick = () => {
+    if (maxed) delete state.maxed[v.id]; else state.maxed[v.id] = true;
+    save(); render();
+  };
   return el;
 }
 
@@ -520,6 +527,7 @@ function renderVillagers(main) {
       <div class="ctl"><span>Birthday calendar</span><div class="seg" id="v-season">${SEASONS.map(s => `<button data-s="${s}" style="--c:${SC[s]}" aria-pressed="${season === s}">${s}</button>`).join("")}</div></div>
       <div class="ctl" style="flex:1 1 220px"><span>Search a villager or a gift</span><input type="search" id="v-q" value="${esc(vilFilter.q)}" placeholder="e.g. Abigail, Diamond, Pink Cake…" style="font:inherit;padding:6px 10px;border:2px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)"></div>
       <div class="ctl"><span>Show</span><div class="seg" id="v-who">${[["all", "Everyone"], ["marry", "Marriage candidates"]].map(([k, l]) => `<button data-w="${k}" aria-pressed="${vilFilter.who === k}">${l}</button>`).join("")}</div></div>
+      <label class="check"><input type="checkbox" id="v-showmax" ${store.prefs.showMaxed ? "checked" : ""}> Show villagers at max hearts (${villagerList().filter(isMaxed).length})</label>
     </div>
     <section><h2>${season} birthdays<span>${season === ctx.season ? `today is ${ctx.season} ${ctx.day} (set on the Today tab)` : "tap a birthday to jump to that villager"}</span></h2><div class="cal" id="v-cal"></div></section>
     <div class="univbox"><b>Everyone loves</b> (almost) these, and a birthday gift counts 8× towards friendship:<div class="gifts" style="margin-top:6px">${universalLoves().map(i => giftChip(i, false)).join("")}</div></div>
@@ -530,7 +538,7 @@ function renderVillagers(main) {
   const cal = $("v-cal");
   cal.innerHTML = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(d => `<div class="dow">${d}</div>`).join("");
   for (let d = 1; d <= 28; d++) {
-    const who = birthdaysOn(season, d), ev = EVENTS[season]?.[d];
+    const who = birthdaysOn(season, d).filter(v => store.prefs.showMaxed || !isMaxed(v)), ev = EVENTS[season]?.[d];
     const cell = document.createElement("div");
     cell.className = "day" + (season === ctx.season && d === ctx.day ? " today" : "") + (who.length ? " has" : "");
     cell.innerHTML = `<span class="dn">${d}</span>${ev ? `<span class="fest">${esc(ev[0])}</span>` : ""}<span class="who">${who.map(v => `<button type="button" data-v="${v.id}" title="${esc(v.n)}"><img alt="${esc(v.n)}" src="${v.img}"><span>${esc(v.n)}</span></button>`).join("")}</span>`;
@@ -544,6 +552,7 @@ function renderVillagers(main) {
   wrap.querySelectorAll("#v-season button").forEach(b => b.onclick = () => { vilFilter.season = b.dataset.s; render(); });
   wrap.querySelectorAll("#v-who button").forEach(b => b.onclick = () => { vilFilter.who = b.dataset.w; render(); });
   $("v-q").oninput = e => { vilFilter.q = e.target.value; drawList(); };
+  $("v-showmax").onchange = e => { store.prefs.showMaxed = e.target.checked; save(); render(); };
 
   function drawList() {
     const q = vilFilter.q.trim().toLowerCase(), out = $("v-list");
@@ -562,10 +571,19 @@ function renderVillagers(main) {
     }
     // no search: soonest birthday first, from the Today tab's date
     list = [...list].sort((a, b) => daysUntil(a, ctx.season, ctx.day) - daysUntil(b, ctx.season, ctx.day) || a.n.localeCompare(b.n));
+    const done = store.prefs.showMaxed ? [] : list.filter(isMaxed), left = list.filter(v => !done.includes(v));
     const sec = document.createElement("section");
-    sec.innerHTML = `<h2>All villagers<span>${list.length} · next birthday first, counting from ${ctx.season} ${ctx.day}</span></h2><div class="vgrid"></div>`;
-    list.forEach(v => sec.querySelector(".vgrid").appendChild(villagerCard(v, "")));
+    sec.innerHTML = `<h2>${done.length ? "Still to max out" : "All villagers"}<span>${left.length} · next birthday first, counting from ${ctx.season} ${ctx.day}</span></h2><div class="vgrid"></div>`;
+    left.forEach(v => sec.querySelector(".vgrid").appendChild(villagerCard(v, "")));
+    if (!left.length) sec.querySelector(".vgrid").outerHTML = '<p class="empty">Everyone here is at max hearts. Nice work!</p>';
     out.appendChild(sec);
+    if (done.length) {
+      const fold = document.createElement("details");
+      fold.className = "maxfold";
+      fold.innerHTML = `<summary>❤ At max hearts <span>${done.length}</span></summary><div class="vgrid"></div>`;
+      done.forEach(v => fold.querySelector(".vgrid").appendChild(villagerCard(v, "")));
+      out.appendChild(fold);
+    }
   }
   drawList();
 }
@@ -1056,6 +1074,7 @@ function mergeInto(f, v) {
     if (v.made && v.made[k]) for (const id in v.made[k]) if (v.made[k][id]) f.made[k][id] = true;
     if (v.shop && v.shop[k]) for (const id in v.shop[k]) if (v.shop[k][id]) f.shop[k][id] = true;
   }
+  if (v.maxed && typeof v.maxed === "object") for (const id in v.maxed) if (v.maxed[id]) f.maxed[id] = true;
   if (Array.isArray(v.todos)) {
     const ids = new Set((f.todos || []).map(t => t.id));
     f.todos = [...(f.todos || []), ...v.todos.filter(t => t && t.id && !ids.has(t.id))];

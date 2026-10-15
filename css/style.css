@@ -470,3 +470,16 @@ button.sfact:hover,button.sfact:focus-visible{background:var(--bg);border-color:
   dialog.search{margin-top:12px;max-height:calc(100dvh - 24px)}
   .sgo{display:none}
 }
+
+/* ---------- villagers: "already at max hearts" ---------- */
+.villager{position:relative}
+.villager .vmeta h3{padding-right:104px}
+.maxbtn{position:absolute;top:10px;right:10px;font:inherit;font-size:.75rem;font-weight:700;color:var(--muted);background:var(--bg);border:2px solid var(--line);border-radius:999px;padding:2px 9px;cursor:pointer;white-space:nowrap}
+.maxbtn:hover{border-color:var(--heart,#c0446a);color:var(--ink)}
+.maxbtn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.maxbtn[aria-pressed="true"]{background:#c0446a;border-color:#c0446a;color:#fff}
+.villager.maxed{opacity:.85}
+.maxfold{margin-top:22px;border-top:2px solid var(--line);padding-top:10px}
+.maxfold>summary{font-family:var(--display);font-size:1.2rem;cursor:pointer;padding:4px 0}
+.maxfold>summary span{font-family:var(--body);font-size:.85rem;color:var(--muted);margin-left:6px}
+.maxfold[open]>summary{margin-bottom:10px}
