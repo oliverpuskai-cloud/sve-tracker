@@ -58,3 +58,12 @@ export const SUPABASE_ANON_KEY = "eyJ...";
 ```
 
 Never put the **service_role** / secret key or the Google client secret in the site.
+
+## 6. Feedback messages (optional)
+
+The site's **Feedback** button saves messages in a `feedback` table.
+
+1. In Supabase open **SQL Editor → New query**, paste `supabase/feedback.sql` and click **Run**.
+2. Read the messages under **Table Editor → feedback** (newest at the bottom; sort by `created_at`).
+
+Visitors can only send messages: Row Level Security has no read, change or delete policy, so nothing can be read back from the site.

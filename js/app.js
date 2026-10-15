@@ -2,11 +2,10 @@
 // Progress lives in localStorage under STORE_KEY; everything else is static data in /data.
 // The store holds several farms (one per save file); `state` always points at the active farm.
 
-import * as cloud from "./cloud.js";
-
 const STORE_KEY = "sve-tracker:v1";
-// the ?v= number on this script (set in index.html) is reused for the data files, so one bump refreshes both
+// the ?v= number on this script (set in index.html) is reused for the data files and cloud.js, so one bump refreshes them all
 const DATA_V = new URL(import.meta.url).searchParams.get("v") || "dev";
+const cloud = await import(`./cloud.js?v=${DATA_V}`);
 const dataUrl = name => `data/${name}.json?v=${DATA_V}`;
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
@@ -1382,6 +1381,52 @@ if ($("search")) {
     const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
     if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !typing)) { e.preventDefault(); openSearch(); }
   });
+}
+
+// ---------- feedback ----------
+// A small form that drops a row into the `feedback` table (insert-only, see supabase/feedback.sql).
+// Spam guards: a hidden field bots tend to fill, a length limit and one message per minute per browser.
+const FB_LAST = "sve-tracker:feedback-at";
+let fbKind = "idea";
+function openFeedback() {
+  const d = $("feedback");
+  if (!d || d.open) return;
+  $("fbstatus").textContent = ""; $("fbstatus").className = "fbstatus";
+  d.showModal();
+  requestAnimationFrame(() => $("fbmsg").focus());
+}
+if ($("feedback")) {
+  const d = $("feedback"), msg = $("fbmsg"), status = $("fbstatus"), send = $("fbsend");
+  const say = (text, kind) => { status.textContent = text; status.className = "fbstatus " + (kind || ""); };
+  $("fbbtn").onclick = $("fbbtn2").onclick = openFeedback;
+  $("fbclose").onclick = $("fbcancel").onclick = () => d.close();
+  d.addEventListener("click", e => { if (e.target === d) d.close(); });
+  d.querySelectorAll("#fbkind button").forEach(b => b.onclick = () => {
+    fbKind = b.dataset.k;
+    d.querySelectorAll("#fbkind button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    msg.placeholder = fbKind === "bug" ? "What went wrong, and on which page? e.g. The Pufferfish shows the wrong time…" : fbKind === "idea" ? "e.g. It would be great if the Crops page also showed…" : "Anything you'd like to say…";
+  });
+  msg.oninput = () => { $("fbcount").textContent = `${msg.value.length} / 2000`; };
+  $("fbform").onsubmit = async e => {
+    e.preventDefault();
+    const text = msg.value.trim();
+    if (text.length < 3) { say("Please write a few words first.", "err"); msg.focus(); return; }
+    if ($("fbweb").value) { say("Thanks, your message was sent!", "ok"); return; }   // a bot filled the hidden field
+    let last = 0;
+    try { last = +localStorage.getItem(FB_LAST) || 0; } catch (err) {}
+    if (Date.now() - last < 60000) { say("You just sent one, thank you! Please wait a minute before sending another.", "err"); return; }
+    send.disabled = true; say("Sending…");
+    let result = "error";
+    try { result = await cloud.sendFeedback({ kind: fbKind, message: text, contact: $("fbcontact").value.trim() || null, page: route(), game: sveOn() ? "sve" : "vanilla" }); } catch (err) {}
+    send.disabled = false;
+    if (result === "ok") {
+      try { localStorage.setItem(FB_LAST, String(Date.now())); } catch (err) {}
+      msg.value = ""; $("fbcontact").value = ""; $("fbcount").textContent = "0 / 2000";
+      say("Thank you! Your message was sent. 💚", "ok");
+      setTimeout(() => { if (d.open && status.classList.contains("ok")) d.close(); }, 2500);
+    } else if (result === "offline") say("Couldn't reach the server. Check your internet connection and try again.", "err");
+    else say("Sorry, sending didn't work right now. Please try again later.", "err");
+  };
 }
 
 // ---------- installable app ----------

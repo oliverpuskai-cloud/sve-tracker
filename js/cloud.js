@@ -103,3 +103,16 @@ export async function deleteCloudSave() {
   await signOut();
   return true;
 }
+
+// Send a message from the Feedback window. Works without signing in; the table only allows inserts
+// (see supabase/feedback.sql), so nothing can be read back from the site.
+export async function sendFeedback(row) {
+  if (!sb) return "offline";
+  try {
+    const { error } = await sb.from("feedback").insert(row);
+    if (!error) return "ok";
+    return error.code === "42P01" || error.code === "PGRST205" ? "setup" : "error";
+  } catch (e) {
+    return "offline";
+  }
+}

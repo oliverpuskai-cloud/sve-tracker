@@ -483,3 +483,26 @@ button.sfact:hover,button.sfact:focus-visible{background:var(--bg);border-color:
 .maxfold>summary{font-family:var(--display);font-size:1.2rem;cursor:pointer;padding:4px 0}
 .maxfold>summary span{font-family:var(--body);font-size:.85rem;color:var(--muted);margin-left:6px}
 .maxfold[open]>summary{margin-bottom:10px}
+
+/* ---------- feedback ---------- */
+.fbdlg{max-width:560px}
+.fbdlg form{display:flex;flex-direction:column;min-height:0}
+.fbhead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:2px solid var(--line)}
+.fbhead h2{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:0}
+.fbbody{padding:12px 16px 16px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
+.fblede{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}
+.fbfield{display:flex;flex-direction:column;gap:4px;font-size:.85rem;font-weight:700;color:var(--muted)}
+.fbfield i{font-weight:400;font-style:normal}
+.fbfield textarea,.fbfield input{font:inherit;font-weight:400;font-size:.95rem;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:5px;padding:8px 10px;resize:vertical}
+.fbfield textarea:focus,.fbfield input:focus{outline:none;border-color:var(--accent)}
+.fbfield small{align-self:flex-end;font-weight:400;font-size:.75rem}
+.fbtrap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.fbstatus{margin:0;font-size:.9rem;font-weight:700;min-height:1.2em}
+.fbstatus.ok{color:var(--done-ink)}
+.fbstatus.err{color:var(--warn)}
+.fbactions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fbnote{margin-right:auto;font-size:.78rem;color:var(--muted)}
+.fbnote a{color:inherit}
+#fbsend:disabled{opacity:.6;cursor:wait}
+.fbcta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--panel);border:2px solid var(--line);border-radius:6px;padding:12px 14px;margin-bottom:14px;font-size:.92rem;color:var(--ink)}
+@media (max-width:700px){#fbkind{flex-wrap:wrap}}

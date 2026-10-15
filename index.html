@@ -36,7 +36,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
-<link rel="stylesheet" href="css/style.css?v=2026-10-15a">
+<link rel="stylesheet" href="css/style.css?v=2026-10-15b">
 </head>
 <body>
 <div class="wrap">
@@ -49,7 +49,7 @@
       <div class="mini" id="mini"></div>
     </div>
   </div>
-  <div class="headrow"><div class="farmbar" id="farmbar"></div><button type="button" class="menubtn searchbtn-m" id="searchbtn2" aria-haspopup="dialog" aria-controls="search" aria-label="Search everything">🔍</button><button type="button" class="menubtn" id="menubtn" aria-expanded="false" aria-controls="headright">☰ Menu</button><div class="headright" id="headright"><div class="account" id="account" hidden></div><div class="seg gameseg" id="game" role="group" aria-label="Game version"><button type="button" data-g="vanilla">Vanilla</button><button type="button" data-g="sve">SVE modded</button></div><button type="button" class="themebtn" id="theme" aria-label="Switch to night theme">🌙 Night</button></div></div>
+  <div class="headrow"><div class="farmbar" id="farmbar"></div><button type="button" class="menubtn searchbtn-m" id="searchbtn2" aria-haspopup="dialog" aria-controls="search" aria-label="Search everything">🔍</button><button type="button" class="menubtn" id="menubtn" aria-expanded="false" aria-controls="headright">☰ Menu</button><div class="headright" id="headright"><div class="account" id="account" hidden></div><div class="seg gameseg" id="game" role="group" aria-label="Game version"><button type="button" data-g="vanilla">Vanilla</button><button type="button" data-g="sve">SVE modded</button></div><button type="button" class="themebtn" id="fbbtn" aria-haspopup="dialog" aria-controls="feedback">💬 Feedback</button><button type="button" class="themebtn" id="theme" aria-label="Switch to night theme">🌙 Night</button></div></div>
   <nav class="main" aria-label="Sections">
     <a href="#today">Today</a>
     <a href="#bundles">Bundles</a>
@@ -67,15 +67,30 @@
   <div class="shead"><span aria-hidden="true">🔍</span><input type="search" id="sq" placeholder="Fish, villager, gift, recipe, crop, bundle item…" autocomplete="off" aria-label="Search everything"><button type="button" class="sclose" id="sclose" aria-label="Close search">✕</button></div>
   <div class="sres" id="sres" aria-live="polite"></div>
 </dialog>
+<dialog id="feedback" class="search fbdlg" aria-labelledby="fbtitle">
+  <form id="fbform" novalidate>
+    <div class="fbhead"><h2 id="fbtitle">💬 Send feedback</h2><button type="button" class="sclose" id="fbclose" aria-label="Close">✕</button></div>
+    <div class="fbbody">
+      <p class="fblede">Ideas, things you're missing, mistakes in the data… Every message is read. Thank you for helping make the site better!</p>
+      <div class="ctl"><span>What is it about?</span><div class="seg" id="fbkind" role="group" aria-label="Type of feedback"><button type="button" data-k="idea" aria-pressed="true">💡 Idea</button><button type="button" data-k="bug" aria-pressed="false">🐞 Something's wrong</button><button type="button" data-k="other" aria-pressed="false">💬 Other</button></div></div>
+      <label class="fbfield"><span>Your message</span><textarea id="fbmsg" rows="6" maxlength="2000" required placeholder="e.g. It would be great if the Crops page also showed…"></textarea><small id="fbcount">0 / 2000</small></label>
+      <label class="fbfield"><span>Email or Discord name <i>(optional, only if you'd like an answer)</i></span><input type="text" id="fbcontact" maxlength="200" autocomplete="email"></label>
+      <label class="fbtrap" aria-hidden="true">Leave this empty<input type="text" id="fbweb" tabindex="-1" autocomplete="off"></label>
+      <p class="fbstatus" id="fbstatus" role="status"></p>
+      <div class="fbactions"><span class="fbnote">Stored privately, see <a href="privacy.html">privacy</a>.</span><button type="button" class="btn" id="fbcancel">Cancel</button><button type="submit" class="btn primary" id="fbsend">Send</button></div>
+    </div>
+  </form>
+</dialog>
 <main id="view"><p class="empty">Loading…</p></main>
 <footer>
+  <div class="fbcta"><div><b>Have an idea or found a mistake?</b> Tell me what would make Junimo Planner more useful for you.</div><button type="button" class="btn primary" id="fbbtn2" aria-haspopup="dialog" aria-controls="feedback">💬 Send feedback</button></div>
   <p class="about"><b>Junimo Planner</b> is a free planner and progress tracker for <b>Stardew Valley</b> and <b>Stardew Valley Expanded (SVE)</b>. See which fish you can catch today by season, weather and time, tick off Community Center bundles (standard, SVE Normal and SVE Hard), track your museum donations and shipping collection, look up villager birthdays and loved gifts, plan which crops to plant and whether to sell them raw or make wine and jelly, find every cooking and crafting recipe with its ingredients, and see every fishing spot on the map. Progress is saved per farm, in your browser or synced with a Google sign-in.</p>
   Fan-made, free and not affiliated with ConcernedApe or FlashShifter. Fish and item sprites and the valley map © ConcernedApe; SVE sprites © FlashShifter, via stardewvalleywiki.com and stardewvalleyexpanded.wiki.gg.
   Signing in is optional; it stores your Google email and your progress with Supabase only so it can sync (<a href="privacy.html">privacy</a>).
   Fish data: SVE wiki + Stardew Valley wiki (game 1.6). Bundles: standard set from the Stardew Valley wiki, SVE Normal and Hard sets from the SVE wiki.
 </footer>
 </div>
-<script src="js/app.js?v=2026-10-15a" type="module"></script>
+<script src="js/app.js?v=2026-10-15b" type="module"></script>
 <!-- Cloudflare Web Analytics: cookie-free visitor counts --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "56c1af3d41d14104ac9767c62f8822ce"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
