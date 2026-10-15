@@ -527,3 +527,44 @@ footer{padding-bottom:64px}
   .fbface{width:30px;height:30px;font-size:1rem}
   .fbtxt small{display:none}
 }
+
+/* ---------- movie theater (Villagers page) ---------- */
+.vview{margin-top:16px}
+.vview .seg{display:inline-flex}
+.vview .seg button{font-size:.95rem;padding:7px 14px}
+.mline{margin-top:10px;border-top:1px dashed var(--line);padding-top:6px}
+.mline>summary{cursor:pointer;font-size:.82rem;font-weight:700;color:var(--muted);list-style-position:inside}
+.mline .mlove{color:var(--done-ink)}
+.mline .mhate{color:var(--warn)}
+.gift.movie{font-weight:700}
+.gift.movie.now{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.nowshow{display:flex;flex-direction:column;gap:2px;margin-top:14px;background:var(--done);border:2px solid var(--done-line);border-radius:6px;padding:10px 14px;color:var(--done-ink)}
+.nslabel{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.nslabel small{text-transform:none;letter-spacing:0;font-weight:400}
+.nowshow b{font-family:var(--display);font-weight:500;font-size:1.35rem}
+.mgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.mseason h3{font-family:var(--display);font-weight:500;font-size:1.1rem;margin:0 0 6px;color:var(--c)}
+.mseason{display:flex;flex-direction:column;gap:8px}
+.mbtn{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;font:inherit;color:var(--ink);background:var(--panel);border:2px solid var(--line);border-left:5px solid var(--c);border-radius:6px;padding:8px 10px;cursor:pointer}
+.mbtn:hover{border-color:var(--accent);border-left-color:var(--c)}
+.mbtn[aria-pressed="true"]{background:var(--done);border-color:var(--done-line);border-left-color:var(--c)}
+.mbtn b{font-size:.9rem;line-height:1.25}
+.mbtn small{font-size:.75rem;color:var(--muted)}
+.nowtag{font-size:.68rem;font-weight:700;color:var(--accent-ink);background:var(--accent);border-radius:999px;padding:0 7px;margin-top:3px}
+.mpick{margin-top:18px;background:var(--panel);padding:12px 16px;border:3px solid var(--wood);border-radius:5px;box-shadow:0 0 0 1px var(--wood-dark),inset 0 0 0 1px var(--wood-light),0 3px 0 1px rgba(60,35,15,.2)}
+.mpick h2{margin-top:0}
+.faces{display:flex;flex-wrap:wrap;gap:6px}
+.vface{display:flex;flex-direction:column;align-items:center;gap:2px;width:68px;font:inherit;font-size:.72rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:4px 2px;cursor:pointer}
+.vface:hover{border-color:var(--accent)}
+.vface img{width:44px;height:44px;object-fit:cover;border-radius:4px;image-rendering:pixelated}
+.vface span{max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.faces.sm .vface{width:56px}
+.faces.sm .vface img{width:34px;height:34px}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.snack{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.shead2{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.shead2 img{width:32px;height:32px;image-rendering:pixelated}
+.shead2 b{display:block;font-size:.92rem}
+.shead2 small{font-size:.75rem;color:var(--muted)}
+@media (max-width:900px){.mgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.mgrid{grid-template-columns:1fr}}

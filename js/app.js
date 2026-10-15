@@ -10,7 +10,7 @@ const dataUrl = name => `data/${name}.json?v=${DATA_V}`;
 const SEASONS = ["Spring", "Summer", "Fall", "Winter"];
 const SC = { Spring: "var(--sp)", Summer: "var(--su)", Fall: "var(--fa)", Winter: "var(--wi)" };
 
-let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {}, RECIPES = { cooking: [], crafting: [], img: {} }, CROPS = [], COLL = { museum: [], shipping: [], milestones: [], special: [] }, STARDROPS = [];
+let FISH = [], ORDER = [], SETS = {}, BY_NAME = {}, VILLAGERS = [], UNIVERSAL = { vanilla: [], sve: [] }, ITEM_IMG = {}, RECIPES = { cooking: [], crafting: [], img: {} }, CROPS = [], COLL = { museum: [], shipping: [], milestones: [], special: [] }, STARDROPS = [], MOVIES = { movies: [], snacks: [], everyone: { love: [], dislike: [] }, people: {} };
 let store = load();
 let state = store.farms[store.active];
 
@@ -479,7 +479,7 @@ function renderBundles(main) {
 }
 
 // ---------- VILLAGERS ----------
-const vilFilter = { q: "", who: "all", season: null };
+const vilFilter = { q: "", who: "all", season: null, view: "people", movie: "" };
 // villagers ticked "at max hearts" on this farm drop out of the birthday calendar and the list (into a folded section at the bottom)
 const isMaxed = v => !!state.maxed[v.id];
 const birthdaysOn = (season, day) => villagerList().filter(v => v.b && v.b.s === season && v.b.d === day);
@@ -496,6 +496,26 @@ function giftChip(item, hit) {
   const now = f && availableOn(f, state.today) ? ' title="Catchable on the day set in Today"' : "";
   return `<span class="gift${hit ? " hit" : ""}${f ? " fishy" : ""}"${now}>${pic}${esc(item)}${f && now ? " 🎣" : ""}</span>`;
 }
+// ---------- movie theater ----------
+// Movies rotate by season and year (odd / even); tastes come from the game's own data files (see data/movies.json).
+const movieById = id => MOVIES.movies.find(m => m.id === id);
+const snackImg = n => MOVIES.snacks.find(x => x.n === n)?.img || "";
+const nowShowing = ctx => MOVIES.movies.find(m => m.season === ctx.season && m.year === (((ctx.year || 1) - 1) % 2 === 0 ? "odd" : "even"));
+const movieTaste = (v, id) => MOVIES.people[v.id]?.movies[id] || "like";
+const snackChip = (n, hit) => `<span class="gift${hit ? " hit" : ""}">${snackImg(n) ? `<img alt="" loading="lazy" src="${snackImg(n)}">` : ""}${esc(n)}</span>`;
+function movieLine(v, match) {
+  const p = MOVIES.people[v.id];
+  if (!p) return "";
+  const by = r => Object.entries(p.movies).filter(([, x]) => x === r).map(([id]) => movieById(id)).filter(Boolean);
+  const loves = by("love"), hates = by("dislike"), now = nowShowing(state.today);
+  const mchip = m => `<span class="gift movie${match(m.title) ? " hit" : ""}${now && now.id === m.id ? " now" : ""}" title="${m.season}, ${m.year} years">🎬 ${esc(m.title)}</span>`;
+  const snacks = p.snacks.love.length ? p.snacks.love : p.snacks.like.slice(0, 3);
+  return `<details class="mline"${match && (loves.some(m => match(m.title)) || [...p.snacks.love, ...p.snacks.like].some(match)) ? " open" : ""}><summary>🎬 Movie night${now ? ` · ${movieTaste(v, now.id) === "love" ? "<b class=\"mlove\">loves this season's movie</b>" : movieTaste(v, now.id) === "dislike" ? "<b class=\"mhate\">dislikes this season's movie</b>" : "fine with this season's movie"}` : ""}</summary>
+    <p class="glabel">Loves</p><div class="gifts">${loves.map(mchip).join("") || '<span class="none">No favourite: likes most movies</span>'}</div>
+    ${hates.length ? `<p class="glabel">Dislikes</p><div class="gifts">${hates.map(mchip).join("")}</div>` : ""}
+    <p class="glabel">${p.snacks.love.length ? "Loved snack" + (p.snacks.love.length > 1 ? "s" : "") : snacks.length ? "Liked snacks" : "Snacks"}</p><div class="gifts">${snacks.map(n => snackChip(n, match(n))).join("") || '<span class="none">Only the Stardrop Sorbet everyone loves</span>'}</div>
+    ${p.snacks.dislike.length ? `<p class="gnote">Avoid: ${p.snacks.dislike.map(esc).join(", ")}</p>` : ""}</details>`;
+}
 function villagerCard(v, q) {
   const ctx = state.today, until = daysUntil(v, ctx.season, ctx.day);
   const match = s => q && s.toLowerCase().includes(q);
@@ -510,6 +530,7 @@ function villagerCard(v, q) {
       <p class="when">🎂 ${when}</p></div></div>
     <p class="glabel">Loves</p><div class="gifts">${v.l.map(i => giftChip(i, match(i))).join("") || '<span class="none">Only the universal loves</span>'}</div>
     ${v.note ? `<p class="gnote">${esc(v.note)}</p>` : ""}
+    ${movieLine(v, s => !!(q && s.toLowerCase().includes(q)))}
     ${v.k.length ? `<details ${q && v.k.some(match) ? "open" : ""}><summary>Likes (${v.k.length})</summary><div class="gifts">${v.k.map(i => giftChip(i, match(i))).join("")}</div></details>` : ""}`;
   el.querySelector(".maxbtn").onclick = () => {
     if (maxed) delete state.maxed[v.id]; else state.maxed[v.id] = true;
@@ -518,7 +539,53 @@ function villagerCard(v, q) {
   return el;
 }
 
+function viewSwitch() {
+  const d = document.createElement("div");
+  d.className = "vview";
+  d.innerHTML = `<div class="seg" role="group" aria-label="Villagers page view"><button type="button" data-view="people" aria-pressed="${vilFilter.view !== "theater"}">👥 Villagers</button><button type="button" data-view="theater" aria-pressed="${vilFilter.view === "theater"}">🎬 Movie theater</button></div>`;
+  d.querySelectorAll("button").forEach(b => b.onclick = () => { vilFilter.view = b.dataset.view; window.scrollTo(0, 0); render(); });
+  return d;
+}
+function jumpToVillager(id) {
+  vilFilter.view = "people"; vilFilter.q = ""; render();
+  const el = document.getElementById("v-" + id);
+  if (el) { el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600); }
+}
+function renderTheater(main) {
+  const ctx = state.today, now = nowShowing(ctx);
+  const people = villagerList().filter(v => MOVIES.people[v.id] && (vilFilter.who === "all" || v.marry));
+  const pick = movieById(vilFilter.movie) || now || MOVIES.movies[0];
+  const face = v => `<button type="button" class="vface" data-v="${v.id}" title="${esc(v.n)}"><img alt="" loading="lazy" src="${v.img}"><span>${esc(v.n)}</span></button>`;
+  const lovers = people.filter(v => movieTaste(v, pick.id) === "love"), haters = people.filter(v => movieTaste(v, pick.id) === "dislike");
+  const yearTxt = m => m.year === "odd" ? "Year 1, 3, 5…" : "Year 2, 4, 6…";
+  const wrap = document.createElement("div");
+  wrap.innerHTML = `<div class="controls">
+      <div class="ctl"><span>Show</span><div class="seg" id="v-who">${[["all", "Everyone"], ["marry", "Marriage candidates"]].map(([k, l]) => `<button data-w="${k}" aria-pressed="${vilFilter.who === k}">${l}</button>`).join("")}</div></div>
+    </div>
+    <p class="lede">Buy a <b>Movie Ticket</b> (1,000g) at the theater's box office and give it to a villager to invite them, then meet them at the theater (open 9am to 9pm). A movie they love, plus a snack they love from the concession stand, makes the biggest jump in friendship. The movie changes every season and alternates between odd and even years.</p>
+    ${now ? `<div class="nowshow"><span class="nslabel">Now showing · ${ctx.season}, Year ${ctx.year || 1} <small>(set on the Today tab)</small></span><b>🎬 ${esc(now.title)}</b></div>` : ""}
+    <section><h2>Movies<span>tap one to see who loves it</span></h2>
+      <div class="mgrid">${["Spring", "Summer", "Fall", "Winter"].map(sea => `<div class="mseason" style="--c:${SC[sea]}"><h3>${sea}</h3>${MOVIES.movies.filter(m => m.season === sea).map(m => `<button type="button" class="mbtn${now && now.id === m.id ? " now" : ""}" data-m="${m.id}" aria-pressed="${pick.id === m.id}"><b>${esc(m.title)}</b><small>${yearTxt(m)} · ${m.tags.join(", ")}</small>${now && now.id === m.id ? '<span class="nowtag">Now showing</span>' : ""}</button>`).join("")}</div>`).join("")}</div>
+    </section>
+    <section class="mpick panel"><h2>🎬 ${esc(pick.title)}<span>${pick.season} · ${yearTxt(pick)} · ${pick.tags.join(", ")}</span></h2>
+      <p class="lede" style="margin-top:4px">${esc(pick.desc)}</p>
+      <p class="glabel">❤ Loves it (${lovers.length})</p><div class="faces">${lovers.map(face).join("") || '<span class="none">Nobody loves this one.</span>'}</div>
+      <p class="glabel">✗ Dislikes it (${haters.length})</p><div class="faces">${haters.map(face).join("") || '<span class="none">Nobody dislikes it.</span>'}</div>
+      <p class="gnote">Everyone else likes it.</p>
+    </section>
+    <section><h2>Snacks<span>who loves each snack at the concession stand</span></h2>
+      <p class="lede" style="margin-top:0">Everyone loves the <b>Stardrop Sorbet</b> (1,250g). Nobody likes <b>Black Licorice</b> or the <b>Joja</b> snacks, unless their card says otherwise.</p>
+      <div class="sgrid">${MOVIES.snacks.map(x => { const fans = people.filter(v => MOVIES.people[v.id].snacks.love.includes(x.n)); return `<div class="snack"><div class="shead2"><img alt="" loading="lazy" src="${x.img}"><div><b>${esc(x.n)}</b><small>${x.price.toLocaleString()}g${x.tags.length ? " · " + x.tags.join(", ").toLowerCase() : ""}</small></div></div><div class="faces sm">${fans.map(face).join("") || `<span class="none">${MOVIES.everyone.love.includes(x.n) ? "Everyone!" : "Nobody's favourite"}</span>`}</div></div>`; }).join("")}</div>
+    </section>`;
+  main.appendChild(wrap);
+  wrap.querySelectorAll("#v-who button").forEach(b => b.onclick = () => { vilFilter.who = b.dataset.w; render(); });
+  wrap.querySelectorAll(".mbtn").forEach(b => b.onclick = () => { vilFilter.movie = b.dataset.m; render(); wrap.isConnected || document.querySelector(".mpick")?.scrollIntoView({ block: "nearest" }); });
+  wrap.querySelectorAll(".vface").forEach(b => b.onclick = () => jumpToVillager(b.dataset.v));
+}
+
 function renderVillagers(main) {
+  main.appendChild(viewSwitch());
+  if (vilFilter.view === "theater") return renderTheater(main);
   const ctx = state.today, season = vilFilter.season || ctx.season;
   const q = vilFilter.q.trim().toLowerCase();
   const wrap = document.createElement("div");
@@ -1291,12 +1358,12 @@ function searchIndex() {
   const loves = {}, likes = {};
   for (const v of villagerList()) {
     add(v.n, v.img, { icon: "🎂", text: `Villager${v.sve ? " (SVE)" : ""} · ${v.b ? `birthday ${v.b.s} ${v.b.d}` : "no birthday listed"}${v.l.length ? ` · loves ${listNames(v.l, 4)}` : ""}`,
-      go: ["villagers", () => Object.assign(vilFilter, { q: v.n, who: "all" })] });
+      go: ["villagers", () => Object.assign(vilFilter, { q: v.n, who: "all", view: "people" })] });
     for (const i of v.l) (loves[i] ||= []).push(v.n);
     for (const i of v.k) (likes[i] ||= []).push(v.n);
   }
-  for (const [i, who] of Object.entries(loves)) add(i, ITEM_IMG[i], { icon: "❤", text: `Gift loved by ${listNames(who)}`, go: ["villagers", () => Object.assign(vilFilter, { q: i, who: "all" })] });
-  for (const [i, who] of Object.entries(likes)) add(i, ITEM_IMG[i], { icon: "🙂", text: `Gift liked by ${listNames(who)}`, go: ["villagers", () => Object.assign(vilFilter, { q: i, who: "all" })] });
+  for (const [i, who] of Object.entries(loves)) add(i, ITEM_IMG[i], { icon: "❤", text: `Gift loved by ${listNames(who)}`, go: ["villagers", () => Object.assign(vilFilter, { q: i, who: "all", view: "people" })] });
+  for (const [i, who] of Object.entries(likes)) add(i, ITEM_IMG[i], { icon: "🙂", text: `Gift liked by ${listNames(who)}`, go: ["villagers", () => Object.assign(vilFilter, { q: i, who: "all", view: "people" })] });
   for (const kind of ["cooking", "crafting"]) {
     const uses = {}, icon = kind === "cooking" ? "🍳" : "🔨", open = q => ["recipes", () => Object.assign(recState, { kind, view: "list", q, src: "", unlock: "", hideMade: false })];
     for (const r of recipeList(kind)) {
@@ -1313,6 +1380,15 @@ function searchIndex() {
     const have = donated(b.id), done = bundleDone(b);
     b.items.forEach((it, i) => add(it.n, itemImg(it), { icon: "🧺", text: `${b.name} bundle (${r.room})${it.q > 1 ? ` · ${it.q} needed` : ""}${it.gold ? " · gold quality" : it.silver ? " · silver quality" : ""}${done || have.has(i) ? " · ✓ done" : ""}`,
       go: ["bundles", () => { store.prefs.hideDone = false; }, "b-" + b.id] }));
+  }
+  const vs = villagerList().filter(v => MOVIES.people[v.id]);
+  for (const m of MOVIES.movies) {
+    const fans = vs.filter(v => movieTaste(v, m.id) === "love").map(v => v.n);
+    add(m.title, null, { icon: "🎬", text: `Movie · ${m.season}, ${m.year} years · ${m.tags.join(", ")}${fans.length ? ` · loved by ${listNames(fans)}` : ""}`, go: ["villagers", () => Object.assign(vilFilter, { view: "theater", movie: m.id })] });
+  }
+  for (const x of MOVIES.snacks) {
+    const fans = vs.filter(v => MOVIES.people[v.id].snacks.love.includes(x.n)).map(v => v.n);
+    add(x.n, x.img, { icon: "🍿", text: `Movie snack · ${x.price.toLocaleString()}g${MOVIES.everyone.love.includes(x.n) ? " · everyone loves it" : fans.length ? ` · loved by ${listNames(fans)}` : ""}`, go: ["villagers", () => Object.assign(vilFilter, { view: "theater" })] });
   }
   for (const m of COLL.museum) if (sveOn() || !m.sve)
     add(m.n, m.img, { icon: "🏛", text: `Museum ${m.kind.toLowerCase()} · ${m.where.length > 90 ? m.where.slice(0, 90).replace(/\s+\S*$/, "") + "…" : m.where}${state.col.museum[m.id] ? " · ✓ donated" : ""}`, go: ["collections", () => Object.assign(colState, { part: "museum", q: m.n, kind: "", hide: false })] });
@@ -1464,9 +1540,10 @@ function render() {
 window.addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
 window.addEventListener("storage", e => { if (e.key === STORE_KEY) { store = load(); state = store.farms[store.active]; render(); } });
 
-Promise.all([fetch(dataUrl("fish")).then(r => r.json()), fetch(dataUrl("bundles")).then(r => r.json()), fetch(dataUrl("villagers")).then(r => r.json()), fetch(dataUrl("recipes")).then(r => r.json()), fetch(dataUrl("crops")).then(r => r.json()), fetch(dataUrl("collections")).then(r => r.json()), fetch(dataUrl("stardrops")).then(r => r.json())])
-  .then(([fd, bd, vd, rd, cd, kd, pd]) => {
+Promise.all([fetch(dataUrl("fish")).then(r => r.json()), fetch(dataUrl("bundles")).then(r => r.json()), fetch(dataUrl("villagers")).then(r => r.json()), fetch(dataUrl("recipes")).then(r => r.json()), fetch(dataUrl("crops")).then(r => r.json()), fetch(dataUrl("collections")).then(r => r.json()), fetch(dataUrl("stardrops")).then(r => r.json()), fetch(dataUrl("movies")).then(r => r.json())])
+  .then(([fd, bd, vd, rd, cd, kd, pd, md]) => {
     STARDROPS = pd.stardrops;
+    MOVIES = md;
     COLL = kd;
     CROPS = cd.crops;
     RECIPES = { cooking: [], crafting: [], ...rd, img: rd.img || {} };
