@@ -505,4 +505,6 @@ button.sfact:hover,button.sfact:focus-visible{background:var(--bg);border-color:
 .fbnote a{color:inherit}
 #fbsend:disabled{opacity:.6;cursor:wait}
 .fbcta{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--panel);border:2px solid var(--line);border-radius:6px;padding:12px 14px;margin-bottom:14px;font-size:.92rem;color:var(--ink)}
-@media (max-width:700px){#fbkind{flex-wrap:wrap}}
+/* the three "What is it about?" choices: equal width, filling the row */
+#fbkind{display:grid;grid-template-columns:repeat(3,1fr)}
+#fbkind button{display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;padding:8px 6px;line-height:1.25}

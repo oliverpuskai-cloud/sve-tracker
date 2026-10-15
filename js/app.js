@@ -1411,13 +1411,15 @@ if ($("feedback")) {
     e.preventDefault();
     const text = msg.value.trim();
     if (text.length < 3) { say("Please write a few words first.", "err"); msg.focus(); return; }
+    const contact = $("fbcontact").value.trim();
+    if (contact && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact)) { say("That email doesn't look right. Fix it, or leave it empty if you don't need an answer.", "err"); $("fbcontact").focus(); return; }
     if ($("fbweb").value) { say("Thanks, your message was sent!", "ok"); return; }   // a bot filled the hidden field
     let last = 0;
     try { last = +localStorage.getItem(FB_LAST) || 0; } catch (err) {}
     if (Date.now() - last < 60000) { say("You just sent one, thank you! Please wait a minute before sending another.", "err"); return; }
     send.disabled = true; say("Sending…");
     let result = "error";
-    try { result = await cloud.sendFeedback({ kind: fbKind, message: text, contact: $("fbcontact").value.trim() || null, page: route(), game: sveOn() ? "sve" : "vanilla" }); } catch (err) {}
+    try { result = await cloud.sendFeedback({ kind: fbKind, message: text, contact: contact || null, page: route(), game: sveOn() ? "sve" : "vanilla" }); } catch (err) {}
     send.disabled = false;
     if (result === "ok") {
       try { localStorage.setItem(FB_LAST, String(Date.now())); } catch (err) {}
