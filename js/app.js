@@ -21,12 +21,12 @@ const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, 
 // ---------- storage ----------
 function newPerf() { return { stardrops: {} }; }
 function newFarm(name) {
-  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], made: { cooking: {}, crafting: {} }, shop: { cooking: {}, crafting: {} }, col: { museum: {}, shipping: {} }, perf: newPerf(), maxed: {}, qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
+  return { name, bundleSet: "sve", caught: [], bundles: {}, done: {}, todos: [], made: { cooking: {}, crafting: {} }, shop: { cooking: {}, crafting: {} }, col: { museum: {}, shipping: {} }, perf: newPerf(), maxed: {}, built: {}, qi: false, today: { year: 1, season: "Spring", day: 1, rain: false, hour: "" } };
 }
 function fixFarm(f, name) {
   const b = newFarm(name);
   // farms saved before bundle sets existed used the standard bundles
-  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [], made: { cooking: { ...(f && f.made && f.made.cooking) }, crafting: { ...(f && f.made && f.made.crafting) } }, shop: { cooking: { ...(f && f.shop && f.shop.cooking) }, crafting: { ...(f && f.shop && f.shop.crafting) } }, col: { museum: { ...(f && f.col && f.col.museum) }, shipping: { ...(f && f.col && f.col.shipping) } }, perf: { stardrops: { ...(f && f.perf && f.perf.stardrops) } }, maxed: { ...(f && f.maxed) } };
+  return { ...b, bundleSet: "vanilla", ...f, today: { ...b.today, ...(f && f.today) }, done: { ...(f && f.done) }, todos: Array.isArray(f && f.todos) ? f.todos : [], made: { cooking: { ...(f && f.made && f.made.cooking) }, crafting: { ...(f && f.made && f.made.crafting) } }, shop: { cooking: { ...(f && f.shop && f.shop.cooking) }, crafting: { ...(f && f.shop && f.shop.crafting) } }, col: { museum: { ...(f && f.col && f.col.museum) }, shipping: { ...(f && f.col && f.col.shipping) } }, perf: { stardrops: { ...(f && f.perf && f.perf.stardrops) } }, maxed: { ...(f && f.maxed) }, built: { ...(f && f.built) } };
 }
 function load() {
   let v = null;
@@ -863,9 +863,18 @@ function renderCollections(main) {
 }
 
 // ---------- RECIPES (cooking + crafting) ----------
-const recState = { kind: "cooking", view: "list", q: "", src: "", unlock: "", hideMade: false, onlyMissing: true, hideHave: false };
+const recState = { kind: "cooking", view: "list", q: "", src: "", unlock: "", hideMade: false, onlyMissing: true, hideHave: false, buildings: true };
+// Perfection needs these Wizard buildings too (costs from the game's Data/Buildings, 1.6).
+// Their materials go into the crafting shopping list so totals like Dragon Tooth add up.
+const PERFECTION_BUILDINGS = [
+  { id: "earth-obelisk", n: "Earth Obelisk", gold: 500000, ing: [["Iridium Bar", 10], ["Earth Crystal", 10]] },
+  { id: "water-obelisk", n: "Water Obelisk", gold: 500000, ing: [["Iridium Bar", 5], ["Clam", 10], ["Coral", 10]] },
+  { id: "desert-obelisk", n: "Desert Obelisk", gold: 1000000, ing: [["Iridium Bar", 20], ["Coconut", 10], ["Cactus Fruit", 10]] },
+  { id: "island-obelisk", n: "Island Obelisk", gold: 1000000, ing: [["Iridium Bar", 10], ["Dragon Tooth", 10], ["Banana", 10]], note: "after you've visited Ginger Island" },
+  { id: "gold-clock", n: "Gold Clock", gold: 10000000, ing: [] },
+];
 const UNLOCK = { friend: ["❤", "Friendship"], tv: ["📺", "Queen of Sauce"], skill: ["⭐", "Skill level"], shop: ["🛒", "Buy"], quest: ["📜", "Quest / order"], event: ["🎬", "Event"], starter: ["✔", "Known from the start"] };
-const ingImg = n => RECIPES.img[n] || BY_NAME[n]?.img || "";
+const ingImg = n => RECIPES.img[n] || BY_NAME[n]?.img || ITEM_IMG[n] || "";
 function ingChip(name, qty, made, hit) {
   const src = ingImg(name);
   const pic = src ? `<img alt="" loading="lazy" src="${src}">` : `<span class="noimg" aria-hidden="true">${name.startsWith("Any ") ? "✱" : "?"}</span>`;
@@ -953,14 +962,21 @@ function renderRecipes(main) {
 function renderShopping(body, kind, all) {
   const shop = state.shop[kind], madeMap = state.made[kind];
   const recipes = recState.onlyMissing ? all.filter(r => !madeMap[r.id]) : all;
-  const rows = totals(recipes);
+  const withB = kind === "crafting" && recState.buildings;
+  const todoB = PERFECTION_BUILDINGS.filter(b => !state.built[b.id]);
+  const rows = totals(withB ? [...recipes, ...todoB] : recipes);
   const have = rows.filter(r => shop[r.n]).length;
   body.innerHTML = `<div class="controls">
       <label class="check"><input type="checkbox" id="s-missing" ${recState.onlyMissing ? "checked" : ""}> Only recipes I haven't ${kind === "cooking" ? "cooked" : "crafted"} yet (${recipes.length})</label>
       <label class="check"><input type="checkbox" id="s-hide" ${recState.hideHave ? "checked" : ""}> Hide ingredients I've ticked</label>
       <button type="button" class="btn small ghost" id="s-reset">Untick all</button>
     </div>
-    <p class="lede">Everything you need to ${kind === "cooking" ? "cook" : "craft"} ${recState.onlyMissing ? "the recipes you haven't made yet" : "every recipe"} once. Tick an ingredient when you have the full amount. <b>${have} / ${rows.length}</b> ready. Ingredients made with another recipe are listed too, so make those first.</p>
+    ${kind === "crafting" ? `<section class="pbuild panel"><h2>🏛 Perfection buildings<span>bought from the Wizard's book; perfection needs all five</span></h2>
+      <label class="check"><input type="checkbox" id="s-build" ${recState.buildings ? "checked" : ""}> Add the materials of the ones not built yet to the list below</label>
+      <ul class="blist">${PERFECTION_BUILDINGS.map(b => `<li class="${state.built[b.id] ? "got" : ""}"><label><input type="checkbox" data-b="${b.id}" ${state.built[b.id] ? "checked" : ""}><b>${esc(b.n)}</b><span class="bcost">${b.gold.toLocaleString()}g${b.ing.length ? " + " + b.ing.map(([n, q]) => `${q} ${esc(n)}`).join(", ") : ""}${b.note ? ` <i>(${b.note})</i>` : ""}</span></label></li>`).join("")}</ul>
+      <p class="gnote">Tick the ones already standing on your farm. Still to build: <b>${todoB.reduce((t, b) => t + b.gold, 0).toLocaleString()}g</b>${todoB.length ? ` for ${todoB.length} building${todoB.length === 1 ? "" : "s"}` : " (all built!)"}.</p>
+    </section>` : ""}
+    <p class="lede">Everything you need to ${kind === "cooking" ? "cook" : "craft"} ${recState.onlyMissing ? "the recipes you haven't made yet" : "every recipe"} once${withB && todoB.length ? ", plus the perfection buildings you haven't built" : ""}. Tick an ingredient when you have the full amount. <b>${have} / ${rows.length}</b> ready. Ingredients made with another recipe are listed too, so make those first.</p>
     <div class="panel shoplist"><ul id="s-list"></ul></div>`;
   const ul = $("s-list");
   for (const r of rows) {
@@ -969,7 +985,7 @@ function renderShopping(body, kind, all) {
     li.className = "srow" + (shop[r.n] ? " got" : "");
     const src = ingImg(r.n);
     li.innerHTML = `<label><input type="checkbox" ${shop[r.n] ? "checked" : ""}>${src ? `<img alt="" loading="lazy" src="${src}">` : '<span class="noimg">✱</span>'}<span class="sname">${esc(r.n)}${r.made ? ' <span class="tag">made with a recipe</span>' : ""}</span><span class="sqty">×${r.qty.toLocaleString()}</span></label>
-      <details><summary>for ${r.recipes.length} recipe${r.recipes.length === 1 ? "" : "s"}</summary><p>${[...new Set(r.recipes)].map(esc).join(", ")}</p></details>`;
+      <details><summary>for ${r.recipes.length} ${r.recipes.some(n => PERFECTION_BUILDINGS.some(b => b.n === n)) ? "recipe" + (r.recipes.length === 1 ? "" : "s") + " / building" + (r.recipes.length === 1 ? "" : "s") : "recipe" + (r.recipes.length === 1 ? "" : "s")}</summary><p>${[...new Set(r.recipes)].map(esc).join(", ")}</p></details>`;
     li.querySelector("input").onchange = e => { if (e.target.checked) shop[r.n] = true; else delete shop[r.n]; save(); render(); };
     ul.appendChild(li);
   }
@@ -977,6 +993,10 @@ function renderShopping(body, kind, all) {
   $("s-missing").onchange = e => { recState.onlyMissing = e.target.checked; render(); };
   $("s-hide").onchange = e => { recState.hideHave = e.target.checked; render(); };
   $("s-reset").onclick = () => { state.shop[kind] = {}; save(); render(); };
+  if ($("s-build")) {
+    $("s-build").onchange = e => { recState.buildings = e.target.checked; render(); };
+    body.querySelectorAll("input[data-b]").forEach(i => i.onchange = () => { if (i.checked) state.built[i.dataset.b] = true; else delete state.built[i.dataset.b]; save(); render(); });
+  }
 }
 
 // ---------- ALL FISH ----------
@@ -1141,6 +1161,7 @@ function mergeInto(f, v) {
     if (v.shop && v.shop[k]) for (const id in v.shop[k]) if (v.shop[k][id]) f.shop[k][id] = true;
   }
   if (v.maxed && typeof v.maxed === "object") for (const id in v.maxed) if (v.maxed[id]) f.maxed[id] = true;
+  if (v.built && typeof v.built === "object") for (const id in v.built) if (v.built[id]) f.built[id] = true;
   if (Array.isArray(v.todos)) {
     const ids = new Set((f.todos || []).map(t => t.id));
     f.todos = [...(f.todos || []), ...v.todos.filter(t => t && t.id && !ids.has(t.id))];
