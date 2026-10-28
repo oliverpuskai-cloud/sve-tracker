@@ -1348,6 +1348,99 @@ function toggleTheme() {
 }
 if ($("theme")) { $("theme").onclick = toggleTheme; paintThemeButton(); }
 
+// ---------- mini game: guess the crop ----------
+// Wordle-style: pick crops until you find the secret one. Each guess shows how close it was on
+// growth days, sell price, regrowth, type and seasons. Unlimited rounds; stats are kept in prefs.
+const GAME_TRIES = 6;
+const game = { secret: null, guesses: [], over: false, q: "", sve: null };
+const TYPE_LABEL = { veg: "Vegetable", fruit: "Fruit", flower: "Flower", special: "Other" };
+const SEASON_SHORT = { Spring: "Sp", Summer: "Su", Fall: "Fa", Winter: "Wi" };
+function newGame() {
+  const pool = cropList();
+  let next;
+  do next = pool[Math.floor(Math.random() * pool.length)]; while (pool.length > 1 && next === game.secret);
+  Object.assign(game, { secret: next, guesses: [], over: false, q: "", sve: sveOn() });
+}
+function gameStats() {
+  const g = store.prefs.game || {};
+  return { played: 0, won: 0, streak: 0, best: 0, dist: [0, 0, 0, 0, 0, 0], ...g, dist: Array.isArray(g.dist) && g.dist.length === GAME_TRIES ? g.dist : [0, 0, 0, 0, 0, 0] };
+}
+function compareCrop(c, t) {
+  const num = (a, b) => a === b ? { cls: "ok", arrow: "" } : { cls: Math.abs(a - b) <= Math.max(2, b * 0.25) ? "near" : "no", arrow: a < b ? "↑" : "↓" };
+  const regrow = !c.regrow && !t.regrow ? { cls: "ok", arrow: "" } : c.regrow && t.regrow ? (c.regrow === t.regrow ? { cls: "ok", arrow: "" } : { cls: "near", arrow: c.regrow < t.regrow ? "↑" : "↓" }) : { cls: "no", arrow: "" };
+  const shared = c.seasons.filter(x => t.seasons.includes(x)).length;
+  const seasons = shared === c.seasons.length && shared === t.seasons.length ? "ok" : shared ? "near" : "no";
+  return {
+    days: num(c.days, t.days), price: num(c.price, t.price), regrow,
+    type: c.type === t.type ? "ok" : "no", seasons, win: c === t,
+  };
+}
+function renderGame(main) {
+  if (!game.secret || game.sve !== sveOn()) newGame();
+  const t = game.secret, st = gameStats(), pool = cropList();
+  const left = GAME_TRIES - game.guesses.length;
+  const won = game.guesses.some(c => c === t);
+  const cell = (cls, html, label) => `<div class="gc ${cls}" role="cell"${label ? ` aria-label="${label}"` : ""}>${html}</div>`;
+  const rows = game.guesses.map(c => {
+    const r = compareCrop(c, t);
+    return `<div class="grow" role="row">
+      ${cell(r.win ? "ok" : "no", `<img alt="" src="${c.img}"><span>${esc(c.n)}</span>`)}
+      ${cell(r.days.cls, `${c.days}d${r.days.arrow ? `<b>${r.days.arrow}</b>` : ""}`, `${c.days} days${r.days.arrow === "↑" ? ", answer grows longer" : r.days.arrow === "↓" ? ", answer grows faster" : ", correct"}`)}
+      ${cell(r.price.cls, `${c.price}g${r.price.arrow ? `<b>${r.price.arrow}</b>` : ""}`, `${c.price}g${r.price.arrow === "↑" ? ", answer sells for more" : r.price.arrow === "↓" ? ", answer sells for less" : ", correct"}`)}
+      ${cell(r.regrow.cls, `${c.regrow ? `${c.regrow}d` : "No"}${r.regrow.arrow ? `<b>${r.regrow.arrow}</b>` : ""}`)}
+      ${cell(r.type, TYPE_LABEL[c.type] || c.type)}
+      ${cell(r.seasons, c.seasons.map(x => `<i style="--c:${SC[x]}">${SEASON_SHORT[x]}</i>`).join(""), c.seasons.join(", "))}
+    </div>`;
+  }).join("");
+  const empty = Array.from({ length: left > 0 && !game.over ? left : 0 }, () => `<div class="grow gempty" role="row">${'<div class="gc"></div>'.repeat(6)}</div>`).join("");
+  const q = game.q.trim().toLowerCase();
+  const picks = pool.filter(c => !q || c.n.toLowerCase().includes(q)).sort((a, b) => a.n.localeCompare(b.n));
+  const winRate = st.played ? Math.round(st.won / st.played * 100) : 0, maxDist = Math.max(1, ...st.dist);
+  const wrap = document.createElement("div");
+  wrap.innerHTML = `<p class="lede">Guess the secret crop in ${GAME_TRIES} tries. After each guess the boxes show how close you were: <span class="gkey ok">green</span> is right, <span class="gkey near">yellow</span> is close (or shares a season), <span class="gkey no">red</span> is off, and the arrows say whether the answer is higher or lower. Play as many rounds as you like. ${sveOn() ? `SVE crops are included (switch to Vanilla at the top for base-game crops only).` : ""}</p>
+    <div class="gwrap">
+      <div class="gboard panel">
+        <div class="ghead" role="row">${["Crop", "Growth", "Price", "Regrow", "Type", "Season"].map(h => `<div role="columnheader">${h}</div>`).join("")}</div>
+        <div role="table" aria-label="Your guesses">${rows}${empty}</div>
+        ${game.over ? `<div class="gend ${won ? "win" : "lose"}"><img alt="" src="${t.img}"><div><b>${won ? `You got it in ${game.guesses.length}! 🎉` : "Out of tries!"}</b><span>The crop was <b>${esc(t.n)}</b>: ${t.seasons.join(", ")}, ${t.days} days, sells for ${t.price}g${t.regrow ? `, regrows every ${t.regrow} days` : ""}.</span></div><button type="button" class="btn primary" id="g-again">Play again</button></div>` : `<p class="gleft">${left} ${left === 1 ? "try" : "tries"} left</p>`}
+      </div>
+      <div class="gpick panel"${game.over ? ' hidden' : ""}>
+        <input type="search" id="g-q" value="${esc(game.q)}" placeholder="Type a crop name…" autocomplete="off" aria-label="Find a crop to guess">
+        <div class="ggrid" id="g-grid">${picks.map(c => { const used = game.guesses.includes(c); return `<button type="button" class="gpickbtn" data-c="${c.id}" title="${esc(c.n)}" ${used ? "disabled" : ""}><img alt="" src="${c.img}"><span>${esc(c.n)}</span></button>`; }).join("") || '<p class="none">No crop matches that.</p>'}</div>
+      </div>
+    </div>
+    <section><h2>Your stats<span>on this browser</span></h2>
+      <div class="stats">
+        <div class="stat"><b>${st.played}</b><span>played</span></div>
+        <div class="stat"><b>${winRate}%</b><span>won</span></div>
+        <div class="stat"><b>${st.streak}</b><span>win streak (best ${st.best})</span></div>
+      </div>
+      <div class="gdist">${st.dist.map((n, i) => `<div><span>${i + 1}</span><i style="width:${Math.max(6, n / maxDist * 100)}%">${n}</i></div>`).join("")}</div>
+    </section>`;
+  main.appendChild(wrap);
+  const qIn = $("g-q");
+  if (qIn) {
+    qIn.oninput = e => { game.q = e.target.value; const y = window.scrollY; render(); window.scrollTo(0, y); const n = $("g-q"); n.focus(); n.setSelectionRange(n.value.length, n.value.length); };
+    qIn.onkeydown = e => { if (e.key === "Enter") { const first = wrap.querySelector(".gpickbtn:not([disabled])"); if (first) first.click(); } };
+  }
+  wrap.querySelectorAll(".gpickbtn").forEach(b => b.onclick = () => {
+    const c = pool.find(x => x.id === b.dataset.c);
+    if (!c || game.over || game.guesses.includes(c)) return;
+    game.guesses.push(c); game.q = "";
+    const win = c === t;
+    if (win || game.guesses.length >= GAME_TRIES) {
+      game.over = true;
+      const s2 = gameStats();
+      s2.played++;
+      if (win) { s2.won++; s2.streak++; s2.best = Math.max(s2.best, s2.streak); s2.dist[game.guesses.length - 1]++; } else s2.streak = 0;
+      store.prefs.game = s2; save();
+    }
+    render();
+  });
+  const again = $("g-again");
+  if (again) again.onclick = () => { newGame(); render(); window.scrollTo(0, 0); };
+}
+
 // ---------- search everything ----------
 // One box that looks through every list on the site and gathers what each page knows about a name:
 // a fish's times and places, who loves it, which recipes and bundles need it, whether it's donated…
@@ -1540,7 +1633,7 @@ if ("serviceWorker" in navigator && location.protocol === "https:") {
 }
 
 // ---------- shell ----------
-const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, crops: renderCrops, recipes: renderRecipes, collections: renderCollections, fish: renderFish, map: renderMap, backup: renderBackup };
+const ROUTES = { today: renderToday, bundles: renderBundles, villagers: renderVillagers, crops: renderCrops, recipes: renderRecipes, collections: renderCollections, game: renderGame, fish: renderFish, map: renderMap, backup: renderBackup };
 function route() { const r = location.hash.slice(1); return ROUTES[r] ? r : "today"; }
 
 function render() {
