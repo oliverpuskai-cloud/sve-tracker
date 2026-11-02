@@ -265,7 +265,8 @@
 "c": "Fish",
 "ss": [
 "Summer",
-"Fall"
+"Fall",
+"Winter"
 ],
 "t": "6AM–7PM",
 "w": "Rain",
@@ -273,7 +274,7 @@
 "d": 40,
 "b": "Mixed",
 "p": 50,
-"x": "Also in Winter on a rainy day made with a Rain Totem",
+"x": "Winter only on a rainy day made with a Rain Totem",
 "a": "Ocean / Beach",
 "img": "img/fish/red-snapper.png",
 "id": "red-snapper",
@@ -531,7 +532,8 @@
 "c": "Fish",
 "ss": [
 "Spring",
-"Fall"
+"Fall",
+"Winter"
 ],
 "t": "6AM–12AM",
 "w": "Rain",
@@ -539,7 +541,7 @@
 "d": 75,
 "b": "Mixed",
 "p": 200,
-"x": "Secret Woods pond: Spring & Summer · Winter with a Rain Totem",
+"x": "Winter (rivers) only on a rainy day made with a Rain Totem · Secret Woods pond: Spring & Summer",
 "a": "Secret Woods / Junimo Woods",
 "img": "img/fish/catfish.png",
 "id": "catfish",
@@ -760,7 +762,8 @@
 "s": "Vanilla",
 "c": "Fish",
 "ss": [
-"Fall"
+"Fall",
+"Winter"
 ],
 "t": "12PM–2AM",
 "w": "Rain",
@@ -768,7 +771,7 @@
 "d": 45,
 "b": "Smooth",
 "p": 105,
-"x": "Also in Winter on a rainy day made with a Rain Totem",
+"x": "Winter only on a rainy day made with a Rain Totem",
 "a": "Town / Rivers / Lakes",
 "img": "img/fish/walleye.png",
 "id": "walleye",
@@ -2760,7 +2763,7 @@
 "Winter"
 ],
 "t": "6AM–8PM",
-"w": "Any",
+"w": "Sun",
 "l": "Ginger Island ocean, Fable Reef",
 "d": 30,
 "b": "Mixed",
@@ -2785,7 +2788,7 @@
 "l": "Crimson Badlands",
 "d": 70,
 "b": "Sinker",
-"p": 200,
+"p": 450,
 "x": "",
 "a": "Desert / Badlands",
 "img": "img/fish/bonefish.png",
@@ -2822,7 +2825,7 @@
 ],
 "t": "Any",
 "w": "Sun",
-"l": "Shearwater Bridge (Spr–Fall); Forest West (Summer)",
+"l": "Shearwater Bridge, Morris's property (Spr–Fall); Forest West (Summer)",
 "d": 80,
 "b": "Dart",
 "p": 200,
@@ -2875,7 +2878,7 @@
 "l": "Fable Reef",
 "d": 50,
 "b": "Dart",
-"p": 300,
+"p": 200,
 "x": "",
 "a": "Fable Reef / Ginger Island",
 "img": "img/fish/daggerfish.png",
@@ -2944,7 +2947,7 @@
 "t": "Any",
 "w": "Any",
 "l": "Highlands Ruins",
-"d": 55,
+"d": 60,
 "b": "Sinker",
 "p": 250,
 "x": "",
@@ -2992,7 +2995,7 @@
 "l": "Cindersap Forest pond, Forest West",
 "d": 85,
 "b": "Mixed",
-"p": 262,
+"p": 175,
 "x": "",
 "a": "Forest West / Shearwater",
 "img": "img/fish/gar.png",
@@ -3031,7 +3034,7 @@
 ],
 "t": "Any",
 "w": "Any",
-"l": "Junimo Woods, Sprite Spring",
+"l": "Junimo Woods",
 "d": 60,
 "b": "Mixed",
 "p": 150,
@@ -3090,7 +3093,7 @@
 "t": "Any",
 "w": "Any",
 "l": "Highlands",
-"d": 56,
+"d": 45,
 "b": "Mixed",
 "p": 200,
 "x": "",
@@ -3125,13 +3128,13 @@
 "Fall",
 "Winter"
 ],
-"t": "10AM–5PM",
+"t": "Any",
 "w": "Any",
 "l": "Shearwater Bridge",
 "d": 85,
 "b": "Mixed",
 "p": 250,
-"x": "",
+"x": "Appears after Camilla's event at Shearwater Bridge",
 "a": "Forest West / Shearwater",
 "img": "img/fish/kittyfish.png",
 "id": "kittyfish"
@@ -3442,7 +3445,8 @@
 "s": "SVE",
 "c": "Fish",
 "ss": [
-"Spring"
+"Spring",
+"Summer"
 ],
 "t": "Any",
 "w": "Any",
@@ -3489,7 +3493,7 @@
 "t": "Any",
 "w": "Any",
 "l": "Fable Reef",
-"d": 110,
+"d": 150,
 "b": "Dart",
 "p": 10000,
 "x": "Hardest SVE catch – bring best rod + Trap Bobber",
